@@ -52,11 +52,16 @@ class Chess():
         precondition: `start` and `to` are valid positions on the board
         """
 
+        
+        print(start)
+        print(self.board.board[start[0]][start[1]])
+
         if self.board.board[start[0]][start[1]] == None:
             print("There is no piece to move at the start place")
             return
 
         target_piece = self.board.board[start[0]][start[1]]
+        print("Target piece:", target_piece)
         if self.turn != target_piece.color:
             print("That's not your piece to move")
             return
@@ -80,23 +85,24 @@ def translate(s):
     """
     Translates traditional board coordinates of chess into list indices
     """
-    start = s[0:2]
+    start = s[0:2] 
     end = s[2:4]
     coords = [start,end]
     print(coords)
     r = []
     for coord in coords:
         try:
-            row = int(coord[1])
-            col = coord[0]
-            if row < 1 or row > 8:
-                print(coord[0] + "is not in the range from 1 - 8")
+            row = abs(int(coord[1])-8) # Y: Number
+            print("Row:",row)
+            col = coord[0] # X: Letter
+            if row < 0 or row > 8:
+                print(coord[1] + " is not in the range from 1 - 8")
                 return None
             if col < 'a' or col > 'h':
-                print(coord[1] + "is not in the range from a - h")
+                print(coord[0] + " is not in the range from a - h")
                 return None
             dict = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
-            r.append((8 - row, dict[col]))
+            r.append((dict[col],row))
         except:
             print(s + "is not in the format '[number][letter]'")
             return None, None
@@ -112,7 +118,6 @@ if __name__ == "__main__":
         move = input("Move: ")
         
         start, to = translate(move)
-        print(start,to)
 
         if start == None or to == None:
             continue
