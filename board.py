@@ -68,6 +68,12 @@ class Board():
         def __getitem__(self, item):
             return self.board[item]
 
+    def vector(self):
+        vec = []
+        for i in range(8):
+            for j in range(8):
+                vec.append(self.board[i][j])
+        return vec
 
     def print_board(self):
         """

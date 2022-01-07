@@ -92,7 +92,6 @@ def get_diagonal_moves(board, piece):
                     moves.add((x_,y_))
                     break
             else:
-                print("none")
                 moves.add((x_,y_))
     for i in range(1,8):
         x_,y_ = piece.x+i,piece.y+i
@@ -105,7 +104,6 @@ def get_diagonal_moves(board, piece):
                     moves.add((x_,y_))
                     break
             else:
-                print("none")
                 moves.add((x_,y_))
     for i in range(1,8):
         x_,y_ = piece.x+i,piece.y-i
@@ -118,7 +116,6 @@ def get_diagonal_moves(board, piece):
                     moves.add((x_,y_))
                     break
             else:
-                print("none")
                 moves.add((x_,y_))
     for i in range(1,8):
         x_,y_ = piece.x-i,piece.y+i
@@ -131,7 +128,6 @@ def get_diagonal_moves(board, piece):
                     moves.add((x_,y_))
                     break
             else:
-                print("none")
                 moves.add((x_,y_))
 
     return list(moves)
@@ -277,20 +273,38 @@ class King(Piece):
         self.x = x
         self.y = y
 
-    def get_valid_moves(self, board):
-        candidate_moves = [
-                [self.x + 1 , self.y ],
-                [self.x + 1 , self.y -1  ],
-                [self.x + 1 , self.y + 1 ],
-                [self.x - 1 , self.y ],
-                [self.x - 1 , self.y -1 ],
-                [self.x - 1 , self.y + 1 ],
-                [self.x , self.y - 1 ],
-                [self.x , self.y + 1 ],
-                [self.x , self.y ]
-                ]
+    def getEnemyMoves(self, board):
+        enemyMoves = set()
+        for piece in board.vector():
+            if piece:
+                if piece.color != self.color:
+                    if piece.name != "K":
+                        for move in piece.get_valid_moves(board):
+                            enemyMoves.add(move)
+        return list(enemyMoves)
 
+
+    def get_valid_moves(self, board):
+        enemyMoves = self.getEnemyMoves(board)
+        candidate_moves = [
+                (self.x + 1 , self.y ),
+                (self.x - 1 , self.y ),
+                (self.x , self.y - 1 ),
+                (self.x , self.y + 1 ),
+                (self.x + 1 , self.y + 1 ),
+                (self.x + 1 , self.y -1  ),
+                (self.x - 1 , self.y -1 ),
+                (self.x - 1 , self.y + 1 ),
+                ]
+        candidate_moves2 = []
+        for move in candidate_moves:
+            if move[0] >= 0 and move[0] <= 7 and move[1] >= 0 and move[1] <= 7:
+                if board.board[move[0]][move[1]]:
+                    if board.board[move[0]][move[1]].color != self.color:
+                        candidate_moves2.append(move)
+                else:
+                    candidate_moves2.append(move)
         # Filter squares that have friendly pieces on them
-        candidate_moves = [ el for el in candidate_moves if board[el[0]][el[1]].color != self.color] 
-        # Filter moves if enemy pieces attacking them
-        self.moves = [ translateMoves(self.x,self.y,el[0],el[1]) for el in candidate_moves]
+        self.moves = [move for move in candidate_moves2 if move not in enemyMoves]
+        return self.moves
+
