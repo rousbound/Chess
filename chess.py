@@ -36,7 +36,7 @@ class Chess():
 
 
 
-    def move(self, start, to):
+    def move(self, start, to, promotion):
         """
         Moves a piece at `start` to `to`. Does nothing if there is no piece at the starting point.
         Does nothing if the piece at `start` belongs to the wrong color for the current turn.
@@ -72,21 +72,22 @@ class Chess():
             return
 
         if target_piece.is_valid_move(self.board, to):
-            # Check if friend king is in enemy attacking squares after requested move
+            # Make move and check if friend King is in enemy attacking squares after requested move.
             self.board.board[to[0]][to[1]] = target_piece
             self.board.board[start[0]][start[1]] = None
             enemyMoves = self.board.getEnemyMoves(target_piece.color)
             friendKing = self.getKingPiece(target_piece.color)
+            # If in check, undo move
             if (friendKing.x,friendKing.y) in enemyMoves:
                 print("King in check, please make other move")
-                # Undo move
                 self.board.board[to[0]][to[1]] = None
                 self.board.board[start[0]][start[1]] = target_piece
             else:
+                # Check Pawn specific logic, in order, En Passeant and Promotion
                 if target_piece.name in ["P","R","K"]:
                     target_piece.first_move = False
-                    # En passeant logic
                     if target_piece.name == "P":
+                        # En passeant logic
                         if abs(to[1]-start[1]) > 1:
                             print("Ghost pawn created")
                             if target_piece.color:
@@ -102,6 +103,26 @@ class Chess():
                                     self.board.board[target_piece.x][target_piece.y-1] = None
                             
                             self.board.ghostPawn = None
+                        # Promotion logic
+                        if promotion:
+                            color = None
+                            if target_piece.color and target_piece.y == 0:
+                                color = True
+                            elif not target_piece.color and target_piece.y == 7:
+                                color = False
+                            if color == None:
+                                print("No Pawn can be promoted")
+                            else:
+                                if promotion == "q":
+                                    promoted_piece = piece.Queen(color,target_piece.x,target_piece.y)
+                                elif promotion == "r":
+                                    promoted_piece = piece.Rook(color,target_piece.x,target_piece.y)
+                                elif promotion == "b":
+                                    promoted_piece = piece.Bishop(color,target_piece.x,target_piece.y)
+                                elif promotion == "n":
+                                    promoted_piece = piece.Knight(color,target_piece.x,target_piece.y)
+                                self.board.board[target_piece.x][target_piece.y] = promoted_piece
+                    # Castling logic
                     if target_piece.name == "K":
                         # Castling logic
                         if to[0]-start[0] > 1:
@@ -152,6 +173,9 @@ def translate(s):
     """
     start = s[0:2] 
     end = s[2:4]
+    promotion = None
+    if len(s) == 5:
+        promotion = s[4]
     coords = [start,end]
     r = []
     for coord in coords:
@@ -169,6 +193,7 @@ def translate(s):
         except:
             print(s + "is not in the format '[number][letter]'")
             return None, None
+    r.append(promotion)
     return r
 
 
@@ -181,24 +206,12 @@ if __name__ == "__main__":
         move = input("Move: ")
         
         print("Requested move:", move)
-        start, to = translate(move)
+        start, to, promotion = translate(move)
 
         if start == None or to == None:
             continue
 
-        chess.move(start, to)
+        chess.move(start, to, promotion)
 
-        # check for promotion pawns
-        # i = 0
-        # while i < 8:
-            # if not chess.turn and chess.board.board[0][i] != None and \
-                # chess.board.board[0][i].name == 'P':
-                # chess.promotion((0, i))
-                # break
-            # elif chess.turn and chess.board.board[7][i] != None and \
-                # chess.board.board[7][i].name == 'P':
-                # chess.promotion((7, i))
-                # break
-            # i += 1
 
         chess.board.print_board()

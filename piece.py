@@ -215,8 +215,8 @@ class Queen(Piece):
         diag_moves = get_diagonal_moves(board, self)
         ortog_moves = get_ortogonal_moves(board, self)
         moves = set()
-        for el in diag_moves+ortog_moves:
-            moves.add(el)
+        for move in diag_moves+ortog_moves:
+            moves.add(move)
 
         return moves
 
