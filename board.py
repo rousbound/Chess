@@ -62,6 +62,8 @@ class Board():
         self.board[6][0] = piece.Knight(False,6,0)
         self.board[7][0] = piece.Rook(False,7,0)
 
+        self.ghostPawn = None
+
         for i in range(8):
             self.board[i][1] = piece.Pawn(False,i,1)
 
@@ -99,7 +101,11 @@ class Board():
                 if self.board[j][i] == None:
                     tmp_str += "   |"
                 else:
-                    tmp_str += (" " + str(self.board[j][i]) + " |")
+                    if self.board[j][i].color == True:
+                        tmp_str += (" " + str(self.board[j][i]) + " |")
+                    else:
+                        tmp_str += (" " + str(self.board[j][i]).lower() + " |")
+
             print(tmp_str)
         buffer = " "
         for i in range(8):
@@ -111,4 +117,13 @@ class Board():
             buffer += "*"
         print(buffer)
 
+    def getEnemyMoves(self, color):
+        enemyMoves = set()
+        for otherpiece in self.vector():
+            if otherpiece:
+                if otherpiece.color != color:
+                    if otherpiece.name != "K":
+                        for move in otherpiece.get_valid_moves(self):
+                            enemyMoves.add(move)
+        return list(enemyMoves)
 

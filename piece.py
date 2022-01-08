@@ -4,7 +4,6 @@ def translate(n):
 
 def translateMoves(xstart,ystart,xend,yend):
     move = str(translate(xstart))+str(ystart-1)+str(translate(xend))+str(yend-1)
-    print(move)
     return move
 
 def mat2algebric(l):
@@ -23,16 +22,16 @@ class Piece():
         self.name = ""
         self.x = x
         self.y = y
-    def is_valid_move(self,board,to):
+    def is_valid_move(self,board,to, movePiece=True):
         self.moves = self.get_valid_moves(board)
         print("Move:", to)
-        print("moves:", self.moves)
+        print("Moves:", self.moves)
         print("Piece moves:",mat2algebric(self.moves))
-        if to in self.moves:
-            print("Is valid move")
-            self.x = to[0]
-            self.y = to[1]
-            return True
+        if movePiece:
+            if to in self.moves:
+                self.x = to[0]
+                self.y = to[1]
+                return True
         
         return False
     
@@ -84,7 +83,6 @@ def get_diagonal_moves(board, piece):
     for i in range(1,8):
         x_,y_ = piece.x-i, piece.y-i
         if x_ <= 7 and y_ <= 7 and x_>=0 and y_>=0:
-            print(board.board[x_][y_])
             if board.board[x_][y_]:
                 if board.board[x_][y_].color == piece.color:
                     break
@@ -96,7 +94,6 @@ def get_diagonal_moves(board, piece):
     for i in range(1,8):
         x_,y_ = piece.x+i,piece.y+i
         if x_ <= 7 and y_ <= 7 and x_>=0 and y_>=0:
-            print(board.board[x_][y_])
             if board.board[x_][y_]:
                 if board.board[x_][y_].color == piece.color:
                     break
@@ -108,7 +105,6 @@ def get_diagonal_moves(board, piece):
     for i in range(1,8):
         x_,y_ = piece.x+i,piece.y-i
         if x_ <= 7 and y_ <= 7 and x_>=0 and y_>=0:
-            print(board.board[x_][y_])
             if board.board[x_][y_]:
                 if board.board[x_][y_].color == piece.color:
                     break
@@ -120,7 +116,6 @@ def get_diagonal_moves(board, piece):
     for i in range(1,8):
         x_,y_ = piece.x-i,piece.y+i
         if x_ <= 7 and y_ <= 7 and x_>=0 and y_>=0:
-            print(board.board[x_][y_])
             if board.board[x_][y_]:
                 if board.board[x_][y_].color == piece.color:
                     break
@@ -250,10 +245,24 @@ class Pawn(Piece):
                 if board.board[self.x + 1][self.y - ahead]:
                     if board.board[self.x + 1][self.y - ahead].color != self.color:
                         candidate_moves.append((self.x + 1, self.y - ahead))
+                else:
+                    # If there is no piece maybe there is ghostpawn
+                    if board.ghostPawn:
+                        if board.ghostPawn == (self.x + 1, self.y - ahead):
+                            candidate_moves.append((self.x + 1, self.y - ahead))
+
             if 0 <= self.x - 1 <= 7:
                 if board.board[self.x - 1][self.y - ahead]:
                     if board.board[self.x - 1][self.y - ahead].color != self.color:
                         candidate_moves.append((self.x - 1, self.y - ahead))
+                else:
+                    # If there is no piece maybe there is ghostpawn
+                    if board.ghostPawn:
+                        print("there is ghost pawn adjacent")
+                        print(board.ghostPawn)
+                        print(mat2algebric([board.ghostPawn]))
+                        if board.ghostPawn == (self.x - 1, self.y - ahead):
+                            candidate_moves.append((self.x - 1, self.y - ahead))
         candidate_moves2 = []
         # for move in candidate_moves:
             # if move[0] >= 0 and move[0] <= 7 and move[1] >= 0 and move[1] <= 7:
@@ -273,19 +282,10 @@ class King(Piece):
         self.x = x
         self.y = y
 
-    def getEnemyMoves(self, board):
-        enemyMoves = set()
-        for piece in board.vector():
-            if piece:
-                if piece.color != self.color:
-                    if piece.name != "K":
-                        for move in piece.get_valid_moves(board):
-                            enemyMoves.add(move)
-        return list(enemyMoves)
 
 
     def get_valid_moves(self, board):
-        enemyMoves = self.getEnemyMoves(board)
+        enemyMoves = board.getEnemyMoves(self.color)
         candidate_moves = [
                 (self.x + 1 , self.y ),
                 (self.x - 1 , self.y ),

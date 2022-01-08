@@ -32,7 +32,6 @@ class Chess():
 
     def __init__(self):
         self.board = board.Board()
-
         self.turn = True
 
 
@@ -53,8 +52,6 @@ class Chess():
         """
 
         
-        print(start)
-        print(self.board.board[start[0]][start[1]])
 
         if self.board.board[start[0]][start[1]] == None:
             print("There is no piece to move at the start place")
@@ -71,14 +68,56 @@ class Chess():
 
         # Checks if a player's own piece is at the `to` coordinate
         if is_end_piece and self.board.board[start[0]][start[1]].color == end_piece.color:
-            print("There's a piece in the path.")
+            print("There's a piece in the end location.")
             return
 
         if target_piece.is_valid_move(self.board, to):
-            print("is valid move")
+            # Check if friend king is in enemy attacking squares after requested move
             self.board.board[to[0]][to[1]] = target_piece
             self.board.board[start[0]][start[1]] = None
-            self.turn = not self.turn
+            enemyMoves = self.board.getEnemyMoves(target_piece.color)
+            friendKing = self.getKingPiece(target_piece.color)
+            if (friendKing.x,friendKing.y) in enemyMoves:
+                print("King in check, please make other move")
+                # Undo move
+                self.board.board[to[0]][to[1]] = None
+                self.board.board[start[0]][start[1]] = target_piece
+            else:
+                if target_piece.name in ["P","R","K"]:
+                    target_piece.first_move = False
+                    # En passeant logic
+                    if target_piece.name == "P":
+                        if abs(to[1]-start[1]) > 1:
+                            print("Ghost pawn created")
+                            if target_piece.color:
+                                self.board.ghostPawn = (target_piece.x,target_piece.y+1)
+                            else:
+                                self.board.ghostPawn = (target_piece.x,target_piece.y-1)
+                        else:
+                            if abs(to[0]-start[0]) == 1 and abs(to[1]-start[1]) == 1:
+                                # This move was En passeant
+                                if target_piece.color:
+                                    self.board.board[target_piece.x][target_piece.y+1] = None
+                                else:
+                                    self.board.board[target_piece.x][target_piece.y-1] = None
+                            
+                            self.board.ghostPawn = None
+
+                enemyKing = self.getKingPiece(not target_piece.color)
+                pieceMoves = target_piece.get_valid_moves(self.board)
+                if (enemyKing.x,enemyKing.y) in pieceMoves:
+                    print("CHECK!!")
+
+                self.turn = not self.turn
+
+    def getKingPiece(self, color):
+        for i in range(8):
+            for j in range(8):
+                if self.board.board[i][j]:
+                    if self.board.board[i][j].name == "K":
+                        if self.board.board[i][j].color == color:
+                            return self.board.board[i][j]
+
 
 
 def translate(s):
@@ -88,12 +127,10 @@ def translate(s):
     start = s[0:2] 
     end = s[2:4]
     coords = [start,end]
-    print(coords)
     r = []
     for coord in coords:
         try:
             row = abs(int(coord[1])-8) # Y: Number
-            print("Row:",row)
             col = coord[0] # X: Letter
             if row < 0 or row > 8:
                 print(coord[1] + " is not in the range from 1 - 8")
