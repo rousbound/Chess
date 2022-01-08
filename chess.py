@@ -102,6 +102,32 @@ class Chess():
                                     self.board.board[target_piece.x][target_piece.y-1] = None
                             
                             self.board.ghostPawn = None
+                    if target_piece.name == "K":
+                        # Castling logic
+                        if to[0]-start[0] > 1:
+                            if target_piece.color:
+                                rook = self.board.board[7][7] 
+                                rook.x = 5
+                                self.board.board[7][7] = None
+                                self.board.board[5][7] = rook
+                            else:
+                                rook = self.board.board[0][0] 
+                                rook.x = 5
+                                self.board.board[0][0] = None
+                                self.board.board[5][0] = rook
+
+                        elif to[0]-start[0] < 1:
+                            if target_piece.color:
+                                rook = self.board.board[0][7] 
+                                rook.x = 3
+                                self.board.board[0][7] = None
+                                self.board.board[3][7] = rook
+                            else:
+                                rook = self.board.board[0][0] 
+                                rook.x = 3
+                                self.board.board[0][0] = None
+                                self.board.board[3][0] = rook
+
 
                 enemyKing = self.getKingPiece(not target_piece.color)
                 pieceMoves = target_piece.get_valid_moves(self.board)
@@ -154,6 +180,7 @@ if __name__ == "__main__":
     while True:
         move = input("Move: ")
         
+        print("Requested move:", move)
         start, to = translate(move)
 
         if start == None or to == None:

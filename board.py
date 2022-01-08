@@ -117,6 +117,17 @@ class Board():
             buffer += "*"
         print(buffer)
 
+    def getRooks(self, color):
+        rooks = []
+        for i in range(8):
+            for j in range(8):
+                if self.board[i][j]:
+                    if self.board[i][j].name == "R":
+                        if self.board[i][j].color == color:
+                            rooks.append(self.board[i][j])
+        return rooks
+
+
     def getEnemyMoves(self, color):
         enemyMoves = set()
         for otherpiece in self.vector():

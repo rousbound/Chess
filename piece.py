@@ -24,9 +24,8 @@ class Piece():
         self.y = y
     def is_valid_move(self,board,to, movePiece=True):
         self.moves = self.get_valid_moves(board)
-        print("Move:", to)
-        print("Moves:", self.moves)
-        print("Piece moves:",mat2algebric(self.moves))
+        print("Move:", mat2algebric([to]))
+        print("Moves:", mat2algebric(self.moves))
         if movePiece:
             if to in self.moves:
                 self.x = to[0]
@@ -48,7 +47,7 @@ def get_ortogonal_moves(board, piece):
                 moves.append((piece.x-i,piece.y))
                 break
         else:
-            moves.append((i,piece.y))
+            moves.append((piece.x-i,piece.y))
     for i in range(1, 7-piece.x+1):
         if board.board[piece.x+i][piece.y]:
             if board.board[piece.x+i][piece.y].color == piece.color:
@@ -57,10 +56,10 @@ def get_ortogonal_moves(board, piece):
                 moves.append((piece.x+i,piece.y))
                 break
         else:
-            moves.append((i,piece.y))
+            moves.append((piece.x+i,piece.y))
     for i in range(1, piece.y+1):
         if board.board[piece.x][piece.y-i]:
-            if board.board[piece.x][piece.y-i] == piece.color:
+            if board.board[piece.x][piece.y-i].color == piece.color:
                 break
             else:
                 moves.append((piece.x,piece.y-i))
@@ -69,7 +68,7 @@ def get_ortogonal_moves(board, piece):
             moves.append((piece.x,piece.y-i))
     for i in range(1, 7-piece.y+1):
         if board.board[piece.x][piece.y+i]:
-            if board.board[piece.x][piece.y+i] == piece.color:
+            if board.board[piece.x][piece.y+i].color == piece.color:
                 break
             else:
                 moves.append((piece.x,piece.y+i))
@@ -258,17 +257,11 @@ class Pawn(Piece):
                 else:
                     # If there is no piece maybe there is ghostpawn
                     if board.ghostPawn:
-                        print("there is ghost pawn adjacent")
                         print(board.ghostPawn)
                         print(mat2algebric([board.ghostPawn]))
                         if board.ghostPawn == (self.x - 1, self.y - ahead):
                             candidate_moves.append((self.x - 1, self.y - ahead))
         candidate_moves2 = []
-        # for move in candidate_moves:
-            # if move[0] >= 0 and move[0] <= 7 and move[1] >= 0 and move[1] <= 7:
-                # candidate_moves.append(move)
-        # self.moves = [(self.x+el[0], self.y-el[1]) for el in candidate_moves]
-        # self.moves = [mat2algebric(el) for el in candidate_moves]
         self.moves = candidate_moves
         return self.moves
 
@@ -304,7 +297,29 @@ class King(Piece):
                         candidate_moves2.append(move)
                 else:
                     candidate_moves2.append(move)
-        # Filter squares that have friendly pieces on them
+        if self.first_move:
+            for rook in board.getRooks(self.color):
+                if rook.first_move:
+                    if rook.x == 0:
+                        castleEnabled = True
+                        for square in [(self.x-2,self.y),(self.x-1,self.y)]:
+                            if not board.board[square[0]][square[1]]:
+                                if square in enemyMoves:
+                                    castleEnabled = False
+                            else:
+                                castleEnabled = False
+                        if castleEnabled:
+                            candidate_moves2.append((self.x-2,self.y))
+                    if rook.x == 7:
+                        castleEnabled = True
+                        for square in [(self.x+1,self.y),(self.x+2,self.y)]:
+                            if not board.board[square[0]][square[1]]:
+                                if square in enemyMoves:
+                                    castleEnabled = False
+                            else:
+                                castleEnabled = False
+                        if castleEnabled:
+                            candidate_moves2.append((self.x+2,self.y))
         self.moves = [move for move in candidate_moves2 if move not in enemyMoves]
         return self.moves
 
