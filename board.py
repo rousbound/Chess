@@ -128,7 +128,7 @@ class Board():
         return rooks
 
 
-    def getEnemyMoves(self, color):
+    def getEnemyControlledSquares(self, color):
         enemyMoves = set()
         for otherpiece in self.vector():
             if otherpiece:

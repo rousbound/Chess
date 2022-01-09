@@ -1,20 +1,4 @@
-def translate(n):
-    s = "abcdefgh"
-    return s[int(n+1)]
-
-def translateMoves(xstart,ystart,xend,yend):
-    move = str(translate(xstart))+str(ystart-1)+str(translate(xend))+str(yend-1)
-    return move
-
-def mat2algebric(l):
-    l2 = []
-    for el in l:
-        s = "abcdefgh"
-        a = s[int(el[0])]
-        b = str(abs(el[1]-8))
-        l2.append(a+b)
-    return l2
-
+import utils
 
 class Piece():
     def __init__(self, color, x,y):
@@ -22,16 +6,17 @@ class Piece():
         self.name = ""
         self.x = x
         self.y = y
+
+    def move(self, to):
+        self.x = to[0]
+        self.y = to[1]
+
     def is_valid_move(self,board,to, movePiece=True):
         self.moves = self.get_valid_moves(board)
-        print("Move:", mat2algebric([to]))
-        print("Moves:", mat2algebric(self.moves))
-        if movePiece:
-            if to in self.moves:
-                self.x = to[0]
-                self.y = to[1]
-                return True
-        
+        print("Move:", utils.mat2algebric([to]))
+        print("Moves:", utils.mat2algebric(self.moves))
+        if to in self.moves:
+            return True
         return False
     
     def __repr__(self):
@@ -257,8 +242,6 @@ class Pawn(Piece):
                 else:
                     # If there is no piece maybe there is ghostpawn
                     if board.ghostPawn:
-                        print(board.ghostPawn)
-                        print(mat2algebric([board.ghostPawn]))
                         if board.ghostPawn == (self.x - 1, self.y - ahead):
                             candidate_moves.append((self.x - 1, self.y - ahead))
         candidate_moves2 = []
@@ -278,7 +261,7 @@ class King(Piece):
 
 
     def get_valid_moves(self, board):
-        enemyMoves = board.getEnemyMoves(self.color)
+        enemyMoves = board.getEnemyControlledSquares(self.color)
         candidate_moves = [
                 (self.x + 1 , self.y ),
                 (self.x - 1 , self.y ),
