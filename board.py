@@ -14,10 +14,10 @@ class Board():
     turn : bool
         True if white's turn
 
-    white_ghost_piece : tup
+    whiteGhostPawn : tup
         The coordinates of a white ghost piece representing a takeable pawn for en passant
 
-    black_ghost_piece : tup
+    blackGhostPawn : tup
         The coordinates of a black ghost piece representing a takeable pawn for en passant
 
     Methods:
@@ -25,9 +25,9 @@ class Board():
     print_board() -> None
         Prints the current configuration of the board
 
-    move(start:tup, to:tup) -> None
-        Moves the piece at `start` to `to` if possible. Otherwise, does nothing.
-        
+    getEnemyControlledSquares() -> list[tup]
+        Returns coordinates of squares controlled by enemy pieces
+
     """
     def __init__(self):
         """
@@ -129,17 +129,7 @@ class Board():
         for i in range(33):
             buffer += "*"
         print(buffer)
-        self.debugBoard()
 
-    def debugBoard(self):
-        var = True
-        for i in range(8):
-            for j in range(8):
-                piece = self.board[i][j]
-                if piece:
-                    var =  i == piece.x and j == piece.y
-                    if not var:
-                        break
         
 
     def getRooks(self, color):
@@ -151,6 +141,15 @@ class Board():
                         if self.board[i][j].color == color:
                             rooks.append(self.board[i][j])
         return rooks
+
+    def getKingPiece(self, color):
+        for i in range(8):
+            for j in range(8):
+                if self.board[i][j]:
+                    if self.board[i][j].name == "K":
+                        if self.board[i][j].color == color:
+                            return self.board[i][j]
+        print("KING NOT FOUND")
 
 
     def getEnemyControlledSquares(self, color):

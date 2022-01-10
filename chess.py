@@ -3,6 +3,8 @@ import piece
 import utils
 import random
 import time
+import re
+import sys
             
 class Chess():
     """
@@ -17,19 +19,39 @@ class Chess():
     turn : bool
         True if white's turn
 
-    white_ghost_piece : tup
-        The coordinates of a white ghost piece representing a takeable pawn for en passant
+    gameRunning : bool
+        True if none of draw or win conditions are met.
 
-    black_ghost_piece : tup
-        The coordinates of a black ghost piece representing a takeable pawn for en passant
+    movesList : list[str]
+        Record of game moves in uci format
+
 
     Methods:
     --------
-    promote(pos:stup) -> None
-        Promotes a pawn that has reached the other side to another, or the same, piece
 
-    move(start:tup, to:tup) -> None
-        Moves the piece at `start` to `to` if possible. Otherwise, does nothing.
+    move(move:str, start:tup, to:tup, promotion:str) -> None
+        Make move
+
+    getLegalMoves() -> list[tup]
+        Check legal moves
+
+    checkMaterialDraw() -> None
+        Check for material-criteria draws
+
+    checkMoveGrammar(uci_move:str) -> start:str, to:str, promotion:str
+        Check grammar of move input by user
+
+    uci2indices(start:str, end:str) -> list[tup]
+        Convert uci2indices
+        Ex: "e2" "e4" -> [(4,6),(4,4)]
+
+    getMoveRandom(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
+        Get random moves based on legal moves avaiable
+    getMovePlayer(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
+        Ask the user for input and check if it is legal move
+    main() -> None
+        Execute Game
+
     """
 
     def __init__(self):
@@ -40,149 +62,113 @@ class Chess():
 
 
 
-    def move(self, start, to, promotion, move, moves):
+    def move(self, move, start, to, promotion):
         """
-        Moves a piece at `start` to `to`. Does nothing if there is no piece at the starting point.
-        Does nothing if the piece at `start` belongs to the wrong color for the current turn.
-        Does nothing if moving the piece from `start` to `to` is not a valid move.
+        Moves a piece at `start` to `to`. 
+
+        move: str
+            Requested move
+            Ex: "e2e4"
 
         start : tup
-            Position of a piece to be moved
+            Index of the piece to be moved
+            Ex: (1,2)
 
         to : tup
-            Position of where the piece is to be moved
-        precondition: `start` and `to` are valid positions on the board
+            Index of target square
+            Ex: (2,4)
         """
 
-
-        if self.board.board[start[0]][start[1]] == None:
-            print("There is no piece to move at the start place")
-            return
-
         target_piece = self.board.board[start[0]][start[1]]
-        print("Target piece:", target_piece)
-        if self.turn != target_piece.color:
-            print("That's not your piece to move")
-            return
+        # Remove first_move from pieces
+        if target_piece.name in ["P","R","K"]:
+            target_piece.first_move = False
 
-        end_piece = self.board.board[to[0]][to[1]]
-        is_end_piece = end_piece != None
+        if target_piece.name == "P":
+            # This move was pawn double movement
+            if abs(to[1]-start[1]) > 1:
+                self.board.activateGhostPawn((target_piece.x,target_piece.y), self.turn)
+            else:
+                # Capture happened, detect if was En Passeant and delete captured pawn
+                if abs(to[0]-start[0]) == 1 and abs(to[1]-start[1]) == 1:
+                    if self.board.board[to[0]][to[1]] == None:
+                        if to == self.board.ghostPawn(self.turn):
+                            if target_piece.color:
+                                self.board.board[to[0]][to[1]+1] = None
+                            else:
+                                self.board.board[to[0]][to[1]-1] = None
+            # Promotion logic
+            if promotion:
+                if target_piece.color and to[1] == 0:
+                    color = True
+                elif not target_piece.color and to[1] == 7:
+                    color = False
+                if promotion == "q":
+                    promoted_piece = piece.Queen(color,target_piece.x,target_piece.y)
+                elif promotion == "r":
+                    promoted_piece = piece.Rook(color,target_piece.x,target_piece.y, first_move=False)
+                elif promotion == "b":
+                    promoted_piece = piece.Bishop(color,target_piece.x,target_piece.y)
+                elif promotion == "n":
+                    promoted_piece = piece.Knight(color,target_piece.x,target_piece.y)
+                target_piece = promoted_piece
+        # Castling logic
+        if target_piece.name == "K":
+            if to[0]-start[0] > 1:
+                if target_piece.color:
+                    rook = self.board.board[7][7] 
+                    rook.x = 5
+                    self.board.board[7][7] = None
+                    self.board.board[5][7] = rook
+                else:
+                    rook = self.board.board[0][0] 
+                    rook.x = 5
+                    self.board.board[0][0] = None
+                    self.board.board[5][0] = rook
 
-        # Checks if a player's own piece is at the `to` coordinate
-        if is_end_piece and self.board.board[start[0]][start[1]].color == end_piece.color:
-            print("There's a piece in the end location.")
-            return
-
-
-
-        if move in moves:
-            # Check Pawn specific logic, in order, En Passeant and Promotion
-            if target_piece.name in ["P","R","K"]:
-                target_piece.first_move = False
-                if target_piece.name == "P":
-                    # This move was pawn double movement
-                    if abs(to[1]-start[1]) > 1:
-                        print("Ghost pawn created")
-                        self.board.activateGhostPawn((target_piece.x,target_piece.y), self.turn)
-                    else:
-                        # Capture happened
-                        if abs(to[0]-start[0]) == 1 and abs(to[1]-start[1]) == 1:
-                            if self.board.board[to[0]][to[1]] == None:
-                                if to == self.board.ghostPawn(self.turn):
-                                    # Remove En Passeant captured Pawn
-                                    if target_piece.color:
-                                        self.board.board[to[0]][to[1]+1] = None
-                                    else:
-                                        self.board.board[to[0]][to[1]-1] = None
-                    # Promotion logic
-                    if promotion:
-                        # self.gameRunning = False
-                        print("Promotion")
-                        color = None
-                        if target_piece.color and to[1] == 0:
-                            color = True
-                        elif not target_piece.color and to[1] == 7:
-                            color = False
-                        if color == None:
-                            print("No Pawn can be promoted")
-                        else:
-                            if promotion == "q":
-                                promoted_piece = piece.Queen(color,target_piece.x,target_piece.y)
-                            elif promotion == "r":
-                                promoted_piece = piece.Rook(color,target_piece.x,target_piece.y, first_move=False)
-                            elif promotion == "b":
-                                promoted_piece = piece.Bishop(color,target_piece.x,target_piece.y)
-                            elif promotion == "n":
-                                promoted_piece = piece.Knight(color,target_piece.x,target_piece.y)
-                            #self.board.board[target_piece.x][target_piece.y] = promoted_piece
-                            #print(self.board.board[target_piece.x][target_piece.y])
-                            target_piece = promoted_piece
-                # Castling logic
-                if target_piece.name == "K":
-                    # Castling logic
-                    if to[0]-start[0] > 1:
-                        if target_piece.color:
-                            rook = self.board.board[7][7] 
-                            rook.x = 5
-                            self.board.board[7][7] = None
-                            self.board.board[5][7] = rook
-                        else:
-                            rook = self.board.board[0][0] 
-                            rook.x = 5
-                            self.board.board[0][0] = None
-                            self.board.board[5][0] = rook
-
-                    elif to[0]-start[0] < -1:
-                        if target_piece.color:
-                            rook = self.board.board[0][7] 
-                            rook.x = 3
-                            self.board.board[0][7] = None
-                            self.board.board[3][7] = rook
-                        else:
-                            rook = self.board.board[0][0] 
-                            rook.x = 3
-                            self.board.board[0][0] = None
-                            self.board.board[3][0] = rook
+            elif to[0]-start[0] < -1:
+                if target_piece.color:
+                    rook = self.board.board[0][7] 
+                    rook.x = 3
+                    self.board.board[0][7] = None
+                    self.board.board[3][7] = rook
+                else:
+                    rook = self.board.board[0][0] 
+                    rook.x = 3
+                    self.board.board[0][0] = None
+                    self.board.board[3][0] = rook
 
 
-            enemyKing = self.getKingPiece(not self.turn)
-            pieceMoves = target_piece.get_valid_moves(self.board)
-            if (enemyKing.x,enemyKing.y) in pieceMoves:
-                print("CHECK!!")
+        enemyKing = self.board.getKingPiece(not self.turn)
+        pieceMoves = target_piece.get_valid_moves(self.board)
+        if (enemyKing.x,enemyKing.y) in pieceMoves:
+            print("CHECK!!")
 
-            self.turn = not self.turn
-            self.board.deactivateGhostPawn(self.turn)
-            target_piece.move(to, self.board)
-            self.movesList.append(move)
-            print(" ".join(self.movesList))
+        self.turn = not self.turn
+        self.board.deactivateGhostPawn(self.turn)
+        target_piece.move(to, self.board)
+        self.movesList.append(move)
+        print(" ".join(self.movesList))
 
-    def getKingPiece(self, color):
-        for i in range(8):
-            for j in range(8):
-                if self.board.board[i][j]:
-                    if self.board.board[i][j].name == "K":
-                        if self.board.board[i][j].color == color:
-                            return self.board.board[i][j]
-        print("KING NOT FOUND")
 
-    def getMoves(self, color, board):
+    def getLegalMoves(self):
         legalMoves = []
         for i in range(8):
             for j in range(8):
-                piece = board.board[i][j]
+                piece = self.board.board[i][j]
                 if piece:
-                    if piece.color == color:
+                    if piece.color == self.turn:
                         piece_targets = piece.get_valid_moves(self.board)
                         for target in piece_targets:
                             origin = (piece.x,piece.y)
                             # Play move
-                            captured_piece = piece.move(target,board)
+                            captured_piece = piece.move(target,self.board)
 
-                            enemyControlledSquares = board.getEnemyControlledSquares(self.turn)
-                            friendKing = self.getKingPiece(self.turn)
+                            enemyControlledSquares = self.board.getEnemyControlledSquares(self.turn)
+                            friendKing = self.board.getKingPiece(self.turn)
                             # If king not in enemy controlled square after move, is legal move
                             if (friendKing.x,friendKing.y) not in enemyControlledSquares:
-                                uci_move = "".join(utils.mat2algebric([origin,target]))
+                                uci_move = "".join(utils.mat2uci([origin,target]))
                                 # Check for promotion pawns
                                 if piece.name == "P":
                                     lastrow = 0 if piece.color else 7
@@ -195,18 +181,19 @@ class Chess():
                                 else:
                                     legalMoves.append(uci_move)
                             # Undo move
-                            piece.move(origin,board)
+                            piece.move(origin,self.board)
                             if captured_piece:
-                                captured_piece.move(target,board)
+                                captured_piece.move(target,self.board)
 
 
-        friendKing = self.getKingPiece(self.turn)
-        # If king not in enemy controlled square after move, is legal move
-        enemyControlledSquares = board.getEnemyControlledSquares(self.turn)
+        friendKing = self.board.getKingPiece(self.turn)
+        enemyControlledSquares = self.board.getEnemyControlledSquares(self.turn)
+        # If there is no legal moves while not in check,
+        # there is stalemate, otherwise, checkmate
         if len(legalMoves) == 0:
             if (friendKing.x,friendKing.y) not in enemyControlledSquares:
                 self.gameRunning = False
-                print("EMPATE POR AFOGAMENTO")
+                print("DRAW -- Stalemate")
             else:
                 self.gameRunning = False
                 print("CHECKMATE!!!!")
@@ -221,85 +208,95 @@ class Chess():
         piecesLeft = []
         for piece in self.board.vector():
             if piece:
-                piecesLeft.append(piece)
+                if piece.name != "K":
+                    piecesLeft.append(piece)
+        if not piecesLeft:
+            self.gameRunning = False
+            print("DRAW -- Only kings left")
+        if len(piecesLeft) == 1:
+            piece = piecesLeft[0]
+            if piece.name == "B":
+                print("DRAW -- King and Bishop cannot checkmate")
+            if piece.name == "N":
+                print("DRAW -- King and Knight cannot checkmate")
         if len(piecesLeft) == 2:
-            if piecesLeft[0].name == "K" and piecesLeft[1].name == "K":
-                self.gameRunning = False
-                print("DRAW -- Only kings left")
+            piece1 = piecesLeft[0]
+            piece2 = piecesLeft[1]
+            if piece1.color != piece2.color:
+                if piece1.name == "B" and piece1.name == "B":
+                    print("DRAW -- King and Bishop vs King and Bishop cannot checkmate")
+                elif piece1.name == "B" and piece1.name == "N":
+                    print("DRAW -- King and Bishop vs King and Knight cannot checkmate")
+                elif piece1.name == "N" and piece1.name == "B":
+                    print("DRAW -- King and Knight vs King and Bishop cannot checkmate")
+
+                # Although having two Knights does not imply forced checkmate, 
+                # it is possible if your opponent doesn't do the right moves
 
 
 
 
 
-def translate(s):
-    """
-    Translates traditional board coordinates of chess into list indices
-    """
-    start = s[0:2] 
-    end = s[2:4]
-    promotion = None
-    if len(s) == 5:
-        promotion = s[4]
-    coords = [start,end]
-    r = []
-    for coord in coords:
-        try:
-            row = abs(int(coord[1])-8) # Y: Number
-            col = coord[0] # X: Letter
-            if row < 0 or row > 8:
-                print(coord[1] + " is not in the range from 1 - 8")
-                return None
-            if col < 'a' or col > 'h':
-                print(coord[0] + " is not in the range from a - h")
-                return None
-            dict = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
-            r.append((dict[col],row))
-        except:
-            print(s + "is not in the format '[number][letter]'")
-            return None, None
-    r.append(promotion)
-    return r
+    def checkMoveGrammar(self, uci_move):
+        match = re.match("([abcdefgh][12345678])([abcdefgh][12345678])([qbnr]?)", uci_move)
+        if not match:
+            print(uci_move + " is not in the format '[a-h][1-8][a-h][1-8]([qbnr])'")
+            return None, None, None
+        start = match.group(1)
+        end = match.group(2)
+        promotion = match.group(3)
+        return start, end, promotion
 
 
+
+    def getMovePlayer(self, moves):
+            uci_move = input("Move: ")
+            uci_start, uci_to, promotion = self.checkMoveGrammar(uci_move)
+            index_start, index_to = utils.uci2indices(uci_start, uci_to)
+            if uci_move in moves:
+                return uci_move, index_start, index_to, promotion
+            return None, None, None, None
+
+
+
+    def getMoveRandom(self, moves):
+            uci_move = None
+            if len(moves) > 0:
+                r = random.randint(0,len(moves)-1)
+                uci_move = moves[r]
+            uci_start, uci_to, promotion = self.checkMoveGrammar(uci_move)
+            index_start, index_to = utils.uci2indices(uci_start, uci_to)
+            if uci_move in moves:
+                return uci_move, index_start, index_to, promotion
+            return None, None, None, None
+
+
+    def main(self):
+
+        if sys.argv[1] == "-p":
+            getMove = self.getMovePlayer
+        elif sys.argv[1] == "-r":
+            getMove = self.getMoveRandom
+        while chess.gameRunning:
+            player_turn = "White" if self.turn else "Black"
+            print(f"{player_turn}'s turn to move!")
+            self.board.print_board()
+            moves = self.getLegalMoves()
+            uci_move, index_start, index_to, promotion = getMove(moves)
+
+            if not self.gameRunning:
+                break
+
+            if not uci_move:
+                print("Illegal or impossible move")
+                continue
+
+            self.move(uci_move, index_start, index_to, promotion)
 
 
 if __name__ == "__main__":
     chess = Chess()
-    import sys
+    chess.main()
 
-    def getMovePlayer():
-            moves = chess.getMoves(chess.turn, chess.board)
-            move = input("Move: ")
-            return move, moves
 
-    def getMoveRandom():
-            moves = chess.getMoves(chess.turn, chess.board)
-            move = None
-            if len(moves) > 0:
-                r = random.randint(0,len(moves)-1)
-                move = moves[r]
-            return move, moves
-
-    if sys.argv[1] == "-p":
-        getMove = getMovePlayer
-    elif sys.argv[1] == "-r":
-        getMove = getMoveRandom
-    while chess.gameRunning:
-        player_turn = "White" if chess.turn else "Black"
-        print(f"{player_turn}'s turn to move!")
-        chess.board.print_board()
-        move, moves = getMove()
-
-        if not chess.gameRunning:
-            break
-
-        print("Legal moves:", moves)
-
-        print("UCI move:",move)
-        start, to, promotion = translate(move)
-
-        if start == None or to == None:
-            continue
-
-        chess.move(start, to, promotion, move, moves)
 

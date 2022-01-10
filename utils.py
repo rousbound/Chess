@@ -1,17 +1,21 @@
 
-def translate(n):
-    s = "abcdefgh"
-    return s[int(n+1)]
-
-def translateMoves(xstart,ystart,xend,yend):
-    move = str(translate(xstart))+str(ystart-1)+str(translate(xend))+str(yend-1)
-    return move
-
-def mat2algebric(l):
+def mat2uci(l):
     l2 = []
     for el in l:
         s = "abcdefgh"
-        a = s[int(el[0])]
+        a = s[el[0]]
         b = str(abs(el[1]-8))
         l2.append(a+b)
     return l2
+
+def uci2indices(start, end):
+    """
+    Translates traditional board coordinates of chess into list indices
+    """
+    list_indices = []
+    for coord in [start,end]:
+        row = abs(int(coord[1])-8) # Y: Number
+        col = coord[0] # X: Letter
+        col = "abcdefgh".find(col) # Find Index
+        list_indices.append((col,row))
+    return list_indices
