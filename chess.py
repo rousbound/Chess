@@ -5,6 +5,7 @@ import random
 import time
 import re
 import sys
+import copy
             
 class Chess():
     """
@@ -24,6 +25,12 @@ class Chess():
 
     movesList : list[str]
         Record of game moves in uci format
+
+    legalMoves : list[str]
+        List of current legal moves
+
+    movesWithoutCaptures : int
+        Counter of moves without captures, relevant for draw criteria
 
 
     Methods:
@@ -47,8 +54,10 @@ class Chess():
 
     getMoveRandom(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
         Get random moves based on legal moves avaiable
+
     getMovePlayer(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
         Ask the user for input and check if it is legal move
+
     main() -> None
         Execute Game
 
@@ -59,6 +68,7 @@ class Chess():
         self.turn = True
         self.gameRunning = True
         self.movesList = []
+        self.movesWithoutCaptures = 0
 
 
 
@@ -146,9 +156,13 @@ class Chess():
 
         self.turn = not self.turn
         self.board.deactivateGhostPawn(self.turn)
-        target_piece.move(to, self.board)
+        captured_piece = target_piece.move(to, self.board)
+        if captured_piece:
+            self.movesWithoutCaptures = 0
+        else:
+            self.movesWithoutCaptures += 1
         self.movesList.append(move)
-        print(" ".join(self.movesList))
+        # print(" ".join(self.movesList))
 
 
     def getLegalMoves(self):
@@ -190,6 +204,8 @@ class Chess():
         enemyControlledSquares = self.board.getEnemyControlledSquares(self.turn)
         # If there is no legal moves while not in check,
         # there is stalemate, otherwise, checkmate
+        if self.movesWithoutCaptures == 50:
+            print("DRAW -- 50 moves without captures")
         if len(legalMoves) == 0:
             if (friendKing.x,friendKing.y) not in enemyControlledSquares:
                 self.gameRunning = False
@@ -217,18 +233,23 @@ class Chess():
             piece = piecesLeft[0]
             if piece.name == "B":
                 print("DRAW -- King and Bishop cannot checkmate")
+                self.gameRunning = False
             if piece.name == "N":
                 print("DRAW -- King and Knight cannot checkmate")
+                self.gameRunning = False
         if len(piecesLeft) == 2:
             piece1 = piecesLeft[0]
             piece2 = piecesLeft[1]
             if piece1.color != piece2.color:
                 if piece1.name == "B" and piece1.name == "B":
                     print("DRAW -- King and Bishop vs King and Bishop cannot checkmate")
+                    self.gameRunning = False
                 elif piece1.name == "B" and piece1.name == "N":
                     print("DRAW -- King and Bishop vs King and Knight cannot checkmate")
+                    self.gameRunning = False
                 elif piece1.name == "N" and piece1.name == "B":
                     print("DRAW -- King and Knight vs King and Bishop cannot checkmate")
+                    self.gameRunning = False
 
                 # Although having two Knights does not imply forced checkmate, 
                 # it is possible if your opponent doesn't do the right moves
@@ -238,65 +259,107 @@ class Chess():
 
 
     def checkMoveGrammar(self, uci_move):
-        match = re.match("([abcdefgh][12345678])([abcdefgh][12345678])([qbnr]?)", uci_move)
+        match = re.match(r"([a-h][1-8])([a-h][1-8])([qbnr]?)", uci_move)
         if not match:
             print(uci_move + " is not in the format '[a-h][1-8][a-h][1-8]([qbnr])'")
-            return None, None, None
-        start = match.group(1)
-        end = match.group(2)
-        promotion = match.group(3)
-        return start, end, promotion
+            return False
+        else:
+            return match
 
 
+    def getMovePlayer(self):
+        """
+        Asks the user a move in the format '[a-h][1-8][a-h][1-8][qbnr]?'
 
-    def getMovePlayer(self, moves):
-            uci_move = input("Move: ")
-            uci_start, uci_to, promotion = self.checkMoveGrammar(uci_move)
-            index_start, index_to = utils.uci2indices(uci_start, uci_to)
-            if uci_move in moves:
-                return uci_move, index_start, index_to, promotion
-            return None, None, None, None
+        """
+        uci_move = input("Move: ")
+        if self.checkMoveGrammar(uci_move):
+            return uci_move
 
 
+    def getMoveRandom(self):
+        uci_move = None
+        r = random.randint(0,len(self.legalMoves)-1)
+        uci_move = self.legalMoves[r]
+        return uci_move
 
-    def getMoveRandom(self, moves):
-            uci_move = None
-            if len(moves) > 0:
-                r = random.randint(0,len(moves)-1)
-                uci_move = moves[r]
-            uci_start, uci_to, promotion = self.checkMoveGrammar(uci_move)
-            index_start, index_to = utils.uci2indices(uci_start, uci_to)
-            if uci_move in moves:
-                return uci_move, index_start, index_to, promotion
-            return None, None, None, None
+    def getMoveBrute(self, legalMoves):
+        uci_move = legalMoves[0]
+        return uci_move
+
+    def mainBrute(self, move, legalMoves):
+
+        if len(self.movesList) == 3:
+            return 1
+
+        if legalMoves == None:
+            self.legalMoves = self.getLegalMoves()
+        uci_move = move
+        if uci_move in self.legalMoves:
+            index_start, index_to, promotion = utils.splitUci2indices(uci_move)
+        self.move(uci_move, index_start, index_to, promotion)
+        return mainBrute()
+
+    def moveGenerationTest(self, depth):
+        if depth == 0:
+            return 1
+        self.legalMoves = self.getLegalMoves()
+        counter = 0
+        for uci_move in self.legalMoves:
+            # Make move
+            index_start, index_to, promotion = utils.splitUci2indices(uci_move)
+            board = copy.deepcopy(self.board)
+            self.move(uci_move, index_start, index_to, promotion)
+
+            counter += self.moveGenerationTest(depth-1)
+
+            # Undo move
+
+            self.turn = not self.turn
+            self.board = board
+        return counter
+
+        
 
 
     def main(self):
 
-        if sys.argv[1] == "-p":
+        arg = sys.argv[1]
+
+        if arg == "-p":
             getMove = self.getMovePlayer
-        elif sys.argv[1] == "-r":
+        elif arg == "-r":
             getMove = self.getMoveRandom
-        while chess.gameRunning:
-            player_turn = "White" if self.turn else "Black"
-            print(f"{player_turn}'s turn to move!")
-            self.board.print_board()
-            moves = self.getLegalMoves()
-            uci_move, index_start, index_to, promotion = getMove(moves)
 
-            if not self.gameRunning:
-                break
+        if arg == "-p" or arg == "-r":
 
-            if not uci_move:
-                print("Illegal or impossible move")
-                continue
+            while chess.gameRunning:
+                player_turn = "White" if self.turn else "Black"
+                print(f"{player_turn}'s turn to move!")
+                self.board.print_board()
+                self.legalMoves = self.getLegalMoves()
+                print("LegalMoves:", self.legalMoves)
+                uci_move = getMove()
+                if uci_move in self.legalMoves:
+                    index_start, index_to, promotion = utils.splitUci2indices(uci_move)
 
-            self.move(uci_move, index_start, index_to, promotion)
+                if not self.gameRunning:
+                    break
+
+                if not uci_move:
+                    print("Illegal or impossible move")
+                    continue
+
+                self.move(uci_move, index_start, index_to, promotion)
+        elif arg == "-b":
+            depth = sys.argv[2]
+            print(self.moveGenerationTest(depth))
 
 
 if __name__ == "__main__":
     chess = Chess()
     chess.main()
+
 
 
 
