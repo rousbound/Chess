@@ -62,13 +62,34 @@ class Board():
         self.board[6][0] = piece.Knight(False,6,0)
         self.board[7][0] = piece.Rook(False,7,0)
 
-        self.ghostPawn = None
+        self.whiteGhostPawn = None
+        self.blackGhostPawn = None
 
         for i in range(8):
             self.board[i][1] = piece.Pawn(False,i,1)
 
         def __getitem__(self, item):
             return self.board[item]
+
+    def ghostPawn(self, color):
+        if color:
+            return self.blackGhostPawn
+        else:
+            return self.whiteGhostPawn
+
+    def deactivateGhostPawn(self, color):
+        if color:
+            self.blackGhostPawn = False
+        else:
+            self.whiteGhostPawn = False
+
+    def activateGhostPawn(self, pos, color):
+        if color:
+            pos = (pos[0], pos[1] + 1)
+            self.whiteGhostPawn = pos
+        else:
+            pos = (pos[0], pos[1] - 1)
+            self.blackGhostPawn = pos
 
     def vector(self):
         vec = []
@@ -87,14 +108,6 @@ class Board():
         for i in range(33):
             buffer += "*"
         print(buffer)
-        # for i in range(len(self.board)):
-            # tmp_str = "|"
-            # for j in self.board[i][]:
-                # if j == None or j.name == 'GP':
-                    # tmp_str += "   |"
-                # else:
-                    # tmp_str += (" " + str(j) + " |")
-            # print(tmp_str)
         for i in range(len(self.board)):
             tmp_str = f"{8-i}|"
             for j in range(len(self.board)):
@@ -116,6 +129,19 @@ class Board():
         for i in range(33):
             buffer += "*"
         print(buffer)
+        self.debugBoard()
+
+    def debugBoard(self):
+        var = True
+        for i in range(8):
+            for j in range(8):
+                piece = self.board[i][j]
+                if piece:
+                    var =  i == piece.x and j == piece.y
+                    if not var:
+                        break
+        print("Pieces aligned:", var)
+        
 
     def getRooks(self, color):
         rooks = []
@@ -135,6 +161,9 @@ class Board():
                 if otherpiece.color != color:
                     if otherpiece.name != "K":
                         for move in otherpiece.get_valid_moves(self):
+                            enemyMoves.add(move)
+                    if otherpiece.name == "K":
+                        for move in otherpiece.candidate_moves2:
                             enemyMoves.add(move)
         return list(enemyMoves)
 

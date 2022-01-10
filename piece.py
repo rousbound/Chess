@@ -7,9 +7,13 @@ class Piece():
         self.x = x
         self.y = y
 
-    def move(self, to):
+    def move(self, to, board):
+        board.board[self.x][self.y] = None
+        captured_piece = board.board[to[0]][to[1]]
+        board.board[to[0]][to[1]]= self
         self.x = to[0]
         self.y = to[1]
+        return captured_piece
 
     def is_valid_move(self,board,to, movePiece=True):
         self.moves = self.get_valid_moves(board)
@@ -65,49 +69,49 @@ def get_ortogonal_moves(board, piece):
 def get_diagonal_moves(board, piece):
     moves = set()
     for i in range(1,8):
-        x_,y_ = piece.x-i, piece.y-i
-        if x_ <= 7 and y_ <= 7 and x_>=0 and y_>=0:
-            if board.board[x_][y_]:
-                if board.board[x_][y_].color == piece.color:
+        x,y = piece.x-i, piece.y-i
+        if x <= 7 and y <= 7 and x>=0 and y>=0:
+            if board.board[x][y]:
+                if board.board[x][y].color == piece.color:
                     break
                 else:
-                    moves.add((x_,y_))
+                    moves.add((x,y))
                     break
             else:
-                moves.add((x_,y_))
+                moves.add((x,y))
     for i in range(1,8):
-        x_,y_ = piece.x+i,piece.y+i
-        if x_ <= 7 and y_ <= 7 and x_>=0 and y_>=0:
-            if board.board[x_][y_]:
-                if board.board[x_][y_].color == piece.color:
+        x,y = piece.x+i,piece.y+i
+        if x <= 7 and y <= 7 and x>=0 and y>=0:
+            if board.board[x][y]:
+                if board.board[x][y].color == piece.color:
                     break
                 else:
-                    moves.add((x_,y_))
+                    moves.add((x,y))
                     break
             else:
-                moves.add((x_,y_))
+                moves.add((x,y))
     for i in range(1,8):
-        x_,y_ = piece.x+i,piece.y-i
-        if x_ <= 7 and y_ <= 7 and x_>=0 and y_>=0:
-            if board.board[x_][y_]:
-                if board.board[x_][y_].color == piece.color:
+        x,y = piece.x+i,piece.y-i
+        if x <= 7 and y <= 7 and x>=0 and y>=0:
+            if board.board[x][y]:
+                if board.board[x][y].color == piece.color:
                     break
                 else:
-                    moves.add((x_,y_))
+                    moves.add((x,y))
                     break
             else:
-                moves.add((x_,y_))
+                moves.add((x,y))
     for i in range(1,8):
-        x_,y_ = piece.x-i,piece.y+i
-        if x_ <= 7 and y_ <= 7 and x_>=0 and y_>=0:
-            if board.board[x_][y_]:
-                if board.board[x_][y_].color == piece.color:
+        x,y = piece.x-i,piece.y+i
+        if x <= 7 and y <= 7 and x>=0 and y>=0:
+            if board.board[x][y]:
+                if board.board[x][y].color == piece.color:
                     break
                 else:
-                    moves.add((x_,y_))
+                    moves.add((x,y))
                     break
             else:
-                moves.add((x_,y_))
+                moves.add((x,y))
 
     return list(moves)
 
@@ -149,7 +153,6 @@ class Knight(Piece):
         """
         super().__init__(color,x,y)
         self.name = "N"
-        self.first_move = first_move 
         self.moves = []
         self.x = x
         self.y = y
@@ -231,7 +234,7 @@ class Pawn(Piece):
                         candidate_moves.append((self.x + 1, self.y - ahead))
                 else:
                     # If there is no piece maybe there is ghostpawn
-                    if board.ghostPawn:
+                    if board.ghostPawn(self.color):
                         if board.ghostPawn == (self.x + 1, self.y - ahead):
                             candidate_moves.append((self.x + 1, self.y - ahead))
 
@@ -241,10 +244,9 @@ class Pawn(Piece):
                         candidate_moves.append((self.x - 1, self.y - ahead))
                 else:
                     # If there is no piece maybe there is ghostpawn
-                    if board.ghostPawn:
+                    if board.ghostPawn(self.color):
                         if board.ghostPawn == (self.x - 1, self.y - ahead):
                             candidate_moves.append((self.x - 1, self.y - ahead))
-        candidate_moves2 = []
         self.moves = candidate_moves
         return self.moves
 
@@ -257,6 +259,7 @@ class King(Piece):
         self.moves = []
         self.x = x
         self.y = y
+        self.candidate_moves2 = []
 
 
 
@@ -272,14 +275,14 @@ class King(Piece):
                 (self.x - 1 , self.y -1 ),
                 (self.x - 1 , self.y + 1 ),
                 ]
-        candidate_moves2 = []
+        self.candidate_moves2 = []
         for move in candidate_moves:
             if move[0] >= 0 and move[0] <= 7 and move[1] >= 0 and move[1] <= 7:
                 if board.board[move[0]][move[1]]:
                     if board.board[move[0]][move[1]].color != self.color:
-                        candidate_moves2.append(move)
+                        self.candidate_moves2.append(move)
                 else:
-                    candidate_moves2.append(move)
+                    self.candidate_moves2.append(move)
         if self.first_move:
             for rook in board.getRooks(self.color):
                 if rook.first_move:
@@ -292,7 +295,7 @@ class King(Piece):
                             else:
                                 castleEnabled = False
                         if castleEnabled:
-                            candidate_moves2.append((self.x-2,self.y))
+                            self.candidate_moves2.append((self.x-2,self.y))
                     if rook.x == 7:
                         castleEnabled = True
                         for square in [(self.x+1,self.y),(self.x+2,self.y)]:
@@ -302,7 +305,8 @@ class King(Piece):
                             else:
                                 castleEnabled = False
                         if castleEnabled:
-                            candidate_moves2.append((self.x+2,self.y))
-        self.moves = [move for move in candidate_moves2 if move not in enemyMoves]
+                            self.candidate_moves2.append((self.x+2,self.y))
+        # self.moves = [move for move in candidate_moves2 if move not in enemyMoves]
+        self.moves = self.candidate_moves2
         return self.moves
 

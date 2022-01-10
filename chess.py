@@ -36,10 +36,11 @@ class Chess():
         self.board = board.Board()
         self.turn = True
         self.checkmate = False
+        self.movesList = []
 
 
 
-    def move(self, start, to, promotion):
+    def move(self, start, to, promotion, move, moves):
         """
         Moves a piece at `start` to `to`. Does nothing if there is no piece at the starting point.
         Does nothing if the piece at `start` belongs to the wrong color for the current turn.
@@ -72,133 +73,85 @@ class Chess():
             print("There's a piece in the end location.")
             return
 
-        availableMoves = self.getMoves(self.turn)
-        checkmate = True
-        for move in availableMoves:
-            _start, _to, _promotion = translate(move)
-            #print("_Start,_to:",utils.mat2algebric([_start,_to]))
-            start_piece = self.board.board[_start[0]][_start[1]]
-            end_piece = self.board.board[_to[0]][_to[1]] 
-            self.board.board[_to[0]][_to[1]] = start_piece
-            self.board.board[_start[0]][_start[1]] = None
-            enemyControlledSquares = self.board.getEnemyControlledSquares(self.turn)
-            friendKing = self.getKingPiece(self.turn)
-            print("FriendKing:", utils.mat2algebric([(friendKing.x, friendKing.y)]))
-            if (friendKing.x,friendKing.y) in enemyControlledSquares:
-                # In this move the king can be captured
-                #print("ENEMYMOVES:",utils.mat2algebric(enemyControlledSquares))
-                print("FriendKing:",(friendKing.x,friendKing.y))
-                print(enemyControlledSquares)
-                self.board.board[_to[0]][_to[1]] = end_piece
-                self.board.board[_start[0]][_start[1]] = start_piece
-            else:
-                # There is a move that doesn't put the king in check
-                print("There is a move to save from checkmate")
-                self.board.board[_to[0]][_to[1]] = end_piece
-                self.board.board[_start[0]][_start[1]] = start_piece
-                checkmate = False
-                break
-        if checkmate:
-            self.checkmate = True
-            print("CHECKMATE!!!!")
-            if self.turn:
-                print("BLACK WINS!!!")
-            else:
-                print("WHITE WINS!!!")
 
 
-
-
-
-
-
-        if target_piece.is_valid_move(self.board, to):
-            # Make move and check if friend King is in enemy attacking squares after requested move.
-            original_piece = self.board.board[to[0]][to[1]]
-            self.board.board[to[0]][to[1]] = target_piece
-            self.board.board[start[0]][start[1]] = None
-            enemyMoves = self.board.getEnemyControlledSquares(self.turn)
-            friendKing = self.getKingPiece(self.turn)
-            # If in check, undo move
-            if (friendKing.x,friendKing.y) in enemyMoves:
-                print("King in check, please make other move")
-                self.board.board[to[0]][to[1]] = original_piece
-                self.board.board[start[0]][start[1]] = target_piece
-            else:
-                # Check Pawn specific logic, in order, En Passeant and Promotion
-                if target_piece.name in ["P","R","K"]:
-                    target_piece.first_move = False
-                    if target_piece.name == "P":
-                        # En passeant logic
-                        if abs(to[1]-start[1]) > 1:
-                            print("Ghost pawn created")
-                            if target_piece.color:
-                                self.board.ghostPawn = (target_piece.x,target_piece.y+1)
-                            else:
-                                self.board.ghostPawn = (target_piece.x,target_piece.y-1)
+        if move in moves:
+            # Check Pawn specific logic, in order, En Passeant and Promotion
+            if target_piece.name in ["P","R","K"]:
+                target_piece.first_move = False
+                if target_piece.name == "P":
+                    # This move was pawn double movement
+                    if abs(to[1]-start[1]) > 1:
+                        print("Ghost pawn created")
+                        self.board.activateGhostPawn((target_piece.x,target_piece.y), self.turn)
+                    else:
+                        # Capture happened
+                        if abs(to[0]-start[0]) == 1 and abs(to[1]-start[1]) == 1:
+                            if self.board.board[to[0]][to[1]] == None:
+                                if to == self.board.ghostPawn(self.turn):
+                                    # Remove En Passeant captured Pawn
+                                    if target_piece.color:
+                                        self.board.board[to[0]][to[1]+1] = None
+                                    else:
+                                        self.board.board[to[0]][to[1]-1] = None
+                    # Promotion logic
+                    if promotion:
+                        print("Promotion")
+                        color = None
+                        if target_piece.color and target_piece.y == 0:
+                            color = True
+                        elif not target_piece.color and target_piece.y == 7:
+                            color = False
+                        if color == None:
+                            print("No Pawn can be promoted")
                         else:
-                            if abs(to[0]-start[0]) == 1 and abs(to[1]-start[1]) == 1:
-                                # This move was En passeant
-                                if target_piece.color:
-                                    self.board.board[target_piece.x][target_piece.y+1] = None
-                                else:
-                                    self.board.board[target_piece.x][target_piece.y-1] = None
-                        # Promotion logic
-                        if promotion:
-                            print("Promotion")
-                            color = None
-                            if target_piece.color and target_piece.y == 0:
-                                color = True
-                            elif not target_piece.color and target_piece.y == 7:
-                                color = False
-                            if color == None:
-                                print("No Pawn can be promoted")
-                            else:
-                                if promotion == "q":
-                                    promoted_piece = piece.Queen(color,target_piece.x,target_piece.y)
-                                elif promotion == "r":
-                                    promoted_piece = piece.Rook(color,target_piece.x,target_piece.y, first_move=False)
-                                elif promotion == "b":
-                                    promoted_piece = piece.Bishop(color,target_piece.x,target_piece.y)
-                                elif promotion == "n":
-                                    promoted_piece = piece.Knight(color,target_piece.x,target_piece.y)
-                                self.board.board[target_piece.x][target_piece.y] = promoted_piece
+                            if promotion == "q":
+                                promoted_piece = piece.Queen(color,target_piece.x,target_piece.y)
+                            elif promotion == "r":
+                                promoted_piece = piece.Rook(color,target_piece.x,target_piece.y, first_move=False)
+                            elif promotion == "b":
+                                promoted_piece = piece.Bishop(color,target_piece.x,target_piece.y)
+                            elif promotion == "n":
+                                promoted_piece = piece.Knight(color,target_piece.x,target_piece.y)
+                            self.board.board[target_piece.x][target_piece.y] = promoted_piece
+                # Castling logic
+                if target_piece.name == "K":
                     # Castling logic
-                    if target_piece.name == "K":
-                        # Castling logic
-                        if to[0]-start[0] > 1:
-                            if target_piece.color:
-                                rook = self.board.board[7][7] 
-                                rook.x = 5
-                                self.board.board[7][7] = None
-                                self.board.board[5][7] = rook
-                            else:
-                                rook = self.board.board[0][0] 
-                                rook.x = 5
-                                self.board.board[0][0] = None
-                                self.board.board[5][0] = rook
+                    if to[0]-start[0] > 1:
+                        if target_piece.color:
+                            rook = self.board.board[7][7] 
+                            rook.x = 5
+                            self.board.board[7][7] = None
+                            self.board.board[5][7] = rook
+                        else:
+                            rook = self.board.board[0][0] 
+                            rook.x = 5
+                            self.board.board[0][0] = None
+                            self.board.board[5][0] = rook
 
-                        elif to[0]-start[0] < -1:
-                            if target_piece.color:
-                                rook = self.board.board[0][7] 
-                                rook.x = 3
-                                self.board.board[0][7] = None
-                                self.board.board[3][7] = rook
-                            else:
-                                rook = self.board.board[0][0] 
-                                rook.x = 3
-                                self.board.board[0][0] = None
-                                self.board.board[3][0] = rook
+                    elif to[0]-start[0] < -1:
+                        if target_piece.color:
+                            rook = self.board.board[0][7] 
+                            rook.x = 3
+                            self.board.board[0][7] = None
+                            self.board.board[3][7] = rook
+                        else:
+                            rook = self.board.board[0][0] 
+                            rook.x = 3
+                            self.board.board[0][0] = None
+                            self.board.board[3][0] = rook
 
 
-                enemyKing = self.getKingPiece(not target_piece.color)
-                pieceMoves = target_piece.get_valid_moves(self.board)
-                if (enemyKing.x,enemyKing.y) in pieceMoves:
-                    print("CHECK!!")
+            enemyKing = self.getKingPiece(not self.turn)
+            pieceMoves = target_piece.get_valid_moves(self.board)
+            if (enemyKing.x,enemyKing.y) in pieceMoves:
+                print("CHECK!!")
 
-                self.turn = not self.turn
-                self.board.ghostPawn = None
-                target_piece.move(to)
+            self.turn = not self.turn
+            self.board.deactivateGhostPawn(self.turn)
+            target_piece.move(to, self.board)
+            self.movesList.append(move)
+            print(" ".join(self.movesList))
 
     def getKingPiece(self, color):
         for i in range(8):
@@ -207,20 +160,50 @@ class Chess():
                     if self.board.board[i][j].name == "K":
                         if self.board.board[i][j].color == color:
                             return self.board.board[i][j]
+        print("KING NOT FOUND")
 
-    def getMoves(self, color):
-        moves = []
+    def getMoves(self, color, board):
+        legalMoves = []
         for i in range(8):
             for j in range(8):
-                piece = self.board.board[i][j]
+                piece = board.board[i][j]
                 if piece:
                     if piece.color == color:
                         piece_targets = piece.get_valid_moves(self.board)
                         for target in piece_targets:
                             origin = (piece.x,piece.y)
-                            uci_move = "".join(utils.mat2algebric([origin,target]))
-                            moves.append(uci_move)
-        return moves
+                            # Play move
+                            captured_piece = piece.move(target,board)
+
+                            enemyControlledSquares = board.getEnemyControlledSquares(self.turn)
+                            friendKing = self.getKingPiece(self.turn)
+                            # If king not in enemy controlled square after move, is legal move
+                            if (friendKing.x,friendKing.y) not in enemyControlledSquares:
+                                uci_move = "".join(utils.mat2algebric([origin,target]))
+                                if piece.name == "P":
+                                    lastrow = 0 if piece.color else 7
+                                    if target[1] == lastrow:
+                                        promotion = ["q","r","n","b"]
+                                        for p in promotion:
+                                            legalMoves.append(uci_move + p)
+                                    else:
+                                        legalMoves.append(uci_move)
+                                else:
+                                    legalMoves.append(uci_move)
+                            # Undo move
+                            piece.move(origin,board)
+                            if captured_piece:
+                                captured_piece.move(target,board)
+
+
+        if len(legalMoves) == 0:
+            self.checkmate = True
+            print("CHECKMATE!!!!")
+            if self.turn:
+                print("BLACK WINS!!!")
+            else:
+                print("WHITE WINS!!!")
+        return legalMoves
 
 
 
@@ -263,22 +246,31 @@ if __name__ == "__main__":
 
     if sys.argv[1] == "-p":
         while not chess.checkmate:
+            print("Game:",chess.movesList)
             move = input("Move: ")
             
             print("Requested move:", move)
             start, to, promotion = translate(move)
+            moves = chess.getMoves(chess.turn, chess.board)
+            print("EnemyControlledSquares:",utils.mat2algebric(chess.board.getEnemyControlledSquares(chess.turn)))
+            print("Legal Moves:", moves)
+            if not moves:
+                break
 
             if start == None or to == None:
                 continue
 
-            chess.move(start, to, promotion)
+            chess.move(start, to, promotion, move, moves)
 
             chess.board.print_board()
     elif sys.argv[1] == "-r":
         while not chess.checkmate:
-            # time.sleep(0.3)
-            moves = chess.getMoves(chess.turn)
-            print("Available moves:", moves)
+            print("Game:",chess.movesList)
+            moves = chess.getMoves(chess.turn, chess.board)
+            print("EnemyControlledSquares:",utils.mat2algebric(chess.board.getEnemyControlledSquares(chess.turn)))
+            print("Legal Moves:", moves)
+            if not moves:
+                break
             
             r = random.randint(0,len(moves)-1)
             print(r)
@@ -293,7 +285,7 @@ if __name__ == "__main__":
             if start == None or to == None:
                 continue
 
-            chess.move(start, to, promotion)
+            chess.move(start, to, promotion, move, moves)
 
             player_turn = "White" if chess.turn else "Black"
             print(f"{player_turn}'s turn to move!")
