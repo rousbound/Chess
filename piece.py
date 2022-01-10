@@ -259,7 +259,29 @@ class King(Piece):
         self.moves = []
         self.x = x
         self.y = y
-        self.candidate_moves2 = []
+
+    
+    def getNormalValidMoves(self, board):
+        candidate_moves = [
+                (self.x + 1 , self.y ),
+                (self.x - 1 , self.y ),
+                (self.x , self.y - 1 ),
+                (self.x , self.y + 1 ),
+                (self.x + 1 , self.y + 1 ),
+                (self.x + 1 , self.y -1  ),
+                (self.x - 1 , self.y -1 ),
+                (self.x - 1 , self.y + 1 ),
+                ]
+        candidate_moves2 = []
+        for move in candidate_moves:
+            if move[0] >= 0 and move[0] <= 7 and move[1] >= 0 and move[1] <= 7:
+                if board.board[move[0]][move[1]]:
+                    if board.board[move[0]][move[1]].color != self.color:
+                        candidate_moves2.append(move)
+                else:
+                    candidate_moves2.append(move)
+        return candidate_moves2
+
 
 
 
@@ -275,14 +297,14 @@ class King(Piece):
                 (self.x - 1 , self.y -1 ),
                 (self.x - 1 , self.y + 1 ),
                 ]
-        self.candidate_moves2 = []
+        candidate_moves2 = []
         for move in candidate_moves:
             if move[0] >= 0 and move[0] <= 7 and move[1] >= 0 and move[1] <= 7:
                 if board.board[move[0]][move[1]]:
                     if board.board[move[0]][move[1]].color != self.color:
-                        self.candidate_moves2.append(move)
+                        candidate_moves2.append(move)
                 else:
-                    self.candidate_moves2.append(move)
+                    candidate_moves2.append(move)
         if self.first_move:
             for rook in board.getRooks(self.color):
                 if rook.first_move:
@@ -295,7 +317,7 @@ class King(Piece):
                             else:
                                 castleEnabled = False
                         if castleEnabled:
-                            self.candidate_moves2.append((self.x-2,self.y))
+                            candidate_moves2.append((self.x-2,self.y))
                     if rook.x == 7:
                         castleEnabled = True
                         for square in [(self.x+1,self.y),(self.x+2,self.y)]:
@@ -305,8 +327,8 @@ class King(Piece):
                             else:
                                 castleEnabled = False
                         if castleEnabled:
-                            self.candidate_moves2.append((self.x+2,self.y))
+                            candidate_moves2.append((self.x+2,self.y))
         # self.moves = [move for move in candidate_moves2 if move not in enemyMoves]
-        self.moves = self.candidate_moves2
+        self.moves = candidate_moves2
         return self.moves
 

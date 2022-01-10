@@ -140,7 +140,6 @@ class Board():
                     var =  i == piece.x and j == piece.y
                     if not var:
                         break
-        print("Pieces aligned:", var)
         
 
     def getRooks(self, color):
@@ -163,7 +162,7 @@ class Board():
                         for move in otherpiece.get_valid_moves(self):
                             enemyMoves.add(move)
                     if otherpiece.name == "K":
-                        for move in otherpiece.candidate_moves2:
+                        for move in otherpiece.getNormalValidMoves(self):
                             enemyMoves.add(move)
         return list(enemyMoves)
 

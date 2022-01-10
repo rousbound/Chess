@@ -35,7 +35,7 @@ class Chess():
     def __init__(self):
         self.board = board.Board()
         self.turn = True
-        self.checkmate = False
+        self.gameRunning = True
         self.movesList = []
 
 
@@ -196,14 +196,34 @@ class Chess():
                                 captured_piece.move(target,board)
 
 
+        friendKing = self.getKingPiece(self.turn)
+        # If king not in enemy controlled square after move, is legal move
+        enemyControlledSquares = board.getEnemyControlledSquares(self.turn)
         if len(legalMoves) == 0:
-            self.checkmate = True
-            print("CHECKMATE!!!!")
-            if self.turn:
-                print("BLACK WINS!!!")
+            if (friendKing.x,friendKing.y) not in enemyControlledSquares:
+                self.gameRunning = False
+                print("EMPATE POR AFOGAMENTO")
             else:
-                print("WHITE WINS!!!")
+                self.gameRunning = False
+                print("CHECKMATE!!!!")
+                if self.turn:
+                    print("BLACK WINS!!!")
+                else:
+                    print("WHITE WINS!!!")
+        self.checkMaterialDraw()
         return legalMoves
+
+    def checkMaterialDraw(self):
+        piecesLeft = []
+        for piece in self.board.vector():
+            if piece:
+                piecesLeft.append(piece)
+        if len(piecesLeft) == 2:
+            if piecesLeft[0].name == "K" and piecesLeft[1].name == "K":
+                self.gameRunning = False
+                print("DRAW -- Only kings left")
+
+
 
 
 
@@ -245,14 +265,12 @@ if __name__ == "__main__":
     import sys
 
     if sys.argv[1] == "-p":
-        while not chess.checkmate:
-            print("Game:",chess.movesList)
+        while chess.gameRunning:
             move = input("Move: ")
             
             print("Requested move:", move)
             start, to, promotion = translate(move)
             moves = chess.getMoves(chess.turn, chess.board)
-            print("EnemyControlledSquares:",utils.mat2algebric(chess.board.getEnemyControlledSquares(chess.turn)))
             print("Legal Moves:", moves)
             if not moves:
                 break
@@ -264,10 +282,12 @@ if __name__ == "__main__":
 
             chess.board.print_board()
     elif sys.argv[1] == "-r":
-        while not chess.checkmate:
-            print("Game:",chess.movesList)
+        while chess.gameRunning:
+            player_turn = "White" if chess.turn else "Black"
+            print(f"{player_turn}'s turn to move!")
+            chess.board.print_board()
+
             moves = chess.getMoves(chess.turn, chess.board)
-            print("EnemyControlledSquares:",utils.mat2algebric(chess.board.getEnemyControlledSquares(chess.turn)))
             print("Legal Moves:", moves)
             if not moves:
                 break
@@ -279,14 +299,9 @@ if __name__ == "__main__":
 
             print("UCI move:",move)
             start, to, promotion = translate(move)
-            print("Start:", start)
-            print("To:", to)
 
             if start == None or to == None:
                 continue
 
             chess.move(start, to, promotion, move, moves)
 
-            player_turn = "White" if chess.turn else "Black"
-            print(f"{player_turn}'s turn to move!")
-            chess.board.print_board()
