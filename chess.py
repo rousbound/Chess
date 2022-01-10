@@ -96,11 +96,12 @@ class Chess():
                                         self.board.board[to[0]][to[1]-1] = None
                     # Promotion logic
                     if promotion:
+                        # self.gameRunning = False
                         print("Promotion")
                         color = None
-                        if target_piece.color and target_piece.y == 0:
+                        if target_piece.color and to[1] == 0:
                             color = True
-                        elif not target_piece.color and target_piece.y == 7:
+                        elif not target_piece.color and to[1] == 7:
                             color = False
                         if color == None:
                             print("No Pawn can be promoted")
@@ -113,7 +114,9 @@ class Chess():
                                 promoted_piece = piece.Bishop(color,target_piece.x,target_piece.y)
                             elif promotion == "n":
                                 promoted_piece = piece.Knight(color,target_piece.x,target_piece.y)
-                            self.board.board[target_piece.x][target_piece.y] = promoted_piece
+                            #self.board.board[target_piece.x][target_piece.y] = promoted_piece
+                            #print(self.board.board[target_piece.x][target_piece.y])
+                            target_piece = promoted_piece
                 # Castling logic
                 if target_piece.name == "K":
                     # Castling logic
@@ -180,6 +183,7 @@ class Chess():
                             # If king not in enemy controlled square after move, is legal move
                             if (friendKing.x,friendKing.y) not in enemyControlledSquares:
                                 uci_move = "".join(utils.mat2algebric([origin,target]))
+                                # Check for promotion pawns
                                 if piece.name == "P":
                                     lastrow = 0 if piece.color else 7
                                     if target[1] == lastrow:
@@ -261,47 +265,41 @@ def translate(s):
 
 if __name__ == "__main__":
     chess = Chess()
-    chess.board.print_board()
     import sys
 
-    if sys.argv[1] == "-p":
-        while chess.gameRunning:
+    def getMovePlayer():
+            moves = chess.getMoves(chess.turn, chess.board)
             move = input("Move: ")
-            
-            print("Requested move:", move)
-            start, to, promotion = translate(move)
+            return move, moves
+
+    def getMoveRandom():
             moves = chess.getMoves(chess.turn, chess.board)
-            print("Legal Moves:", moves)
-            if not moves:
-                break
+            move = None
+            if len(moves) > 0:
+                r = random.randint(0,len(moves)-1)
+                move = moves[r]
+            return move, moves
 
-            if start == None or to == None:
-                continue
-
-            chess.move(start, to, promotion, move, moves)
-
-            chess.board.print_board()
+    if sys.argv[1] == "-p":
+        getMove = getMovePlayer
     elif sys.argv[1] == "-r":
-        while chess.gameRunning:
-            player_turn = "White" if chess.turn else "Black"
-            print(f"{player_turn}'s turn to move!")
-            chess.board.print_board()
+        getMove = getMoveRandom
+    while chess.gameRunning:
+        player_turn = "White" if chess.turn else "Black"
+        print(f"{player_turn}'s turn to move!")
+        chess.board.print_board()
+        move, moves = getMove()
 
-            moves = chess.getMoves(chess.turn, chess.board)
-            print("Legal Moves:", moves)
-            if not moves:
-                break
-            
-            r = random.randint(0,len(moves)-1)
-            print(r)
+        if not chess.gameRunning:
+            break
 
-            move = moves[r]
+        print("Legal moves:", moves)
 
-            print("UCI move:",move)
-            start, to, promotion = translate(move)
+        print("UCI move:",move)
+        start, to, promotion = translate(move)
 
-            if start == None or to == None:
-                continue
+        if start == None or to == None:
+            continue
 
-            chess.move(start, to, promotion, move, moves)
+        chess.move(start, to, promotion, move, moves)
 

@@ -130,7 +130,7 @@ class Rook(Piece):
 
 
 class Bishop(Piece):
-    def __init__(self, color, x,y, first_move = True):
+    def __init__(self, color, x,y):
         """
         Same as base class Piece, except `first_move` is used to check
         if this rook can castle.
