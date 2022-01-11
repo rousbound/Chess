@@ -152,7 +152,8 @@ class Chess():
         enemyKing = self.board.getKingPiece(not self.turn)
         pieceMoves = target_piece.get_valid_moves(self.board)
         if (enemyKing.x,enemyKing.y) in pieceMoves:
-            print("CHECK!!")
+            # print("CHECK!!")
+            pass
 
         self.turn = not self.turn
         self.board.deactivateGhostPawn(self.turn)
@@ -205,18 +206,22 @@ class Chess():
         # If there is no legal moves while not in check,
         # there is stalemate, otherwise, checkmate
         if self.movesWithoutCaptures == 50:
-            print("DRAW -- 50 moves without captures")
+            # print("DRAW -- 50 moves without captures")
+            self.gameRunning = False
+            pass
         if len(legalMoves) == 0:
             if (friendKing.x,friendKing.y) not in enemyControlledSquares:
                 self.gameRunning = False
-                print("DRAW -- Stalemate")
+                # print("DRAW -- Stalemate")
             else:
                 self.gameRunning = False
-                print("CHECKMATE!!!!")
+                # print("CHECKMATE!!!!")
                 if self.turn:
-                    print("BLACK WINS!!!")
+                    # print("BLACK WINS!!!")
+                    pass
                 else:
-                    print("WHITE WINS!!!")
+                    # print("WHITE WINS!!!")
+                    pass
         self.checkMaterialDraw()
         return legalMoves
 
@@ -228,27 +233,27 @@ class Chess():
                     piecesLeft.append(piece)
         if not piecesLeft:
             self.gameRunning = False
-            print("DRAW -- Only kings left")
+            # print("DRAW -- Only kings left")
         if len(piecesLeft) == 1:
             piece = piecesLeft[0]
             if piece.name == "B":
-                print("DRAW -- King and Bishop cannot checkmate")
+                # print("DRAW -- King and Bishop cannot checkmate")
                 self.gameRunning = False
             if piece.name == "N":
-                print("DRAW -- King and Knight cannot checkmate")
+                # print("DRAW -- King and Knight cannot checkmate")
                 self.gameRunning = False
         if len(piecesLeft) == 2:
             piece1 = piecesLeft[0]
             piece2 = piecesLeft[1]
             if piece1.color != piece2.color:
                 if piece1.name == "B" and piece1.name == "B":
-                    print("DRAW -- King and Bishop vs King and Bishop cannot checkmate")
+                    # print("DRAW -- King and Bishop vs King and Bishop cannot checkmate")
                     self.gameRunning = False
                 elif piece1.name == "B" and piece1.name == "N":
-                    print("DRAW -- King and Bishop vs King and Knight cannot checkmate")
+                    # print("DRAW -- King and Bishop vs King and Knight cannot checkmate")
                     self.gameRunning = False
                 elif piece1.name == "N" and piece1.name == "B":
-                    print("DRAW -- King and Knight vs King and Bishop cannot checkmate")
+                    # print("DRAW -- King and Knight vs King and Bishop cannot checkmate")
                     self.gameRunning = False
 
                 # Although having two Knights does not imply forced checkmate, 
@@ -353,12 +358,19 @@ class Chess():
                 self.move(uci_move, index_start, index_to, promotion)
         elif arg == "-b":
             depth = sys.argv[2]
-            print(self.moveGenerationTest(depth))
+            print(f"Initiating move generation test on depth: {depth}")
+            l = []
+            for i in range(1,int(depth)+1):
+                result = self.moveGenerationTest(i)
+                l.append(result)
+                print(f"Result of possible games with {i} ply:",result)
 
+            
 
 if __name__ == "__main__":
     chess = Chess()
     chess.main()
+
 
 
 

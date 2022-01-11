@@ -37,6 +37,7 @@ class Piece():
         self.name = ""
         self.x = x
         self.y = y
+        self.pieceHeld = False
 
     def move(self, to, board):
         board.board[self.x][self.y] = None
