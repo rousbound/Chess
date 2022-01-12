@@ -23,11 +23,14 @@ class Piece():
 
     move(to:tup, board:Board) -> captured_piece:Piece
         Moves piece to 'to'. Returns captured_piece if there is 
+
     moveIsPossible(move:to, board:Board) -> bool
         Checks if move is withing board boundaries,
         and if target location is not occupied by allied piece
+
     get_diagonal_moves(board:Board) -> list[tup]
         Returns diagonal moves of selected piece
+
     get_ortogonal_moves(board:Board) -> list[tup]
         Returns diagonal moves of selected piece
 
@@ -37,7 +40,16 @@ class Piece():
         self.name = ""
         self.x = x
         self.y = y
+        self.pos = (x,y)
         self.pieceHeld = False
+
+    def get_pos(self):
+        return (self.x, self.y)
+
+    def set_pos(self, pos):
+        self.pos = pos
+        self.x = pos[0]
+        self.y = pos[1]
 
     def move(self, to, board):
         board.board[self.x][self.y] = None
@@ -46,6 +58,15 @@ class Piece():
         self.x = to[0]
         self.y = to[1]
         return captured_piece
+    
+    def get_valid_moves_after(self, to , board):
+        origin = (self.x,self.y)
+        captured_piece = self.move(to, board)
+        legal_moves_after = self.get_valid_moves(board)
+        self.move(origin, board)
+        if captured_piece:
+            captured_piece.move(to, board)
+        return legal_moves_after
     
     def __repr__(self):
         return self.name
@@ -346,6 +367,7 @@ class King(Piece):
         self.moves = []
         self.x = x
         self.y = y
+        self.inCheck = False
 
     
     def getNormalValidMoves(self, board):
@@ -370,7 +392,7 @@ class King(Piece):
 
         candidate_moves = self.getNormalValidMoves(board)
 
-        # Check Caslting possibility
+        # Check Castling possibility
         if self.first_move:
             for rook in board.getRooks(self.color):
                 if rook.first_move:

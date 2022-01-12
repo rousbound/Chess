@@ -68,6 +68,7 @@ class Chess():
         self.turn = True
         self.gameRunning = True
         self.movesList = []
+        self.legalMoves = []
         self.movesWithoutCaptures = 0
 
 
@@ -124,40 +125,30 @@ class Chess():
                 target_piece = promoted_piece
         # Castling logic
         if target_piece.name == "K":
+            # RightCastling
             if to[0]-start[0] > 1:
                 if target_piece.color:
                     rook = self.board.board[7][7] 
-                    rook.x = 5
-                    self.board.board[7][7] = None
-                    self.board.board[5][7] = rook
+                    rook.move((5,7), self.board)
                 else:
-                    rook = self.board.board[0][0] 
-                    rook.x = 5
-                    self.board.board[0][0] = None
-                    self.board.board[5][0] = rook
+                    rook = self.board.board[7][0] 
+                    rook.move((5,0), self.board)
 
+            # LeftCastling
             elif to[0]-start[0] < -1:
                 if target_piece.color:
                     rook = self.board.board[0][7] 
-                    rook.x = 3
-                    self.board.board[0][7] = None
-                    self.board.board[3][7] = rook
+                    rook.move((3,7), self.board)
                 else:
                     rook = self.board.board[0][0] 
-                    rook.x = 3
-                    self.board.board[0][0] = None
-                    self.board.board[3][0] = rook
+                    rook.move((3,0), self.board)
 
 
-        enemyKing = self.board.getKingPiece(not self.turn)
-        pieceMoves = target_piece.get_valid_moves(self.board)
-        if (enemyKing.x,enemyKing.y) in pieceMoves:
-            # print("CHECK!!")
-            pass
 
         self.turn = not self.turn
         self.board.deactivateGhostPawn(self.turn)
         captured_piece = target_piece.move(to, self.board)
+        print("Piece moved to:", target_piece.get_pos())
         if captured_piece:
             self.movesWithoutCaptures = 0
         else:
@@ -183,6 +174,7 @@ class Chess():
                             friendKing = self.board.getKingPiece(self.turn)
                             # If king not in enemy controlled square after move, is legal move
                             if (friendKing.x,friendKing.y) not in enemyControlledSquares:
+                                friendKing.inCheck = False
                                 uci_move = "".join(utils.mat2uci([origin,target]))
                                 # Check for promotion pawns
                                 if piece.name == "P":
@@ -277,6 +269,19 @@ class Chess():
         Asks the user a move in the format '[a-h][1-8][a-h][1-8][qbnr]?'
 
         """
+        try:
+            uci_move = input("Move: ")
+            if self.checkMoveGrammar(uci_move):
+                return uci_move
+        except:
+            return "EOF"
+            print("EOF")
+
+    def getMoveCLIGUI(self):
+        """
+        Asks the user a move in the format '[a-h][1-8][a-h][1-8][qbnr]?'
+
+        """
         uci_move = input("Move: ")
         if self.checkMoveGrammar(uci_move):
             return uci_move
@@ -288,22 +293,6 @@ class Chess():
         uci_move = self.legalMoves[r]
         return uci_move
 
-    def getMoveBrute(self, legalMoves):
-        uci_move = legalMoves[0]
-        return uci_move
-
-    def mainBrute(self, move, legalMoves):
-
-        if len(self.movesList) == 3:
-            return 1
-
-        if legalMoves == None:
-            self.legalMoves = self.getLegalMoves()
-        uci_move = move
-        if uci_move in self.legalMoves:
-            index_start, index_to, promotion = utils.splitUci2indices(uci_move)
-        self.move(uci_move, index_start, index_to, promotion)
-        return mainBrute()
 
     def moveGenerationTest(self, depth):
         if depth == 0:
@@ -324,6 +313,18 @@ class Chess():
             self.board = board
         return counter
 
+    def kingInCheck(self, turn):
+        friendKing = self.board.getKingPiece(turn)
+        enemyMoves = self.board.getEnemyControlledSquares(turn)
+
+        print("Color:", turn)
+        print("Friend King:", utils.mat2uci([friendKing.get_pos()]))
+        print("EnemyMoves:", utils.mat2uci(enemyMoves))
+        
+        if (friendKing.x,friendKing.y) in enemyMoves:
+            print("KING IN CHECK!!")
+            friendKing.inCheck = True
+        
         
 
 
@@ -331,12 +332,37 @@ class Chess():
 
         arg = sys.argv[1]
 
-        if arg == "-p":
+        if arg == "-cli":
             getMove = self.getMovePlayer
         elif arg == "-r":
             getMove = self.getMoveRandom
+        elif arg == "-cligui":
+            import GUI
+            gui = GUI.GUI(self.board,640,640,self)
+            getMove = self.getMovePlayer
 
-        if arg == "-p" or arg == "-r":
+            while chess.gameRunning:
+                player_turn = "White" if self.turn else "Black"
+                print(f"{player_turn}'s turn to move!")
+                self.board.print_board()
+                gui.mainUnplayable(0.3)
+                self.legalMoves = self.getLegalMoves()
+                print("LegalMoves:", self.legalMoves)
+                uci_move = getMove()
+                print("Move:", uci_move)
+                if uci_move in self.legalMoves:
+                    index_start, index_to, promotion = utils.splitUci2indices(uci_move)
+                else:
+                    print("Illegal or impossible move")
+                    continue
+
+                if not self.gameRunning:
+                    break
+
+                self.move(uci_move, index_start, index_to, promotion)
+
+
+        if arg == "-cli" or arg == "-r":
 
             while chess.gameRunning:
                 player_turn = "White" if self.turn else "Black"
@@ -347,15 +373,23 @@ class Chess():
                 uci_move = getMove()
                 if uci_move in self.legalMoves:
                     index_start, index_to, promotion = utils.splitUci2indices(uci_move)
-
-                if not self.gameRunning:
+                elif uci_move == "EOF":
                     break
-
-                if not uci_move:
+                else:
                     print("Illegal or impossible move")
                     continue
 
+                if not chess.gameRunning:
+                    break
+
+
                 self.move(uci_move, index_start, index_to, promotion)
+        if arg == "-gui":
+            import GUI
+            gui = GUI.GUI(self.board,640,640,self)
+            gui.main()
+
+
         elif arg == "-b":
             depth = sys.argv[2]
             print(f"Initiating move generation test on depth: {depth}")
