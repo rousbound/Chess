@@ -70,6 +70,7 @@ class Chess():
         self.movesList = []
         self.legalMoves = []
         self.movesWithoutCaptures = 0
+        self.boardStates = []
 
 
 
@@ -98,12 +99,12 @@ class Chess():
         if target_piece.name == "P":
             # This move was pawn double movement
             if abs(to[1]-start[1]) > 1:
-                self.board.activateGhostPawn((target_piece.x,target_piece.y), self.turn)
+                self.board.activateGhostPawn(target_piece.get_pos(), target_piece.color)
             else:
                 # Capture happened, detect if was En Passeant and delete captured pawn
                 if abs(to[0]-start[0]) == 1 and abs(to[1]-start[1]) == 1:
                     if self.board.board[to[0]][to[1]] == None:
-                        if to == self.board.ghostPawn(self.turn):
+                        if to == self.board.getGhostPawn(not self.turn):
                             if target_piece.color:
                                 self.board.board[to[0]][to[1]+1] = None
                             else:
@@ -146,9 +147,7 @@ class Chess():
 
 
         self.turn = not self.turn
-        self.board.deactivateGhostPawn(self.turn)
         captured_piece = target_piece.move(to, self.board)
-        print("Piece moved to:", target_piece.get_pos())
         if captured_piece:
             self.movesWithoutCaptures = 0
         else:
@@ -170,11 +169,11 @@ class Chess():
                             # Play move
                             captured_piece = piece.move(target,self.board)
 
-                            enemyControlledSquares = self.board.getEnemyControlledSquares(self.turn)
+                            enemyControlledSquares = self.board.getControlledSquares(not self.turn)
                             friendKing = self.board.getKingPiece(self.turn)
                             # If king not in enemy controlled square after move, is legal move
+                            # KINGINCHECK
                             if (friendKing.x,friendKing.y) not in enemyControlledSquares:
-                                friendKing.inCheck = False
                                 uci_move = "".join(utils.mat2uci([origin,target]))
                                 # Check for promotion pawns
                                 if piece.name == "P":
@@ -194,7 +193,7 @@ class Chess():
 
 
         friendKing = self.board.getKingPiece(self.turn)
-        enemyControlledSquares = self.board.getEnemyControlledSquares(self.turn)
+        enemyControlledSquares = self.board.getControlledSquares(not self.turn)
         # If there is no legal moves while not in check,
         # there is stalemate, otherwise, checkmate
         if self.movesWithoutCaptures == 50:
@@ -313,19 +312,16 @@ class Chess():
             self.board = board
         return counter
 
-    def kingInCheck(self, turn):
-        friendKing = self.board.getKingPiece(turn)
-        enemyMoves = self.board.getEnemyControlledSquares(turn)
+    def kingsInCheck(self):
+        for color in [True, False]:
+            King = self.board.getKingPiece(color)
+            controlledSquares = self.board.getControlledSquares(not color)
+            
+            if (King.x,King.y) in controlledSquares:
+                King.inCheck = True
+            else:
+                King.inCheck = False
 
-        print("Color:", turn)
-        print("Friend King:", utils.mat2uci([friendKing.get_pos()]))
-        print("EnemyMoves:", utils.mat2uci(enemyMoves))
-        
-        if (friendKing.x,friendKing.y) in enemyMoves:
-            print("KING IN CHECK!!")
-            friendKing.inCheck = True
-        
-        
 
 
     def main(self):

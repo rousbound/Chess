@@ -324,25 +324,19 @@ class Pawn(Piece):
         if 0 <= self.y-ahead <= 7:
             if board.board[self.x][self.y - ahead] == None:
                 candidate_moves.append((self.x, self.y - ahead))
-            if 0 <= self.x + 1 <= 7:
-                if board.board[self.x + 1][self.y - ahead]:
-                    if board.board[self.x + 1][self.y - ahead].color != self.color:
-                        candidate_moves.append((self.x + 1, self.y - ahead))
-                else:
-                    # If there is no piece maybe there is ghostpawn
-                    if board.ghostPawn(self.color):
-                        if board.ghostPawn == (self.x + 1, self.y - ahead):
-                            candidate_moves.append((self.x + 1, self.y - ahead))
 
-            if 0 <= self.x - 1 <= 7:
-                if board.board[self.x - 1][self.y - ahead]:
-                    if board.board[self.x - 1][self.y - ahead].color != self.color:
-                        candidate_moves.append((self.x - 1, self.y - ahead))
-                else:
-                    # If there is no piece maybe there is ghostpawn
-                    if board.ghostPawn(self.color):
-                        if board.ghostPawn == (self.x - 1, self.y - ahead):
-                            candidate_moves.append((self.x - 1, self.y - ahead))
+            for side in [1,-1]:
+                if 0 <= self.x + side <= 7:
+                    if board.board[self.x + side][self.y - ahead]:
+                        if board.board[self.x + side][self.y - ahead].color != self.color:
+                            candidate_moves.append((self.x + side, self.y - ahead))
+                    else:
+                        # If there is no piece maybe there is ghostpawn
+                        enemyGhostPawn = board.getGhostPawn(not self.color)
+                        if enemyGhostPawn:
+                            if enemyGhostPawn == (self.x + side, self.y - ahead):
+                                candidate_moves.append((self.x + side, self.y - ahead))
+
         self.moves = candidate_moves
         return self.moves
 
@@ -388,7 +382,7 @@ class King(Piece):
         return candidate_moves
 
     def get_valid_moves(self, board):
-        enemyMoves = board.getEnemyControlledSquares(self.color)
+        enemyMoves = board.getControlledSquares(not self.color)
 
         candidate_moves = self.getNormalValidMoves(board)
 

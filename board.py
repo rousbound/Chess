@@ -68,28 +68,26 @@ class Board():
         for i in range(8):
             self.board[i][1] = piece.Pawn(False,i,1)
 
-        def __getitem__(self, item):
-            return self.board[item]
+    def __getitem__(self, item):
+        return self.board[item[0]][item[1]]
 
-    def ghostPawn(self, color):
+    def getGhostPawn(self, color):
         if color:
-            return self.blackGhostPawn
-        else:
             return self.whiteGhostPawn
+        else:
+            return self.blackGhostPawn
 
     def deactivateGhostPawn(self, color):
         if color:
-            self.blackGhostPawn = False
-        else:
             self.whiteGhostPawn = False
+        else:
+            self.blackGhostPawn = False
 
     def activateGhostPawn(self, pos, color):
         if color:
-            pos = (pos[0], pos[1] + 1)
-            self.whiteGhostPawn = pos
+            self.whiteGhostPawn = (pos[0], pos[1] - 1)
         else:
-            pos = (pos[0], pos[1] - 1)
-            self.blackGhostPawn = pos
+            self.blackGhostPawn = (pos[0], pos[1] + 1)
 
     def vector(self):
         vec = []
@@ -152,11 +150,11 @@ class Board():
         print("KING NOT FOUND")
 
 
-    def getEnemyControlledSquares(self, color):
+    def getControlledSquares(self, color):
         enemyMoves = set()
         for otherpiece in self.vector():
             if otherpiece:
-                if otherpiece.color != color:
+                if otherpiece.color == color:
                     if otherpiece.name != "K":
                         for move in otherpiece.get_valid_moves(self):
                             enemyMoves.add(move)
