@@ -1,0 +1,6 @@
+Initiating move generation test on depth: 7
+Result of possible games with 1 ply: 20
+Result of possible games with 2 ply: 400
+Result of possible games with 3 ply: 8902
+Result of possible games with 4 ply: 197281
+Result of possible games with 5 ply: 4865305
