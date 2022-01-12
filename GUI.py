@@ -44,6 +44,11 @@ class GUI():
         self.yoffset = -2
         self.getSpriteSheet()
 
+    def getPieceSpriteCoordinates(self, piece):
+        pieceColor = "W" if piece.color else "B"
+        piece_index = self.piecesDict[pieceColor+piece.name]
+        return self.spriteSheetPieceCoordinates[piece_index]
+
     def getSpriteSheet(self):
         cols = 6
         rows = 2
@@ -104,8 +109,28 @@ class GUI():
                                     squareColor = ImageColor.getrgb("#829769")
                                 else:
                                     squareColor = ImageColor.getrgb("#84794e")
-                                # pygame.draw.rect(self.screen,squareColor,(to[0]*self.cell,to[1]*self.cell,self.cell,self.cell))
+                                pygame.draw.rect(self.screen,squareColor,(to[0]*self.cell,to[1]*self.cell,self.cell,self.cell))
+                                piece_capturing = self.board.board[to[0]][to[1]]
+                                if piece_capturing:
+                                    coord = self.getPieceSpriteCoordinates(piece_capturing)
+                                    print("coord piece capturing:", coord)
+                                    print("coord piece capturing2:", piece_capturing.get_pos())
+                                    x = (piece_capturing.get_pos()[0]*80) + self.xoffset
+                                    y = (piece_capturing.get_pos()[1]*80) + self.yoffset
+                                    self.screen.blit(self.spritesheet, (x,y), coord)
                             else:
+                                if (to[0] + to[1]) % 2 == 0:
+                                    squareColor = ImageColor.getrgb("#f0d9b5")
+                                else:
+                                    squareColor = ImageColor.getrgb("#b58863")
+                                pygame.draw.rect(self.screen,squareColor,(to[0]*self.cell,to[1]*self.cell,self.cell,self.cell))
+                                piece_capturing = self.board.board[to[0]][to[1]]
+                                coord = self.getPieceSpriteCoordinates(piece_capturing)
+                                print("coord piece capturing:", coord)
+                                print("coord piece capturing2:", piece_capturing.get_pos())
+                                x_piece = (piece_capturing.get_pos()[0]*80) + self.xoffset
+                                y_piece = (piece_capturing.get_pos()[1]*80) + self.yoffset
+                                self.screen.blit(self.spritesheet, (x_piece,y_piece), coord)
                                 self.screen.blit(self.capture, (x,y))
                         
                     else:
@@ -125,11 +150,10 @@ class GUI():
                             else:
                                 pygame.draw.circle(self.screen, color, (x,y) , 11, width=0)
             mousepos = pygame.mouse.get_pos()
-            pieceColor = "W" if self.pieceHeld.color else "B"
-            piece_index = self.piecesDict[pieceColor+self.pieceHeld.name]
             x = mousepos[0] - 40
             y = mousepos[1] - 40
-            self.screen.blit(self.spritesheet, (x,y), self.spriteSheetPieceCoordinates[piece_index])
+            coord = self.getPieceSpriteCoordinates(self.pieceHeld)
+            self.screen.blit(self.spritesheet, (x,y), coord)
 
 
 
