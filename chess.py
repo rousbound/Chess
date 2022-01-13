@@ -352,83 +352,72 @@ class Chess():
             else:
                 King.inCheck = False
 
+    def printTurnDecorator(self):
+        player_turn = "White" if self.turn else "Black"
+        print(f"{player_turn}'s turn to move!")
+        print(self.board.print_board())
+
+    def playCLI(self, getMove):
+        while self.gameRunning:
+            self.printTurnDecorator()
+            self.legalMoves = self.getLegalMoves()
+            print("LegalMoves:", self.legalMoves)
+            uci_move = getMove()
+            if uci_move in self.legalMoves:
+                index_start, index_to, promotion = utils.splitUci2indices(uci_move)
+            elif uci_move == "EOF":
+                break
+            else:
+                print("Illegal or impossible move")
+                continue
+
+            if not chess.gameRunning:
+                break
+
+
+            self.move(uci_move, index_start, index_to, promotion)
+
+    def playGUI(self):
+        import GUI
+        logging.basicConfig(filename='log/guiLog.log', level=logging.DEBUG)
+        gui = GUI.GUI(self.board,640,640,self)
+        gui.main()
+
+
+    def playBruteForce(self):
+        import time
+        logging.basicConfig(filename='log/testBrute.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
+        depth = sys.argv[2]
+        logging.info(f"Initiating move generation test on depth: {depth}")
+        l = []
+        start = time.time()
+        for i in range(1,int(depth)+1):
+            result = self.moveGenerationTest(i)
+            l.append(result)
+            logging.info(f"Result of possible games with {i} ply: {result}")
+        logging.info(f"Elapsed time: {time.time() - start}")
+
 
 
     def main(self):
 
         arg = sys.argv[1]
 
-        if arg == "-cli":
-            getMove = self.getMovePlayer
-        elif arg == "-r":
-            getMove = self.getMoveRandom
-        elif arg == "-cligui":
-            import GUI
-            gui = GUI.GUI(self.board,640,640,self)
-            getMove = self.getMovePlayer
-
-            while chess.gameRunning:
-                player_turn = "White" if self.turn else "Black"
-                print(f"{player_turn}'s turn to move!")
-                print(self.board.print_board())
-                gui.mainUnplayable(0.3)
-                self.legalMoves = self.getLegalMoves()
-                print("LegalMoves:", self.legalMoves)
-                uci_move = getMove()
-                print("Move:", uci_move)
-                if uci_move in self.legalMoves:
-                    index_start, index_to, promotion = utils.splitUci2indices(uci_move)
-                else:
-                    print("Illegal or impossible move")
-                    continue
-
-                if not self.gameRunning:
-                    break
-
-                self.move(uci_move, index_start, index_to, promotion)
-
-
         if arg == "-cli" or arg == "-r":
+            if arg == "-cli":
+                getMove = self.getMovePlayer
+            elif arg == "-r":
+                getMove = self.getMoveRandom
 
-            while chess.gameRunning:
-                player_turn = "White" if self.turn else "Black"
-                print(f"{player_turn}'s turn to move!")
-                print(self.board.print_board())
-                self.legalMoves = self.getLegalMoves()
-                print("LegalMoves:", self.legalMoves)
-                uci_move = getMove()
-                if uci_move in self.legalMoves:
-                    index_start, index_to, promotion = utils.splitUci2indices(uci_move)
-                elif uci_move == "EOF":
-                    break
-                else:
-                    print("Illegal or impossible move")
-                    continue
+            self.playCLI(getMove)
 
-                if not chess.gameRunning:
-                    break
-
-
-                self.move(uci_move, index_start, index_to, promotion)
         if arg == "-gui":
-            logging.basicConfig(filename='guiLog.log', level=logging.DEBUG)
-            import GUI
-            gui = GUI.GUI(self.board,640,640,self)
-            gui.main()
 
+            self.playGUI()
 
         elif arg == "-b":
-            logging.basicConfig(filename='testBrute.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
-            depth = sys.argv[2]
-            logging.info(f"Initiating move generation test on depth: {depth}")
-            l = []
-            import time
-            start = time.time()
-            for i in range(1,int(depth)+1):
-                result = self.moveGenerationTest(i)
-                l.append(result)
-                logging.info(f"Result of possible games with {i} ply: {result}")
-            logging.info(f"Elapsed time: {time.time() - start}")
+
+            self.playBruteForce()
 
             
 

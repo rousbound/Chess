@@ -52,9 +52,9 @@ class Piece():
         self.y = pos[1]
 
     def move(self, to, board):
-        board.board[self.x][self.y] = None
-        captured_piece = board.board[to[0]][to[1]]
-        board.board[to[0]][to[1]]= self
+        board[self.x, self.y] = None
+        captured_piece = board[to[0],to[1]]
+        board[to[0],to[1]]= self
         self.x = to[0]
         self.y = to[1]
         return captured_piece
@@ -75,8 +75,8 @@ class Piece():
         if not ( 0 <= move[0] <= 7 and 0 <= move[1] <= 7):
             return False
         else:
-            if board.board[move[0]][move[1]]:
-                if board.board[move[0]][move[1]].color == self.color:
+            if board[move[0],move[1]]:
+                if board[move[0],move[1]].color == self.color:
                     return False
         return True
 
@@ -85,8 +85,8 @@ class Piece():
         for i in range(1,8):
             x,y = self.x-i, self.y-i
             if x <= 7 and y <= 7 and x>=0 and y>=0:
-                if board.board[x][y]:
-                    if board.board[x][y].color == self.color:
+                if board[x,y]:
+                    if board[x,y].color == self.color:
                         break
                     else:
                         moves.add((x,y))
@@ -96,8 +96,8 @@ class Piece():
         for i in range(1,8):
             x,y = self.x+i,self.y+i
             if x <= 7 and y <= 7 and x>=0 and y>=0:
-                if board.board[x][y]:
-                    if board.board[x][y].color == self.color:
+                if board[x,y]:
+                    if board[x,y].color == self.color:
                         break
                     else:
                         moves.add((x,y))
@@ -107,8 +107,8 @@ class Piece():
         for i in range(1,8):
             x,y = self.x+i,self.y-i
             if x <= 7 and y <= 7 and x>=0 and y>=0:
-                if board.board[x][y]:
-                    if board.board[x][y].color == self.color:
+                if board[x,y]:
+                    if board[x,y].color == self.color:
                         break
                     else:
                         moves.add((x,y))
@@ -118,8 +118,8 @@ class Piece():
         for i in range(1,8):
             x,y = self.x-i,self.y+i
             if x <= 7 and y <= 7 and x>=0 and y>=0:
-                if board.board[x][y]:
-                    if board.board[x][y].color == self.color:
+                if board[x,y]:
+                    if board[x,y].color == self.color:
                         break
                     else:
                         moves.add((x,y))
@@ -132,8 +132,8 @@ class Piece():
     def get_ortogonal_moves(self, board):
         moves = []
         for i in range(1, self.x+1):
-            if board.board[self.x-i][self.y]:
-                if board.board[self.x-i][self.y].color == self.color:
+            if board[self.x-i,self.y]:
+                if board[self.x-i,self.y].color == self.color:
                     break
                 else:
                     moves.append((self.x-i,self.y))
@@ -141,8 +141,8 @@ class Piece():
             else:
                 moves.append((self.x-i,self.y))
         for i in range(1, 7-self.x+1):
-            if board.board[self.x+i][self.y]:
-                if board.board[self.x+i][self.y].color == self.color:
+            if board[self.x+i,self.y]:
+                if board[self.x+i,self.y].color == self.color:
                     break
                 else:
                     moves.append((self.x+i,self.y))
@@ -150,8 +150,8 @@ class Piece():
             else:
                 moves.append((self.x+i,self.y))
         for i in range(1, self.y+1):
-            if board.board[self.x][self.y-i]:
-                if board.board[self.x][self.y-i].color == self.color:
+            if board[self.x,self.y-i]:
+                if board[self.x,self.y-i].color == self.color:
                     break
                 else:
                     moves.append((self.x,self.y-i))
@@ -159,8 +159,8 @@ class Piece():
             else:
                 moves.append((self.x,self.y-i))
         for i in range(1, 7-self.y+1):
-            if board.board[self.x][self.y+i]:
-                if board.board[self.x][self.y+i].color == self.color:
+            if board[self.x,self.y+i]:
+                if board[self.x,self.y+i].color == self.color:
                     break
                 else:
                     moves.append((self.x,self.y+i))
@@ -317,18 +317,18 @@ class Pawn(Piece):
         ahead = 1 if self.color else -1
         candidate_moves = []
         if self.first_move:
-            if board.board[self.x][self.y - ahead] == None:
-                if board.board[self.x][self.y - (2*ahead)] == None:
+            if board[self.x,self.y - ahead] == None:
+                if board[self.x,self.y - (2*ahead)] == None:
                     candidate_moves.append((self.x, self.y - (2*ahead)))
             
         if 0 <= self.y-ahead <= 7:
-            if board.board[self.x][self.y - ahead] == None:
+            if board[self.x,self.y - ahead] == None:
                 candidate_moves.append((self.x, self.y - ahead))
 
             for side in [1,-1]:
                 if 0 <= self.x + side <= 7:
-                    if board.board[self.x + side][self.y - ahead]:
-                        if board.board[self.x + side][self.y - ahead].color != self.color:
+                    if board[self.x + side,self.y - ahead]:
+                        if board[self.x + side,self.y - ahead].color != self.color:
                             candidate_moves.append((self.x + side, self.y - ahead))
                     else:
                         # If there is no piece maybe there is ghostpawn
@@ -400,7 +400,7 @@ class King(Piece):
                     for square in squaresList:
                         # If square doesnt have pieces,
                         # check if they are controlled by enemy pieces
-                        if not board.board[square[0]][square[1]]:
+                        if not board[square[0],square[1]]:
                             if square in enemyMoves:
                                 castleEnabled = False
                         # Else, castling not possible

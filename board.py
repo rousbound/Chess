@@ -96,6 +96,8 @@ class Board():
         return hash(self.board2str())
 
 
+    def __setitem__(self, key, value):
+        self.board[key[0]][key[1]] = value
                     
 
     def __getitem__(self, item):
@@ -135,6 +137,7 @@ class Board():
         buffer = ""
         for i in range(33):
             buffer += "*"
+        buffer += "\n"
         for i in range(len(self.board)):
             tmp_str = f"{8-i}|"
             for j in range(len(self.board)):
@@ -146,12 +149,14 @@ class Board():
                     else:
                         tmp_str += (" " + str(self.board[j][i]).lower() + " |")
 
-            print(tmp_str)
+            buffer += tmp_str + "\n"
         for i in range(8):
-            buffer += f"  {s[i]} "
+            buffer += f"   {s[i]}" 
+        buffer += "\n"
 
         for i in range(33):
-            buffer += "*"
+            buffer += "*" 
+        buffer += "\n"
         return buffer
 
         
