@@ -97,7 +97,7 @@ class GUI():
 
                 pygame.draw.rect(self.screen,squareColor,(i*self.cell,j*self.cell,self.cell,self.cell))
 
-                piece = self.board.board[i][j]
+                piece = self.board[i, j]
                 if piece:
                     coord = self.getPieceSpriteCoordinates(piece)
                     if not piece.pieceHeld:
@@ -108,21 +108,20 @@ class GUI():
 
         if self.pieceHeld:
             piece_moves = self.pieceHeld.get_valid_moves(self.board)
-            for to in piece_moves:
-                start = self.pieceHeld.get_pos()
-                uci_move = "".join(utils.mat2uci([start, to]))
-                if uci_move in self.game.legalMoves:
-                    if self.board.board[to[0]][to[1]]:
+            for move in piece_moves:
+                if move in self.game.legalMoves:
+                    to = move[1]
+                    if self.board[to]:
                         x = ((to[0])*self.cell) 
                         y = ((to[1])*self.cell)
                         if self.pieceHeld:
-                            if (to[0],to[1]) == self.getMousePos():
+                            if to == self.getMousePos():
                                 if (to[0] + to[1]) % 2 == 0:
                                     squareColor = self.capturingSquareBright
                                 else:
                                     squareColor = self.capturingSquareDark
                                 pygame.draw.rect(self.screen,squareColor,(to[0]*self.cell,to[1]*self.cell,self.cell,self.cell))
-                                piece_capturing = self.board.board[to[0]][to[1]]
+                                piece_capturing = self.board[to]
                                 if piece_capturing:
                                     coord = self.getPieceSpriteCoordinates(piece_capturing)
                                     piece_pixel_pos = self.getPiecePixelPos(piece_capturing)
@@ -133,7 +132,7 @@ class GUI():
                                 else:
                                     squareColor = self.squareDark
                                 pygame.draw.rect(self.screen,squareColor,(to[0]*self.cell,to[1]*self.cell,self.cell,self.cell))
-                                piece_capturing = self.board.board[to[0]][to[1]]
+                                piece_capturing = self.board[to]
                                 coord = self.getPieceSpriteCoordinates(piece_capturing)
                                 piece_pixel_pos = self.getPiecePixelPos(piece_capturing)
                                 self.screen.blit(self.spritesheet, piece_pixel_pos, coord)
@@ -169,31 +168,36 @@ class GUI():
 
         self.game.legalMoves = self.game.getLegalMoves()
         i,j = self.getMousePos()
-        piece = self.board.board[i][j]
+        piece = self.board[i,j]
         if piece:
+            print("Piece held:", piece.get_pos())
             if piece.color == self.game.turn:
                 piece.pieceHeld = True
                 self.pieceHeld = piece
 
     def drop_piece(self):
+        print("Drop piece")
 
         if self.pieceHeld:
             to = self.getMousePos()
-            start = (self.pieceHeld.x, self.pieceHeld.y)
-            uci_move = "".join(utils.mat2uci([start,to]))
-            if uci_move in self.game.legalMoves:
-                index_start, index_to, promotion = utils.splitUci2indices(uci_move)
-                self.lastMoveTo = index_to
-                self.lastMoveFrom = index_start
-                self.game.move(uci_move, index_start, index_to, promotion)
+            start = self.pieceHeld.get_pos()
+            indexMove = (start, to)
+            legalMove = None
+            for move in self.game.legalMoves:
+                if indexMove == (move[0],move[1]):
+                    legalMove = move
+            if legalMove:
+                print("LegalMove:", legalMove)
+                self.lastMoveTo = to
+                self.lastMoveFrom = start
+                self.game.playMove(legalMove)
                 print("Current player to play:", self.game.turn)
                 self.game.kingsInCheck()
+                print("getting legal moves:")
                 self.game.legalMoves = self.game.getLegalMoves()
-                print("Legal Moves:", self.game.movesList)
                 print("Legal Moves:", self.game.legalMoves)
-                print("Ghost Pawn:", self.board.getGhostPawn(not self.game.turn))
-                self.board.deactivateGhostPawn(self.game.turn)
-                self.board.print_board()
+                # self.board.deactivateGhostPawn(self.game.turn)
+                print(self.board.print_board())
             else:
                 print("Illegal move, try again")
 
@@ -202,7 +206,7 @@ class GUI():
 
 
     def main(self):
-        self.game.legalMoves = self.game.getLegalMoves()
+        # self.game.legalMoves = self.game.getLegalMoves()
         while self.game.gameRunning:
             self.screen.fill((0, 0, 0))
             self.draw()

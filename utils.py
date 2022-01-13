@@ -12,7 +12,7 @@ def mat2uci(l):
         l2.append(a+b)
     return l2
 
-def splitUci2indices(uci_move):
+def splitUci2move(uci_move):
     match = re.match(r"([a-h][1-8])([a-h][1-8])([qbnr]?)", uci_move)
     """
     Translates traditional board coordinates of chess into list indices
@@ -26,4 +26,7 @@ def splitUci2indices(uci_move):
         col = coord[0] # X: Letter
         col = "abcdefgh".find(col) # Find Index
         yield (col,row)
-    yield promotion
+    if promotion:
+        yield promotion
+    else:
+        yield 0
