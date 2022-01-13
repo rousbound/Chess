@@ -6,6 +6,8 @@ import time
 import re
 import sys
 import copy
+import logging
+
             
 class Chess():
     """
@@ -29,8 +31,8 @@ class Chess():
     legalMoves : list[str]
         List of current legal moves
 
-    movesWithoutCaptures : int
-        Counter of moves without captures, relevant for draw criteria
+    movesWithoutCapturesOrPawnMovements : int
+        Counter of moves without captures, or pawn movements relevant for draw criteria
 
 
     Methods:
@@ -69,7 +71,7 @@ class Chess():
         self.gameRunning = True
         self.movesList = []
         self.legalMoves = []
-        self.movesWithoutCaptures = 0
+        self.movesWithoutCapturesOrPawnMovements = 0
         self.boardStates = {True: [], False: []}
         self.castlingRights = [True, True]
 
@@ -92,7 +94,7 @@ class Chess():
             Ex: (2,4)
         """
 
-        target_piece = self.board.board[start[0]][start[1]]
+        target_piece = self.board[start[0],start[1]]
 
         if target_piece.name == "P":
             # This move was pawn double movement
@@ -101,12 +103,12 @@ class Chess():
             else:
                 # Capture happened, detect if was En Passeant and delete captured pawn
                 if abs(to[0]-start[0]) == 1 and abs(to[1]-start[1]) == 1:
-                    if self.board.board[to[0]][to[1]] == None:
+                    if self.board[to[0],to[1]] == None:
                         if to == self.board.getGhostPawn(not self.turn):
                             if target_piece.color:
-                                self.board.board[to[0]][to[1]+1] = None
+                                self.board[to[0],to[1]+1] = None
                             else:
-                                self.board.board[to[0]][to[1]-1] = None
+                                self.board[to[0],to[1]-1] = None
             # Promotion logic
             if promotion:
                 if target_piece.color and to[1] == 0:
@@ -122,25 +124,27 @@ class Chess():
                 elif promotion == "n":
                     promoted_piece = piece.Knight(color,target_piece.x,target_piece.y)
                 target_piece = promoted_piece
+            self.movesWithoutCapturesOrPawnMovement = 0
+
         # Castling logic
         if target_piece.name == "K":
             # RightCastling
             if to[0]-start[0] > 1:
                 if target_piece.color:
-                    rook = self.board.board[7][7] 
+                    rook = self.board[7,7] 
                     rook.move((5,7), self.board)
                 else:
-                    rook = self.board.board[7][0] 
+                    rook = self.board[7,0] 
                     rook.move((5,0), self.board)
                 self.boardStates[self.turn] = []
 
             # LeftCastling
             elif to[0]-start[0] < -1:
                 if target_piece.color:
-                    rook = self.board.board[0][7] 
+                    rook = self.board[0,7] 
                     rook.move((3,7), self.board)
                 else:
-                    rook = self.board.board[0][0] 
+                    rook = self.board[0,0] 
                     rook.move((3,0), self.board)
                 self.boardStates[self.turn] = []
             if target_piece.first_move == True:
@@ -152,12 +156,12 @@ class Chess():
 
         captured_piece = target_piece.move(to, self.board)
         if captured_piece:
-            self.movesWithoutCaptures = 0
+            self.movesWithoutCapturesOrPawnMovements = 0
         else:
-            self.movesWithoutCaptures += 1
+            self.movesWithoutCapturesOrPawnMovements += 1
         self.movesList.append(move)
         self.boardStates[self.turn].append(copy.deepcopy(self.board))
-        self.checkThreeFoldStalemate()
+        self.checkThreeFoldRepetition()
         self.turn = not self.turn
         self.board.turn = not self.board.turn
         # Remove first_move from pieces
@@ -165,17 +169,14 @@ class Chess():
             target_piece.first_move = False
         # print(" ".join(self.movesList))
 
-    def checkThreeFoldStalemate(self):
-        print(self.boardStates)
+    def checkThreeFoldRepetition(self):
         for color, boardStates in self.boardStates.items():
             boardStatesCounter = {}
-            for board in boardStates:
-                print("HASH:", hash(board))
+            for board in boardStates[-6:]:
                 if board in boardStatesCounter.keys():
                     boardStatesCounter[board] += 1
                 else:
                     boardStatesCounter[board] = 1
-            print(boardStatesCounter)
             for key, val in boardStatesCounter.items():
                 if val >= 3:
                     self.gameRunning = False
@@ -189,7 +190,7 @@ class Chess():
         legalMoves = []
         for i in range(8):
             for j in range(8):
-                piece = self.board.board[i][j]
+                piece = self.board[i,j]
                 if piece:
                     if piece.color == self.turn:
                         piece_targets = piece.get_valid_moves(self.board)
@@ -225,7 +226,7 @@ class Chess():
         enemyControlledSquares = self.board.getControlledSquares(not self.turn)
         # If there is no legal moves while not in check,
         # there is stalemate, otherwise, checkmate
-        if self.movesWithoutCaptures == 50:
+        if self.movesWithoutCapturesOrPawnMovements == 50:
             print("DRAW -- 50 moves without captures")
             self.gameRunning = False
             pass
@@ -369,7 +370,7 @@ class Chess():
             while chess.gameRunning:
                 player_turn = "White" if self.turn else "Black"
                 print(f"{player_turn}'s turn to move!")
-                self.board.print_board()
+                print(self.board.print_board())
                 gui.mainUnplayable(0.3)
                 self.legalMoves = self.getLegalMoves()
                 print("LegalMoves:", self.legalMoves)
@@ -392,7 +393,7 @@ class Chess():
             while chess.gameRunning:
                 player_turn = "White" if self.turn else "Black"
                 print(f"{player_turn}'s turn to move!")
-                self.board.print_board()
+                print(self.board.print_board())
                 self.legalMoves = self.getLegalMoves()
                 print("LegalMoves:", self.legalMoves)
                 uci_move = getMove()
@@ -410,19 +411,24 @@ class Chess():
 
                 self.move(uci_move, index_start, index_to, promotion)
         if arg == "-gui":
+            logging.basicConfig(filename='guiLog.log', level=logging.DEBUG)
             import GUI
             gui = GUI.GUI(self.board,640,640,self)
             gui.main()
 
 
         elif arg == "-b":
+            logging.basicConfig(filename='testBrute.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
             depth = sys.argv[2]
-            print(f"Initiating move generation test on depth: {depth}")
+            logging.info(f"Initiating move generation test on depth: {depth}")
             l = []
+            import time
+            start = time.time()
             for i in range(1,int(depth)+1):
                 result = self.moveGenerationTest(i)
                 l.append(result)
-                print(f"Result of possible games with {i} ply:",result)
+                logging.info(f"Result of possible games with {i} ply: {result}")
+            logging.info(f"Elapsed time: {time.time() - start}")
 
             
 

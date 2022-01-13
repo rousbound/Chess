@@ -135,7 +135,6 @@ class Board():
         buffer = ""
         for i in range(33):
             buffer += "*"
-        print(buffer)
         for i in range(len(self.board)):
             tmp_str = f"{8-i}|"
             for j in range(len(self.board)):
@@ -148,15 +147,12 @@ class Board():
                         tmp_str += (" " + str(self.board[j][i]).lower() + " |")
 
             print(tmp_str)
-        buffer = " "
         for i in range(8):
             buffer += f"  {s[i]} "
-        print(buffer)
 
-        buffer = ""
         for i in range(33):
             buffer += "*"
-        print(buffer)
+        return buffer
 
         
 
