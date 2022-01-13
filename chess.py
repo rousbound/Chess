@@ -70,7 +70,8 @@ class Chess():
         self.movesList = []
         self.legalMoves = []
         self.movesWithoutCaptures = 0
-        self.boardStates = []
+        self.boardStates = {True: [], False: []}
+        self.castlingRights = [True, True]
 
 
 
@@ -92,9 +93,6 @@ class Chess():
         """
 
         target_piece = self.board.board[start[0]][start[1]]
-        # Remove first_move from pieces
-        if target_piece.name in ["P","R","K"]:
-            target_piece.first_move = False
 
         if target_piece.name == "P":
             # This move was pawn double movement
@@ -134,6 +132,7 @@ class Chess():
                 else:
                     rook = self.board.board[7][0] 
                     rook.move((5,0), self.board)
+                self.boardStates[self.turn] = []
 
             # LeftCastling
             elif to[0]-start[0] < -1:
@@ -143,17 +142,47 @@ class Chess():
                 else:
                     rook = self.board.board[0][0] 
                     rook.move((3,0), self.board)
+                self.boardStates[self.turn] = []
+            if target_piece.first_move == True:
+                self.boardStates[self.turn] = []
+                self.boardStates[not self.turn] = []
+            target_piece.first_move = False
 
 
 
-        self.turn = not self.turn
         captured_piece = target_piece.move(to, self.board)
         if captured_piece:
             self.movesWithoutCaptures = 0
         else:
             self.movesWithoutCaptures += 1
         self.movesList.append(move)
+        self.boardStates[self.turn].append(copy.deepcopy(self.board))
+        self.checkThreeFoldStalemate()
+        self.turn = not self.turn
+        self.board.turn = not self.board.turn
+        # Remove first_move from pieces
+        if target_piece.name in ["P","R","K"]:
+            target_piece.first_move = False
         # print(" ".join(self.movesList))
+
+    def checkThreeFoldStalemate(self):
+        print(self.boardStates)
+        for color, boardStates in self.boardStates.items():
+            boardStatesCounter = {}
+            for board in boardStates:
+                print("HASH:", hash(board))
+                if board in boardStatesCounter.keys():
+                    boardStatesCounter[board] += 1
+                else:
+                    boardStatesCounter[board] = 1
+            print(boardStatesCounter)
+            for key, val in boardStatesCounter.items():
+                if val >= 3:
+                    self.gameRunning = False
+                    print("DRAW -- Three fold repetition")
+                    pass
+
+
 
 
     def getLegalMoves(self):
@@ -197,21 +226,21 @@ class Chess():
         # If there is no legal moves while not in check,
         # there is stalemate, otherwise, checkmate
         if self.movesWithoutCaptures == 50:
-            # print("DRAW -- 50 moves without captures")
+            print("DRAW -- 50 moves without captures")
             self.gameRunning = False
             pass
         if len(legalMoves) == 0:
             if (friendKing.x,friendKing.y) not in enemyControlledSquares:
                 self.gameRunning = False
-                # print("DRAW -- Stalemate")
+                print("DRAW -- Stalemate")
             else:
                 self.gameRunning = False
-                # print("CHECKMATE!!!!")
+                print("CHECKMATE!!!!")
                 if self.turn:
-                    # print("BLACK WINS!!!")
+                    print("BLACK WINS!!!")
                     pass
                 else:
-                    # print("WHITE WINS!!!")
+                    print("WHITE WINS!!!")
                     pass
         self.checkMaterialDraw()
         return legalMoves
@@ -224,27 +253,27 @@ class Chess():
                     piecesLeft.append(piece)
         if not piecesLeft:
             self.gameRunning = False
-            # print("DRAW -- Only kings left")
+            print("DRAW -- Only kings left")
         if len(piecesLeft) == 1:
             piece = piecesLeft[0]
             if piece.name == "B":
-                # print("DRAW -- King and Bishop cannot checkmate")
+                print("DRAW -- King and Bishop cannot checkmate")
                 self.gameRunning = False
             if piece.name == "N":
-                # print("DRAW -- King and Knight cannot checkmate")
+                print("DRAW -- King and Knight cannot checkmate")
                 self.gameRunning = False
         if len(piecesLeft) == 2:
             piece1 = piecesLeft[0]
             piece2 = piecesLeft[1]
             if piece1.color != piece2.color:
                 if piece1.name == "B" and piece1.name == "B":
-                    # print("DRAW -- King and Bishop vs King and Bishop cannot checkmate")
+                    print("DRAW -- King and Bishop vs King and Bishop cannot checkmate")
                     self.gameRunning = False
                 elif piece1.name == "B" and piece1.name == "N":
-                    # print("DRAW -- King and Bishop vs King and Knight cannot checkmate")
+                    print("DRAW -- King and Bishop vs King and Knight cannot checkmate")
                     self.gameRunning = False
                 elif piece1.name == "N" and piece1.name == "B":
-                    # print("DRAW -- King and Knight vs King and Bishop cannot checkmate")
+                    print("DRAW -- King and Knight vs King and Bishop cannot checkmate")
                     self.gameRunning = False
 
                 # Although having two Knights does not imply forced checkmate, 

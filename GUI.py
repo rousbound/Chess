@@ -189,6 +189,7 @@ class GUI():
                 print("Current player to play:", self.game.turn)
                 self.game.kingsInCheck()
                 self.game.legalMoves = self.game.getLegalMoves()
+                print("Legal Moves:", self.game.movesList)
                 print("Legal Moves:", self.game.legalMoves)
                 print("Ghost Pawn:", self.board.getGhostPawn(not self.game.turn))
                 self.board.deactivateGhostPawn(self.game.turn)

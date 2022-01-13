@@ -35,6 +35,7 @@ class Board():
         """
 
         self.board = []
+        self.turn = True
 
         # Board set-up
         for i in range(8):
@@ -67,6 +68,35 @@ class Board():
 
         for i in range(8):
             self.board[i][1] = piece.Pawn(False,i,1)
+
+
+    def board2str(self):
+        boardstr = ""
+        getcolor = {True:"W", False:"B"}
+        for i in range(8):
+            for j in range(8):
+                piece = self[i,j]
+                if piece:
+                    boardstr += getcolor[piece.color] + piece.name
+                else:
+                    boardstr += "%"
+        return boardstr
+
+
+
+    def __eq__(self, otherBoard):
+        equal = True
+        if self.board2str() != otherBoard.board2str():
+            equal = False
+        if self.turn != otherBoard.turn:
+            equal = False
+        return equal
+    
+    def __hash__(self):
+        return hash(self.board2str())
+
+
+                    
 
     def __getitem__(self, item):
         return self.board[item[0]][item[1]]
