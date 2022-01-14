@@ -110,13 +110,13 @@ class Chess():
             if move[2] in ["qrbn"]:
                 color = selected_piece.color
                 if promotion == "q":
-                    promoted_piece = piece.Queen(color,selected_piece.x,selected_piece.y)
+                    promoted_piece = piece.Queen(color, selected_piece.x, selected_piece.y)
                 elif promotion == "r":
-                    promoted_piece = piece.Rook(color,selected_piece.x,selected_piece.y, first_move=False)
+                    promoted_piece = piece.Rook(color, selected_piece.x, selected_piece.y, first_move=False)
                 elif promotion == "b":
-                    promoted_piece = piece.Bishop(color,selected_piece.x,selected_piece.y)
+                    promoted_piece = piece.Bishop(color, selected_piece.x, selected_piece.y)
                 elif promotion == "n":
-                    promoted_piece = piece.Knight(color,selected_piece.x,selected_piece.y)
+                    promoted_piece = piece.Knight(color, selected_piece.x, selected_piece.y)
                 selected_piece = promoted_piece
         if selected_piece == "P":
             self.movesWithoutCapturesOrPawnMovement = 0
@@ -339,7 +339,7 @@ class Chess():
             King = self.board.getKingPiece(color)
             controlledSquares = self.board.getControlledSquares(not color)
             
-            if (King.x,King.y) in controlledSquares:
+            if King.get_pos() in controlledSquares:
                 King.inCheck = True
             else:
                 King.inCheck = False
@@ -355,12 +355,13 @@ class Chess():
             self.legalMoves = self.getLegalMoves()
             print("LegalMoves:", self.legalMoves)
 
+            # Move from user = ((4,4),(4,6),[qrbn]?))
             indexMove = tuple(getMove())
-            indexMove = (indexMove[0],indexMove[1])
 
+            # Move from user = ((4,4),(4,6),[qrbn]?[lc]?[rc]?[dpm]?[ep]))
             legalMove = None
             for move in self.legalMoves:
-                if indexMove == (move[0],move[1]):
+                if (indexMove[0],indexMove[1]) == (move[0],move[1]):
                     legalMove = move
             print("LegalMove:", legalMove)
 

@@ -196,7 +196,7 @@ class GUI():
                 print("getting legal moves:")
                 self.game.legalMoves = self.game.getLegalMoves()
                 print("Legal Moves:", self.game.legalMoves)
-                # self.board.deactivateGhostPawn(self.game.turn)
+                self.board.deactivateGhostPawn(self.game.turn)
                 print(self.board.print_board())
             else:
                 print("Illegal move, try again")

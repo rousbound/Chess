@@ -188,9 +188,9 @@ class Board():
                 if otherpiece.color == color:
                     if otherpiece.name != "K":
                         for move in otherpiece.get_valid_moves(self):
-                            enemyMoves.add(move)
+                            enemyMoves.add(move[1])
                     if otherpiece.name == "K":
                         for move in otherpiece.getNormalValidMoves(self):
-                            enemyMoves.add(move)
+                            enemyMoves.add(move[1])
         return list(enemyMoves)
 
