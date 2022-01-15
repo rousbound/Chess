@@ -270,7 +270,6 @@ class Queen(Piece):
     def __init__(self, color, x,y,  first_move = True):
         super().__init__(color,x,y)
         self.name = "Q"
-        self.first_move = first_move 
         self.moves = []
         self.x = x
         self.y = y

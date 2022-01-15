@@ -11,7 +11,6 @@ class GUI():
     def __init__(self, board, width, height, game, playable=True):
         pygame.init()
 
-        self.fps = 60
         self.cell : int = width//8
         self.game : object = game
         self.playable : bool = playable
@@ -20,8 +19,8 @@ class GUI():
 
         self.board : object = board 
         self.spritesheet = pygame.image.load("res/pieces.png").convert_alpha()
-        self.capture = pygame.image.load("res/capture2.png").convert_alpha()
-        self.check = pygame.image.load("res/Check.png").convert_alpha()
+        self.captureVisualIndicator = pygame.image.load("res/capture2.png").convert_alpha()
+        self.inCheckVisualIndicator = pygame.image.load("res/Check.png").convert_alpha()
         self.lastMoveFrom = None
         self.lastMoveTo = None
 
@@ -96,7 +95,7 @@ class GUI():
                     if not piece.pieceHeld:
                         piece_pixel_pos = self.getPiecePixelPos(piece)
                         if piece.name == "K" and piece.inCheck:
-                            self.screen.blit(self.check, piece_pixel_pos)
+                            self.screen.blit(self.inCheckVisualIndicator, piece_pixel_pos)
                         self.screen.blit(self.spritesheet, piece_pixel_pos, coord)
 
         if self.pieceHeld:
@@ -129,7 +128,7 @@ class GUI():
                                 coord = self.getPieceSpriteCoordinates(piece_capturing)
                                 piece_pixel_pos = self.getPiecePixelPos(piece_capturing)
                                 self.screen.blit(self.spritesheet, piece_pixel_pos, coord)
-                                self.screen.blit(self.capture, (x,y))
+                                self.screen.blit(self.captureVisualIndicator, (x,y))
                         
                     else:
                         if self.pieceHeld:
