@@ -1,10 +1,10 @@
 import pygame
-from PIL import ImageColor
 from pygame.locals import *
 import sys
 
 import utils
 import time
+import colors
 
 class GUI():
 
@@ -12,13 +12,13 @@ class GUI():
         pygame.init()
 
         self.fps = 60
-        self.cell = width//8
-        self.game = game
-        self.playable = playable
+        self.cell : int = width//8
+        self.game : object = game
+        self.playable : bool = playable
 
         self.screen = pygame.display.set_mode((width, height))
 
-        self.board = board
+        self.board : object = board 
         self.spritesheet = pygame.image.load("res/pieces.png").convert_alpha()
         self.capture = pygame.image.load("res/capture2.png").convert_alpha()
         self.check = pygame.image.load("res/Check.png").convert_alpha()
@@ -43,13 +43,6 @@ class GUI():
         self.xoffset = -1
         self.yoffset = -2
         self.getSpriteSheet()
-        self.squareBright = ImageColor.getrgb("#f0d9b5")
-        self.squareDark = ImageColor.getrgb("#b58863")
-        self.lastMoveSquareDark = ImageColor.getrgb("#aba23b")
-        self.lastMoveSquareBright = ImageColor.getrgb("#cdd26b")
-        self.capturingSquareBright = ImageColor.getrgb("#829769")
-        self.capturingSquareDark = ImageColor.getrgb("#84794e")
-        self.circleColor = ImageColor.getrgb("#718a53")
 
     def getPieceSpriteCoordinates(self, piece):
         pieceColor = "W" if piece.color else "B"
@@ -82,12 +75,12 @@ class GUI():
         for i in range(8):
             for j in range(8):
                 # Original Colors
-                squareBright = self.squareBright
-                squareDark = self.squareDark
+                squareBright = colors.squareBright
+                squareDark = colors.squareDark
                 # If square was involved in last move, change colors
                 if (i,j) == self.lastMoveFrom or (i,j) == self.lastMoveTo:
-                    squareDark = self.lastMoveSquareDark
-                    squareBright = self.lastMoveSquareBright
+                    squareDark = colors.lastMoveSquareDark
+                    squareBright = colors.lastMoveSquareBright
 
                 # Alternate square colors based on i,j
                 if (i + j) % 2 == 0:
@@ -117,9 +110,9 @@ class GUI():
                         if self.pieceHeld:
                             if to == self.getMousePos():
                                 if (to[0] + to[1]) % 2 == 0:
-                                    squareColor = self.capturingSquareBright
+                                    squareColor = colors.capturingSquareBright
                                 else:
-                                    squareColor = self.capturingSquareDark
+                                    squareColor = colors.capturingSquareDark
                                 pygame.draw.rect(self.screen,squareColor,(to[0]*self.cell,to[1]*self.cell,self.cell,self.cell))
                                 piece_capturing = self.board[to]
                                 if piece_capturing:
@@ -128,9 +121,9 @@ class GUI():
                                     self.screen.blit(self.spritesheet, piece_pixel_pos, coord)
                             else:
                                 if (to[0] + to[1]) % 2 == 0:
-                                    squareColor = self.squareBright
+                                    squareColor = colors.squareBright
                                 else:
-                                    squareColor = self.squareDark
+                                    squareColor = colors.squareDark
                                 pygame.draw.rect(self.screen,squareColor,(to[0]*self.cell,to[1]*self.cell,self.cell,self.cell))
                                 piece_capturing = self.board[to]
                                 coord = self.getPieceSpriteCoordinates(piece_capturing)
@@ -143,16 +136,16 @@ class GUI():
                             mouse_pos = self.getMousePos()
                             if (to[0],to[1]) == mouse_pos:
                                 if (to[0] + to[1]) % 2 == 0:
-                                    squareColor = self.capturingSquareBright
+                                    squareColor = colors.capturingSquareBright
                                 else:
-                                    squareColor = self.capturingSquareDark
+                                    squareColor = colors.capturingSquareDark
                                 pygame.draw.rect(self.screen,squareColor,(to[0]*self.cell,to[1]*self.cell,self.cell,self.cell))
                             else:
                                 x = ((to[0]+1)*self.cell) 
                                 y = ((to[1]+1)*self.cell)
                                 x -= 40
                                 y -= 40
-                                pygame.draw.circle(self.screen, self.circleColor, (x,y) , 11, width=0)
+                                pygame.draw.circle(self.screen, colors.circleColor, (x,y) , 11, width=0)
             mouse_pixel_pos = pygame.mouse.get_pos()
             x = mouse_pixel_pos[0] - 40
             y = mouse_pixel_pos[1] - 40

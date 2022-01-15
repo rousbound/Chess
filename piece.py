@@ -35,7 +35,7 @@ class Piece():
         Returns diagonal moves of selected piece
 
     """
-    def __init__(self, color, x,y):
+    def __init__(self, color : bool, x,y):
         self.color = color
         self.name = ""
         self.x = x
@@ -302,6 +302,7 @@ class Pawn(Piece):
         self.moves = []
         self.x = x
         self.y = y
+        self.canEnPasseant = None
 
     def get_valid_moves(self, board):
         # Check promotion function for captures and normal movement
@@ -345,10 +346,9 @@ class Pawn(Piece):
                         enemyGhostPawn = board.getGhostPawn(not self.color)
                         if enemyGhostPawn:
                             if enemyGhostPawn == target:
-                                moves.append((self.get_pos(), target, 0))
-        # Check Promotion
-
-
+                                move = (self.get_pos(), target, 0)
+                                moves.append(move)
+                                canEnPasseant = move
         self.moves = moves
         return self.moves
 
@@ -374,6 +374,7 @@ class King(Piece):
         self.x = x
         self.y = y
         self.inCheck = False
+        self.canCastle = []
 
     
     def getNormalValidMoves(self, board):
@@ -398,6 +399,7 @@ class King(Piece):
         candidate_moves = self.getNormalValidMoves(board)
 
         # Check Castling possibility
+        castleEnabled = True
         if self.first_move:
             for rook in board.getRooks(self.color):
                 if rook.first_move:
@@ -407,7 +409,6 @@ class King(Piece):
                     elif rook.x == 7:
                         squaresList = [(self.x+1,self.y),(self.x+2,self.y)]
                         kingTo = (self.x+2,self.y)
-                    castleEnabled = True
                     for square in squaresList:
                         # If square doesn't have pieces,
                         # check if they are controlled by enemy pieces
@@ -415,10 +416,10 @@ class King(Piece):
                             if square in enemyTargets:
                                 castleEnabled = False
                         # Else, castling not possible
-                        else:
-                            castleEnabled = False
                     if castleEnabled:
-                        candidate_moves.append((self.get_pos(), kingTo, 0))
+                        move = (self.get_pos(), kingTo, 0)
+                        self.canCastle.append(move)
+                        candidate_moves.append(move)
         self.moves = candidate_moves
         return self.moves
 
