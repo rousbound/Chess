@@ -181,16 +181,11 @@ class GUI():
         if self.pieceHeld:
             to = self.getMousePos()
             start = self.pieceHeld.get_pos()
-            indexMove = (start, to)
-            legalMove = None
-            for move in self.game.legalMoves:
-                if indexMove == (move[0],move[1]):
-                    legalMove = move
-            if legalMove:
-                print("LegalMove:", legalMove)
+            move = (start, to, 0)
+            if move in self.game.legalMoves:
                 self.lastMoveTo = to
                 self.lastMoveFrom = start
-                self.game.playMove(legalMove)
+                self.game.playMove(move)
                 print("Current player to play:", self.game.turn)
                 self.game.kingsInCheck()
                 print("getting legal moves:")

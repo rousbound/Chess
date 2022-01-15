@@ -52,7 +52,6 @@ class Piece():
         self.y = pos[1]
 
     def move(self, to, board):
-        print("TO:",to)
         board[self.get_pos()] = None
         captured_piece = board[to]
         board[to]= self
@@ -338,7 +337,7 @@ class Pawn(Piece):
         if self.first_move:
             if not pieceAhead:
                 if not pieceAheadAhead:
-                    moves.append((self.get_pos(), posAheadAhead,"dpm"))
+                    moves.append((self.get_pos(), posAheadAhead, 0))
             
 
         # Check Captures
@@ -359,7 +358,7 @@ class Pawn(Piece):
                         enemyGhostPawn = board.getGhostPawn(not self.color)
                         if enemyGhostPawn:
                             if enemyGhostPawn == target:
-                                moves.append((self.get_pos(), target, "enp"))
+                                moves.append((self.get_pos(), target, 0))
         # Check Promotion
 
 
@@ -419,11 +418,9 @@ class King(Piece):
                     if rook.x == 0:
                         squaresList = [(self.x-2,self.y),(self.x-1,self.y)]
                         kingTo = (self.x-2,self.y)
-                        flag = "lc"
                     elif rook.x == 7:
                         squaresList = [(self.x+1,self.y),(self.x+2,self.y)]
                         kingTo = (self.x+2,self.y)
-                        flag = "rc"
                     castleEnabled = True
                     for square in squaresList:
                         # If square doesn't have pieces,
@@ -435,7 +432,7 @@ class King(Piece):
                         else:
                             castleEnabled = False
                     if castleEnabled:
-                        candidate_moves.append((self.get_pos(), kingTo, flag))
+                        candidate_moves.append((self.get_pos(), kingTo, 0))
         self.moves = candidate_moves
         return self.moves
 

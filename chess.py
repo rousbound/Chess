@@ -96,18 +96,24 @@ class Chess():
 
         selected_piece = self.board[move[0]]
 
-        # Double pawn movement logic
-        if move[2] == "dpm":
-            self.board.activateGhostPawn(selected_piece.get_pos(), selected_piece.color)
+        to = move[1]
+        start = move[0]
+        print(move)
+        if selected_piece.name == "P":
+            # Double pawn movement logic
+            if abs(to[1]-start[1]) > 1:
+                self.board.activateGhostPawn(selected_piece.get_pos(), selected_piece.color)
         
-        # En Passeant logic
-        elif move[2] == "enp":
-            to = move[1]
-            if selected_piece.color:
-                self.board[to[0],to[1]+1] = None
-            else:
-                self.board[to[0],to[1]-1] = None
-            if move[2] in ["qrbn"]:
+            if abs(to[0]-start[0]) == 1 and abs(to[1]-start[1]) == 1:
+                if self.board.board[to[0]][to[1]] == None:
+                    if to == self.board.getGhostPawn(not self.turn):
+                        if selected_piece.color:
+                            self.board[to[0],to[1]+1] = None
+                        else:
+                            self.board[to[0],to[1]-1] = None
+            if str(move[2]) in "qrbn":
+                promotion = move[2]
+                print("promotion")
                 color = selected_piece.color
                 if promotion == "q":
                     promoted_piece = piece.Queen(color, selected_piece.x, selected_piece.y)
@@ -118,13 +124,12 @@ class Chess():
                 elif promotion == "n":
                     promoted_piece = piece.Knight(color, selected_piece.x, selected_piece.y)
                 selected_piece = promoted_piece
-        if selected_piece == "P":
             self.movesWithoutCapturesOrPawnMovement = 0
 
         # Castling logic
 
-        if move[2] in ["lc","rc"]:
-            if "lc":
+        if selected_piece.name == "K":
+            if to[0]-start[0] > 1:
                 if selected_piece.color:
                     rook = self.board[7,7] 
                     rook.move((5,7), self.board)
@@ -133,7 +138,7 @@ class Chess():
                     rook.move((5,0), self.board)
 
             # LeftCastling
-            elif "rc":
+            elif to[0]-start[0] < -1:
                 if selected_piece.color:
                     rook = self.board[0,7] 
                     rook.move((3,7), self.board)
@@ -145,6 +150,7 @@ class Chess():
             if selected_piece.first_move == True:
                 self.boardStates[self.turn] = []
                 self.boardStates[not self.turn] = []
+
 
         print("Move:", move)
         captured_piece = selected_piece.move(move[1], self.board)
@@ -191,8 +197,6 @@ class Chess():
                             origin = move[0]
                             target = move[1]
                             # Do move
-                            print("PIECE:", piece.name)
-                            print("TARGET:", target)
                             captured_piece = piece.move(target,self.board)
 
                             enemyTargets = self.board.getControlledSquares(not self.turn)
@@ -356,23 +360,25 @@ class Chess():
             print("LegalMoves:", self.legalMoves)
 
             # Move from user = ((4,4),(4,6),[qrbn]?))
-            indexMove = tuple(getMove())
+            move = tuple(getMove())
 
             # Move from user = ((4,4),(4,6),[qrbn]?[lc]?[rc]?[dpm]?[ep]))
-            legalMove = None
-            for move in self.legalMoves:
-                if (indexMove[0],indexMove[1]) == (move[0],move[1]):
-                    legalMove = move
-            print("LegalMove:", legalMove)
+            # legalMove = None
+            # for move in self.legalMoves:
+                # if (indexMove[0],indexMove[1]) == (move[0],move[1]):
+                    # legalMove = move
 
-            if not legalMove:
+            print("Move:", move)
+            if move not in self.legalMoves:
                 print("Illegal or impossible move")
-                continue
+                # continue
+                break
+
 
 
             if not chess.gameRunning:
                 break
-            self.playMove(legalMove)
+            self.playMove(move)
 
     def playGUI(self):
         import GUI
@@ -415,6 +421,10 @@ class Chess():
         elif arg == "-b":
 
             self.playBruteForce()
+
+        elif arg == "-cligui":
+
+            pass
 
             
 
