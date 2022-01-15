@@ -93,12 +93,11 @@ class Chess():
             Index of target square
             Ex: (2,4)
         """
-
-        selected_piece = self.board[move[0]]
-
-        to = move[1]
         start = move[0]
-        print(move)
+        to = move[1]
+
+        selected_piece = self.board[start]
+
         if selected_piece.name == "P":
             # Double pawn movement logic
             if abs(to[1]-start[1]) > 1:
@@ -152,8 +151,7 @@ class Chess():
                 self.boardStates[not self.turn] = []
 
 
-        print("Move:", move)
-        captured_piece = selected_piece.move(move[1], self.board)
+        captured_piece = selected_piece.move(to, self.board)
         if captured_piece:
             self.movesWithoutCapturesOrPawnMovements = 0
         else:
@@ -185,6 +183,13 @@ class Chess():
 
 
     def getLegalMoves(self):
+        """
+        Iterate through all pieces of turn color and get it's valid moves. 
+        Then simulate the move and check if King ends in check.
+        If not, it is legal move.
+        After check Draw conditions
+        """
+
         legalMoves = []
         for i in range(8):
             for j in range(8):
@@ -211,9 +216,12 @@ class Chess():
                             if captured_piece:
                                 captured_piece.move(target,self.board)
 
+        return legalMoves
+    
+    def checkEndgameConditions(self):
         # Check if game has met checkmate or draw criteria
         if self.movesWithoutCapturesOrPawnMovements == 50:
-            print("DRAW -- 50 moves without captures")
+            print("DRAW -- 50 moves without captures or pawn movements")
             self.gameRunning = False
             pass
 
@@ -222,7 +230,7 @@ class Chess():
 
         # If there is no legal moves while not in check,
         # there is stalemate, otherwise, checkmate
-        if len(legalMoves) == 0:
+        if len(self.legalMoves) == 0:
             # Not in Check
             if (friendKing.x,friendKing.y) not in enemyControlledSquares:
                 self.gameRunning = False
@@ -239,7 +247,7 @@ class Chess():
         # Check Insufficient material draw
         self.checkMaterialDraw()
         # self.checkThreeFoldRepetition()
-        return legalMoves
+
 
     def checkMaterialDraw(self):
         piecesLeft = []
@@ -288,16 +296,36 @@ class Chess():
         else:
             return match
 
+    def uci2move(uci_move):
+        match = re.match(r"([a-h][1-8])([a-h][1-8])([qbnr]?)", uci_move)
+        """
+        Translates traditional board coordinates of chess into list indices
+        """
+
+        start = match.group(1)
+        end = match.group(2)
+        promotion = match.group(3)
+        for coord in [start,end]:
+            row = abs(int(coord[1])-8) # Y: Number
+            col = coord[0] # X: Letter
+            col = "abcdefgh".find(col) # Find Index
+            yield (col,row)
+        if promotion:
+            yield promotion
+        else:
+            yield 0
+
 
     def getMovePlayer(self):
         """
         Asks the user a move in the format '[a-h][1-8][a-h][1-8][qbnr]?'
+        Returns in the format "move" which is (([0-7],[0-7]),([0-7],[0-7]),[qbnr]|0)
 
         """
         try:
             uci_move = input("Move: ")
             if self.checkMoveGrammar(uci_move):
-                return utils.splitUci2move(uci_move)
+                return self.uci2move(uci_move)
         except:
             return "EOF"
             print("EOF")
@@ -313,6 +341,10 @@ class Chess():
 
 
     def getMoveRandom(self):
+        """
+        Get random move from legal moves
+
+        """
         move = None
         r = random.randint(0,len(self.legalMoves)-1)
         move = self.legalMoves[r]
@@ -320,15 +352,20 @@ class Chess():
 
 
     def moveGenerationTest(self, depth):
+        """
+        Brute force all possible games within a certain ply depth (ply = half-move)
+
+        """
         if depth == 0:
             return 1
         self.legalMoves = self.getLegalMoves()
+        self.checkEndgameConditions()
+
         counter = 0
-        for uci_move in self.legalMoves:
+        for move in self.legalMoves:
             # Make move
-            index_start, index_to, promotion = utils.splitUci2indices(uci_move)
             board = copy.deepcopy(self.board)
-            self.move(uci_move, index_start, index_to, promotion)
+            self.playMove(move)
 
             counter += self.moveGenerationTest(depth-1)
 
@@ -349,6 +386,9 @@ class Chess():
                 King.inCheck = False
 
     def printTurnDecorator(self):
+        """
+            Print which color it is to move and the board state
+        """
         player_turn = "White" if self.turn else "Black"
         print(f"{player_turn}'s turn to move!")
         print(self.board.print_board())
@@ -359,22 +399,11 @@ class Chess():
             self.legalMoves = self.getLegalMoves()
             print("LegalMoves:", self.legalMoves)
 
-            # Move from user = ((4,4),(4,6),[qrbn]?))
             move = tuple(getMove())
 
-            # Move from user = ((4,4),(4,6),[qrbn]?[lc]?[rc]?[dpm]?[ep]))
-            # legalMove = None
-            # for move in self.legalMoves:
-                # if (indexMove[0],indexMove[1]) == (move[0],move[1]):
-                    # legalMove = move
-
-            print("Move:", move)
             if move not in self.legalMoves:
                 print("Illegal or impossible move")
-                # continue
-                break
-
-
+                continue
 
             if not chess.gameRunning:
                 break
@@ -393,12 +422,16 @@ class Chess():
         depth = sys.argv[2]
         logging.info(f"Initiating move generation test on depth: {depth}")
         l = []
-        start = time.time()
+        test_start = time.time()
+        ply_depth_start = time.time()
         for i in range(1,int(depth)+1):
             result = self.moveGenerationTest(i)
             l.append(result)
             logging.info(f"Result of possible games with {i} ply: {result}")
-        logging.info(f"Elapsed time: {time.time() - start}")
+            ply_elapsed_time = str(time.time() - ply_depth_start)[:4]
+            logging.info(f"Elapsed time in {i} ply: {ply_elapsed_time} seconds")
+            ply_depth_start = time.time()
+        logging.info(f"Elapsed time: {time.time() - test_start}")
 
 
 

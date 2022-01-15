@@ -55,18 +55,8 @@ class Piece():
         board[self.get_pos()] = None
         captured_piece = board[to]
         board[to]= self
-        self.x = to[0]
-        self.y = to[1]
+        self.set_pos(to)
         return captured_piece
-    
-    def get_valid_moves_after(self, to , board):
-        origin = (self.x,self.y)
-        captured_piece = self.move(to, board)
-        legal_moves_after = self.get_valid_moves(board)
-        self.move(origin, board)
-        if captured_piece:
-            captured_piece.move(to, board)
-        return legal_moves_after
     
     def __repr__(self):
         return self.name
@@ -250,7 +240,7 @@ class Knight(Piece):
         self.y = y
 
     def get_valid_moves(self, board):
-        moves = [
+        targets = [
                 (self.x + 2, self.y + 1),
                 (self.x + 2, self.y - 1),
                 (self.x - 2, self.y + 1),
@@ -260,7 +250,7 @@ class Knight(Piece):
                 (self.x - 1, self.y + 2),
                 (self.x - 1, self.y - 2),
                 ]
-        moves = [(self.get_pos(), move, 0) for move in moves]
+        moves = [(self.get_pos(), target, 0) for target in targets]
         moves = [move for move in moves if self.moveIsPossible(move[1], board)]
         return moves
         
@@ -288,9 +278,6 @@ class Queen(Piece):
     def get_valid_moves(self, board):
         diag_moves = self.get_diagonal_moves(board)
         ortog_moves = self.get_ortogonal_moves(board)
-        # moves = set()
-        # for move in diag_moves+ortog_moves:
-            # moves.add(move)
         moves = diag_moves + ortog_moves
 
         return moves
@@ -326,10 +313,10 @@ class Pawn(Piece):
                 moves.append((self.get_pos(), target, 0))
             return moves
 
-        ahead = 1 if self.color else -1
+        ahead = -1 if self.color else 1
         lastRow = 0 if self.color else 7
-        posAhead = (self.x, self.y - ahead)
-        posAheadAhead = (self.x, self.y - (2*ahead))
+        posAhead = (self.x, self.y + ahead)
+        posAheadAhead = (self.x, self.y + (2*ahead))
         pieceAhead = board[posAhead]
         pieceAheadAhead = board[posAheadAhead]
         moves = []
@@ -347,7 +334,7 @@ class Pawn(Piece):
 
             for side in [1,-1]:
                 if 0 <= self.x + side <= 7:
-                    target = (self.x + side, self.y - ahead)
+                    target = (self.x + side, self.y + ahead)
                     if board[target]:
                         if board[target].color != self.color:
                             moves = checkPromotion(moves, target)
@@ -410,7 +397,6 @@ class King(Piece):
 
         candidate_moves = self.getNormalValidMoves(board)
 
-        flag = 0
         # Check Castling possibility
         if self.first_move:
             for rook in board.getRooks(self.color):

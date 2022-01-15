@@ -12,7 +12,7 @@ def mat2uci(l):
         l2.append(a+b)
     return l2
 
-def splitUci2move(uci_move):
+def uci2move(uci_move):
     match = re.match(r"([a-h][1-8])([a-h][1-8])([qbnr]?)", uci_move)
     """
     Translates traditional board coordinates of chess into list indices

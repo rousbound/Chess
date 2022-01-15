@@ -164,8 +164,6 @@ class GUI():
 
 
     def get_piece(self):
-
-
         self.game.legalMoves = self.game.getLegalMoves()
         i,j = self.getMousePos()
         piece = self.board[i,j]
@@ -186,13 +184,11 @@ class GUI():
                 self.lastMoveTo = to
                 self.lastMoveFrom = start
                 self.game.playMove(move)
-                print("Current player to play:", self.game.turn)
-                self.game.kingsInCheck()
-                print("getting legal moves:")
+                self.game.kingsInCheck() # To activate king's check visual indicator
                 self.game.legalMoves = self.game.getLegalMoves()
-                print("Legal Moves:", self.game.legalMoves)
+                print("Legal moves:", self.game.legalMoves)
+                self.game.checkEndgameConditions()
                 self.board.deactivateGhostPawn(self.game.turn)
-                print(self.board.print_board())
             else:
                 print("Illegal move, try again")
 
@@ -205,7 +201,6 @@ class GUI():
         while self.game.gameRunning:
             self.screen.fill((0, 0, 0))
             self.draw()
-
 
             for event in pygame.event.get():
                 if event.type == QUIT:

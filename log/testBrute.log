@@ -512,3 +512,33 @@ INFO:root:Result of possible games with 3 ply: 8902
 2022-01-12 22:39:50,606 Result of possible games with 3 ply: 8902
 2022-01-12 22:48:56,078 Result of possible games with 4 ply: 197281
 2022-01-13 02:30:49,006 Result of possible games with 5 ply: 4865824
+2022-01-14 21:50:36,001 Initiating move generation test on depth: 6
+2022-01-14 21:51:21,330 Initiating move generation test on depth: 6
+2022-01-14 21:51:53,272 Initiating move generation test on depth: 6
+2022-01-14 21:52:00,218 Initiating move generation test on depth: 6
+2022-01-14 21:52:00,270 Result of possible games with 1 ply: 20
+2022-01-14 21:52:01,308 Result of possible games with 2 ply: 400
+2022-01-14 21:52:24,665 Result of possible games with 3 ply: 8902
+2022-01-14 21:52:44,522 Initiating move generation test on depth: 6
+2022-01-14 21:52:44,574 Result of possible games with 1 ply: 20
+2022-01-14 21:52:45,606 Result of possible games with 2 ply: 400
+2022-01-14 21:52:58,184 Initiating move generation test on depth: 6
+2022-01-14 21:52:58,233 Result of possible games with 1 ply: 20
+2022-01-14 21:52:59,241 Result of possible games with 2 ply: 400
+2022-01-14 21:53:21,856 Result of possible games with 3 ply: 8902
+2022-01-14 21:57:04,597 Initiating move generation test on depth: 6
+2022-01-14 21:57:04,648 Result of possible games with 1 ply: 20
+2022-01-14 21:57:04,648 Elapsed time in 1 ply: 0.05040121078491211
+2022-01-14 21:57:05,661 Result of possible games with 2 ply: 400
+2022-01-14 21:57:05,661 Elapsed time in 2 ply: 1.0132744312286377
+2022-01-14 21:57:28,117 Result of possible games with 3 ply: 8902
+2022-01-14 21:57:28,117 Elapsed time in 3 ply: 22.45630979537964
+2022-01-14 21:58:04,391 Initiating move generation test on depth: 6
+2022-01-14 21:58:04,443 Result of possible games with 1 ply: 20
+2022-01-14 21:58:04,443 Elapsed time in 1 ply: 0.05 seconds
+2022-01-14 21:58:05,482 Result of possible games with 2 ply: 400
+2022-01-14 21:58:05,482 Elapsed time in 2 ply: 1.03 seconds
+2022-01-14 21:58:29,544 Result of possible games with 3 ply: 8902
+2022-01-14 21:58:29,544 Elapsed time in 3 ply: 24.0 seconds
+2022-01-14 22:08:18,843 Result of possible games with 4 ply: 197281
+2022-01-14 22:08:18,885 Elapsed time in 4 ply: 589. seconds
