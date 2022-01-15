@@ -22,16 +22,16 @@ class Chess():
     turn : bool
         True if white's turn
 
-    gameRunning : bool
+    game_running : bool
         True if none of draw or win conditions are met.
 
-    movesList : list[str]
+    moves_list : list[str]
         Record of game moves in uci format
 
-    legalMoves : list[str]
+    legal_moves : list[str]
         List of current legal moves
 
-    movesWithoutCapturesOrPawnMovements : int
+    no_progress_moves : int
         Counter of moves without captures, or pawn movements relevant for draw criteria
 
 
@@ -41,23 +41,21 @@ class Chess():
     move(move:str, start:tup, to:tup, promotion:str) -> None
         Make move
 
-    getLegalMoves() -> list[tup]
+    get_legal_moves() -> list[tup]
         Check legal moves
 
-    checkMaterialDraw() -> None
+    check_material_draw() -> None
         Check for material-criteria draws
 
-    checkMoveGrammar(uci_move:str) -> start:str, to:str, promotion:str
-        Check grammar of move input by user
 
     uci2indices(start:str, end:str) -> list[tup]
         Convert uci2indices
         Ex: "e2" "e4" -> [(4,6),(4,4)]
 
-    getMoveRandom(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
+    get_move_random(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
         Get random moves based on legal moves avaiable
 
-    getMovePlayer(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
+    get_move_player(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
         Ask the user for input and check if it is legal move
 
     main() -> None
@@ -68,16 +66,16 @@ class Chess():
     def __init__(self, board : object):
         self.board = board
         self.turn = True
-        self.gameRunning = True
-        self.movesList = []
-        self.legalMoves = []
-        self.movesWithoutCapturesOrPawnMovements = 0
-        self.boardStates = {True: [], False: []}
-        self.castlingRights = [True, True]
+        self.game_running = True
+        self.moves_list = []
+        self.legal_moves = []
+        self.no_progress_moves = 0
+        self.board_states = {True: [], False: []}
+        self.castling_rights = [True, True]
 
 
 
-    def playMove(self, move):
+    def play_move(self, move):
         """
         Moves a piece at `start` to `to`. 
 
@@ -101,10 +99,10 @@ class Chess():
         if selected_piece.name == "P":
             # Double pawn movement logic
             if abs(to[1]-start[1]) > 1:
-                self.board.activateGhostPawn(selected_piece.get_pos(), selected_piece.color)
+                self.board.activate_ghost_pawn(selected_piece.get_pos(), selected_piece.color)
         
-            if move == selected_piece.canEnPasseant:
-                if to == self.board.getGhostPawn(not self.turn):
+            if move == selected_piece.can_en_passeant:
+                if to == self.board.get_ghost_pawn(not self.turn):
                     if selected_piece.color:
                         self.board[to[0],to[1]+1] = None
                     else:
@@ -122,12 +120,12 @@ class Chess():
                 elif promotion == "n":
                     promoted_piece = piece.Knight(color, selected_piece.x, selected_piece.y)
                 selected_piece = promoted_piece
-            self.movesWithoutCapturesOrPawnMovements = 0
+            self.no_progress_moves = 0
 
         # Castling logic
 
         if selected_piece.name == "K":
-            if move in selected_piece.canCastle:
+            if move in selected_piece.can_castle:
                 if selected_piece.color:
                     rook = self.board[7,7] 
                     rook.move((5,7), self.board)
@@ -136,7 +134,7 @@ class Chess():
                     rook.move((5,0), self.board)
 
             # LeftCastling
-            if move in selected_piece.canCastle:
+            if move in selected_piece.can_castle:
                 if selected_piece.color:
                     rook = self.board[0,7] 
                     rook.move((3,7), self.board)
@@ -146,17 +144,17 @@ class Chess():
 
             # After castle, a position can't be repeated
             if selected_piece.first_move == True:
-                self.boardStates[self.turn] = []
-                self.boardStates[not self.turn] = []
+                self.board_states[self.turn] = []
+                self.board_states[not self.turn] = []
 
 
         captured_piece = selected_piece.move(to, self.board)
         if captured_piece:
-            self.movesWithoutCapturesOrPawnMovements = 0
+            self.no_progress_moves = 0
         else:
-            self.movesWithoutCapturesOrPawnMovements += 1
-        self.movesList.append(move)
-        self.boardStates[self.turn].append(copy.deepcopy(self.board))
+            self.no_progress_moves += 1
+        self.moves_list.append(move)
+        self.board_states[self.turn].append(copy.deepcopy(self.board))
         self.turn = not self.turn
         self.board.turn = not self.board.turn
 
@@ -164,24 +162,11 @@ class Chess():
         if selected_piece.name in ["P","R","K"]:
             selected_piece.first_move = False
 
-    def checkThreeFoldRepetition(self):
-        for color, boardStates in self.boardStates.items():
-            boardStatesCounter = {}
-            for board in boardStates[-6:]:
-                if board in boardStatesCounter.keys():
-                    boardStatesCounter[board] += 1
-                else:
-                    boardStatesCounter[board] = 1
-            for key, val in boardStatesCounter.items():
-                if val >= 3:
-                    self.gameRunning = False
-                    print("DRAW -- Three fold repetition")
-                    pass
 
 
 
 
-    def getLegalMoves(self):
+    def get_legal_moves(self):
         """
         Iterate through all pieces of turn color and get it's valid moves. 
         Then simulate the move and check if King ends in check.
@@ -189,7 +174,7 @@ class Chess():
         After check Draw conditions
         """
 
-        legalMoves = []
+        legal_moves = []
         for i in range(8):
             for j in range(8):
                 piece = self.board[i,j]
@@ -203,85 +188,104 @@ class Chess():
                             # Do move
                             captured_piece = piece.move(target,self.board)
 
-                            enemyTargets = self.board.getControlledSquares(not self.turn)
-                            friendKing = self.board.getKingPiece(self.turn)
+                            enemy_targets = self.board.get_controlled_squares(not self.turn)
+                            friend_king = self.board.get_king_piece(self.turn)
 
                             # If king not in enemy targets after move, is legal move
-                            if friendKing.get_pos() not in enemyTargets:
-                                legalMoves.append(move)
+                            if friend_king.get_pos() not in enemy_targets:
+                                legal_moves.append(move)
 
                             # Undo move
                             piece.move(origin,self.board)
                             if captured_piece:
                                 captured_piece.move(target,self.board)
 
-        return legalMoves
+        return legal_moves
     
-    def checkEndgameConditions(self):
+    def check_endgame_conditions(self):
+        def check_material_draw():
+            pieces_left = []
+            for piece in self.board.vector():
+                if piece:
+                    if piece.name != "K":
+                        pieces_left.append(piece)
+            if not pieces_left:
+                self.game_running = False
+                print("DRAW -- Only kings left")
+            if len(pieces_left) == 1:
+                piece = pieces_left[0]
+                if piece.name == "B":
+                    print("DRAW -- King and Bishop cannot checkmate")
+                    self.game_running = False
+                if piece.name == "N":
+                    print("DRAW -- King and Knight cannot checkmate")
+                    self.game_running = False
+            if len(pieces_left) == 2:
+                piece1 = pieces_left[0]
+                piece2 = pieces_left[1]
+                if piece1.color != piece2.color:
+                    if piece1.name == "B" and piece1.name == "B":
+                        print("DRAW -- King and Bishop vs King and Bishop cannot checkmate")
+                        self.game_running = False
+                    elif piece1.name == "B" and piece1.name == "N":
+                        print("DRAW -- King and Bishop vs King and Knight cannot checkmate")
+                        self.game_running = False
+                    elif piece1.name == "N" and piece1.name == "B":
+                        print("DRAW -- King and Knight vs King and Bishop cannot checkmate")
+                        self.game_running = False
+
+                    # OBS:
+                    # Although having two Knights does not imply forced checkmate, 
+                    # it is possible if your opponent doesn't defend with the right moves
         # Check if game has met checkmate or draw criteria
-        if self.movesWithoutCapturesOrPawnMovements == 50:
-            print("DRAW -- 50 moves without captures or pawn movements")
-            self.gameRunning = False
-            pass
+        def check_no_progress_draw():
+            if self.no_progress_moves == 50:
+                print("DRAW -- 50 moves without captures or pawn movements")
+                self.game_running = False
+                pass
 
-        friendKing = self.board.getKingPiece(self.turn)
-        enemyTargets = self.board.getControlledSquares(not self.turn)
+        def check_stalemate_or_checkmate():
+            friend_king = self.board.get_king_piece(self.turn)
+            enemy_targets = self.board.get_controlled_squares(not self.turn)
 
-        # If there is no legal moves while not in check,
-        # there is stalemate, otherwise, checkmate
-        if len(self.legalMoves) == 0:
-            # Not in Check
-            if (friendKing.x,friendKing.y) not in enemyTargets:
-                self.gameRunning = False
-                print("DRAW -- Stalemate")
-            # In Check
-            else:
-                self.gameRunning = False
-                print("CHECKMATE!!!!")
-                if self.turn:
-                    print("BLACK WINS!!!")
+            # If there is no legal moves while not in check,
+            # there is stalemate, otherwise, checkmate
+            if len(self.legal_moves) == 0:
+                # Not in Check
+                if (friend_king.x,friend_king.y) not in enemy_targets:
+                    self.game_running = False
+                    print("DRAW -- Stalemate")
+                # In Check
                 else:
-                    print("WHITE WINS!!!")
+                    self.game_running = False
+                    print("CHECKMATE!!!!")
+                    if self.turn:
+                        print("BLACK WINS!!!")
+                    else:
+                        print("WHITE WINS!!!")
+
+        def check_three_fold_repetition():
+            for color, boardStates in self.board_states.items():
+                board_states_counter = {}
+                for board in boardStates[-6:]:
+                    if board in board_states_counter.keys():
+                        board_states_counter[board] += 1
+                    else:
+                        board_states_counter[board] = 1
+                for key, val in board_states_counter.items():
+                    if val >= 3:
+                        self.game_running = False
+                        print("DRAW -- Three fold repetition")
+                        pass
 
         # Check Insufficient material draw
-        self.checkMaterialDraw()
-        # self.checkThreeFoldRepetition()
+
+        check_stalemate_or_checkmate()
+        check_no_progress_draw()
+        check_material_draw()
+        # self.check_three_fold_repetition()
 
 
-    def checkMaterialDraw(self):
-        piecesLeft = []
-        for piece in self.board.vector():
-            if piece:
-                if piece.name != "K":
-                    piecesLeft.append(piece)
-        if not piecesLeft:
-            self.gameRunning = False
-            print("DRAW -- Only kings left")
-        if len(piecesLeft) == 1:
-            piece = piecesLeft[0]
-            if piece.name == "B":
-                print("DRAW -- King and Bishop cannot checkmate")
-                self.gameRunning = False
-            if piece.name == "N":
-                print("DRAW -- King and Knight cannot checkmate")
-                self.gameRunning = False
-        if len(piecesLeft) == 2:
-            piece1 = piecesLeft[0]
-            piece2 = piecesLeft[1]
-            if piece1.color != piece2.color:
-                if piece1.name == "B" and piece1.name == "B":
-                    print("DRAW -- King and Bishop vs King and Bishop cannot checkmate")
-                    self.gameRunning = False
-                elif piece1.name == "B" and piece1.name == "N":
-                    print("DRAW -- King and Bishop vs King and Knight cannot checkmate")
-                    self.gameRunning = False
-                elif piece1.name == "N" and piece1.name == "B":
-                    print("DRAW -- King and Knight vs King and Bishop cannot checkmate")
-                    self.gameRunning = False
-
-                # OBS:
-                # Although having two Knights does not imply forced checkmate, 
-                # it is possible if your opponent doesn't defend with the right moves
 
 
 
@@ -309,7 +313,7 @@ class Chess():
             yield 0
 
 
-    def getMovePlayer(self):
+    def get_move_player(self):
         """
         Asks the user a move in the format '[a-h][1-8][a-h][1-8][qbnr]?'
         Returns in the format "move" which is (([0-7],[0-7]),([0-7],[0-7]),[qbnr]|0)
@@ -324,34 +328,34 @@ class Chess():
             return "EOF"
             print("EOF")
 
-    def getMoveRandom(self):
+    def get_move_random(self):
         """
         Get random move from legal moves
 
         """
         move = None
-        r = random.randint(0,len(self.legalMoves)-1)
-        move = self.legalMoves[r]
+        r = random.randint(0,len(self.legal_moves)-1)
+        move = self.legal_moves[r]
         return move
 
 
-    def moveGenerationTest(self, depth):
+    def move_generation_test(self, depth):
         """
         Brute force all possible games within a certain ply depth (ply = half-move)
 
         """
         if depth == 0:
             return 1
-        self.legalMoves = self.getLegalMoves()
-        self.checkEndgameConditions()
+        self.legal_moves = self.get_legal_moves()
+        self.check_endgame_conditions()
 
         counter = 0
-        for move in self.legalMoves:
+        for move in self.legal_moves:
             # Make move
             board = copy.deepcopy(self.board)
-            self.playMove(move)
+            self.play_move(move)
 
-            counter += self.moveGenerationTest(depth-1)
+            counter += self.move_generation_test(depth-1)
 
             # Undo move
 
@@ -359,17 +363,17 @@ class Chess():
             self.board = board
         return counter
 
-    def kingsInCheck(self):
+    def kings_in_check(self):
         for color in [True, False]:
-            King = self.board.getKingPiece(color)
-            controlledSquares = self.board.getControlledSquares(not color)
+            king = self.board.get_king_piece(color)
+            controlled_squares = self.board.get_controlled_squares(not color)
             
-            if King.get_pos() in controlledSquares:
-                King.inCheck = True
+            if king.get_pos() in controlled_squares:
+                king.inCheck = True
             else:
-                King.inCheck = False
+                king.inCheck = False
 
-    def printTurnDecorator(self):
+    def print_turn_decorator(self):
         """
             Print which color it is to move and the board state
         """
@@ -377,32 +381,32 @@ class Chess():
         print(f"{player_turn}'s turn to move!")
         print(self.board.print_board())
 
-    def playCLI(self, getMove):
-        while self.gameRunning:
-            self.printTurnDecorator()
-            self.legalMoves = self.getLegalMoves()
-            print("LegalMoves:", self.legalMoves)
+    def play_cli(self, get_move):
+        while self.game_running:
+            self.print_turn_decorator()
+            self.legal_moves = self.get_legal_moves()
+            print("LegalMoves:", self.legal_moves)
 
-            move = tuple(getMove())
+            move = tuple(get_move())
             print("Move:", move)
 
-            if move not in self.legalMoves:
+            if move not in self.legal_moves:
                 print("Illegal or impossible move")
                 break
                 # continue
 
-            if not chess.gameRunning:
+            if not chess.game_running:
                 break
-            self.playMove(move)
+            self.play_move(move)
 
-    def playGUI(self):
+    def play_gui(self):
         import GUI
         logging.basicConfig(filename='log/guiLog.log', level=logging.DEBUG)
         gui = GUI.GUI(self.board,640,640,self)
         gui.main()
 
 
-    def playBruteForce(self):
+    def play_brute_force(self):
         import time
         logging.basicConfig(filename='log/testBrute.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
         depth = sys.argv[2]
@@ -411,7 +415,7 @@ class Chess():
         test_start = time.time()
         ply_depth_start = time.time()
         for i in range(1,int(depth)+1):
-            result = self.moveGenerationTest(i)
+            result = self.move_generation_test(i)
             l.append(result)
             logging.info(f"Result of possible games with {i} ply: {result}")
             ply_elapsed_time = str(time.time() - ply_depth_start)[:4]
@@ -427,19 +431,19 @@ class Chess():
 
         if arg == "-cli" or arg == "-r":
             if arg == "-cli":
-                getMove = self.getMovePlayer
+                get_move = self.get_move_player
             elif arg == "-r":
-                getMove = self.getMoveRandom
+                get_move = self.get_move_random
 
-            self.playCLI(getMove)
+            self.play_cli(get_move)
 
         if arg == "-gui":
 
-            self.playGUI()
+            self.play_gui()
 
         elif arg == "-b":
 
-            self.playBruteForce()
+            self.play_brute_force()
 
         elif arg == "-cligui":
 

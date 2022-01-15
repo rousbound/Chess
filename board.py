@@ -14,10 +14,10 @@ class Board():
     turn : bool
         True if white's turn
 
-    whiteGhostPawn : tup
+    white_ghost_pawn : tup
         The coordinates of a white ghost piece representing a takeable pawn for en passant
 
-    blackGhostPawn : tup
+    black_ghost_pawn : tup
         The coordinates of a black ghost piece representing a takeable pawn for en passant
 
     Methods:
@@ -63,8 +63,8 @@ class Board():
         self.board[6][0] = piece.Knight(False,6,0)
         self.board[7][0] = piece.Rook(False,7,0)
 
-        self.whiteGhostPawn = None
-        self.blackGhostPawn = None
+        self.white_ghost_pawn = None
+        self.black_ghost_pawn = None
 
         for i in range(8):
             self.board[i][1] = piece.Pawn(False,i,1)
@@ -84,11 +84,11 @@ class Board():
 
 
 
-    def __eq__(self, otherBoard):
+    def __eq__(self, other_board):
         equal = True
-        if self.board2str() != otherBoard.board2str():
+        if self.board2str() != other_board.board2str():
             equal = False
-        if self.turn != otherBoard.turn:
+        if self.turn != other_board.turn:
             equal = False
         return equal
     
@@ -103,23 +103,23 @@ class Board():
     def __getitem__(self, item):
         return self.board[item[0]][item[1]]
 
-    def getGhostPawn(self, color):
+    def get_ghost_pawn(self, color):
         if color:
-            return self.whiteGhostPawn
+            return self.white_ghost_pawn
         else:
-            return self.blackGhostPawn
+            return self.black_ghost_pawn
 
-    def deactivateGhostPawn(self, color):
+    def deactivate_ghost_pawn(self, color):
         if color:
-            self.whiteGhostPawn = False
+            self.white_ghost_pawn = False
         else:
-            self.blackGhostPawn = False
+            self.black_ghost_pawn = False
 
-    def activateGhostPawn(self, pos, color):
+    def activate_ghost_pawn(self, pos, color):
         if color:
-            self.whiteGhostPawn = (pos[0], pos[1] - 1)
+            self.white_ghost_pawn = (pos[0], pos[1] - 1)
         else:
-            self.blackGhostPawn = (pos[0], pos[1] + 1)
+            self.black_ghost_pawn = (pos[0], pos[1] + 1)
 
     def vector(self):
         vec = []
@@ -161,7 +161,7 @@ class Board():
 
         
 
-    def getRooks(self, color):
+    def get_rooks(self, color):
         rooks = []
         for i in range(8):
             for j in range(8):
@@ -171,26 +171,25 @@ class Board():
                             rooks.append(self.board[i][j])
         return rooks
 
-    def getKingPiece(self, color):
+    def get_king_piece(self, color):
         for i in range(8):
             for j in range(8):
                 if self.board[i][j]:
                     if self.board[i][j].name == "K":
                         if self.board[i][j].color == color:
                             return self.board[i][j]
-        print("KING NOT FOUND")
 
 
-    def getControlledSquares(self, color):
-        enemyMoves = set()
+    def get_controlled_squares(self, color):
+        enemy_moves = set()
         for otherpiece in self.vector():
             if otherpiece:
                 if otherpiece.color == color:
                     if otherpiece.name != "K":
                         for move in otherpiece.get_valid_moves(self):
-                            enemyMoves.add(move[1])
+                            enemy_moves.add(move[1])
                     if otherpiece.name == "K":
-                        for move in otherpiece.getNormalValidMoves(self):
-                            enemyMoves.add(move[1])
-        return list(enemyMoves)
+                        for move in otherpiece.get_normal_valid_moves(self):
+                            enemy_moves.add(move[1])
+        return list(enemy_moves)
 
