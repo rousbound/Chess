@@ -68,7 +68,7 @@ class Chess():
         self.legal_moves = []
         self.algebric_legal_moves = []
         self.no_progress_moves = 0
-        self.board_states = {True: [], False: []}
+        self.board_states = []
         self.castling_rights = [True, True]
 
 
@@ -162,8 +162,7 @@ class Chess():
 
             # After castle, a position can't be repeated
             if selected_piece.first_move == True:
-                self.board_states[self.turn] = []
-                self.board_states[not self.turn] = []
+                self.board_states = []
 
 
         captured_piece = selected_piece.move(to, self.board)
@@ -179,7 +178,7 @@ class Chess():
         else:
             algebric_move = f"{algebric_move} "
         self.algebric_played_moves += algebric_move
-        self.board_states[self.turn].append(copy.deepcopy(self.board))
+        self.board_states.append(copy.deepcopy(self.board))
         self.turn = not self.turn
         self.board.turn = not self.board.turn
         if self.turn:
@@ -302,18 +301,18 @@ class Chess():
                         print("WHITE WINS!!!")
 
         def check_three_fold_repetition():
-            for color, boardStates in self.board_states.items():
-                board_states_counter = {}
-                for board in boardStates[-6:]:
-                    if board in board_states_counter.keys():
-                        board_states_counter[board] += 1
-                    else:
-                        board_states_counter[board] = 1
-                for key, val in board_states_counter.items():
-                    if val >= 3:
-                        self.game_running = False
-                        print("DRAW -- Three fold repetition")
-                        pass
+            board_states_counter = {}
+            # Counts repetition in the lasts 6 turns or 12 plys
+            for board in self.board_states[-12:]:
+                if board in board_states_counter.keys():
+                    board_states_counter[board] += 1
+                else:
+                    board_states_counter[board] = 1
+            for key, val in board_states_counter.items():
+                if val >= 3:
+                    self.game_running = False
+                    print("DRAW -- Three fold repetition")
+                    pass
 
         # Check Insufficient material draw
 

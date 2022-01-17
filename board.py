@@ -70,7 +70,7 @@ class Board():
             self.board[i][1] = piece.Pawn(False,i,1)
 
 
-    def board2str(self):
+    def board_2_str(self):
         boardstr = ""
         getcolor = {True:"W", False:"B"}
         for i in range(8):
@@ -85,6 +85,11 @@ class Board():
 
 
     def __eq__(self, other_board):
+        """
+        Called when comparing two board objects.
+        A board is considered equal when having the same pieces, legal moves and player to move.
+        Because we delete the board when player castles, we only need to check if the turn and piece positions are the same.
+        """
         equal = True
         if self.board2str() != other_board.board2str():
             equal = False
@@ -93,7 +98,13 @@ class Board():
         return equal
     
     def __hash__(self):
-        return hash(self.board2str())
+        """
+        Called when used as key in a dictionary.
+        A board is considered equal when having the same pieces, legal moves and player to move.
+        Because we delete the board when player castles, we only need to check if the turn and piece positions are the same.
+        """
+
+        return hash((self.board_2_str(), self.turn))
 
 
     def __setitem__(self, key, value):

@@ -163,13 +163,30 @@ class GUI():
                 piece.piece_held = True
                 self.piece_held = piece
 
+    def get_promotion(self, to, color):
+        while self.promoting:
+            behind = 1 if color else -1
+            queen = piece.Queen(color, to[0], to[1])
+            knight = piece.Knight(color, to[0], to[1]-behind)
+            rook = piece.Rook(color, to[0], to[1]-(2*behind), first_move=False)
+            bishop = piece.Bishop(color, to[0], to[1]-(3*behind))
+            for piece in [queen, knight, rook, bishop]:
+                self.draw_piece(piece)
+
+
     def drop_piece(self):
         to = self.get_mouse_pos()
         start = self.piece_held.get_pos()
+        # if self.piece_held.name == "P":
+            # last_row = 0 if self.piece_held.color else 7
+            # if to[1] == last_row:
+                # self.promoting = True
+                # self.get_promotion(to, self.piece_held.color)
         move = (start, to, 0)
         if move in self.game.legal_moves:
             self.last_move_to = to
             self.last_move_from = start
+            self.check_promotion(move)
             self.game.play_move(move)
             self.game.kings_in_check() # To activate king's check visual indicator
             self.game.legal_moves = self.game.get_legal_moves()
@@ -182,6 +199,7 @@ class GUI():
 
         self.piece_held.piece_held = False
         self.piece_held = None
+
 
 
     def main(self):
