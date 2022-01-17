@@ -38,8 +38,8 @@ class Piece():
     def __init__(self, color : bool, x,y):
         self.color = color
         self.name = ""
-        self.x = x
-        self.y = y
+        self.x : int = x
+        self.y : int = y
         self.pos = (x,y)
         self.piece_held = False
 
@@ -347,7 +347,7 @@ class Pawn(Piece):
                             if enemy_ghost_pawn == target:
                                 move = (self.get_pos(), target, 0)
                                 moves.append(move)
-                                can_en_passeant = move
+                                self.can_en_passeant = move
         self.moves = moves
         return self.moves
 
@@ -377,7 +377,7 @@ class King(Piece):
 
     
     def get_normal_valid_moves(self, board):
-        candidate_moves = [
+        targets = [
                 (self.x + 1 , self.y),
                 (self.x - 1 , self.y),
                 (self.x , self.y - 1),
@@ -387,8 +387,8 @@ class King(Piece):
                 (self.x - 1 , self.y -1),
                 (self.x - 1 , self.y + 1),
                 ]
-        # Check if move is within borders, and target square is occupied by enemy piece
-        candidate_moves = [(self.get_pos(), move, 0) for move in candidate_moves]
+        # Create move
+        candidate_moves = [(self.get_pos(), target, 0) for target in targets]
         candidate_moves = [move for move in candidate_moves if self.move_is_possible(move[1], board)]
         return candidate_moves
 
@@ -398,29 +398,30 @@ class King(Piece):
         candidate_moves = self.get_normal_valid_moves(board)
 
         # Check Castling possibility
-        castle_enabled = True
         if self.first_move:
-            for rook in board.get_rooks(self.color):
-                if rook.first_move:
-                    if rook.x == 0:
-                        squares_list = [(self.x-2,self.y),(self.x-1,self.y)]
-                        king_to = (self.x-2,self.y)
-                    elif rook.x == 7:
-                        squares_list = [(self.x+1,self.y),(self.x+2,self.y)]
-                        king_to = (self.x+2,self.y)
-                    for square in squares_list:
-                        # If square have pieces, castle is not possible
-                        # Still, if square doesn't have pieces, 
-                        # check if they are controlled by enemy pieces
-                        if not board[square]:
-                            if square in enemy_targets:
+            if not self.in_check:
+                for rook in board.get_rooks(self.color):
+                    castle_enabled = True
+                    if rook.first_move:
+                        if rook.x == 0:
+                            squares_list = [(self.x-2,self.y),(self.x-1,self.y)]
+                            king_to = (self.x-2,self.y)
+                        elif rook.x == 7:
+                            squares_list = [(self.x+1,self.y),(self.x+2,self.y)]
+                            king_to = (self.x+2,self.y)
+                        for square in squares_list:
+                            # If square have pieces, castle is not possible
+                            # Still, if square doesn't have pieces, 
+                            # check if they are controlled by enemy pieces
+                            if board[square]:
                                 castle_enabled = False
-                        else:
-                            castle_enabled = False
-                    if castle_enabled:
-                        move = (self.get_pos(), king_to, 0)
-                        self.can_castle.append(move)
-                        candidate_moves.append(move)
+                            else:
+                                if square in enemy_targets:
+                                    castle_enabled = False
+                        if castle_enabled:
+                            move = (self.get_pos(), king_to, 0)
+                            self.can_castle.append(move)
+                            candidate_moves.append(move)
         self.moves = candidate_moves
         return self.moves
 

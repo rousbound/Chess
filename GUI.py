@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 import sys
+import copy
 
 import utils
 import time
@@ -70,7 +71,23 @@ class GUI():
         y = (piece.get_pos()[1]*self.cell) + self.yoffset
         return (x,y)
 
-    def draw(self):
+
+    def draw_piece(self, piece, pos=None):
+        if not pos:
+            piece_pixel_pos = self.get_piece_pixel_pos(piece)
+        else:
+            piece_pixel_pos = pos
+        coord = self.get_piece_sprite_coordinates(piece)
+        self.screen.blit(self.spritesheet, piece_pixel_pos, coord)
+
+    def draw_square(self, pos, bright, dark):
+        if (pos[0] + pos[1]) % 2 == 0:
+            square_color = bright
+        else:
+            square_color = dark
+        pygame.draw.rect(self.screen,square_color,(pos[0]*self.cell,pos[1]*self.cell,self.cell,self.cell))
+
+    def draw_board(self):
         for i in range(8):
             for j in range(8):
                 # Original Colors
@@ -78,118 +95,96 @@ class GUI():
                 square_dark = colors.square_dark
                 # If square was involved in last move, change colors
                 if (i,j) == self.last_move_from or (i,j) == self.last_move_to:
-                    square_dark = colors.last_move_square_dark
                     square_bright = colors.last_move_square_bright
+                    square_dark = colors.last_move_square_dark
 
                 # Alternate square colors based on i,j
-                if (i + j) % 2 == 0:
-                    square_color = square_bright
-                else:
-                    square_color = square_dark
-
-                pygame.draw.rect(self.screen,square_color,(i*self.cell,j*self.cell,self.cell,self.cell))
+                self.draw_square((i, j), square_bright, square_dark)
 
                 piece = self.board[i, j]
+                # Draw pieces, except the one held and check if king is in check
                 if piece:
-                    coord = self.get_piece_sprite_coordinates(piece)
                     if not piece.piece_held:
                         piece_pixel_pos = self.get_piece_pixel_pos(piece)
                         if piece.name == "K" and piece.in_check:
                             self.screen.blit(self.in_check_visual_indicator, piece_pixel_pos)
-                        self.screen.blit(self.spritesheet, piece_pixel_pos, coord)
+                        self.draw_piece(piece)
+    
 
+    def draw_piece_held(self):
+        index2pixel = lambda x: (x[0]*self.cell, x[1]*self.cell)
+        piece_moves = self.piece_held.get_valid_moves(self.board)
+        # Draw legal moves of piece held
+        for move in piece_moves:
+            if move in self.game.legal_moves:
+                to = move[1]
+                is_piece = self.board[to]
+                mouse_pos = self.get_mouse_pos()
+
+                # If mouse over legal move, draw green background, else redraw default colors in case
+                # they are displaying last move colors
+                if to == mouse_pos:
+                    self.draw_square(to, colors.capturing_square_bright, colors.capturing_square_dark)
+                else:
+                    self.draw_square(to, colors.square_bright, colors.square_dark)
+                if is_piece:
+                    # Redraw piece in case its has been overlayed
+                    self.draw_piece(is_piece)
+
+                    # If mouse not over it, display capture possibility
+                    if not to == mouse_pos:
+                        self.screen.blit(self.capture_visual_indicator, index2pixel(to))
+                else:
+                    # If there is no piece and mouse is not over, display normal move possibility
+                    # in the form of a green circle
+                    if not to == mouse_pos:
+                        x,y = index2pixel(to)
+                        x += (self.cell//2)
+                        y += (self.cell//2)
+                        pygame.draw.circle(self.screen, colors.circle_color, (x,y) , 11, width=0)
+
+        mouse_pixel_pos = pygame.mouse.get_pos()
+        # Center piece at mouse pos
+        x = mouse_pixel_pos[0] - (self.cell//2)
+        y = mouse_pixel_pos[1] - (self.cell//2)
+        self.draw_piece(self.piece_held, (x,y))
+
+    def draw(self):
+        self.draw_board()
         if self.piece_held:
-            piece_moves = self.piece_held.get_valid_moves(self.board)
-            for move in piece_moves:
-                if move in self.game.legal_moves:
-                    to = move[1]
-                    if self.board[to]:
-                        x = ((to[0])*self.cell) 
-                        y = ((to[1])*self.cell)
-                        if self.piece_held:
-                            if to == self.get_mouse_pos():
-                                if (to[0] + to[1]) % 2 == 0:
-                                    square_color = colors.capturing_square_bright
-                                else:
-                                    square_color = colors.capturing_square_dark
-                                pygame.draw.rect(self.screen,square_color,(to[0]*self.cell,to[1]*self.cell,self.cell,self.cell))
-                                piece_capturing = self.board[to]
-                                if piece_capturing:
-                                    coord = self.get_piece_sprite_coordinates(piece_capturing)
-                                    piece_pixel_pos = self.get_piece_pixel_pos(piece_capturing)
-                                    self.screen.blit(self.spritesheet, piece_pixel_pos, coord)
-                            else:
-                                if (to[0] + to[1]) % 2 == 0:
-                                    square_color = colors.square_bright
-                                else:
-                                    square_color = colors.square_dark
-                                pygame.draw.rect(self.screen,square_color,(to[0]*self.cell,to[1]*self.cell,self.cell,self.cell))
-                                piece_capturing = self.board[to]
-                                coord = self.get_piece_sprite_coordinates(piece_capturing)
-                                piece_pixel_pos = self.get_piece_pixel_pos(piece_capturing)
-                                self.screen.blit(self.spritesheet, piece_pixel_pos, coord)
-                                self.screen.blit(self.capture_visual_indicator, (x,y))
-                        
-                    else:
-                        if self.piece_held:
-                            mouse_pos = self.get_mouse_pos()
-                            if (to[0],to[1]) == mouse_pos:
-                                if (to[0] + to[1]) % 2 == 0:
-                                    square_color = colors.capturing_square_bright
-                                else:
-                                    square_color = colors.capturing_square_dark
-                                pygame.draw.rect(self.screen,square_color,(to[0]*self.cell,to[1]*self.cell,self.cell,self.cell))
-                            else:
-                                x = ((to[0]+1)*self.cell) 
-                                y = ((to[1]+1)*self.cell)
-                                x -= 40
-                                y -= 40
-                                pygame.draw.circle(self.screen, colors.circle_color, (x,y) , 11, width=0)
-            mouse_pixel_pos = pygame.mouse.get_pos()
-            x = mouse_pixel_pos[0] - 40
-            y = mouse_pixel_pos[1] - 40
-            coord = self.get_piece_sprite_coordinates(self.piece_held)
-            self.screen.blit(self.spritesheet, (x,y), coord)
-
-
-
-
+            self.draw_piece_held()
 
     def get_piece(self):
         self.game.legal_moves = self.game.get_legal_moves()
-        i,j = self.get_mouse_pos()
-        piece = self.board[i,j]
+        mouse_pos = self.get_mouse_pos()
+        piece = self.board[mouse_pos]
         if piece:
-            print("Piece held:", piece.get_pos())
             if piece.color == self.game.turn:
                 piece.piece_held = True
                 self.piece_held = piece
 
     def drop_piece(self):
-        print("Drop piece")
+        to = self.get_mouse_pos()
+        start = self.piece_held.get_pos()
+        move = (start, to, 0)
+        if move in self.game.legal_moves:
+            self.last_move_to = to
+            self.last_move_from = start
+            self.game.play_move(move)
+            self.game.kings_in_check() # To activate king's check visual indicator
+            self.game.legal_moves = self.game.get_legal_moves()
+            print("Legal moves:", self.game.algebric_legal_moves)
+            self.game.check_endgame_conditions()
+            self.board.deactivate_ghost_pawn(self.game.turn)
+            print("MovesList:", self.game.algebric_played_moves)
+        else:
+            print("Illegal move, try again")
 
-        if self.piece_held:
-            to = self.get_mouse_pos()
-            start = self.piece_held.get_pos()
-            move = (start, to, 0)
-            if move in self.game.legal_moves:
-                self.last_move_to = to
-                self.last_move_from = start
-                self.game.play_move(move)
-                self.game.kings_in_check() # To activate king's check visual indicator
-                self.game.legal_moves = self.game.get_legal_moves()
-                print("Legal moves:", self.game.legal_moves)
-                self.game.check_endgame_conditions()
-                self.board.deactivate_ghost_pawn(self.game.turn)
-            else:
-                print("Illegal move, try again")
-
-            self.piece_held.piece_held = False
-            self.piece_held = None
+        self.piece_held.piece_held = False
+        self.piece_held = None
 
 
     def main(self):
-        # self.game.legalMoves = self.game.getLegalMoves()
         while self.game.game_running:
             self.screen.fill((0, 0, 0))
             self.draw()
@@ -204,25 +199,9 @@ class GUI():
                             self.get_piece()
                 if event.type == pygame.MOUSEBUTTONUP:
                     if not pygame.mouse.get_pressed()[0]:
-                        self.drop_piece()
+                        if self.piece_held:
+                            self.drop_piece()
 
 
             pygame.display.flip()
-            # fpsClock.tick(fps)
 
-    def main_unplayable(self, tick):
-        time.sleep(tick)
-        self.screen.fill((0, 0, 0))
-        self.draw()
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if pygame.mouse.get_pressed()[0]:
-                    if not self.piece_held:
-                        self.get_piece()
-            if event.type == pygame.MOUSEBUTTONUP:
-                if not pygame.mouse.get_pressed()[0]:
-                    self.drop_piece()
-        pygame.display.flip()

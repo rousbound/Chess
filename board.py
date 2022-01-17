@@ -25,8 +25,8 @@ class Board():
     print_board() -> None
         Prints the current configuration of the board
 
-    getEnemyControlledSquares() -> list[tup]
-        Returns coordinates of squares controlled by enemy pieces
+    get_controlled_squares(color : bool) -> list[tup]
+        Returns coordinates of squares controlled by chosen color
 
     """
     def __init__(self):
@@ -111,9 +111,9 @@ class Board():
 
     def deactivate_ghost_pawn(self, color):
         if color:
-            self.white_ghost_pawn = False
+            self.white_ghost_pawn = None
         else:
-            self.black_ghost_pawn = False
+            self.black_ghost_pawn = None
 
     def activate_ghost_pawn(self, pos, color):
         if color:
@@ -171,7 +171,7 @@ class Board():
                             rooks.append(self.board[i][j])
         return rooks
 
-    def get_king_piece(self, color):
+    def get_king(self, color):
         for i in range(8):
             for j in range(8):
                 if self.board[i][j]:
