@@ -63,21 +63,26 @@ class Chess():
         self.turn = True
         self.turn_counter = 0
         self.game_running = True
-        self.moves_list = []
         self.algebric_played_moves = ""
         self.legal_moves = []
+        self.moves_list = []
         self.algebric_legal_moves = []
         self.no_progress_moves = 0
         self.board_states = []
         self.castling_rights = [True, True]
 
 
-    def move_2_uci(self, move, selected_piece, captured_piece, castling):
+    def move_2_algebric(self, move, selected_piece, captured_piece, castling):
+        def mat_2_uci(el):
+            s = "abcdefgh"
+            a = s[el[0]]
+            b = str(abs(el[1]-8))
+            return a + b
         to = move[1]
         start = move[0]
         if castling:
             return castling
-        algebric_to = utils.mat2uci([to])
+        algebric_to = mat_2_uci(to)
         capture = "x" if captured_piece else ""
         if selected_piece.name == "P":
             if capture == "x":
@@ -86,7 +91,7 @@ class Chess():
                 piece_name = ""
         else:
             piece_name = selected_piece.name
-        return piece_name + capture + algebric_to[0]
+        return piece_name + capture + algebric_to
 
 
 
@@ -117,6 +122,9 @@ class Chess():
                 self.board.activate_ghost_pawn(selected_piece.get_pos(), selected_piece.color)
         
             if move == selected_piece.can_en_passeant:
+                logging.info("En passeant game:")
+                logging.info("Game:", self.moves_list)
+                logging.info("Game:(algebric)", self.algebric_played_moves)
                 if selected_piece.color:
                     self.board[to[0],to[1]+1] = None
                 else:
@@ -159,6 +167,9 @@ class Chess():
                     else:
                         rook = self.board[0,0] 
                         rook.move((3,0), self.board)
+            # logging.info("Castle game:")
+            # logging.info("Game:", self.moves_list)
+            # logging.info("Game:(algebric)", self.algebric_played_moves)
 
             # After castle, a position can't be repeated
             if selected_piece.first_move == True:
@@ -172,7 +183,7 @@ class Chess():
             self.no_progress_moves += 1
         self.moves_list.append(move)
 
-        algebric_move = self.move_2_uci(move, selected_piece, captured_piece, castling)
+        algebric_move = self.move_2_algebric(move, selected_piece, captured_piece, castling)
         if self.turn:
             algebric_move = f"{str(self.turn_counter+1)}. {algebric_move} "
         else:
@@ -187,6 +198,7 @@ class Chess():
         # Remove first_move from pieces
         if selected_piece.name in ["P","R","K"]:
             selected_piece.first_move = False
+        self.kings_in_check() 
 
 
 
@@ -231,7 +243,7 @@ class Chess():
                                     castling = "O-O"
                                 elif res[0] > 1:
                                     castling = "O-O-O"
-                            algebric_move = self.move_2_uci(move, piece, captured_piece, castling)
+                            algebric_move = self.move_2_algebric(move, piece, captured_piece, castling)
                             self.algebric_legal_moves.append(algebric_move)
                             if captured_piece:
                                 captured_piece.move(target,self.board)
@@ -295,6 +307,8 @@ class Chess():
                 else:
                     self.game_running = False
                     print("CHECKMATE!!!!")
+                    logging.info("Game:", self.moves_list)
+                    logging.info("Game:(algebric)", self.algebric_played_moves)
                     if self.turn:
                         print("BLACK WINS!!!")
                     else:
@@ -325,12 +339,14 @@ class Chess():
 
 
 
+
     def uci_2_move(self, uci_move):
-        match = re.match(r"([a-h][1-8])([a-h][1-8])([qbnr]?)", uci_move)
         """
         1. Check move grammar and
-        2. Translates traditional board coordinates of chess into list indices
+        2. Translates uci notation as 'e2e4' into our move index notation as '((4,4)(4,6),0)'
+
         """
+        match = re.match(r"([a-h][1-8])([a-h][1-8])([qbnr]?)", uci_move)
         if not match:
             print(uci_move + " is not in the format '[a-h][1-8][a-h][1-8]([qbnr])'")
             return None
@@ -338,15 +354,19 @@ class Chess():
         start = match.group(1)
         end = match.group(2)
         promotion = match.group(3)
+        
+        move = []
         for coord in [start,end]:
             row = abs(int(coord[1])-8) # Y: Number
             col = coord[0] # X: Letter
             col = "abcdefgh".find(col) # Find Index
-            yield (col,row)
+            move.append((col,row))
         if promotion:
-            yield promotion
+            move.append(promotion)
         else:
-            yield 0
+            move.append(0)
+
+        return tuple(move)
 
 
     def get_move_player(self):
@@ -375,31 +395,12 @@ class Chess():
         return move
 
 
-    def move_generation_test(self, depth):
-        """
-        Brute force all possible games within a certain ply depth (ply = half-move)
-
-        """
-        if depth == 0:
-            return 1
-        self.legal_moves = self.get_legal_moves()
-        self.check_endgame_conditions()
-
-        counter = 0
-        for move in self.legal_moves:
-            # Make move
-            board = copy.deepcopy(self.board)
-            self.play_move(move)
-
-            counter += self.move_generation_test(depth-1)
-
-            # Undo move
-
-            self.turn = not self.turn
-            self.board = board
-        return counter
-
     def kings_in_check(self):
+        """
+        Check if kings are in check
+        
+        """
+
         for color in [True, False]:
             king = self.board.get_king(color)
             controlled_squares = self.board.get_controlled_squares(not color)
@@ -411,7 +412,7 @@ class Chess():
 
     def print_turn_decorator(self):
         """
-            Print which color it is to move and the board state
+        Print which color it is to move and the board state
         """
         player_turn = "White" if self.turn else "Black"
         print(f"{player_turn}'s turn to move!")
@@ -423,7 +424,7 @@ class Chess():
             self.legal_moves = self.get_legal_moves()
             print("LegalMoves:", self.legal_moves)
 
-            move = tuple(get_move())
+            move = get_move()
             print("Move:", move)
 
             if move not in self.legal_moves:
@@ -441,6 +442,15 @@ class Chess():
         gui = GUI.GUI(self.board,640,640,self)
         gui.main()
 
+    def play_cli_gui(self, argv):
+
+        moves_list = argv[2:]
+        print("Moves list:", moves_list)
+
+        import GUI
+        logging.basicConfig(filename='log/guiLog.log', level=logging.DEBUG)
+        gui = GUI.GUI(self.board,640,640,self)
+        gui.cli_gui_main(moves_list)
 
     def play_brute_force(self):
         import time
@@ -467,13 +477,12 @@ class Chess():
 
 
 
-    def main(self):
+    def main(self, args=sys.argv):
 
-        if len(sys.argv) == 1:
+        if len(args) == 1:
             arg = ""
         else:
-            arg = sys.argv[1]
-
+            arg = args[1]
 
         if arg == "-cli" or arg == "-r":
             if arg == "-cli":
@@ -487,11 +496,8 @@ class Chess():
 
             self.play_gui()
 
-        elif arg == "-b":
-
-            self.play_brute_force()
-
         elif arg == "-cligui":
+            self.play_cli_gui(sys.argv)
 
             pass
 

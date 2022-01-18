@@ -36,6 +36,8 @@ class Board():
 
         self.board = []
         self.turn = True
+        self.moves_list = []
+        self.algebric_legal_moves = []
 
         # Board set-up
         for i in range(8):

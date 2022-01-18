@@ -7,14 +7,18 @@ import utils
 import time
 import colors
 
+from piece import Queen, Knight, Rook, Bishop
+
 class GUI():
 
-    def __init__(self, board, width, height, game, playable=True):
+    def __init__(self, board, width, height, game):
         pygame.init()
 
         self.cell : int = width//8
         self.game : object = game
-        self.playable : bool = playable
+        self.promoting : bool = False
+        self.promoting_column : int = None
+        self.promoting_move : list = []
 
         self.screen = pygame.display.set_mode((width, height))
 
@@ -163,37 +167,61 @@ class GUI():
                 piece.piece_held = True
                 self.piece_held = piece
 
-    def get_promotion(self, to, color):
-        while self.promoting:
-            behind = 1 if color else -1
-            queen = piece.Queen(color, to[0], to[1])
-            knight = piece.Knight(color, to[0], to[1]-behind)
-            rook = piece.Rook(color, to[0], to[1]-(2*behind), first_move=False)
-            bishop = piece.Bishop(color, to[0], to[1]-(3*behind))
-            for piece in [queen, knight, rook, bishop]:
-                self.draw_piece(piece)
+    def init_promotion(self, to, start):
+        self.promoting_column = to[0]
+        self.promoting = True
+        self.promoting_move = [start, to, ""]
+        self.piece_held.piece_held = False
+        self.piece_held = None
+        behind = 1 if self.game.turn else -1
+        last_row = 0 if self.game.turn else 7
+        color = self.game.turn
+        queen = Queen(color, self.promoting_column, last_row)
+        knight = Knight(color, self.promoting_column, last_row + behind)
+        rook = Rook(color, self.promoting_column, last_row + (2*behind), first_move=False)
+        bishop = Bishop(color, self.promoting_column, last_row + (3*behind))
+
+        self.promoting_pieces = [queen, knight, rook, bishop]
+
+    def draw_promotion(self):
+        mouse_pos = self.get_mouse_pos()
+        for piece in self.promoting_pieces:
+            if piece.get_pos() == mouse_pos:
+                self.draw_square(piece.get_pos(), colors.red, colors.red)
+            self.draw_piece(piece)
+
+    def choose_promotion(self):
+        mouse_pos = self.get_mouse_pos()
+        for piece in self.promoting_pieces:
+            if piece.get_pos() == mouse_pos:
+                self.promoting = False
+                self.promoting_move[2] = piece.name.lower()
+                self.play_move(tuple(self.promoting_move))
+                self.promoting_move = []
+
+    def play_move(self, move):
+        self.last_move_to = move[0]
+        self.last_move_from = move[1]
+        self.game.play_move(move)
+        self.game.legal_moves = self.game.get_legal_moves()
+        print("Legal moves:", self.game.algebric_legal_moves)
+        self.game.check_endgame_conditions()
+        self.board.deactivate_ghost_pawn(self.game.turn)
+        print("MovesList:", self.game.algebric_played_moves)
 
 
     def drop_piece(self):
         to = self.get_mouse_pos()
         start = self.piece_held.get_pos()
-        # if self.piece_held.name == "P":
-            # last_row = 0 if self.piece_held.color else 7
-            # if to[1] == last_row:
-                # self.promoting = True
-                # self.get_promotion(to, self.piece_held.color)
+        if self.piece_held.name == "P":
+            if not self.board.get_king(self.game.turn).in_check:
+                last_row = 0 if self.piece_held.color else 7
+                if to[1] == last_row:
+                    self.init_promotion(to, start)
+                    return
         move = (start, to, 0)
         if move in self.game.legal_moves:
-            self.last_move_to = to
-            self.last_move_from = start
-            self.check_promotion(move)
-            self.game.play_move(move)
-            self.game.kings_in_check() # To activate king's check visual indicator
-            self.game.legal_moves = self.game.get_legal_moves()
-            print("Legal moves:", self.game.algebric_legal_moves)
-            self.game.check_endgame_conditions()
-            self.board.deactivate_ghost_pawn(self.game.turn)
-            print("MovesList:", self.game.algebric_played_moves)
+            self.play_move(move)
         else:
             print("Illegal move, try again")
 
@@ -204,8 +232,11 @@ class GUI():
 
     def main(self):
         while self.game.game_running:
-            self.screen.fill((0, 0, 0))
+            self.screen.fill((0, 0, 0, 255))
             self.draw()
+            if self.promoting:
+                self.screen.fill(colors.background_promotion)
+                self.draw_promotion()
 
             for event in pygame.event.get():
                 if event.type == QUIT:
@@ -214,12 +245,25 @@ class GUI():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if pygame.mouse.get_pressed()[0]:
                         if not self.piece_held:
-                            self.get_piece()
+                            if not self.promoting:
+                                self.get_piece()
+                            else:
+                                self.choose_promotion()
+                                pass
                 if event.type == pygame.MOUSEBUTTONUP:
                     if not pygame.mouse.get_pressed()[0]:
                         if self.piece_held:
-                            self.drop_piece()
+                            if not self.promoting:
+                                self.drop_piece()
 
 
             pygame.display.flip()
+
+    def cli_gui_main(self, moves_list):
+        print("Moves list", moves_list)
+        for move in moves_list:
+            move = self.game.uci_2_move(move)
+            self.play_move(move)
+        self.main()
+
 

@@ -316,9 +316,9 @@ class Pawn(Piece):
         ahead = -1 if self.color else 1
         last_row = 0 if self.color else 7
         pos_ahead = (self.x, self.y + ahead)
-        pos_ahead_ahead = (self.x, self.y + (2*ahead))
+        pos_ahead_ahead = (self.x, self.y + (2*ahead)) if 0 < self.y + 2*ahead <= 7 else None
         piece_ahead = board[pos_ahead]
-        piece_ahead_ahead = board[pos_ahead_ahead]
+        piece_ahead_ahead = board[pos_ahead_ahead] if pos_ahead_ahead else None
         moves = []
         # Check double movement
         if self.first_move:
