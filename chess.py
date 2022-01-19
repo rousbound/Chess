@@ -69,7 +69,6 @@ class Chess():
         self.algebric_legal_moves = []
         self.no_progress_moves = 0
         self.board_states = []
-        self.castling_rights = [True, True]
 
 
     def move_2_algebric(self, move, selected_piece, captured_piece, castling):
@@ -121,14 +120,18 @@ class Chess():
             if abs(to[1]-start[1]) > 1:
                 self.board.activate_ghost_pawn(selected_piece.get_pos(), selected_piece.color)
         
-            if move == selected_piece.can_en_passeant:
-                logging.info("En passeant game:")
-                logging.info("Game:", self.moves_list)
-                logging.info("Game:(algebric)", self.algebric_played_moves)
-                if selected_piece.color:
-                    self.board[to[0],to[1]+1] = None
-                else:
-                    self.board[to[0],to[1]-1] = None
+            # if move == selected_piece.can_en_passeant:
+            iscapture = lambda x,y : abs(x[0]-y[0]) == 1 and abs(x[1]-y[1]) == 1
+            if iscapture(to,start):
+                enemy_ghost_pawn = self.board.get_ghost_pawn(not self.turn)
+                if to == enemy_ghost_pawn:
+                    logging.info("En passeant game:")
+                    logging.info("Game:", self.moves_list)
+                    logging.info("Game:(algebric)", self.algebric_played_moves)
+                    if selected_piece.color:
+                        self.board[to[0],to[1]+1] = None
+                    else:
+                        self.board[to[0],to[1]-1] = None
             if str(move[2]) in "qrbn":
                 promotion = move[2]
                 color = selected_piece.color
@@ -147,7 +150,8 @@ class Chess():
 
         castling = False
         if selected_piece.name == "K":
-            if move in selected_piece.can_castle:
+            # if move in selected_piece.can_castle:
+            if abs(start[0]-to[0]) > 1:
             # ShortCastling
                 if move[1][0] == 6:
                     castling = "O-O"
@@ -185,10 +189,10 @@ class Chess():
 
         algebric_move = self.move_2_algebric(move, selected_piece, captured_piece, castling)
         if self.turn:
-            algebric_move = f"{str(self.turn_counter+1)}. {algebric_move} "
+            falgebric_move = f"{str(self.turn_counter+1)}. {algebric_move} "
         else:
-            algebric_move = f"{algebric_move} "
-        self.algebric_played_moves += algebric_move
+            falgebric_move = f"{algebric_move} "
+        self.algebric_played_moves += falgebric_move
         self.board_states.append(copy.deepcopy(self.board))
         self.turn = not self.turn
         self.board.turn = not self.board.turn
@@ -199,6 +203,7 @@ class Chess():
         if selected_piece.name in ["P","R","K"]:
             selected_piece.first_move = False
         self.kings_in_check() 
+        return algebric_move
 
 
 
@@ -228,7 +233,7 @@ class Chess():
                             captured_piece = piece.move(target,self.board)
 
                             enemy_targets = self.board.get_controlled_squares(not self.turn)
-                            friend_king = self.board.get_king(self.turn)
+                            friend_king = self.board.get_piece("K", self.turn)[0]
 
                             # If king not in enemy targets after move, is legal move
                             if friend_king.get_pos() not in enemy_targets:
@@ -293,7 +298,7 @@ class Chess():
                 pass
 
         def check_stalemate_or_checkmate():
-            friend_king = self.board.get_king(self.turn)
+            friend_king = self.board.get_piece("K", self.turn)[0]
             enemy_targets = self.board.get_controlled_squares(not self.turn)
 
             # If there is no legal moves while not in check,
@@ -377,7 +382,7 @@ class Chess():
         """
         try:
             uci_move = input("Move: ")
-            move = uci_2_move(uci_move)
+            move = self.uci_2_move(uci_move)
             return move
 
         except:
@@ -402,7 +407,7 @@ class Chess():
         """
 
         for color in [True, False]:
-            king = self.board.get_king(color)
+            king = self.board.get_piece("K", color)[0]
             controlled_squares = self.board.get_controlled_squares(not color)
             
             if king.get_pos() in controlled_squares:
@@ -422,9 +427,42 @@ class Chess():
         while self.game_running:
             self.print_turn_decorator()
             self.legal_moves = self.get_legal_moves()
-            print("LegalMoves:", self.legal_moves)
+            print("LegalMoves:", self.algebric_played_moves)
 
             move = get_move()
+            print("Move:", move)
+
+            if move not in self.legal_moves:
+                print("Illegal or impossible move")
+                continue
+
+            if not chess.game_running:
+                break
+            self.play_move(move)
+
+    def play_cli_test(self, input_moves):
+        print("Input moves:", input_moves)
+        for move in input_moves:
+            print("Move:", move)
+            move = self.uci_2_move(move)
+            self.print_turn_decorator()
+            self.legal_moves = self.get_legal_moves()
+            print("LegalMoves:", self.legal_moves)
+            if move not in self.legal_moves:
+                print("Illegal or impossible move")
+                break
+                # continue
+
+            if not chess.game_running:
+                break
+            self.play_move(move)
+
+        while self.game_running:
+            self.print_turn_decorator()
+            self.legal_moves = self.get_legal_moves()
+            print("LegalMoves:", self.legal_moves)
+
+            move = self.get_move_player()
             print("Move:", move)
 
             if move not in self.legal_moves:
@@ -496,10 +534,10 @@ class Chess():
 
             self.play_gui()
 
-        elif arg == "-cligui":
+        elif arg == "-guitest":
             self.play_cli_gui(sys.argv)
-
-            pass
+        elif arg == "-clitest":
+            self.play_cli_test(sys.argv[2:])
 
             
 

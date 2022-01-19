@@ -2,9 +2,9 @@ import subprocess
 import os
 
 path = os.path.abspath(".")
-cmd = "python3 chess.py -cligui "
+cmd = "python3 chess.py -guitest" + " "
 
-moves = "g2g4 h7h5 g4h5 g7g6  h5h6  h8h7  f2f3  h7g7  h6h7  f7f6"
+moves = "g2g4 h7h5 g4h5 g7g6  h5h6  h8h7  f2f3  h7g7  h6h7  f7f6  h7h8q  e7e6  h8h6"
 
 cmd += moves
 print(cmd)

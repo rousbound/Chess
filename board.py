@@ -172,25 +172,37 @@ class Board():
         buffer += "\n"
         return buffer
 
-        
+    def has_same_target(self, piece1, piece2):
+        targets1 = piece1.get_valid_moves()
+        targets2 = piece1.get_valid_moves()
+        same_targets = [move for move in targets1 if move in targets2]
+        return len(same_targets)
 
-    def get_rooks(self, color):
-        rooks = []
+
+    def get_piece(self, name, color):
+        l = []
         for i in range(8):
             for j in range(8):
-                if self.board[i][j]:
-                    if self.board[i][j].name == "R":
-                        if self.board[i][j].color == color:
-                            rooks.append(self.board[i][j])
-        return rooks
+                piece = self.board[i][j]
+                if piece:
+                    if piece.name == name:
+                        if piece.color == color:
+                            l.append(piece)
+        return l
 
-    def get_king(self, color):
-        for i in range(8):
-            for j in range(8):
-                if self.board[i][j]:
-                    if self.board[i][j].name == "K":
-                        if self.board[i][j].color == color:
-                            return self.board[i][j]
+    def pieces_in_same_column(self, name, color):
+        two_piece_types = False
+        for j in range(8):
+            has_piece = False
+            for i in range(8):
+                piece = self.board[i,j]
+                if piece:
+                    if piece.name == name and piece.color == color:
+                        if has_piece:
+                            two_piece_types = True
+                        else:
+                            has_piece = True
+
 
 
     def get_controlled_squares(self, color):

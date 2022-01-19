@@ -4,25 +4,23 @@ import copy
 
 
 
-def move_generation_test(depth):
+def move_generation_test(depth, chess=Chess(Board()), played_moves = ""):
     """
     Brute force all possible games within a certain ply depth (ply = half-move) to check
     program correctness against the Shannon number table
 
     """
     if depth == 0:
+        # print(played_moves)
         return 1
-    chess = Chess(Board())
     chess.legal_moves = chess.get_legal_moves()
-    chess.check_endgame_conditions()
-
     counter = 0
     for move in chess.legal_moves:
         # Make move
         board = copy.deepcopy(chess.board)
-        chess.play_move(move)
+        algebric_move = chess.play_move(move)
 
-        counter += chess.move_generation_test(depth-1)
+        counter += move_generation_test(depth-1, chess, played_moves + " " + algebric_move)
 
         # Undo move
 

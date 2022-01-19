@@ -214,7 +214,7 @@ class GUI():
         to = self.get_mouse_pos()
         start = self.piece_held.get_pos()
         if self.piece_held.name == "P":
-            if not self.board.get_king(self.game.turn).in_check:
+            if not self.board.get_piece("K", self.game.turn)[0].in_check:
                 last_row = 0 if self.piece_held.color else 7
                 if to[1] == last_row:
                     self.init_promotion(to, start)

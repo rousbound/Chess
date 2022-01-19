@@ -347,7 +347,7 @@ class Pawn(Piece):
                             if enemy_ghost_pawn == target:
                                 move = (self.get_pos(), target, 0)
                                 moves.append(move)
-                                self.can_en_passeant = move
+                                # self.can_en_passeant = move
         self.moves = moves
         return self.moves
 
@@ -400,7 +400,7 @@ class King(Piece):
         # Check Castling possibility
         if self.first_move:
             if not self.in_check:
-                for rook in board.get_rooks(self.color):
+                for rook in board.get_piece("R",self.color):
                     castle_enabled = True
                     if rook.first_move:
                         if rook.x == 0:
