@@ -1,6 +1,5 @@
 import board
 import piece
-import utils
 import random
 import time
 import re

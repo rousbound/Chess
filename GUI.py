@@ -3,7 +3,6 @@ from pygame.locals import *
 import sys
 import copy
 
-import utils
 import time
 import colors
 
