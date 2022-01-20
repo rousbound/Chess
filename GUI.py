@@ -207,6 +207,7 @@ class GUI():
         self.game.check_endgame_conditions()
         self.board.deactivate_ghost_pawn(self.game.turn)
         print("MovesList:", self.game.algebric_played_moves)
+        print("FEN:", self.board.board_2_FEN())
 
 
     def drop_piece(self):

@@ -1,4 +1,4 @@
-import piece
+import mychess.piece as piece
 
 class Board():
     """
@@ -42,6 +42,7 @@ class Board():
         # Board set-up
         for i in range(8):
             self.board.append([None] * 8)
+
         # White
         self.board[0][7] = piece.Rook(True,0,7)
         self.board[1][7] = piece.Knight(True,1,7)
@@ -83,6 +84,26 @@ class Board():
                 else:
                     boardstr += "%"
         return boardstr
+
+    def board_2_FEN(self):
+        FEN = ""
+        for i in range(8):
+            for j in range(8):
+                piece = self[i,j]
+                none_counter = 0
+                if piece:
+                    if none_counter != 0:
+                        FEN += str(none_counter)
+                    if piece.color:
+                        FEN += piece.name
+                    else:
+                        FEN += piece.name.lower()
+                    
+                else:
+                    none_counter += 1
+            FEN += "/"
+        return FEN
+
 
 
 
@@ -172,11 +193,29 @@ class Board():
         buffer += "\n"
         return buffer
 
-    def has_same_target(self, piece1, piece2):
-        targets1 = piece1.get_valid_moves()
-        targets2 = piece1.get_valid_moves()
-        same_targets = [move for move in targets1 if move in targets2]
-        return len(same_targets)
+    def mat_2_uci(self, el):
+        s = "abcdefgh"
+        a = s[el[0]]
+        b = str(abs(el[1]-8))
+        return a + b
+
+    def has_same_target(self, piece_name, color):
+        same_type_pieces = self.get_piece(piece_name, color)
+        print("same type pieces:", same_type_pieces)
+        if len(same_type_pieces) == 2:
+            piece1 = same_type_pieces[0]
+            piece2 = same_type_pieces[1]
+            # targets1 = piece1.get_valid_moves(self)
+            targets2 = piece2.get_valid_moves(self)
+            same_targets = [move for move in targets1 if move in targets2]
+            print("Same targets:", same_targets)
+            if bool(same_targets):
+                uci_move = self.mat_2_uci(piece1.get_pos())
+                if piece1.x == piece2.x:
+                    return uci_move[1]
+                elif piece1.y == piece2.y:
+                    return uci_move[0]
+        return False
 
 
     def get_piece(self, name, color):
@@ -189,19 +228,6 @@ class Board():
                         if piece.color == color:
                             l.append(piece)
         return l
-
-    def pieces_in_same_column(self, name, color):
-        two_piece_types = False
-        for j in range(8):
-            has_piece = False
-            for i in range(8):
-                piece = self.board[i,j]
-                if piece:
-                    if piece.name == name and piece.color == color:
-                        if has_piece:
-                            two_piece_types = True
-                        else:
-                            has_piece = True
 
 
 

@@ -1,5 +1,5 @@
-import board
-import piece
+import mychess.board as board
+import mychess.piece as piece
 import random
 import time
 import re
@@ -65,22 +65,24 @@ class Chess():
         self.algebric_played_moves = ""
         self.legal_moves = []
         self.moves_list = []
+        self.uci_moves_list = ""
         self.algebric_legal_moves = []
         self.no_progress_moves = 0
         self.board_states = []
 
+    def mat_2_uci(self, el):
+        s = "abcdefgh"
+        a = s[el[0]]
+        b = str(abs(el[1]-8))
+        return a + b
+
 
     def move_2_algebric(self, move, selected_piece, captured_piece, castling):
-        def mat_2_uci(el):
-            s = "abcdefgh"
-            a = s[el[0]]
-            b = str(abs(el[1]-8))
-            return a + b
         to = move[1]
         start = move[0]
         if castling:
             return castling
-        algebric_to = mat_2_uci(to)
+        algebric_to = self.mat_2_uci(to)
         capture = "x" if captured_piece else ""
         if selected_piece.name == "P":
             if capture == "x":
@@ -89,6 +91,12 @@ class Chess():
                 piece_name = ""
         else:
             piece_name = selected_piece.name
+
+        # specifier = self.board.has_same_target(selected_piece, selected_piece.color)
+        # print("Specifier:", specifier)
+        # if not specifier:
+            # specifier = ""
+        
         return piece_name + capture + algebric_to
 
 
@@ -185,13 +193,17 @@ class Chess():
         else:
             self.no_progress_moves += 1
         self.moves_list.append(move)
-
         algebric_move = self.move_2_algebric(move, selected_piece, captured_piece, castling)
+
         if self.turn:
             falgebric_move = f"{str(self.turn_counter+1)}. {algebric_move} "
         else:
             falgebric_move = f"{algebric_move} "
+
         self.algebric_played_moves += falgebric_move
+        promotion = move[2] if move[2] != 0 else ""
+        self.uci_moves_list += f"{self.mat_2_uci(start)}{self.mat_2_uci(to)}{promotion} "
+
         self.board_states.append(copy.deepcopy(self.board))
         self.turn = not self.turn
         self.board.turn = not self.board.turn
@@ -234,12 +246,6 @@ class Chess():
                             enemy_targets = self.board.get_controlled_squares(not self.turn)
                             friend_king = self.board.get_piece("K", self.turn)[0]
 
-                            # If king not in enemy targets after move, is legal move
-                            if friend_king.get_pos() not in enemy_targets:
-                                legal_moves.append(move)
-
-                            # Undo move
-                            piece.move(origin,self.board)
                             castling = None
                             if piece.name == "K":
                                 res = res = tuple(map(lambda i, j: i - j, origin, target))
@@ -247,8 +253,14 @@ class Chess():
                                     castling = "O-O"
                                 elif res[0] > 1:
                                     castling = "O-O-O"
-                            algebric_move = self.move_2_algebric(move, piece, captured_piece, castling)
-                            self.algebric_legal_moves.append(algebric_move)
+                            # If king not in enemy targets after move, is legal move
+                            if friend_king.get_pos() not in enemy_targets:
+                                legal_moves.append(move)
+                                # algebric_move = self.move_2_algebric(move, piece, captured_piece, castling)
+                                # self.algebric_legal_moves.append(algebric_move)
+
+                            # Undo move
+                            piece.move(origin,self.board)
                             if captured_piece:
                                 captured_piece.move(target,self.board)
 
@@ -420,7 +432,6 @@ class Chess():
         """
         player_turn = "White" if self.turn else "Black"
         print(f"{player_turn}'s turn to move!")
-        print(self.board.print_board())
 
     def play_cli(self, get_move):
         while self.game_running:
@@ -446,36 +457,38 @@ class Chess():
             move = self.uci_2_move(move)
             self.print_turn_decorator()
             self.legal_moves = self.get_legal_moves()
-            print("LegalMoves:", self.legal_moves)
             if move not in self.legal_moves:
                 print("Illegal or impossible move")
                 break
                 # continue
 
-            if not chess.game_running:
+            if not self.game_running:
                 break
             self.play_move(move)
+            print(self.board.print_board())
+            # print(self.uci_moves_list)
+        return self.uci_moves_list
 
-        while self.game_running:
-            self.print_turn_decorator()
-            self.legal_moves = self.get_legal_moves()
-            print("LegalMoves:", self.legal_moves)
+        # while self.game_running:
+            # self.print_turn_decorator()
+            # self.legal_moves = self.get_legal_moves()
+            # print("LegalMoves:", self.legal_moves)
 
-            move = self.get_move_player()
-            print("Move:", move)
+            # move = self.get_move_player()
+            # print("Move:", move)
 
-            if move not in self.legal_moves:
-                print("Illegal or impossible move")
-                break
-                # continue
+            # if move not in self.legal_moves:
+                # print("Illegal or impossible move")
+                # break
+                # # continue
 
-            if not chess.game_running:
-                break
-            self.play_move(move)
+            # if not self.game_running:
+                # break
+            # self.play_move(move)
 
     def play_gui(self):
         import GUI
-        logging.basicConfig(filename='log/guiLog.log', level=logging.DEBUG)
+        logging.basicConfig(filename='tests/log/guiLog.log', level=logging.DEBUG)
         gui = GUI.GUI(self.board,640,640,self)
         gui.main()
 
@@ -485,7 +498,7 @@ class Chess():
         print("Moves list:", moves_list)
 
         import GUI
-        logging.basicConfig(filename='log/guiLog.log', level=logging.DEBUG)
+        logging.basicConfig(filename='tests/log/guiLog.log', level=logging.DEBUG)
         gui = GUI.GUI(self.board,640,640,self)
         gui.cli_gui_main(moves_list)
 
@@ -493,7 +506,7 @@ class Chess():
         import time
         import datetime
 
-        logging.basicConfig(filename='log/testBrute.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
+        logging.basicConfig(filename='tests/log/testBrute.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
         depth = int(sys.argv[2])
         logging.info(f"Initiating move generation test on depth: {depth}")
         l = []
