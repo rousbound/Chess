@@ -31,7 +31,7 @@ class Chess():
         List of current legal moves
 
     no_progress_moves : int
-        Counter of moves without captures, or pawn movements relevant for draw criteria
+        Counter of moves without captures, or pawn movements (Relevant for draw criteria.)
 
 
     Methods:
