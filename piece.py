@@ -372,7 +372,6 @@ class King(Piece):
         self.x = x
         self.y = y
         self.in_check = False
-        self.can_castle = []
 
     
     def get_normal_valid_moves(self, board):
@@ -419,7 +418,6 @@ class King(Piece):
                                     castle_enabled = False
                         if castle_enabled:
                             move = (self.get_pos(), king_to, 0)
-                            self.can_castle.append(move)
                             candidate_moves.append(move)
         self.moves = candidate_moves
         return self.moves

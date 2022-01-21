@@ -205,16 +205,14 @@ class GUI():
         self.game.legal_moves = self.game.get_legal_moves()
         print("Legal moves:", self.game.algebric_legal_moves)
         self.game.check_endgame_conditions()
-        self.board.deactivate_ghost_pawn(self.game.turn)
         print("MovesList:", self.game.algebric_played_moves)
         print("FEN:", self.board.board_2_FEN())
-
 
     def drop_piece(self):
         to = self.get_mouse_pos()
         start = self.piece_held.get_pos()
         if self.piece_held.name == "P":
-            if not self.board.get_piece("K", self.game.turn)[0].in_check:
+            if not self.board.get_piece("K", self.game.turn).in_check:
                 last_row = 0 if self.piece_held.color else 7
                 if to[1] == last_row:
                     self.init_promotion(to, start)

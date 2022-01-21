@@ -1,4 +1,4 @@
-import mychess.piece as piece
+import piece as piece
 
 class Board():
     """
@@ -36,8 +36,11 @@ class Board():
 
         self.board = []
         self.turn = True
+        self.turn_counter = 1
         self.moves_list = []
         self.algebric_legal_moves = []
+        self.can_castle = {"K": True, "Q": True, "k": True, "q": True}
+        self.no_progress_plies = 0
 
         # Board set-up
         for i in range(8):
@@ -72,6 +75,29 @@ class Board():
         for i in range(8):
             self.board[i][1] = piece.Pawn(False,i,1)
 
+    def check_castling_rights(self):
+        if self[0,7]:
+            if self[0,7].name != "R":
+                self.can_castle["Q"] = False
+        else:
+            self.can_castle["Q"] = False
+
+        if self[7,7]:
+            if self[7,7].name != "R":
+                self.can_castle["K"] = False
+        else:
+            self.can_castle["k"] = False
+        if self[0,0]:
+            if self[0,0].name != "R":
+                self.can_castle["q"] = False
+        else:
+            self.can_castle["q"] = False
+        if self[7,0]:
+            if self[7,0].name != "R":
+                self.can_castle["k"] = False
+        else:
+            self.can_castle["k"] = False
+
 
     def board_2_str(self):
         boardstr = ""
@@ -87,21 +113,48 @@ class Board():
 
     def board_2_FEN(self):
         FEN = ""
-        for i in range(8):
-            for j in range(8):
-                piece = self[i,j]
-                none_counter = 0
+        for y in range(8):
+            none_counter = 0
+            for x in range(8):
+                piece = self[x,y]
                 if piece:
                     if none_counter != 0:
                         FEN += str(none_counter)
+                        none_counter = 0
                     if piece.color:
                         FEN += piece.name
                     else:
                         FEN += piece.name.lower()
-                    
-                else:
+                elif x != 7:
                     none_counter += 1
-            FEN += "/"
+                elif x == 7:
+                    none_counter += 1
+                    if none_counter != 0:
+                        FEN += str(none_counter)
+            if y != 7:
+                FEN += "/"
+        if self.turn:
+            FEN += " w "
+        else:
+            FEN += " b "
+        can_castle = ""
+        for castle in self.can_castle.keys():
+            if self.can_castle[castle]:
+                can_castle += castle
+        can_castle = "-" if len(can_castle) == 0 else can_castle
+        FEN += can_castle
+        if not self.turn:
+            if self.white_ghost_pawn:
+                FEN += " " + self.mat_2_uci(self.white_ghost_pawn)
+        else:
+            if self.black_ghost_pawn:
+                FEN += " " + self.mat_2_uci(self.black_ghost_pawn)
+        print(self.white_ghost_pawn, self.black_ghost_pawn)
+        if not self.white_ghost_pawn and not self.black_ghost_pawn:
+            FEN += " " + "-"
+        FEN += " " + str(self.no_progress_plies)
+        FEN += " " + str(self.turn_counter)
+
         return FEN
 
 
@@ -199,23 +252,27 @@ class Board():
         b = str(abs(el[1]-8))
         return a + b
 
-    def has_same_target(self, piece_name, color):
-        same_type_pieces = self.get_piece(piece_name, color)
+    def has_same_target(self, start, piece, color):
+        specifier = ""
+        same_type_pieces = self.get_piece(piece.name, color)
         print("same type pieces:", same_type_pieces)
         if len(same_type_pieces) == 2:
-            piece1 = same_type_pieces[0]
-            piece2 = same_type_pieces[1]
-            # targets1 = piece1.get_valid_moves(self)
+            piece1 = piece
+            piece2 = same_type_pieces[0] if same_type_pieces[0].get_pos() != piece.get_pos() else same_type_pieces[1]
+            self[piece1.get_pos()] = None
             targets2 = piece2.get_valid_moves(self)
-            same_targets = [move for move in targets1 if move in targets2]
-            print("Same targets:", same_targets)
-            if bool(same_targets):
-                uci_move = self.mat_2_uci(piece1.get_pos())
-                if piece1.x == piece2.x:
-                    return uci_move[1]
-                elif piece1.y == piece2.y:
-                    return uci_move[0]
-        return False
+            targets2 = [move[1] for move in targets2]
+            if piece1.get_pos() in targets2:
+                uci_move = self.mat_2_uci(start)
+                if start[0] == piece2.x:
+                    specifier = uci_move[1]
+                elif start[1] == piece2.y:
+                    specifier = uci_move[0]
+                else:
+                    specifier = uci_move[0]
+            self[piece1.get_pos()] = piece1
+            return specifier
+        return ""
 
 
     def get_piece(self, name, color):
@@ -224,6 +281,8 @@ class Board():
             for j in range(8):
                 piece = self.board[i][j]
                 if piece:
+                    if name == "K" and piece.name == "K":
+                        return piece
                     if piece.name == name:
                         if piece.color == color:
                             l.append(piece)
