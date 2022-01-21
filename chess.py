@@ -174,7 +174,7 @@ class Chess():
                         rook.move((5,0), self.board)
 
             # LongCastling
-                if move[1][0] == 2:
+                elif move[1][0] == 2:
                     castling = "O-O-O"
                     if self.turn:
                         self.board.can_castle["Q"] = False
@@ -188,9 +188,14 @@ class Chess():
                     else:
                         rook = self.board[0,0] 
                         rook.move((3,0), self.board)
-            # logging.info("Castle game:")
-            # logging.info("Game:", self.moves_list)
-            # logging.info("Game:(algebric)", self.algebric_played_moves)
+            else:
+                if self.turn:
+                    self.board.can_castle["Q"] = False
+                    self.board.can_castle["K"] = False
+                else:
+                    self.board.can_castle["q"] = False
+                    self.board.can_castle["k"] = False
+
 
             # After castle, a position can't be repeated
             if selected_piece.first_move == True:
@@ -207,7 +212,7 @@ class Chess():
         algebric_move = self.move_2_algebric(move, selected_piece, captured_piece, castling)
 
         if self.turn:
-            falgebric_move = f"{str(self.board.turn_counter+1)}. {algebric_move} "
+            falgebric_move = f"{str(self.board.turn_counter)}. {algebric_move} "
         else:
             falgebric_move = f"{algebric_move} "
 
@@ -259,7 +264,10 @@ class Chess():
                             captured_piece = piece.move(target,self.board)
 
                             enemy_targets = self.board.get_controlled_squares(not self.turn)
-                            friend_king = self.board.get_piece("K", self.turn)
+                            if piece.name != "K":
+                                friend_king = self.board.get_piece("K", self.turn)
+                            else:
+                                friend_king = piece
 
                             castling = None
                             if piece.name == "K":
@@ -451,6 +459,7 @@ class Chess():
         print(f"{player_turn}'s turn to move!")
 
     def play_cli(self, get_move):
+        print(self.board.print_board())
         while self.game_running:
             self.print_turn_decorator()
             self.legal_moves = self.get_legal_moves()
@@ -466,6 +475,10 @@ class Chess():
             if not chess.game_running:
                 break
             self.play_move(move)
+            self.board.deactivate_ghost_pawn(self.turn)
+            print(self.board.print_board())
+
+    # def ply(self):
 
     def play_cli_test(self, input_moves):
         print("Input moves:", input_moves)

@@ -86,7 +86,7 @@ class Board():
             if self[7,7].name != "R":
                 self.can_castle["K"] = False
         else:
-            self.can_castle["k"] = False
+            self.can_castle["K"] = False
         if self[0,0]:
             if self[0,0].name != "R":
                 self.can_castle["q"] = False
@@ -112,6 +112,11 @@ class Board():
         return boardstr
 
     def board_2_FEN(self):
+        """
+        Converts game state to string, which encodes the group of all possible legal moves in a position. 
+        For that matter it is necessary pieces position, castling rights, En passeant capture possibility number of "no progress moves" and turn counter.
+
+        """
         FEN = ""
         for y in range(8):
             none_counter = 0
@@ -149,7 +154,6 @@ class Board():
         else:
             if self.black_ghost_pawn:
                 FEN += " " + self.mat_2_uci(self.black_ghost_pawn)
-        print(self.white_ghost_pawn, self.black_ghost_pawn)
         if not self.white_ghost_pawn and not self.black_ghost_pawn:
             FEN += " " + "-"
         FEN += " " + str(self.no_progress_plies)
@@ -167,7 +171,7 @@ class Board():
         Because we delete the board when player castles, we only need to check if the turn and piece positions are the same.
         """
         equal = True
-        if self.board2str() != other_board.board2str():
+        if self.board_2_FEN() != other_board.board_2_FEN():
             equal = False
         if self.turn != other_board.turn:
             equal = False
@@ -253,6 +257,11 @@ class Board():
         return a + b
 
     def has_same_target(self, start, piece, color):
+        """
+        Designed to check if two pieces can go to the same square.
+        Returns the information needed to distinct the start square.
+
+        """
         specifier = ""
         same_type_pieces = self.get_piece(piece.name, color)
         print("same type pieces:", same_type_pieces)

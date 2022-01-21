@@ -201,8 +201,8 @@ class GUI():
     def play_move(self, move):
         self.last_move_to = move[0]
         self.last_move_from = move[1]
-        self.game.play_move(move)
         self.game.legal_moves = self.game.get_legal_moves()
+        self.game.play_move(move)
         print("Legal moves:", self.game.algebric_legal_moves)
         self.game.check_endgame_conditions()
         print("MovesList:", self.game.algebric_played_moves)
