@@ -6,7 +6,7 @@ import copy
 import time
 import colors
 
-from piece import Queen, Knight, Rook, Bishop
+from pieces import Queen, Knight, Rook, Bishop
 
 class GUI():
 
@@ -220,7 +220,7 @@ class GUI():
                 if to[1] == last_row:
                     self.init_promotion(to, start)
                     return
-        move = (start, to, 0)
+        move = (start, to, "%")
         if move in self.game.legal_moves:
             self.play_move(move)
         else:

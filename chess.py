@@ -1,5 +1,5 @@
 import board 
-import piece 
+import pieces
 import utils
 import random
 import time
@@ -88,6 +88,7 @@ class Chess():
         """
         start = move[0]
         to = move[1]
+        promotion = move[2]
 
         selected_piece = self.board[start]
 
@@ -108,8 +109,7 @@ class Chess():
                         self.board[to[0],to[1]+1] = None
                     else:
                         self.board[to[0],to[1]-1] = None
-            if str(move[2]) in "qrbn":
-                promotion = move[2]
+            if promotion in "qrbn":
                 color = selected_piece.color
                 if promotion == "q":
                     promoted_piece = piece.Queen(color, selected_piece.x, selected_piece.y)
@@ -126,18 +126,12 @@ class Chess():
 
         castling = False
         if selected_piece.name == "K":
+            self.board.remove_castling_rights(self.turn)
             # if move in selected_piece.can_castle:
             if abs(start[0]-to[0]) > 1:
             # ShortCastling
                 if move[1][0] == 6:
                     castling = "O-O"
-                    if self.turn:
-                        self.board.can_castle["Q"] = False
-                        self.board.can_castle["K"] = False
-                    else:
-                        self.board.can_castle["q"] = False
-                        self.board.can_castle["k"] = False
-
                     if selected_piece.color:
                         rook = self.board[7,7] 
                         rook.move((5,7), self.board)
@@ -148,25 +142,12 @@ class Chess():
             # LongCastling
                 elif move[1][0] == 2:
                     castling = "O-O-O"
-                    if self.turn:
-                        self.board.can_castle["Q"] = False
-                        self.board.can_castle["K"] = False
-                    else:
-                        self.board.can_castle["q"] = False
-                        self.board.can_castle["k"] = False
                     if selected_piece.color:
                         rook = self.board[0,7] 
                         rook.move((3,7), self.board)
                     else:
                         rook = self.board[0,0] 
                         rook.move((3,0), self.board)
-            else:
-                if self.turn:
-                    self.board.can_castle["Q"] = False
-                    self.board.can_castle["K"] = False
-                else:
-                    self.board.can_castle["q"] = False
-                    self.board.can_castle["k"] = False
 
 
             # After castle, a position can't be repeated
@@ -183,13 +164,9 @@ class Chess():
         self.moves_list.append(move)
         algebric_move = utils.move_2_algebric(self.board, move, selected_piece, captured_piece, castling)
 
-        if self.turn:
-            falgebric_move = f"{str(self.board.turn_counter)}. {algebric_move} "
-        else:
-            falgebric_move = f"{algebric_move} "
-
+        falgebric_move = f"{str(self.board.turn_counter)}. {algebric_move} " if self.turn else f"{algebric_move} "
         self.algebric_played_moves += falgebric_move
-        promotion = move[2] if move[2] != 0 else ""
+
         self.uci_moves_list += f"{utils.mat_2_uci(start)}{utils.mat_2_uci(to)}{promotion} "
 
         self.board_states.append(copy.deepcopy(self.board))
@@ -220,6 +197,7 @@ class Chess():
         """
 
         legal_moves = []
+        self.algebric_legal_moves = []
 
         for i in range(8):
             for j in range(8):
@@ -434,7 +412,6 @@ class Chess():
             self.play_move(move)
             print(self.board.print_board())
         return self.board.board_2_FEN()
-    
 
 
     def play_gui(self):
@@ -452,29 +429,6 @@ class Chess():
         logging.basicConfig(filename='tests/log/guiLog.log', level=logging.DEBUG)
         gui = GUI.GUI(self.board,640,640,self)
         gui.cli_gui_main(moves_list)
-
-    def play_brute_force(self):
-        import time
-        import datetime
-
-        logging.basicConfig(filename='tests/log/testBrute.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
-        depth = int(sys.argv[2])
-        logging.info(f"Initiating move generation test on depth: {depth}")
-        l = []
-        test_start = time.time()
-        ply_depth_start = time.time()
-        expected_results = [20,400,8902,197_281,4_865_609]
-        for i,j in zip(range(1,depth+1), expected_results):
-            result = self.move_generation_test(i)
-            l.append(result)
-            logging.info(f"Result of possible games with {i} ply: {result}/{j} - {'OK' if result == j else 'ERROR'}")
-            ply_elapsed_time = (time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - ply_depth_start)))
-            logging.info(f"Elapsed time in {i} ply: {ply_elapsed_time} seconds")
-            ply_depth_start = time.time()
-        
-        all_elapsed_time = time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - test_start))
-
-        logging.info(f"Total Elapsed time: ({all_elapsed_time})")
 
 
 
@@ -501,6 +455,8 @@ class Chess():
             self.play_cli_gui(sys.argv)
         elif arg == "-clitest":
             self.play_cli_test(sys.argv[2:])
+        elif arg == "b":
+            import tests.test_brute
 
             
 

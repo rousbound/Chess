@@ -1,5 +1,10 @@
-import piece as piece
+import pieces
 import utils
+
+"""
+Module made for Board class.
+
+"""
 
 class Board():
     """
@@ -11,7 +16,7 @@ class Board():
     -----------
     board : list[list[Piece]]
         represents a chess board
-        
+       
     turn : bool
         True if white's turn
 
@@ -42,39 +47,50 @@ class Board():
         self.algebric_legal_moves = []
         self.can_castle = {"K": True, "Q": True, "k": True, "q": True}
         self.no_progress_plies = 0
+        self.setup_board()
+        self.white_ghost_pawn = None
+        self.black_ghost_pawn = None
 
+    def setup_board(self):
         # Board set-up
         for i in range(8):
             self.board.append([None] * 8)
 
         # White
-        self.board[0][7] = piece.Rook(True,0,7)
-        self.board[1][7] = piece.Knight(True,1,7)
-        self.board[2][7] = piece.Bishop(True,2,7)
-        self.board[3][7] = piece.Queen(True,3,7)
-        self.board[4][7] = piece.King(True,4,7)
-        self.board[5][7] = piece.Bishop(True,5,7)
-        self.board[6][7] = piece.Knight(True,6,7)
-        self.board[7][7] = piece.Rook(True,7,7)
+        self.board[0][7] = pieces.Rook(True,0,7)
+        self.board[1][7] = pieces.Knight(True,1,7)
+        self.board[2][7] = pieces.Bishop(True,2,7)
+        self.board[3][7] = pieces.Queen(True,3,7)
+        self.board[4][7] = pieces.King(True,4,7)
+        self.board[5][7] = pieces.Bishop(True,5,7)
+        self.board[6][7] = pieces.Knight(True,6,7)
+        self.board[7][7] = pieces.Rook(True,7,7)
 
         for i in range(8):
-            self.board[i][6] = piece.Pawn(True,i,6)
+            self.board[i][6] = pieces.Pawn(True,i,6)
 
         # Black
-        self.board[0][0] = piece.Rook(False,0,0)
-        self.board[1][0] = piece.Knight(False,1,0)
-        self.board[2][0] = piece.Bishop(False,2,0)
-        self.board[3][0] = piece.Queen(False,3,0)
-        self.board[4][0] = piece.King(False,4,0)
-        self.board[5][0] = piece.Bishop(False,5,0)
-        self.board[6][0] = piece.Knight(False,6,0)
-        self.board[7][0] = piece.Rook(False,7,0)
+        self.board[0][0] = pieces.Rook(False,0,0)
+        self.board[1][0] = pieces.Knight(False,1,0)
+        self.board[2][0] = pieces.Bishop(False,2,0)
+        self.board[3][0] = pieces.Queen(False,3,0)
+        self.board[4][0] = pieces.King(False,4,0)
+        self.board[5][0] = pieces.Bishop(False,5,0)
+        self.board[6][0] = pieces.Knight(False,6,0)
+        self.board[7][0] = pieces.Rook(False,7,0)
 
-        self.white_ghost_pawn = None
-        self.black_ghost_pawn = None
 
         for i in range(8):
-            self.board[i][1] = piece.Pawn(False,i,1)
+            self.board[i][1] = pieces.Pawn(False,i,1)
+
+    def remove_castling_rights(self, color):
+        if color:
+            self.can_castle["Q"] = False
+            self.can_castle["K"] = False
+        else:
+            self.can_castle["q"] = False
+            self.can_castle["k"] = False
+
 
     def check_castling_rights(self):
         if self[0,7]:
@@ -114,8 +130,10 @@ class Board():
 
     def board_2_FEN(self):
         """
-        Converts game state to string, which encodes the group of all possible legal moves in a position. 
-        For that matter it is necessary pieces position, castling rights, En passeant capture possibility number of "no progress moves" and turn counter.
+        Converts game state to string, which encodes the group of all possible legal moves in a position.
+        For that matter it is necessary:
+        pieces position, castling rights, En passeant capture possibility, and
+        number of "no progress moves" and turn counter.
 
         """
         FEN = ""
@@ -169,7 +187,8 @@ class Board():
         """
         Called when comparing two board objects.
         A board is considered equal when having the same pieces, legal moves and player to move.
-        Because we delete the board when player castles, we only need to check if the turn and piece positions are the same.
+        Because we delete the board when player castles,
+        we only need to check if the turn and piece positions are the same.
         """
         equal = True
         if self.board_2_FEN() != other_board.board_2_FEN():
@@ -177,12 +196,13 @@ class Board():
         if self.turn != other_board.turn:
             equal = False
         return equal
-    
+   
     def __hash__(self):
         """
         Called when used as key in a dictionary.
         A board is considered equal when having the same pieces, legal moves and player to move.
-        Because we delete the board when player castles, we only need to check if the turn and piece positions are the same.
+        Because we delete the board when player castles,
+        we only need to check if the turn and piece positions are the same.
         """
 
         return hash((self.board_2_FEN(), self.turn))
@@ -190,7 +210,7 @@ class Board():
 
     def __setitem__(self, key, value):
         self.board[key[0]][key[1]] = value
-                    
+
 
     def __getitem__(self, item):
         return self.board[item[0]][item[1]]
@@ -243,11 +263,11 @@ class Board():
 
             buffer += tmp_str + "\n"
         for i in range(8):
-            buffer += f"   {s[i]}" 
+            buffer += f"   {s[i]}"
         buffer += "\n"
 
         for i in range(33):
-            buffer += "*" 
+            buffer += "*"
         buffer += "\n"
         return buffer
 
@@ -306,4 +326,3 @@ class Board():
                         for move in otherpiece.get_normal_valid_moves(self):
                             enemy_moves.add(move[1])
         return list(enemy_moves)
-

@@ -116,7 +116,7 @@ class Piece():
                 else:
                     target_squares.add((x,y))
 
-        moves = [(self.get_pos(), target, 0) for target in target_squares]
+        moves = [(self.get_pos(), target, "%") for target in target_squares]
         return moves
 
     def get_ortogonal_moves(self, board):
@@ -157,7 +157,7 @@ class Piece():
                     break
             else:
                 target_squares.append((self.x,self.y+i))
-        moves = [(self.get_pos(), target, 0) for target in target_squares]
+        moves = [(self.get_pos(), target, "%") for target in target_squares]
         return moves
 
 
@@ -249,7 +249,7 @@ class Knight(Piece):
                 (self.x - 1, self.y + 2),
                 (self.x - 1, self.y - 2),
                 ]
-        moves = [(self.get_pos(), target, 0) for target in targets]
+        moves = [(self.get_pos(), target, "%") for target in targets]
         moves = [move for move in moves if self.move_is_possible(move[1], board)]
         return moves
         
@@ -309,7 +309,7 @@ class Pawn(Piece):
                 for promotion in ["q","b","r","n"]:
                     moves.append((self.get_pos(), target, promotion))
             else:
-                moves.append((self.get_pos(), target, 0))
+                moves.append((self.get_pos(), target, "%"))
             return moves
 
         ahead = -1 if self.color else 1
@@ -323,7 +323,7 @@ class Pawn(Piece):
         if self.first_move:
             if not piece_ahead:
                 if not piece_ahead_ahead:
-                    moves.append((self.get_pos(), pos_ahead_ahead, 0))
+                    moves.append((self.get_pos(), pos_ahead_ahead, "%"))
             
 
         # Check Captures
@@ -344,7 +344,7 @@ class Pawn(Piece):
                         enemy_ghost_pawn = board.get_ghost_pawn(not self.color)
                         if enemy_ghost_pawn:
                             if enemy_ghost_pawn == target:
-                                move = (self.get_pos(), target, 0)
+                                move = (self.get_pos(), target, "%")
                                 moves.append(move)
                                 # self.can_en_passeant = move
         self.moves = moves
@@ -386,7 +386,7 @@ class King(Piece):
                 (self.x - 1 , self.y + 1),
                 ]
         # Create move
-        candidate_moves = [(self.get_pos(), target, 0) for target in targets]
+        candidate_moves = [(self.get_pos(), target, "%") for target in targets]
         candidate_moves = [move for move in candidate_moves if self.move_is_possible(move[1], board)]
         return candidate_moves
 
@@ -417,7 +417,7 @@ class King(Piece):
                                 if square in enemy_targets:
                                     castle_enabled = False
                         if castle_enabled:
-                            move = (self.get_pos(), king_to, 0)
+                            move = (self.get_pos(), king_to, "%")
                             candidate_moves.append(move)
         self.moves = candidate_moves
         return self.moves

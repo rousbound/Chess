@@ -1,8 +1,12 @@
 import sys
-sys.path.insert(0,'..')
-from mychess.chess import Chess as Chess
-from mychess.board import Board as Board
+sys.path.insert(0,'.')
+from chess import Chess as Chess
+from board import Board as Board
 import copy
+import time
+import datetime
+import sys
+import logging
 
 
 
@@ -13,7 +17,6 @@ def move_generation_test(depth, chess=Chess(Board()), played_moves = ""):
 
     """
     if depth == 0:
-        # print(played_moves)
         return 1
     chess.legal_moves = chess.get_legal_moves()
     counter = 0
@@ -31,17 +34,13 @@ def move_generation_test(depth, chess=Chess(Board()), played_moves = ""):
     return counter
 
 
-import time
-import datetime
-import sys
-import logging
 
 if len(sys.argv) == 1:
     depth = 5
 else:
     depth = int(sys.argv[2])
 
-logging.basicConfig(filename='log/testBrute.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
+logging.basicConfig(filename='tests/log/testBrute.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
 logging.info(f"Initiating move generation test on depth: {depth}")
 l = []
 test_start = time.time()
