@@ -1,3 +1,4 @@
+import re
 
 def move_2_algebric(board, move, selected_piece, captured_piece, castling):
     start = move[0]
@@ -49,6 +50,6 @@ def uci_2_move(uci_move):
     if promotion:
         move.append(promotion)
     else:
-        move.append(0)
+        move.append("%")
 
     return tuple(move)

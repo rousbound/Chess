@@ -16,7 +16,7 @@ class Board():
     -----------
     board : list[list[Piece]]
         represents a chess board
-       
+
     turn : bool
         True if white's turn
 
@@ -37,7 +37,7 @@ class Board():
     """
     def __init__(self):
         """
-        Initializes the board per standard chess rules
+        Initializes the board per standard chess rules.
         """
 
         self.board = []
@@ -52,6 +52,10 @@ class Board():
         self.black_ghost_pawn = None
 
     def setup_board(self):
+        """
+        Populate board with pieces starting position.
+
+        """
         # Board set-up
         for i in range(8):
             self.board.append([None] * 8)
@@ -79,11 +83,14 @@ class Board():
         self.board[6][0] = pieces.Knight(False,6,0)
         self.board[7][0] = pieces.Rook(False,7,0)
 
-
         for i in range(8):
             self.board[i][1] = pieces.Pawn(False,i,1)
 
     def remove_castling_rights(self, color):
+        """
+        Completely remove castling rights of player.
+        Done after moving king.
+        """
         if color:
             self.can_castle["Q"] = False
             self.can_castle["K"] = False
@@ -93,6 +100,10 @@ class Board():
 
 
     def check_castling_rights(self):
+        """
+        Check which rook has moved and the correspondent
+        castling right that should be disabled by its move.
+        """
         if self[0,7]:
             if self[0,7].name != "R":
                 self.can_castle["Q"] = False
@@ -115,22 +126,10 @@ class Board():
         else:
             self.can_castle["k"] = False
 
-
-    def board_2_str(self):
-        boardstr = ""
-        getcolor = {True:"W", False:"B"}
-        for i in range(8):
-            for j in range(8):
-                piece = self[i,j]
-                if piece:
-                    boardstr += getcolor[piece.color] + piece.name
-                else:
-                    boardstr += "%"
-        return boardstr
-
     def board_2_FEN(self):
         """
-        Converts game state to string, which encodes the group of all possible legal moves in a position.
+        Converts game state to FEN,
+        which encodes the group of all possible legal moves in a position.
         For that matter it is necessary:
         pieces position, castling rights, En passeant capture possibility, and
         number of "no progress moves" and turn counter.
@@ -138,42 +137,37 @@ class Board():
         """
         FEN = ""
         for y in range(8):
-            none_counter = 0
+            no_piece = 0
             for x in range(8):
                 piece = self[x,y]
                 if piece:
-                    if none_counter != 0:
-                        FEN += str(none_counter)
-                        none_counter = 0
+                    if no_piece != 0:
+                        FEN += str(no_piece)
+                        no_piece = 0
                     if piece.color:
                         FEN += piece.name
                     else:
                         FEN += piece.name.lower()
                 elif x != 7:
-                    none_counter += 1
+                    no_piece += 1
                 elif x == 7:
-                    none_counter += 1
-                    if none_counter != 0:
-                        FEN += str(none_counter)
+                    no_piece += 1
+                    if no_piece != 0:
+                        FEN += str(no_piece)
             if y != 7:
                 FEN += "/"
-        if self.turn:
-            FEN += " w "
-        else:
-            FEN += " b "
+        FEN += " w " if self.turn else " b "
         can_castle = ""
-        for castle in self.can_castle.keys():
-            if self.can_castle[castle]:
-                can_castle += castle
+        for key, value in self.can_castle.items():
+            if value:
+                can_castle += key
         can_castle = "-" if len(can_castle) == 0 else can_castle
         FEN += can_castle
-        if not self.turn:
-            if self.white_ghost_pawn:
-                FEN += " " + utils.mat_2_uci(self.white_ghost_pawn)
-        else:
-            if self.black_ghost_pawn:
-                FEN += " " + utils.mat_2_uci(self.black_ghost_pawn)
-        if not self.white_ghost_pawn and not self.black_ghost_pawn:
+        if self.white_ghost_pawn:
+            FEN += " " + utils.mat_2_uci(self.white_ghost_pawn)
+        elif self.black_ghost_pawn:
+            FEN += " " + utils.mat_2_uci(self.black_ghost_pawn)
+        elif not self.white_ghost_pawn and not self.black_ghost_pawn:
             FEN += " " + "-"
         FEN += " " + str(self.no_progress_plies)
         FEN += " " + str(self.turn_counter)
@@ -190,13 +184,8 @@ class Board():
         Because we delete the board when player castles,
         we only need to check if the turn and piece positions are the same.
         """
-        equal = True
-        if self.board_2_FEN() != other_board.board_2_FEN():
-            equal = False
-        if self.turn != other_board.turn:
-            equal = False
-        return equal
-   
+        return self.board_2_FEN() != other_board.board_2_FEN()
+
     def __hash__(self):
         """
         Called when used as key in a dictionary.
@@ -205,7 +194,7 @@ class Board():
         we only need to check if the turn and piece positions are the same.
         """
 
-        return hash((self.board_2_FEN(), self.turn))
+        return hash((self.board_2_FEN()))
 
 
     def __setitem__(self, key, value):
@@ -216,28 +205,44 @@ class Board():
         return self.board[item[0]][item[1]]
 
     def get_ghost_pawn(self, color):
+        """
+        Return ghost pawn of desired color
+        """
+
         if color:
             return self.white_ghost_pawn
-        else:
-            return self.black_ghost_pawn
+        return self.black_ghost_pawn
 
     def deactivate_ghost_pawn(self, color):
+        """
+        Sets the value of ghost pawn of desired color to none
+
+        """
+
         if color:
             self.white_ghost_pawn = None
         else:
             self.black_ghost_pawn = None
 
     def activate_ghost_pawn(self, pos, color):
+        """
+        Sets the value of ghost pawn of desired color to a certain position
+        """
+
         if color:
             self.white_ghost_pawn = (pos[0], pos[1] - 1)
         else:
             self.black_ghost_pawn = (pos[0], pos[1] + 1)
 
     def vector(self):
+        """
+        Returns the board pieces in a vector for linear iteration.
+        """
+        
         vec = []
         for i in range(8):
             for j in range(8):
-                vec.append(self.board[i][j])
+                vec.append(self[i,j])
         return vec
 
     def print_board(self):
@@ -245,25 +250,26 @@ class Board():
         Prints the current state of the board.
         """
 
-        s = "abcdefgh"
+        column_labels = "abcdefgh"
+        BOARD_LEN = 8
         buffer = ""
         for i in range(33):
             buffer += "*"
         buffer += "\n"
-        for i in range(len(self.board)):
+        for y in range(BOARD_LEN):
             tmp_str = f"{8-i}|"
-            for j in range(len(self.board)):
-                if self.board[j][i] == None:
+            for x in range(BOARD_LEN):
+                if self[x,y] is None:
                     tmp_str += "   |"
                 else:
-                    if self.board[j][i].color == True:
-                        tmp_str += (" " + str(self.board[j][i]) + " |")
+                    if self[x,y].color == True:
+                        tmp_str += (" " + str(self[x,y]) + " |")
                     else:
-                        tmp_str += (" " + str(self.board[j][i]).lower() + " |")
+                        tmp_str += (" " + str(self[x,y]).lower() + " |")
 
             buffer += tmp_str + "\n"
-        for i in range(8):
-            buffer += f"   {s[i]}"
+        for i in range(BOARD_LEN):
+            buffer += f"   {column_labels[i]}"
         buffer += "\n"
 
         for i in range(33):
@@ -279,9 +285,9 @@ class Board():
 
         """
         specifier = ""
-        pieces = self.get_piece(piece.name, color)
-        if len(pieces) == 2:
-            other_piece = pieces[0] if pieces[0].get_pos() != piece.get_pos() else pieces[1]
+        l_pieces = self.get_piece(piece.name, color)
+        if len(l_pieces) == 2:
+            other_piece = l_pieces[0] if l_pieces[0].get_pos() != piece.get_pos() else l_pieces[1]
             self[piece.get_pos()] = None
             other_piece_targets = other_piece.get_valid_moves(self)
             other_piece_targets = [move[1] for move in other_piece_targets]
@@ -299,7 +305,12 @@ class Board():
 
 
     def get_piece(self, name, color):
-        l = []
+        """
+        Iterates through board and return desired piece in a list.
+        If it is king return just the piece object.
+        """
+
+        l_pieces = []
         for i in range(8):
             for j in range(8):
                 piece = self.board[i][j]
@@ -309,12 +320,16 @@ class Board():
                             if piece.name == "K":
                                 return piece
                         elif piece.name == name:
-                            l.append(piece)
-        return l
+                            l_pieces.append(piece)
+        return l_pieces
 
 
 
     def get_controlled_squares(self, color):
+        """
+        Returns squares which are target of pieces of a certain color.
+        """
+
         enemy_moves = set()
         for otherpiece in self.vector():
             if otherpiece:

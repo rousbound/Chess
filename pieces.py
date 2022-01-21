@@ -21,7 +21,7 @@ class Piece():
     ----------
 
     move(to:tup, board:Board) -> captured_piece:Piece
-        Moves piece to 'to'. Returns captured_piece if there is 
+        Moves piece to 'to'. Returns captured_piece if there is
 
     move_is_possible(move:to, board:Board) -> bool
         Checks if move is withing board boundaries,
@@ -43,24 +43,39 @@ class Piece():
         self.piece_held = False
 
     def get_pos(self):
+        """
+        Gets position of piece in the board.
+        """
         return (self.x, self.y)
 
     def set_pos(self, pos):
+        """
+        Sets position of piece in the board.
+        Updates x and y.
+        """
         self.pos = pos
         self.x = pos[0]
         self.y = pos[1]
 
     def move(self, to, board):
+        """
+        Make piece move.
+
+        """
         board[self.get_pos()] = None
         captured_piece = board[to]
         board[to]= self
         self.set_pos(to)
         return captured_piece
-    
+
     def __repr__(self):
         return self.name
 
     def move_is_possible(self, move, board):
+        """
+        Checks if move is inside board boundaries.
+
+        """
         if not ( 0 <= move[0] <= 7 and 0 <= move[1] <= 7):
             return False
         else:
@@ -69,17 +84,28 @@ class Piece():
                     return False
         return True
 
+    def get_valid_moves(self):
+        """
+        Get valid moves for the piece.
+
+        """
+        pass
+
     def get_diagonal_moves(self, board):
+        """
+        Get diagonal moves for Queen and Bishop.
+
+        """
         target_squares = set()
         for i in range(1,8):
             x,y = self.x-i, self.y-i
             if x <= 7 and y <= 7 and x>=0 and y>=0:
                 if board[x,y]:
                     if board[x,y].color == self.color:
-                        break
+                        pass
                     else:
                         target_squares.add((x,y))
-                        break
+                    break
                 else:
                     target_squares.add((x,y))
         for i in range(1,8):
@@ -87,10 +113,10 @@ class Piece():
             if x <= 7 and y <= 7 and x>=0 and y>=0:
                 if board[x,y]:
                     if board[x,y].color == self.color:
-                        break
+                        pass
                     else:
                         target_squares.add((x,y))
-                        break
+                    break
                 else:
                     target_squares.add((x,y))
         for i in range(1,8):
@@ -98,10 +124,11 @@ class Piece():
             if x <= 7 and y <= 7 and x>=0 and y>=0:
                 if board[x,y]:
                     if board[x,y].color == self.color:
-                        break
+                        pass
+                        
                     else:
                         target_squares.add((x,y))
-                        break
+                    break
                 else:
                     target_squares.add((x,y))
         for i in range(1,8):
@@ -109,10 +136,10 @@ class Piece():
             if x <= 7 and y <= 7 and x>=0 and y>=0:
                 if board[x,y]:
                     if board[x,y].color == self.color:
-                        break
+                        pass
                     else:
                         target_squares.add((x,y))
-                        break
+                    break
                 else:
                     target_squares.add((x,y))
 
@@ -120,6 +147,10 @@ class Piece():
         return moves
 
     def get_ortogonal_moves(self, board):
+        """
+        Get ortogonal moves for Queen and Rook.
+
+        """
         target_squares = []
         for i in range(1, self.x+1):
             if board[self.x-i,self.y]:
@@ -184,7 +215,7 @@ class Rook(Piece):
         """
         super().__init__(color,x,y)
         self.name = "R"
-        self.first_move = first_move 
+        self.first_move = first_move
         self.moves = []
         self.x = x
         self.y = y
@@ -252,7 +283,7 @@ class Knight(Piece):
         moves = [(self.get_pos(), target, "%") for target in targets]
         moves = [move for move in moves if self.move_is_possible(move[1], board)]
         return moves
-        
+
 class Queen(Piece):
     """
                 Queen moves
@@ -296,7 +327,7 @@ class Pawn(Piece):
     def __init__(self, color,x,y, first_move = True):
         super().__init__(color,x,y)
         self.name = "P"
-        self.first_move = first_move 
+        self.first_move = first_move
         self.moves = []
         self.x = x
         self.y = y
@@ -324,7 +355,7 @@ class Pawn(Piece):
             if not piece_ahead:
                 if not piece_ahead_ahead:
                     moves.append((self.get_pos(), pos_ahead_ahead, "%"))
-            
+
 
         # Check Captures
         if 0 <= pos_ahead[1] <= 7:
@@ -367,13 +398,13 @@ class King(Piece):
     def __init__(self, color, x, y, first_move = True):
         super().__init__(color, x, y)
         self.name = "K"
-        self.first_move = first_move 
+        self.first_move = first_move
         self.moves = []
         self.x = x
         self.y = y
         self.in_check = False
 
-    
+
     def get_normal_valid_moves(self, board):
         targets = [
                 (self.x + 1 , self.y),
@@ -409,7 +440,7 @@ class King(Piece):
                             king_to = (self.x+2,self.y)
                         for square in squares_list:
                             # If square have pieces, castle is not possible
-                            # Still, if square doesn't have pieces, 
+                            # Still, if square doesn't have pieces,
                             # check if they are controlled by enemy pieces
                             if board[square]:
                                 castle_enabled = False
