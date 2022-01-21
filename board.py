@@ -1,4 +1,5 @@
 import piece as piece
+import utils
 
 class Board():
     """
@@ -150,10 +151,10 @@ class Board():
         FEN += can_castle
         if not self.turn:
             if self.white_ghost_pawn:
-                FEN += " " + self.mat_2_uci(self.white_ghost_pawn)
+                FEN += " " + utils.mat_2_uci(self.white_ghost_pawn)
         else:
             if self.black_ghost_pawn:
-                FEN += " " + self.mat_2_uci(self.black_ghost_pawn)
+                FEN += " " + utils.mat_2_uci(self.black_ghost_pawn)
         if not self.white_ghost_pawn and not self.black_ghost_pawn:
             FEN += " " + "-"
         FEN += " " + str(self.no_progress_plies)
@@ -184,7 +185,7 @@ class Board():
         Because we delete the board when player castles, we only need to check if the turn and piece positions are the same.
         """
 
-        return hash((self.board_2_str(), self.turn))
+        return hash((self.board_2_FEN(), self.turn))
 
 
     def __setitem__(self, key, value):
@@ -250,11 +251,6 @@ class Board():
         buffer += "\n"
         return buffer
 
-    def mat_2_uci(self, el):
-        s = "abcdefgh"
-        a = s[el[0]]
-        b = str(abs(el[1]-8))
-        return a + b
 
     def has_same_target(self, start, piece, color):
         """
@@ -263,23 +259,21 @@ class Board():
 
         """
         specifier = ""
-        same_type_pieces = self.get_piece(piece.name, color)
-        print("same type pieces:", same_type_pieces)
-        if len(same_type_pieces) == 2:
-            piece1 = piece
-            piece2 = same_type_pieces[0] if same_type_pieces[0].get_pos() != piece.get_pos() else same_type_pieces[1]
-            self[piece1.get_pos()] = None
-            targets2 = piece2.get_valid_moves(self)
-            targets2 = [move[1] for move in targets2]
-            if piece1.get_pos() in targets2:
-                uci_move = self.mat_2_uci(start)
-                if start[0] == piece2.x:
+        pieces = self.get_piece(piece.name, color)
+        if len(pieces) == 2:
+            other_piece = pieces[0] if pieces[0].get_pos() != piece.get_pos() else pieces[1]
+            self[piece.get_pos()] = None
+            other_piece_targets = other_piece.get_valid_moves(self)
+            other_piece_targets = [move[1] for move in other_piece_targets]
+            if piece.get_pos() in other_piece_targets:
+                uci_move = utils.mat_2_uci(start)
+                if start[0] == other_piece.x:
                     specifier = uci_move[1]
-                elif start[1] == piece2.y:
+                elif start[1] == other_piece.y:
                     specifier = uci_move[0]
                 else:
                     specifier = uci_move[0]
-            self[piece1.get_pos()] = piece1
+            self[piece.get_pos()] = piece
             return specifier
         return ""
 

@@ -198,7 +198,7 @@ class GUI():
         self.game.legal_moves = self.game.get_legal_moves()
         self.game.check_endgame_conditions()
         self.game.kings_in_check() 
-        print("Legal moves:", self.game.legal_moves)
+        print("Legal moves:", self.game.algebric_legal_moves)
         print("MovesList:", self.game.algebric_played_moves)
         print("FEN:", self.board.board_2_FEN())
 

@@ -1,5 +1,6 @@
 import board 
 import piece 
+import utils
 import random
 import time
 import re
@@ -67,35 +68,6 @@ class Chess():
         self.uci_moves_list = ""
         self.algebric_legal_moves = []
         self.board_states = []
-
-    def mat_2_uci(self, el):
-        s = "abcdefgh"
-        a = s[el[0]]
-        b = str(abs(el[1]-8))
-        return a + b
-
-
-    def move_2_algebric(self, move, selected_piece, captured_piece, castling):
-        start = move[0]
-        to = move[1]
-        if castling:
-            return castling
-        algebric_to = self.mat_2_uci(to)
-        capture = "x" if captured_piece else ""
-        if selected_piece.name == "P":
-            if capture == "x":
-                piece_name = 'abcdefgh'[start[0]]
-            else:
-                piece_name = ""
-        else:
-            piece_name = selected_piece.name
-
-        specifier = ""
-        if selected_piece.name != "K":
-            specifier = self.board.has_same_target(start, selected_piece, selected_piece.color)
-        
-        return piece_name + specifier + capture + algebric_to
-
 
 
     def play_move(self, move):
@@ -209,7 +181,7 @@ class Chess():
             if selected_piece.name != "P":
                 self.board.no_progress_plies += 1
         self.moves_list.append(move)
-        algebric_move = self.move_2_algebric(move, selected_piece, captured_piece, castling)
+        algebric_move = utils.move_2_algebric(self.board, move, selected_piece, captured_piece, castling)
 
         if self.turn:
             falgebric_move = f"{str(self.board.turn_counter)}. {algebric_move} "
@@ -218,7 +190,7 @@ class Chess():
 
         self.algebric_played_moves += falgebric_move
         promotion = move[2] if move[2] != 0 else ""
-        self.uci_moves_list += f"{self.mat_2_uci(start)}{self.mat_2_uci(to)}{promotion} "
+        self.uci_moves_list += f"{utils.mat_2_uci(start)}{utils.mat_2_uci(to)}{promotion} "
 
         self.board_states.append(copy.deepcopy(self.board))
         if not self.turn:
@@ -246,12 +218,9 @@ class Chess():
         If not, it is legal move.
         After check Draw conditions
         """
-        print("IS TURN:", self.turn)
 
         legal_moves = []
-        print(self.legal_moves)
-        print("enemy controlled squares:", [self.mat_2_uci(move) for move in self.board.get_controlled_squares(not self.turn)])
-        print("King pos:", self.mat_2_uci(self.board.get_piece("K", self.turn).get_pos()))
+
         for i in range(8):
             for j in range(8):
                 piece = self.board[i,j]
@@ -281,8 +250,8 @@ class Chess():
                             # If king not in enemy targets after move, is legal move
                             if friend_king.get_pos() not in enemy_targets:
                                 legal_moves.append(move)
-                                # algebric_move = self.move_2_algebric(move, piece, captured_piece, castling)
-                                # self.algebric_legal_moves.append(algebric_move)
+                                algebric_move = utils.move_2_algebric(self.board, move, piece, captured_piece, castling)
+                                self.algebric_legal_moves.append(algebric_move)
 
                             # Undo move
                             piece.move(origin,self.board)
@@ -380,39 +349,6 @@ class Chess():
         check_three_fold_repetition()
 
 
-
-
-
-
-    def uci_2_move(self, uci_move):
-        """
-        1. Check move grammar and
-        2. Translates uci notation as 'e2e4' into our move index notation as '((4,4)(4,6),0)'
-
-        """
-        match = re.match(r"([a-h][1-8])([a-h][1-8])([qbnr]?)", uci_move)
-        if not match:
-            print(uci_move + " is not in the format '[a-h][1-8][a-h][1-8]([qbnr])'")
-            return None
-
-        start = match.group(1)
-        end = match.group(2)
-        promotion = match.group(3)
-        
-        move = []
-        for coord in [start,end]:
-            row = abs(int(coord[1])-8) # Y: Number
-            col = coord[0] # X: Letter
-            col = "abcdefgh".find(col) # Find Index
-            move.append((col,row))
-        if promotion:
-            move.append(promotion)
-        else:
-            move.append(0)
-
-        return tuple(move)
-
-
     def get_move_player(self):
         """
         Asks the user a move in the format '[a-h][1-8][a-h][1-8][qbnr]?'
@@ -421,7 +357,7 @@ class Chess():
         """
         try:
             uci_move = input("Move: ")
-            move = self.uci_2_move(uci_move)
+            move = utils.uci_2_move(uci_move)
             return move
 
         except:
@@ -461,40 +397,38 @@ class Chess():
         player_turn = "White" if self.turn else "Black"
         print(f"{player_turn}'s turn to move!")
 
+    def debug(self, move, legal_moves):
+        print("Move: ", move)
+        print("LegalMoves: ", legal_moves)
+
     def play_cli(self, get_move):
         print(self.board.print_board())
         while self.game_running:
             self.print_turn_decorator()
             self.legal_moves = self.get_legal_moves()
-            self.check_endgame_conditions()
-            print("LegalMoves:", self.legal_moves)
-
             move = get_move()
-            print("Move:", move)
 
             if move not in self.legal_moves:
                 print("Illegal or impossible move")
                 continue
-
+            
+            self.debug()
             if not chess.game_running:
                 break
             self.play_move(move)
             print(self.board.print_board())
 
-    # def ply(self):
 
     def play_cli_test(self, input_moves):
         print("Input moves:", input_moves)
         for move in input_moves:
-            print("Move:", move)
-            move = self.uci_2_move(move)
+            move = utils.uci_2_move(move)
             self.print_turn_decorator()
             self.legal_moves = self.get_legal_moves()
             if move not in self.legal_moves:
                 print("Illegal or impossible move")
                 break
-                # continue
-
+            self.debug()
             if not self.game_running:
                 break
             self.play_move(move)
