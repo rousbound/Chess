@@ -157,14 +157,6 @@ class GUI():
         if self.piece_held:
             self.draw_piece_held()
 
-    def get_piece(self):
-        self.game.legal_moves = self.game.get_legal_moves()
-        mouse_pos = self.get_mouse_pos()
-        piece = self.board[mouse_pos]
-        if piece:
-            if piece.color == self.game.turn:
-                piece.piece_held = True
-                self.piece_held = piece
 
     def init_promotion(self, to, start):
         self.promoting_column = to[0]
@@ -201,14 +193,25 @@ class GUI():
     def play_move(self, move):
         self.last_move_to = move[0]
         self.last_move_from = move[1]
-        self.game.legal_moves = self.game.get_legal_moves()
+        self.board.deactivate_ghost_pawn(self.game.turn)
         self.game.play_move(move)
-        print("Legal moves:", self.game.algebric_legal_moves)
+        self.game.legal_moves = self.game.get_legal_moves()
         self.game.check_endgame_conditions()
+        self.game.kings_in_check() 
+        print("Legal moves:", self.game.legal_moves)
         print("MovesList:", self.game.algebric_played_moves)
         print("FEN:", self.board.board_2_FEN())
 
+    def hold_piece(self):
+        mouse_pos = self.get_mouse_pos()
+        piece = self.board[mouse_pos]
+        if piece:
+            if piece.color == self.game.turn:
+                piece.piece_held = True
+                self.piece_held = piece
+
     def drop_piece(self):
+        self.game.legal_moves = self.game.get_legal_moves()
         to = self.get_mouse_pos()
         start = self.piece_held.get_pos()
         if self.piece_held.name == "P":
@@ -229,6 +232,7 @@ class GUI():
 
 
     def main(self):
+        self.game.legal_moves = self.game.get_legal_moves()
         while self.game.game_running:
             self.screen.fill((0, 0, 0, 255))
             self.draw()
@@ -244,7 +248,7 @@ class GUI():
                     if pygame.mouse.get_pressed()[0]:
                         if not self.piece_held:
                             if not self.promoting:
-                                self.get_piece()
+                                self.hold_piece()
                             else:
                                 self.choose_promotion()
                                 pass

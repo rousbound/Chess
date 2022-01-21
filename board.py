@@ -290,10 +290,11 @@ class Board():
             for j in range(8):
                 piece = self.board[i][j]
                 if piece:
-                    if name == "K" and piece.name == "K":
-                        return piece
-                    if piece.name == name:
-                        if piece.color == color:
+                    if piece.color == color:
+                        if name == "K":
+                            if piece.name == "K":
+                                return piece
+                        elif piece.name == name:
                             l.append(piece)
         return l
 

@@ -233,7 +233,6 @@ class Chess():
 
 
 
-        self.kings_in_check() 
         return algebric_move
 
 
@@ -247,9 +246,12 @@ class Chess():
         If not, it is legal move.
         After check Draw conditions
         """
+        print("IS TURN:", self.turn)
 
         legal_moves = []
-        self.algebric_legal_moves = []
+        print(self.legal_moves)
+        print("enemy controlled squares:", [self.mat_2_uci(move) for move in self.board.get_controlled_squares(not self.turn)])
+        print("King pos:", self.mat_2_uci(self.board.get_piece("K", self.turn).get_pos()))
         for i in range(8):
             for j in range(8):
                 piece = self.board[i,j]
@@ -261,7 +263,7 @@ class Chess():
                             origin = move[0]
                             target = move[1]
                             # Do move
-                            captured_piece = piece.move(target,self.board)
+                            captured_piece = piece.move(target, self.board)
 
                             enemy_targets = self.board.get_controlled_squares(not self.turn)
                             if piece.name != "K":
@@ -340,6 +342,7 @@ class Chess():
             # If there is no legal moves while not in check,
             # there is stalemate, otherwise, checkmate
             if len(self.legal_moves) == 0:
+                print("NO LEGAL MOVES")
                 # Not in Check
                 if (friend_king.x,friend_king.y) not in enemy_targets:
                     self.game_running = False
@@ -463,7 +466,8 @@ class Chess():
         while self.game_running:
             self.print_turn_decorator()
             self.legal_moves = self.get_legal_moves()
-            print("LegalMoves:", self.algebric_played_moves)
+            self.check_endgame_conditions()
+            print("LegalMoves:", self.legal_moves)
 
             move = get_move()
             print("Move:", move)
@@ -475,7 +479,6 @@ class Chess():
             if not chess.game_running:
                 break
             self.play_move(move)
-            self.board.deactivate_ghost_pawn(self.turn)
             print(self.board.print_board())
 
     # def ply(self):
@@ -487,7 +490,6 @@ class Chess():
             move = self.uci_2_move(move)
             self.print_turn_decorator()
             self.legal_moves = self.get_legal_moves()
-            self.check_endgame_conditions()
             if move not in self.legal_moves:
                 print("Illegal or impossible move")
                 break
@@ -496,99 +498,10 @@ class Chess():
             if not self.game_running:
                 break
             self.play_move(move)
-            self.board.deactivate_ghost_pawn(self.turn)
             print(self.board.print_board())
-            # print(self.uci_moves_list)
         return self.board.board_2_FEN()
     
-    def algebric_2_move(self, algebric):
-        match = re.match(r"([QKNBR]?)([a-h1-8]?)(x?)([a-h][1-8])([qbnr]?)(\+?)", algebric)
 
-
-        special_piece = match.group(1)
-        specifier = match.group(2)
-        capture = match.group(3)
-        to = match.group(4)
-        promotion = match.group(5)
-        check = match.group(6)
-
-        pawn_match = re.match(r"([a-h](x?)([a-h][1-8])", algebric)
-
-        column = pawn_match.group(1)
-        capture = pawn_match.group(2)
-        to = pawn_match.group(3)
-
-        castle_match = re.match(r"(O-O-O|O-O)", algebric)
-
-        if special_piece:
-            lpieces = self.board.get_piece(special_piece, self.turn)
-            for piece in lpieces:
-                for piece_move in piece.get_valid_moves(self.board):
-                    if piece_move[1] == uci_2_move(to):
-                        if specifier:
-                            if specifier in "abcdefgh":
-                                x = "abcdefgh".find(specifier)
-                                if piece_move[0] == x:
-                                    move = (piece.get_pos(), to, 0)
-                            elif specifier in "12345678":
-                                y = "12345678"[abs(int(specifier)-8)]
-                                if piece_move[1] == y:
-                                    move = (piece.get_pos(), to, 0)
-                        else:
-                            move = (piece.get_pos(), to, 0)
-
-
-        # move = []
-        # for coord in [start,end]:
-            # row = abs(int(coord[1])-8) # Y: Number
-            # col = coord[0] # X: Letter
-            # col = "abcdefgh".find(col) # Find Index
-            # move.append((col,row))
-        # if promotion:
-            # move.append(promotion)
-        # else:
-            # move.append(0)
-
-        return move
-
-
-
-
-    def play_cli_test_algebric(self, input_moves):
-        print("Input moves:", input_moves)
-        for move in input_moves:
-            print("Move:", move)
-            move = self.algebric_2_move(move)
-            self.print_turn_decorator()
-            self.legal_moves = self.get_legal_moves()
-            if move not in self.legal_moves:
-                print("Illegal or impossible move")
-                break
-                # continue
-
-            if not self.game_running:
-                break
-            self.play_move(move)
-            print(self.board.print_board())
-            # print(self.uci_moves_list)
-        return self.uci_moves_list
-
-        # while self.game_running:
-            # self.print_turn_decorator()
-            # self.legal_moves = self.get_legal_moves()
-            # print("LegalMoves:", self.legal_moves)
-
-            # move = self.get_move_player()
-            # print("Move:", move)
-
-            # if move not in self.legal_moves:
-                # print("Illegal or impossible move")
-                # break
-                # # continue
-
-            # if not self.game_running:
-                # break
-            # self.play_move(move)
 
     def play_gui(self):
         import GUI
