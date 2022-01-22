@@ -16,42 +16,96 @@ class Chess():
 
     Attributes:
     -----------
+
+    ----------- DEBUG ------------
+
+    moves_list : list[tup]
+        Record of game moves in tuple format
+
+    legal_moves : list[tup]
+        List of current legal moves in tuple format
+
+    algebric_legal_moves : list[str]
+        List of current legal moves in algebric format
+
+    last_move_algebric : str
+        Last move played in algebric format
+
+    pgn_game : str
+        List of game moves in algebric format i.e PGN of the game
+
+    uci_game : str
+        List of game moves in UCI format
+
+    ----------- GAME LOGIC ------------
+
     board : Board
         represents the chess board of the game
-
-    turn : bool
-        True if white's turn
 
     game_running : bool
         True if none of draw or win conditions are met.
 
-    moves_list : list[str]
-        Record of game moves in uci format
+    board_states : list[Board]
+        List of boards, relevant for three fold repetition draw criteria.
+        
 
-    legal_moves : list[str]
-        List of current legal moves
-
-    no_progress_moves : int
-        Counter of moves without captures, or pawn movements (Relevant for draw criteria.)
 
 
     Methods:
     --------
 
-    move(move:str, start:tup, to:tup, promotion:str) -> None
-        Make move
+    -------- DEBUG ---------
+
+    turn_debug(move: tup) -> None
+        Print last move played, pgn of game until last move and FEN of current board position
+
+    debug_algebric_legal_moves(move : tup, piece : Piece, captured_piece : Piece) -> None
+        Converts and save current legal moves in algebric format
+
+    debug_game_uci(move : tup) -> None
+        Save moves list in uci format
+
+    debug_game_pgn(move : tup, selected_piece : Piece, captured_piece : Piece, castling : str) -> None
+        Save moves  list in pgn format
+
+    -------- GAME LOGIC ---------
+
+    play_move(move:up) -> None
+        Make move, check special cases, update board information 
 
     get_legal_moves() -> list[tup]
         Check legal moves
 
-    check_material_draw() -> None
-        Check for material-criteria draws
+    check_endgame_conditions() -> None
+        Check checkmate and draw criteria
+
+    kings_in_check() -> None
+        Update king pieces with information whether they are in check or not
+
+    -------- EXECUTION OPTIONS ---------
+
+    play_cli(get_move : function) -> None
+        Play game in command line interface depending on get_move function
+
+    play_gui() -> None
+        Play game with Guided User Interface
+
+    play_cli_test(input_moves) -> None
+        Play game in command line interface with a list of moves as input.
+
+    print_turn_decorator() -> None
+        Print turn information
+
+    play_gui_test(argv) -> None
+        Play game with Guided User Interface with list of moves as input 
 
     get_move_random(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
         Get random moves based on legal moves avaiable
 
     get_move_player(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
         Ask the user for input and check if it is legal move
+
+    -------- MAIN ---------
 
     main() -> None
         Execute Game
@@ -61,13 +115,14 @@ class Chess():
     def __init__(self, board : object):
         self.board = board
         self.game_running = True
+        self.board_states = []
+
         self.legal_moves = []
+        self.algebric_legal_moves = []
         self.moves_list = []
         self.last_move_algebric = ""
         self.pgn_game = ""
         self.uci_game = ""
-        self.pgn_legal_moves = []
-        self.board_states = []
 
     def turn_debug(self, move):
         """
@@ -151,7 +206,7 @@ class Chess():
 
                             enemy_targets = self.board.get_controlled_squares(not self.board.turn)
                             if piece.name != "K":
-                                friend_king = self.board.get_piece("K", self.board.turn)
+                                friend_king = self.board.get_king(self.board.turn)
                             else:
                                 friend_king = piece
 
@@ -361,7 +416,7 @@ class Chess():
                 self.game_running = False
 
         def check_stalemate_or_checkmate(legal_moves):
-            friend_king = self.board.get_piece("K", self.board.turn)
+            friend_king = self.board.get_king(self.board.turn)
 
             # If there is no legal moves while not in check,
             # there is stalemate, otherwise, checkmate
@@ -409,7 +464,7 @@ class Chess():
         """
 
         for color in [True, False]:
-            king = self.board.get_piece("K", color)
+            king = self.board.get_king(color)
             controlled_squares = self.board.get_controlled_squares(not color)
 
             if king.get_pos() in controlled_squares:

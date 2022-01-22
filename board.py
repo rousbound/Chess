@@ -21,19 +21,61 @@ class Board():
     turn : bool
         True if white's turn
 
-    white_ghost_pawn : tup
-        The coordinates of a white ghost piece representing a takeable pawn for en passant
+    turn_counter : int
+        Turn counter, relevant for FEN creation
 
+    no_progress_plies: int
+        Ply counter, relevant for draw criteria and FEN creation
+
+    can_castle : dict
+        Saves right to castle information.
+        Obs: Right to castle != Castle legality
+        Ex: Castle might be ILLEGAL at certain position, but you have the RIGHT
+        to do it after, if criteria are met. After castling you dont have the RIGHT to
+        castle anymore.
+
+    white_ghost_pawn : tup
     black_ghost_pawn : tup
-        The coordinates of a black ghost piece representing a takeable pawn for en passant
+        The coordinates of a white/black ghost piece representing a takeable pawn for en passant
 
     Methods:
     --------
     print_board() -> None
         Prints the current configuration of the board
 
+    setup_board() -> None
+        Populates board with initial position
+
     get_controlled_squares(color : bool) -> list[tup]
         Returns coordinates of squares controlled by chosen color
+
+    remove_castling_rights(color: bool) -> None
+        Remove castling rights of player
+
+    check_castling_rights() -> None
+        Check if castling rights were revoked
+
+    board_2_FEN() -> str
+        Make a string representation of the board in the well known FEN format
+
+    get_ghost_pawn(color: bool) -> tup
+        Returns the ghost pawn of the desired color
+        
+    deactivate_ghost_pawn(color : bool) -> None
+        Deactivates ghost pawn of desired color
+
+    activate_ghost_pawn(pos, color) -> None
+        Activates ghost pawn of desired color
+
+    vector() -> list[Piece]
+        Returns board piece in a list for easy iteration
+
+    get_piece(name : str, color : bool) -> list[Piece]
+        Get list of pieces of desired type and color
+
+    get_king(color : bool) -> Piece
+        Get king of desired color
+
 
     """
     def __init__(self):
@@ -44,13 +86,12 @@ class Board():
         self.board = []
         self.turn = True
         self.turn_counter = 1
-        self.moves_list = []
-        self.algebric_legal_moves = []
         self.can_castle = {"K": True, "Q": True, "k": True, "q": True}
         self.no_progress_plies = 0
-        self.setup_board()
         self.white_ghost_pawn = None
         self.black_ghost_pawn = None
+
+        self.setup_board()
 
     def setup_board(self):
         """
@@ -316,15 +357,17 @@ class Board():
             for j in range(8):
                 piece = self.board[i][j]
                 if piece:
-                    if piece.color == color:
-                        if name == "K":
-                            if piece.name == "K":
-                                return piece
-                        elif piece.name == name:
-                            l_pieces.append(piece)
+                    if piece.color == color and piece.name == name:
+                        l_pieces.append(piece)
         return l_pieces
 
+    def get_king(self, color):
+        """
+        Get king of desired color
 
+        """
+
+        return self.get_piece("K", color)[0]
 
     def get_controlled_squares(self, color):
         """
