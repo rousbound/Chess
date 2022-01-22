@@ -29,7 +29,6 @@ def move_generation_test(depth, chess=Chess(Board())):
 
         # Undo move
 
-        chess.turn = not chess.turn
         chess.board = board
     return counter
 
@@ -39,8 +38,13 @@ if len(sys.argv) == 1:
     depth = 5
 else:
     depth = int(sys.argv[2])
+from datetime import datetime
 
-logging.basicConfig(filename='tests/log/testBrute2.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
+now = datetime.now()
+ 
+dt_string = now.strftime("%d-%m-%Y_%H:%M:%S")
+
+logging.basicConfig(filename=f'tests/log/testBrute_{dt_string}.log', level=logging.INFO, format='%(asctime)s %(message)s')
 logging.info(f"Initiating move generation test on depth: {depth}")
 l = []
 test_start = time.time()

@@ -258,7 +258,7 @@ class Board():
             buffer += "*"
         buffer += "\n"
         for y in range(BOARD_LEN):
-            tmp_str = f"{8-i}|"
+            tmp_str = f"{8-y}|"
             for x in range(BOARD_LEN):
                 if self[x,y] is None:
                     tmp_str += "   |"

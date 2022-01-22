@@ -9,7 +9,7 @@ from pieces import Queen, Knight, Rook, Bishop
 
 class GUI():
     """
-    A class for the GUI
+    A class for the GUI.
 
     ...
 
@@ -269,9 +269,9 @@ class GUI():
         self.promoting_move = [start, to, ""]
         self.piece_held.piece_held = False
         self.piece_held = None
-        behind = 1 if self.game.turn else -1
-        last_row = 0 if self.game.turn else 7
-        color = self.game.turn
+        behind = 1 if self.board.turn else -1
+        last_row = 0 if self.board.turn else 7
+        color = self.board.turn
         queen = Queen(color, self.promoting_column, last_row)
         knight = Knight(color, self.promoting_column, last_row + behind)
         rook = Rook(color, self.promoting_column, last_row + (2*behind), first_move=False)
@@ -311,14 +311,9 @@ class GUI():
         """
         self.last_move_to = move[0]
         self.last_move_from = move[1]
-        self.board.deactivate_ghost_pawn(self.game.turn)
         self.game.play_move(move)
         self.game.legal_moves = self.game.get_legal_moves()
-        self.game.check_endgame_conditions()
-        self.game.kings_in_check()
-        print("Legal moves:", self.game.algebric_legal_moves)
-        print("MovesList:", self.game.algebric_played_moves)
-        print("FEN:", self.board.board_2_FEN())
+        self.game.turn_debug(move)
 
     def hold_piece(self):
         """
@@ -328,7 +323,7 @@ class GUI():
         mouse_pos = self.get_mouse_pos()
         piece = self.board[mouse_pos]
         if piece:
-            if piece.color == self.game.turn:
+            if piece.color == self.board.turn:
                 piece.piece_held = True
                 self.piece_held = piece
 
@@ -341,7 +336,7 @@ class GUI():
         to = self.get_mouse_pos()
         start = self.piece_held.get_pos()
         if self.piece_held.name == "P":
-            if not self.board.get_piece("K", self.game.turn).in_check:
+            if not self.board.get_piece("K", self.board.turn).in_check:
                 last_row = 0 if self.piece_held.color else 7
                 if to[1] == last_row:
                     self.init_promotion(to, start)

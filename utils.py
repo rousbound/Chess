@@ -1,6 +1,15 @@
 import re
 
 def move_2_algebric(board, move, selected_piece, captured_piece, castling):
+    """
+    Translates a tuple-move to algebric format.
+    Ex: ((4,4),(4,6),%) -> e4
+        ((4,4),(5,5),%) -> exf5
+       
+    It needs board context to understand whether or not it was a capture, promotion, etc.
+
+    """
+
     start = move[0]
     to = move[1]
     if castling:
@@ -22,6 +31,12 @@ def move_2_algebric(board, move, selected_piece, captured_piece, castling):
     return piece_name + specifier + capture + algebric_to
 
 def mat_2_uci(square):
+    """
+    Translates a coordinate in the board matrix to uci format.
+    Ex: (4,4) -> e4
+        (5,5) -> f5
+
+    """
     a = "abcdefgh"[square[0]]
     b = str(abs(square[1]-8))
     return a + b
@@ -29,7 +44,7 @@ def mat_2_uci(square):
 def uci_2_move(uci_move):
     """
     1. Check move grammar and
-    2. Translates uci notation as 'e2e4' into our move index notation as '((4,4)(4,6),0)'
+    2. Translates uci notation as 'e2e4' into our move index notation as '((4,4)(4,6),%)'
 
     """
     match = re.match(r"([a-h][1-8])([a-h][1-8])([qbnr]?)", uci_move)
