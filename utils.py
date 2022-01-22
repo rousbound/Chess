@@ -21,9 +21,9 @@ def move_2_algebric(board, move, selected_piece, captured_piece, castling):
     
     return piece_name + specifier + capture + algebric_to
 
-def mat_2_uci(el):
-    a = "abcdefgh"[el[0]]
-    b = str(abs(el[1]-8))
+def mat_2_uci(square):
+    a = "abcdefgh"[square[0]]
+    b = str(abs(square[1]-8))
     return a + b
 
 def uci_2_move(uci_move):

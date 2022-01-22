@@ -10,7 +10,7 @@ import logging
 
 
 
-def move_generation_test(depth, chess=Chess(Board()), played_moves = ""):
+def move_generation_test(depth, chess=Chess(Board())):
     """
     Brute force all possible games within a certain ply depth (ply = half-move) to check
     program correctness against the Shannon number table
@@ -23,9 +23,9 @@ def move_generation_test(depth, chess=Chess(Board()), played_moves = ""):
     for move in chess.legal_moves:
         # Make move
         board = copy.deepcopy(chess.board)
-        algebric_move = chess.play_move(move)
+        chess.play_move(move)
 
-        counter += move_generation_test(depth-1, chess, played_moves + " " + algebric_move)
+        counter += move_generation_test(depth-1, chess)
 
         # Undo move
 
@@ -40,7 +40,7 @@ if len(sys.argv) == 1:
 else:
     depth = int(sys.argv[2])
 
-logging.basicConfig(filename='tests/log/testBrute.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
+logging.basicConfig(filename='tests/log/testBrute2.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
 logging.info(f"Initiating move generation test on depth: {depth}")
 l = []
 test_start = time.time()

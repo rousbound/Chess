@@ -7,9 +7,11 @@ import board
 import utils
 import pieces
 
+
+
 class Chess():
     """
-    A class to represent the game of chess.
+    A class made to use the Board class information to create legal moves and play the game.
     ...
 
     Attributes:
@@ -108,7 +110,6 @@ class Chess():
                     else:
                         self.board[to[0],to[1]-1] = None
 
-            print(promotion)
             if promotion in "qrbn":
                 color = selected_piece.color
                 if promotion == "q":
@@ -129,6 +130,9 @@ class Chess():
             self.board.remove_castling_rights(self.turn)
             # if move in selected_piece.can_castle:
             if abs(start[0]-to[0]) > 1:
+                logging.info("Castling")
+                logging.info("Game:", self.moves_list)
+                logging.info("Game:(algebric)", self.algebric_played_moves)
             # ShortCastling
                 if move[1][0] == 6:
                     castling = "O-O"
@@ -174,6 +178,7 @@ class Chess():
             selected_piece.first_move = False
         self.board.check_castling_rights()
         self.board.deactivate_ghost_pawn(self.turn)
+        self.kings_in_check()
 
 
     def append_debug(self, move, selected_piece, captured_piece, castling):
@@ -310,8 +315,7 @@ class Chess():
                 else:
                     self.game_running = False
                     print("CHECKMATE!!!!")
-                    logging.info("Game:", self.moves_list)
-                    logging.info("Game:(algebric)", self.algebric_played_moves)
+                    logging.info("CHECKMATE")
                     if self.turn:
                         print("BLACK WINS!!!")
                     else:
@@ -375,6 +379,7 @@ class Chess():
             controlled_squares = self.board.get_controlled_squares(not color)
 
             if king.get_pos() in controlled_squares:
+                logging.info("CHECK")
                 king.in_check = True
             else:
                 king.in_check = False

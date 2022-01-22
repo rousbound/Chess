@@ -78,13 +78,12 @@ class Piece():
         """
         if not ( 0 <= move[0] <= 7 and 0 <= move[1] <= 7):
             return False
-        else:
-            if board[move[0],move[1]]:
-                if board[move[0],move[1]].color == self.color:
-                    return False
+        if board[move[0],move[1]]:
+            if board[move[0],move[1]].color == self.color:
+                return False
         return True
 
-    def get_valid_moves(self):
+    def get_valid_moves(self, board):
         """
         Get valid moves for the piece.
 
@@ -99,49 +98,36 @@ class Piece():
         target_squares = set()
         for i in range(1,8):
             x,y = self.x-i, self.y-i
-            if x <= 7 and y <= 7 and x>=0 and y>=0:
+            if  (0 <= x <= 7) and  (0 <= y <= 7):
                 if board[x,y]:
-                    if board[x,y].color == self.color:
-                        pass
-                    else:
+                    if board[x,y].color != self.color:
                         target_squares.add((x,y))
                     break
-                else:
-                    target_squares.add((x,y))
+                target_squares.add((x,y))
         for i in range(1,8):
             x,y = self.x+i,self.y+i
-            if x <= 7 and y <= 7 and x>=0 and y>=0:
+            if  (0 <= x <= 7) and  (0 <= y <= 7):
                 if board[x,y]:
-                    if board[x,y].color == self.color:
-                        pass
-                    else:
+                    if board[x,y].color != self.color:
                         target_squares.add((x,y))
                     break
-                else:
-                    target_squares.add((x,y))
+                target_squares.add((x,y))
         for i in range(1,8):
             x,y = self.x+i,self.y-i
-            if x <= 7 and y <= 7 and x>=0 and y>=0:
+            if  (0 <= x <= 7) and  (0 <= y <= 7):
                 if board[x,y]:
-                    if board[x,y].color == self.color:
-                        pass
-                        
-                    else:
+                    if board[x,y].color != self.color:
                         target_squares.add((x,y))
                     break
-                else:
-                    target_squares.add((x,y))
+                target_squares.add((x,y))
         for i in range(1,8):
             x,y = self.x-i,self.y+i
-            if x <= 7 and y <= 7 and x>=0 and y>=0:
+            if  (0 <= x <= 7) and  (0 <= y <= 7):
                 if board[x,y]:
-                    if board[x,y].color == self.color:
-                        pass
-                    else:
+                    if board[x,y].color != self.color:
                         target_squares.add((x,y))
                     break
-                else:
-                    target_squares.add((x,y))
+                target_squares.add((x,y))
 
         moves = [(self.get_pos(), target, "%") for target in target_squares]
         return moves
@@ -154,40 +140,28 @@ class Piece():
         target_squares = []
         for i in range(1, self.x+1):
             if board[self.x-i,self.y]:
-                if board[self.x-i,self.y].color == self.color:
-                    break
-                else:
+                if board[self.x-i,self.y].color != self.color:
                     target_squares.append((self.x-i,self.y))
-                    break
-            else:
-                target_squares.append((self.x-i,self.y))
+                break
+            target_squares.append((self.x-i,self.y))
         for i in range(1, 7-self.x+1):
             if board[self.x+i,self.y]:
-                if board[self.x+i,self.y].color == self.color:
-                    break
-                else:
+                if board[self.x+i,self.y].color != self.color:
                     target_squares.append((self.x+i,self.y))
-                    break
-            else:
-                target_squares.append((self.x+i,self.y))
+                break
+            target_squares.append((self.x+i,self.y))
         for i in range(1, self.y+1):
             if board[self.x,self.y-i]:
-                if board[self.x,self.y-i].color == self.color:
-                    break
-                else:
+                if board[self.x,self.y-i].color != self.color:
                     target_squares.append((self.x,self.y-i))
-                    break
-            else:
-                target_squares.append((self.x,self.y-i))
+                break
+            target_squares.append((self.x,self.y-i))
         for i in range(1, 7-self.y+1):
             if board[self.x,self.y+i]:
-                if board[self.x,self.y+i].color == self.color:
-                    break
-                else:
+                if board[self.x,self.y+i].color != self.color:
                     target_squares.append((self.x,self.y+i))
-                    break
-            else:
-                target_squares.append((self.x,self.y+i))
+                break
+            target_squares.append((self.x,self.y+i))
         moves = [(self.get_pos(), target, "%") for target in target_squares]
         return moves
 
@@ -359,25 +333,22 @@ class Pawn(Piece):
 
         # Check Captures
         if 0 <= pos_ahead[1] <= 7:
-            if piece_ahead == None:
+            if piece_ahead is None:
                 moves = check_promotion(moves, pos_ahead)
 
             for side in [1,-1]:
                 if 0 <= self.x + side <= 7:
                     target = (self.x + side, self.y + ahead)
-                    if board[target]:
-                        if board[target].color != self.color:
+                    if board[target] and (board[target].color != self.color):
                             moves = check_promotion(moves, target)
 
                     else:
                         # If there is no piece maybe there is ghostpawn
                         # Therefore, En Passeant
                         enemy_ghost_pawn = board.get_ghost_pawn(not self.color)
-                        if enemy_ghost_pawn:
-                            if enemy_ghost_pawn == target:
-                                move = (self.get_pos(), target, "%")
-                                moves.append(move)
-                                # self.can_en_passeant = move
+                        if enemy_ghost_pawn == target:
+                            move = (self.get_pos(), target, "%")
+                            moves.append(move)
         self.moves = moves
         return self.moves
 
@@ -406,6 +377,11 @@ class King(Piece):
 
 
     def get_normal_valid_moves(self, board):
+        """
+        King needs a separate function to get possible moves
+        and avoid recursion.
+
+        """
         targets = [
                 (self.x + 1 , self.y),
                 (self.x - 1 , self.y),
@@ -429,16 +405,16 @@ class King(Piece):
         # Check Castling possibility
         if self.first_move:
             if not self.in_check:
-                for rook in board.get_piece("R",self.color):
+                for rook in board.get_piece("R", self.color):
                     castle_enabled = True
                     if rook.first_move:
                         if rook.x == 0:
-                            squares_list = [(self.x-2,self.y),(self.x-1,self.y)]
-                            king_to = (self.x-2,self.y)
+                            in_between_squares = [(self.x-2, self.y), (self.x-1, self.y)]
+                            king_to = (self.x-2, self.y)
                         elif rook.x == 7:
-                            squares_list = [(self.x+1,self.y),(self.x+2,self.y)]
-                            king_to = (self.x+2,self.y)
-                        for square in squares_list:
+                            in_between_squares = [(self.x+1, self.y), (self.x+2, self.y)]
+                            king_to = (self.x+2, self.y)
+                        for square in in_between_squares:
                             # If square have pieces, castle is not possible
                             # Still, if square doesn't have pieces,
                             # check if they are controlled by enemy pieces

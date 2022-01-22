@@ -3,6 +3,7 @@ import utils
 
 """
 Module made for Board class.
+It encompasses every information that is relevant to save the position in the form of a FEN string.
 
 """
 
