@@ -38,22 +38,25 @@ if len(sys.argv) == 1:
     depth = 5
 else:
     depth = int(sys.argv[2])
-from datetime import datetime
 
-now = datetime.now()
- 
+now = datetime.datetime.now()
 dt_string = now.strftime("%d-%m-%Y_%H:%M:%S")
 
 logging.basicConfig(filename=f'tests/log/testBrute_{dt_string}.log', level=logging.INFO, format='%(asctime)s %(message)s')
 logging.info(f"Initiating move generation test on depth: {depth}")
-l = []
+
+result_list = []
+
 test_start = time.time()
 ply_depth_start = time.time()
+
 expected_results = [20,400,8902,197_281,4_865_609]
-for i,j in zip(range(1,depth+1), expected_results):
-    result = move_generation_test(i)
-    l.append(result)
-    logging.info(f"Result of possible games with {i} ply: {result}/{j} - {'OK' if result == j else 'ERROR'}")
+
+for current_depth, expected_result in zip(range(1,depth+1), expected_results):
+    result = move_generation_test(current_depth)
+    result_list.append(result)
+    logging.info(f"Result of possible games with {current_depth} ply: {result}/{expected_result} - {'OK' if result == excepted_result else 'ERROR'}")
+
     ply_elapsed_time = (time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - ply_depth_start)))
     logging.info(f"Elapsed time in {i} ply: {ply_elapsed_time} seconds")
     ply_depth_start = time.time()

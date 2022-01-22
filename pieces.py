@@ -200,7 +200,7 @@ class Rook(Piece):
 
 
 class Bishop(Piece):
-    def __init__(self, color, x,y):
+    def __init__(self, color, x,y, color_complex = True):
         """
                     Bishop moves
                8 |_| |_| |_| |_|X|
@@ -216,6 +216,7 @@ class Bishop(Piece):
         super().__init__(color,x,y)
         self.name = "B"
         self.moves = []
+        self.color_complex = color_complex
         self.x = x
         self.y = y
 
@@ -224,7 +225,7 @@ class Bishop(Piece):
         return moves
 
 class Knight(Piece):
-    def __init__(self, color,x,y, first_move = True):
+    def __init__(self, color,x,y):
         """
                     Knight moves
                8 |_| |_| |_| |_| |
@@ -271,7 +272,7 @@ class Queen(Piece):
            1 |X|_| |X| |_|X|_|
               a b c d e f g h
     """
-    def __init__(self, color, x,y,  first_move = True):
+    def __init__(self, color, x,y):
         super().__init__(color,x,y)
         self.name = "Q"
         self.moves = []

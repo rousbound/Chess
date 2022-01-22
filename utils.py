@@ -1,11 +1,15 @@
 import re
+"""
+Module made for saving move conversion functions
+
+"""
 
 def move_2_algebric(board, move, selected_piece, captured_piece, castling):
     """
     Translates a tuple-move to algebric format.
     Ex: ((4,4),(4,6),%) -> e4
         ((4,4),(5,5),%) -> exf5
-       
+
     It needs board context to understand whether or not it was a capture, promotion, etc.
 
     """
@@ -27,7 +31,7 @@ def move_2_algebric(board, move, selected_piece, captured_piece, castling):
     specifier = ""
     if selected_piece.name != "K":
         specifier = board.has_same_target(start, selected_piece, selected_piece.color)
-    
+
     return piece_name + specifier + capture + algebric_to
 
 def mat_2_uci(square):
@@ -55,7 +59,7 @@ def uci_2_move(uci_move):
     start = match.group(1)
     end = match.group(2)
     promotion = match.group(3)
-    
+
     move = []
     for coord in [start,end]:
         row = abs(int(coord[1])-8) # Y: Number

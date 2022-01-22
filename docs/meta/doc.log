@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.15)  22 JAN 2022 17:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.15)  22 JAN 2022 20:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1323,13 +1323,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 48.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 48.
-<fig/classes_Chess.png, id=4, 2586.66376pt x 1109.14375pt>
+<fig/classes_Chess.png, id=4, 2584.65625pt x 1129.21875pt>
 File: fig/classes_Chess.png Graphic file (type png)
 <use fig/classes_Chess.png>
 Package pdftex.def Info: fig/classes_Chess.png  used on input line 63.
-(pdftex.def)             Requested size: 517.3236pt x 221.82481pt.
+(pdftex.def)             Requested size: 516.9221pt x 225.83975pt.
 
-Overfull \hbox (18.66101pt too wide) in paragraph at lines 63--64
+Overfull \hbox (18.25952pt too wide) in paragraph at lines 63--64
 [][] 
  []
 
@@ -1355,22 +1355,22 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<fig/pre_promotion.png, id=13, 646.415pt x 647.41875pt>
+<fig/pre_promotion.png, id=15, 646.415pt x 647.41875pt>
 File: fig/pre_promotion.png Graphic file (type png)
 <use fig/pre_promotion.png>
 Package pdftex.def Info: fig/pre_promotion.png  used on input line 160.
 (pdftex.def)             Requested size: 96.95805pt x 97.10861pt.
-<fig/promoting_pawn.png, id=14, 645.41125pt x 642.4pt>
+<fig/promoting_pawn.png, id=16, 645.41125pt x 642.4pt>
 File: fig/promoting_pawn.png Graphic file (type png)
 <use fig/promoting_pawn.png>
 Package pdftex.def Info: fig/promoting_pawn.png  used on input line 161.
 (pdftex.def)             Requested size: 96.80751pt x 96.35583pt.
-<fig/promoted_pawn.png, id=15, 647.41875pt x 649.42625pt>
+<fig/promoted_pawn.png, id=17, 647.41875pt x 649.42625pt>
 File: fig/promoted_pawn.png Graphic file (type png)
 <use fig/promoted_pawn.png>
 Package pdftex.def Info: fig/promoted_pawn.png  used on input line 162.
 (pdftex.def)             Requested size: 97.10861pt x 97.40973pt.
-<fig/queen_moving_promotion.png, id=16, 648.4225pt x 645.41125pt>
+<fig/queen_moving_promotion.png, id=18, 648.4225pt x 645.41125pt>
 File: fig/queen_moving_promotion.png Graphic file (type png)
 <use fig/queen_moving_promotion.png>
 Package pdftex.def Info: fig/queen_moving_promotion.png  used on input line 163
@@ -1399,12 +1399,7 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 178.
-
-Overfull \hbox (5.34254pt too wide) in paragraph at lines 202--203
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[3] (meta/doc.aux)
+ [3] (meta/doc.aux)
 Package logreq Info: Writing requests to 'doc.run.xml'.
 \openout1 = `doc.run.xml'.
 
@@ -1412,7 +1407,7 @@ Package logreq Info: Writing requests to 'doc.run.xml'.
 Here is how much of TeX's memory you used:
  23041 strings out of 492982
  425872 string characters out of 6134896
- 844493 words of memory out of 5000000
+ 840493 words of memory out of 5000000
  26226 multiletter control sequences out of 15000+600000
  8197 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1425,10 +1420,10 @@ s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000
 .pfb>
-Output written on meta/doc.pdf (3 pages, 472512 bytes).
+Output written on meta/doc.pdf (3 pages, 493041 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
- 33 compressed objects within 1 object stream
+ 53 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 

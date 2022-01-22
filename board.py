@@ -31,7 +31,7 @@ class Board():
         Saves right to castle information.
         Obs: Right to castle != Castle legality
         Ex: Castle might be ILLEGAL at certain position, but you have the RIGHT
-        to do it after, if criteria are met. After castling you dont have the RIGHT to
+        to do it after, if criteria are met. After castling or moving king or rook you dont have the RIGHT to
         castle anymore.
 
     white_ghost_pawn : tup
@@ -60,15 +60,15 @@ class Board():
 
     get_ghost_pawn(color: bool) -> tup
         Returns the ghost pawn of the desired color
-        
+
     deactivate_ghost_pawn(color : bool) -> None
         Deactivates ghost pawn of desired color
 
     activate_ghost_pawn(pos, color) -> None
         Activates ghost pawn of desired color
 
-    vector() -> list[Piece]
-        Returns board piece in a list for easy iteration
+    get_all_pieces() -> list[Piece]
+        Returns all board alive pieces in a list for easy iteration
 
     get_piece(name : str, color : bool) -> list[Piece]
         Get list of pieces of desired type and color
@@ -93,6 +93,27 @@ class Board():
 
         self.setup_board()
 
+    def __eq__(self, other_board):
+        """
+        Called when comparing two board objects.
+        """
+        return self.board_2_FEN() != other_board.board_2_FEN()
+
+    def __hash__(self):
+        """
+        Called when used as key in a dictionary.
+        """
+
+        return hash(self.board_2_FEN())
+
+
+    def __setitem__(self, key, value):
+        self.board[key[0]][key[1]] = value
+
+
+    def __getitem__(self, item):
+        return self.board[item[0]][item[1]]
+
     def setup_board(self):
         """
         Populate board with pieces starting position.
@@ -105,10 +126,10 @@ class Board():
         # White
         self.board[0][7] = pieces.Rook(True,0,7)
         self.board[1][7] = pieces.Knight(True,1,7)
-        self.board[2][7] = pieces.Bishop(True,2,7)
+        self.board[2][7] = pieces.Bishop(True,2,7, color_complex = True)
         self.board[3][7] = pieces.Queen(True,3,7)
         self.board[4][7] = pieces.King(True,4,7)
-        self.board[5][7] = pieces.Bishop(True,5,7)
+        self.board[5][7] = pieces.Bishop(True,5,7, color_complex = False)
         self.board[6][7] = pieces.Knight(True,6,7)
         self.board[7][7] = pieces.Rook(True,7,7)
 
@@ -118,10 +139,10 @@ class Board():
         # Black
         self.board[0][0] = pieces.Rook(False,0,0)
         self.board[1][0] = pieces.Knight(False,1,0)
-        self.board[2][0] = pieces.Bishop(False,2,0)
+        self.board[2][0] = pieces.Bishop(False,2,0, color_complex = False)
         self.board[3][0] = pieces.Queen(False,3,0)
         self.board[4][0] = pieces.King(False,4,0)
-        self.board[5][0] = pieces.Bishop(False,5,0)
+        self.board[5][0] = pieces.Bishop(False,5,0, color_complex = True)
         self.board[6][0] = pieces.Knight(False,6,0)
         self.board[7][0] = pieces.Rook(False,7,0)
 
@@ -219,32 +240,6 @@ class Board():
 
 
 
-    def __eq__(self, other_board):
-        """
-        Called when comparing two board objects.
-        A board is considered equal when having the same pieces, legal moves and player to move.
-        Because we delete the board when player castles,
-        we only need to check if the turn and piece positions are the same.
-        """
-        return self.board_2_FEN() != other_board.board_2_FEN()
-
-    def __hash__(self):
-        """
-        Called when used as key in a dictionary.
-        A board is considered equal when having the same pieces, legal moves and player to move.
-        Because we delete the board when player castles,
-        we only need to check if the turn and piece positions are the same.
-        """
-
-        return hash((self.board_2_FEN()))
-
-
-    def __setitem__(self, key, value):
-        self.board[key[0]][key[1]] = value
-
-
-    def __getitem__(self, item):
-        return self.board[item[0]][item[1]]
 
     def get_ghost_pawn(self, color):
         """
@@ -276,16 +271,17 @@ class Board():
         else:
             self.black_ghost_pawn = (pos[0], pos[1] + 1)
 
-    def vector(self):
+    def get_all_pieces(self):
         """
         Returns the board pieces in a vector for linear iteration.
         """
-        
-        vec = []
+
+        l_pieces = []
         for i in range(8):
             for j in range(8):
-                vec.append(self[i,j])
-        return vec
+                if self.board[i,j]:
+                    l_pieces.append(self[i,j])
+        return l_pieces
 
     def print_board(self):
         """
@@ -320,32 +316,6 @@ class Board():
         return buffer
 
 
-    def has_same_target(self, start, piece, color):
-        """
-        Designed to check if two pieces can go to the same square.
-        Returns the information needed to distinct the start square.
-
-        """
-        specifier = ""
-        l_pieces = self.get_piece(piece.name, color)
-        if len(l_pieces) == 2:
-            other_piece = l_pieces[0] if l_pieces[0].get_pos() != piece.get_pos() else l_pieces[1]
-            self[piece.get_pos()] = None
-            other_piece_targets = other_piece.get_valid_moves(self)
-            other_piece_targets = [move[1] for move in other_piece_targets]
-            if piece.get_pos() in other_piece_targets:
-                uci_move = utils.mat_2_uci(start)
-                if start[0] == other_piece.x:
-                    specifier = uci_move[1]
-                elif start[1] == other_piece.y:
-                    specifier = uci_move[0]
-                else:
-                    specifier = uci_move[0]
-            self[piece.get_pos()] = piece
-            return specifier
-        return ""
-
-
     def get_piece(self, name, color):
         """
         Iterates through board and return desired piece in a list.
@@ -375,13 +345,12 @@ class Board():
         """
 
         enemy_moves = set()
-        for otherpiece in self.vector():
-            if otherpiece:
-                if otherpiece.color == color:
-                    if otherpiece.name != "K":
-                        for move in otherpiece.get_valid_moves(self):
-                            enemy_moves.add(move[1])
-                    if otherpiece.name == "K":
-                        for move in otherpiece.get_normal_valid_moves(self):
-                            enemy_moves.add(move[1])
+        for otherpiece in self.get_all_pieces():
+            if otherpiece.color == color:
+                if otherpiece.name != "K":
+                    for move in otherpiece.get_valid_moves(self):
+                        enemy_moves.add(move[1])
+                if otherpiece.name == "K":
+                    for move in otherpiece.get_normal_valid_moves(self):
+                        enemy_moves.add(move[1])
         return list(enemy_moves)

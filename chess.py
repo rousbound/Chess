@@ -47,7 +47,7 @@ class Chess():
 
     board_states : list[Board]
         List of boards, relevant for three fold repetition draw criteria.
-        
+
 
 
 
@@ -71,7 +71,7 @@ class Chess():
     -------- GAME LOGIC ---------
 
     play_move(move:up) -> None
-        Make move, check special cases, update board information 
+        Make move, check special cases, update board information
 
     get_legal_moves() -> list[tup]
         Check legal moves
@@ -82,7 +82,7 @@ class Chess():
     kings_in_check() -> None
         Update king pieces with information whether they are in check or not
 
-    -------- EXECUTION OPTIONS ---------
+    -------- EXECUTION ---------
 
     play_cli(get_move : function) -> None
         Play game in command line interface depending on get_move function
@@ -90,14 +90,14 @@ class Chess():
     play_gui() -> None
         Play game with Guided User Interface
 
-    play_cli_test(input_moves) -> None
+    play_cli_test(input_moves : list[str]) -> None
         Play game in command line interface with a list of moves as input.
 
     print_turn_decorator() -> None
         Print turn information
 
-    play_gui_test(argv) -> None
-        Play game with Guided User Interface with list of moves as input 
+    play_gui_test(argv: list[str]) -> None
+        Play game with Guided User Interface with list of moves as input
 
     get_move_random(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
         Get random moves based on legal moves avaiable
@@ -173,7 +173,7 @@ class Chess():
         Ex: 1. e4 e5 2. Nf3 Nc6 3. Bb5
 
         """
-        
+
         algebric_move = utils.move_2_algebric(self.board, move, selected_piece, captured_piece, castling)
         self.last_move_algebric = algebric_move
 
@@ -222,7 +222,7 @@ class Chess():
 
 
         self.check_endgame_conditions(legal_moves)
-        
+
 
         return legal_moves
 
@@ -255,7 +255,7 @@ class Chess():
         elif promotion == "n":
             promoted_piece = pieces.Knight(color, selected_piece.x, selected_piece.y)
         return promoted_piece
-    
+
     def apply_castle(self, move, selected_piece):
         logging.debug("Castling")
         # ShortCastling
@@ -282,16 +282,16 @@ class Chess():
     def play_move(self, move):
         """
         Moves a piece at `start` to `to`.
-        Checks if the move is a special one, and apply the 
+        Checks if the move is a special one, and apply the
         correct transformation to the board.
 
         move: tup
             UCI in the form of a tuple
             Ex: ((4,4),(4,6),%)
             Where the first tuple is the 'start' square,
-            the second is the 'to' square and 
+            the second is the 'to' square and
             the third is the promotion.
-            
+
         """
         start = move[0]
         to = move[1]
@@ -359,16 +359,11 @@ class Chess():
         # Update castling rights
         self.board.check_castling_rights()
 
-        # Deactivate ghost pawn 
+        # Deactivate ghost pawn
         self.board.deactivate_ghost_pawn(self.board.turn)
 
         # Check if king is in check
         self.kings_in_check()
-
-
-
-
-
 
     def check_endgame_conditions(self, legal_moves):
         """
@@ -376,11 +371,10 @@ class Chess():
 
         """
         def check_material_draw():
-            pieces_left = []
-            for piece in self.board.vector():
-                if piece:
-                    if piece.name != "K":
-                        pieces_left.append(piece)
+            pieces_left = [] # Other than both kings
+            for piece in self.board.get_all_pieces():
+                if piece.name != "K":
+                    pieces_left.append(piece)
             if not pieces_left:
                 self.game_running = False
                 print("DRAW -- Only kings left")
@@ -397,18 +391,9 @@ class Chess():
                 piece2 = pieces_left[1]
                 if piece1.color != piece2.color:
                     if piece1.name == "B" and piece1.name == "B":
-                        print("DRAW -- King and Bishop vs King and Bishop cannot checkmate")
-                        self.game_running = False
-                    elif piece1.name == "B" and piece1.name == "N":
-                        print("DRAW -- King and Bishop vs King and Knight cannot checkmate")
-                        self.game_running = False
-                    elif piece1.name == "N" and piece1.name == "B":
-                        print("DRAW -- King and Knight vs King and Bishop cannot checkmate")
-                        self.game_running = False
-
-                    # OBS:
-                    # Although having two Knights does not imply forced checkmate,
-                    # it is possible if your opponent doesn't defend with the right moves
+                        if piece1.color_complex != piece2.color_complex:
+                            print("DRAW -- Kings and Bishop vs Bishop of different color complexes cannot checkmate")
+                            self.game_running = False
 
         def check_no_progress_draw():
             if self.board.no_progress_plies >= 100:
@@ -438,7 +423,7 @@ class Chess():
         def check_three_fold_repetition():
             board_states_counter = {}
             # Counts repetition in the lasts 6 turns or 12 plys
-            # If checking all the past board states, 
+            # If checking all the past board states,
             # it becames very computationally expensive.
             for board in self.board_states[-12:]:
                 if board in board_states_counter.keys():

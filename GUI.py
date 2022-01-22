@@ -25,7 +25,7 @@ class GUI():
         Controls if game is in promoting state.
 
     promoting_column : int
-        Informs where the promoting interface needs to reference for displaying the 
+        Informs where the promoting interface needs to reference for displaying the
         piece options
 
     promoting_move : bool
@@ -48,7 +48,7 @@ class GUI():
 
     pieces_dict : dict
         Converts Piece type to index in spritesheet Surface
-        
+
     piece_held : Piece
         Piece currently held by user with mouse
 
@@ -57,17 +57,10 @@ class GUI():
     yoffset : int
         Offsets the piece to fix little gaps in drawing.
 
-        
-
-
 
     Methods:
     --------
-    print_board() -> None
-        Prints the current configuration of the board
 
-    get_controlled_squares(color : bool) -> list[tup]
-        Returns coordinates of squares controlled by chosen color
 
     """
 
