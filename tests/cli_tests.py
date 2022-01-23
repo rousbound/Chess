@@ -4,6 +4,7 @@ sys.path.insert(0,'.')
 
 from mychess.chess import Chess
 from mychess.board import Board
+from mychess.main import *
 
 # Promotion test
 
@@ -26,9 +27,9 @@ tests = [promotion, castleKingSide, castleQueenSide, enPasseant, doubleSpecifier
 
 for test in tests:
 
-    game = Chess(Board())
+    chess = Chess(Board())
 
-    FEN = game.play_cli_test(test[0].split(" "))
+    FEN = play_cli_test(chess, test[0].split(" "))
     print("Baseline:",test[1])
     print("Test result:", FEN)
     assert FEN == test[1]

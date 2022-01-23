@@ -1,12 +1,6 @@
 import pieces
 import utils
 
-"""
-Module made for Board class.
-It encompasses every information that is relevant to save the position in the form of a FEN string.
-
-"""
-
 class Board():
     """
     A class to represent a chess board.
@@ -31,7 +25,8 @@ class Board():
         Saves right to castle information.
         Obs: Right to castle != Castle legality
         Ex: Castle might be ILLEGAL at certain position, but you have the RIGHT
-        to do it after, if criteria are met. After castling or moving king or rook you dont have the RIGHT to
+        to do it after, if criteria are met.
+        After castling or moving king or rook you dont have the RIGHT to
         castle anymore.
 
     white_ghost_pawn : tup
@@ -71,8 +66,8 @@ class Board():
         Returns all board alive pieces in a list for easy iteration
 
     has_same_target(start : tup, color: bool, piece : Piece) -> str
-        Check if two pieces could have gone to the same square and return 
-        information needed to discern the start piece. 
+        Check if two pieces could have gone to the same square and return
+        information needed to discern the start piece.
 
     get_piece(name : str, color : bool) -> list[Piece]
         Get list of pieces of desired type and color
@@ -223,19 +218,27 @@ class Board():
                         FEN += str(no_piece)
             if y != 7:
                 FEN += "/"
+        
+        # Concatanate turn information
         FEN += " w " if self.turn else " b "
         can_castle = ""
+
+        # Concatenate castling right information
         for key, value in self.can_castle.items():
             if value:
                 can_castle += key
         can_castle = "-" if len(can_castle) == 0 else can_castle
         FEN += can_castle
+
+        # Concatenate En passeant information
         if self.white_ghost_pawn:
             FEN += " " + utils.mat_2_uci(self.white_ghost_pawn)
         elif self.black_ghost_pawn:
             FEN += " " + utils.mat_2_uci(self.black_ghost_pawn)
         elif not self.white_ghost_pawn and not self.black_ghost_pawn:
             FEN += " " + "-"
+
+        # Concatenate turn counter and no progress plies information
         FEN += " " + str(self.no_progress_plies)
         FEN += " " + str(self.turn_counter)
 
@@ -329,7 +332,7 @@ class Board():
                 if self[x,y] is None:
                     tmp_str += "   |"
                 else:
-                    if self[x,y].color == True:
+                    if self[x,y].color:
                         tmp_str += (" " + str(self[x,y]) + " |")
                     else:
                         tmp_str += (" " + str(self[x,y]).lower() + " |")

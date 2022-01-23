@@ -24,7 +24,7 @@ def play_cli(chess, get_move):
             print("Illegal or impossible move")
             continue
 
-        chess.turn_debug(move)
+        chess.turn_debug()
         chess.play_move(move)
         print(chess.board.print_board())
 
@@ -42,9 +42,9 @@ def play_cli_test(chess, input_moves):
         if move not in chess.legal_moves:
             print("Illegal or impossible move")
             break
-        chess.turn_debug(move)
         if not chess.game_running:
             break
+        chess.turn_debug()
         chess.play_move(move)
         print(chess.board.print_board())
     return chess.board.board_2_FEN()

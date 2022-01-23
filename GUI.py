@@ -306,7 +306,7 @@ class GUI():
         self.last_move_from = move[1]
         self.game.play_move(move)
         self.game.legal_moves = self.game.get_legal_moves()
-        self.game.turn_debug(move)
+        self.game.turn_debug()
 
     def hold_piece(self):
         """

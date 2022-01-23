@@ -1,8 +1,9 @@
 import copy
 import random
-import sys
+import logging
 
 import utils
+import pieces
 
 
 
@@ -121,7 +122,7 @@ class Chess():
         self.pgn_game = ""
         self.uci_game = ""
 
-    def turn_debug(self, move):
+    def turn_debug(self):
         """
         Print last turn information.
         """
@@ -174,10 +175,18 @@ class Chess():
 
         """
 
-        algebric_move = utils.move_2_algebric(self.board, move, selected_piece, captured_piece, castling)
+        algebric_move = utils.move_2_algebric(self.board,
+                                              move,
+                                              selected_piece,
+                                              captured_piece,
+                                              castling)
         self.last_move_algebric = algebric_move
 
-        algebric_move = f"{str(self.board.turn_counter)}. {algebric_move} " if self.board.turn else f"{algebric_move} "
+        if self.board.turn:
+            algebric_move = f"{str(self.board.turn_counter)}. {algebric_move} "
+        else:
+            algebric_move = f"{algebric_move} "
+
         self.pgn_game += algebric_move
 
     def get_legal_moves(self):
@@ -190,35 +199,32 @@ class Chess():
 
         legal_moves = []
         self.algebric_legal_moves = []
+    
+        for piece in self.board.get_all_pieces():
+            if piece.color == self.board.turn:
+                piece_moves = piece.get_valid_moves(self.board)
+                # Simulate moves to see if it ends up with king in check
+                for move in piece_moves:
+                    origin = move[0]
+                    target = move[1]
+                    # Do move
+                    captured_piece = piece.move(target, self.board)
 
-        for i in range(8):
-            for j in range(8):
-                piece = self.board[i,j]
-                if piece:
-                    if piece.color == self.board.turn:
-                        piece_moves = piece.get_valid_moves(self.board)
-                        # Simulate moves to see if it ends up with king in check
-                        for move in piece_moves:
-                            origin = move[0]
-                            target = move[1]
-                            # Do move
-                            captured_piece = piece.move(target, self.board)
+                    enemy_targets = self.board.get_controlled_squares(not self.board.turn)
+                    if piece.name != "K":
+                        friend_king = self.board.get_king(self.board.turn)
+                    else:
+                        friend_king = piece
 
-                            enemy_targets = self.board.get_controlled_squares(not self.board.turn)
-                            if piece.name != "K":
-                                friend_king = self.board.get_king(self.board.turn)
-                            else:
-                                friend_king = piece
+                    # If king not in enemy targets after move, is legal move
+                    if friend_king.get_pos() not in enemy_targets:
+                        legal_moves.append(move)
+                        self.debug_algebric_legal_moves(move, piece, captured_piece)
 
-                            # If king not in enemy targets after move, is legal move
-                            if friend_king.get_pos() not in enemy_targets:
-                                legal_moves.append(move)
-                                self.debug_algebric_legal_moves(move, piece, captured_piece)
-
-                            # Undo move
-                            piece.move(origin,self.board)
-                            if captured_piece:
-                                captured_piece.move(target,self.board)
+                    # Undo move
+                    piece.move(origin,self.board)
+                    if captured_piece:
+                        captured_piece.move(target,self.board)
 
 
         self.check_endgame_conditions(legal_moves)
@@ -229,7 +235,6 @@ class Chess():
     def is_en_passeant(self, move, selected_piece):
         start = move[0]
         to = move[1]
-        promotion = move[2]
         # Double pawn movement logic
         if abs(to[1]-start[1]) > 1:
             self.board.activate_ghost_pawn(selected_piece.get_pos(), selected_piece.color)
@@ -371,6 +376,11 @@ class Chess():
 
         """
         def check_material_draw():
+            """
+            Certain combinations of pieces are impossible to deliver checkmate with.
+            What constitutes objetively a draw.
+
+            """
             pieces_left = [] # Other than both kings
             for piece in self.board.get_all_pieces():
                 if piece.name != "K":
@@ -396,21 +406,28 @@ class Chess():
                             self.game_running = False
 
         def check_no_progress_draw():
+            """
+            No captures or no pawn movements counts as no progress moves.
+            If there are 100 no progress half-moves, there is a draw.
+
+            """
+
             if self.board.no_progress_plies >= 100:
                 print("DRAW -- 100 moves without captures or pawn movements")
                 self.game_running = False
 
         def check_stalemate_or_checkmate(legal_moves):
+            """
+            If there is no legal moves and king in check, it is checkmate,
+            otherwise it is a stalemate.
+
+            """
             friend_king = self.board.get_king(self.board.turn)
 
-            # If there is no legal moves while not in check,
-            # there is stalemate, otherwise, checkmate
             if len(legal_moves) == 0:
-                # Not in Check
                 if not friend_king.in_check:
                     self.game_running = False
                     print("DRAW -- Stalemate")
-                # In Check
                 else:
                     self.game_running = False
                     print("CHECKMATE!!!!")
@@ -421,10 +438,12 @@ class Chess():
                         print("WHITE WINS!!!")
 
         def check_three_fold_repetition():
+            """
+            Checks if set of legal moves already repeated three times.
+            However, we only check last 6 turns-12 plies, otherwise it becomes very
+            computationally expensive.
+            """
             board_states_counter = {}
-            # Counts repetition in the lasts 6 turns or 12 plys
-            # If checking all the past board states,
-            # it becames very computationally expensive.
             for board in self.board_states[-12:]:
                 if board in board_states_counter.keys():
                     board_states_counter[board] += 1
@@ -490,4 +509,3 @@ class Chess():
 
         player_turn = "White" if self.board.turn else "Black"
         print(f"{player_turn}'s turn to move!")
-

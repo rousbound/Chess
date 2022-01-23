@@ -88,7 +88,6 @@ class Piece():
         Get valid moves for the piece.
 
         """
-        pass
 
     def get_diagonal_moves(self, board):
         """
@@ -96,38 +95,24 @@ class Piece():
 
         """
         target_squares = set()
-        for i in range(1,8):
-            x,y = self.x-i, self.y-i
-            if  (0 <= x <= 7) and  (0 <= y <= 7):
-                if board[x,y]:
-                    if board[x,y].color != self.color:
-                        target_squares.add((x,y))
-                    break
-                target_squares.add((x,y))
-        for i in range(1,8):
-            x,y = self.x+i,self.y+i
-            if  (0 <= x <= 7) and  (0 <= y <= 7):
-                if board[x,y]:
-                    if board[x,y].color != self.color:
-                        target_squares.add((x,y))
-                    break
-                target_squares.add((x,y))
-        for i in range(1,8):
-            x,y = self.x+i,self.y-i
-            if  (0 <= x <= 7) and  (0 <= y <= 7):
-                if board[x,y]:
-                    if board[x,y].color != self.color:
-                        target_squares.add((x,y))
-                    break
-                target_squares.add((x,y))
-        for i in range(1,8):
-            x,y = self.x-i,self.y+i
-            if  (0 <= x <= 7) and  (0 <= y <= 7):
-                if board[x,y]:
-                    if board[x,y].color != self.color:
-                        target_squares.add((x,y))
-                    break
-                target_squares.add((x,y))
+        
+        # North-West, South-East, Nort-East, South-West
+        nw_min = min(self.x,self.y)
+        se_min = min(8-self.x,8-self.y)
+        ne_min = min(8-self.x,self.y)
+        sw_min = min(self.x,8-self.y)
+        nw = [(self.x-i, self.y-i) for i in range(1,nw_min+1)]
+        se = [(self.x+i, self.y+i) for i in range(1,se_min+1)]
+        ne = [(self.x+i, self.y-i) for i in range(1,ne_min+1)]
+        sw = [(self.x-i, self.y+i) for i in range(1,sw_min+1)]
+        for l_squares in [nw, se, ne, sw]:
+            for x,y in l_squares:
+                if  (0 <= x <= 7) and  (0 <= y <= 7):
+                    if board[x,y]:
+                        if board[x,y].color != self.color:
+                            target_squares.add((x,y))
+                        break
+                    target_squares.add((x,y))
 
         moves = [(self.get_pos(), target, "%") for target in target_squares]
         return moves
@@ -138,30 +123,17 @@ class Piece():
 
         """
         target_squares = []
-        for i in range(1, self.x+1):
-            if board[self.x-i,self.y]:
-                if board[self.x-i,self.y].color != self.color:
-                    target_squares.append((self.x-i,self.y))
-                break
-            target_squares.append((self.x-i,self.y))
-        for i in range(1, 7-self.x+1):
-            if board[self.x+i,self.y]:
-                if board[self.x+i,self.y].color != self.color:
-                    target_squares.append((self.x+i,self.y))
-                break
-            target_squares.append((self.x+i,self.y))
-        for i in range(1, self.y+1):
-            if board[self.x,self.y-i]:
-                if board[self.x,self.y-i].color != self.color:
-                    target_squares.append((self.x,self.y-i))
-                break
-            target_squares.append((self.x,self.y-i))
-        for i in range(1, 7-self.y+1):
-            if board[self.x,self.y+i]:
-                if board[self.x,self.y+i].color != self.color:
-                    target_squares.append((self.x,self.y+i))
-                break
-            target_squares.append((self.x,self.y+i))
+        right = [(self.x-i, self.y) for i in range(1,self.x+1)]
+        left = [(self.x+i, self.y) for i in range(1,7-self.x+1)]
+        bottom = [(self.x, self.y-i) for i in range(1,self.y+1)]
+        up = [(self.x, self.y+i) for i in range(1,7-self.y+1)]
+        for l_squares in [right, left, bottom, up]:
+            for x,y in l_squares:
+                if board[x,y]:
+                    if board[x,y].color != self.color:
+                        target_squares.append((x,y))
+                    break
+                target_squares.append((x,y))
         moves = [(self.get_pos(), target, "%") for target in target_squares]
         return moves
 
@@ -404,29 +376,28 @@ class King(Piece):
         candidate_moves = self.get_normal_valid_moves(board)
 
         # Check Castling possibility
-        if self.first_move:
-            if not self.in_check:
-                for rook in board.get_piece("R", self.color):
-                    castle_enabled = True
-                    if rook.first_move:
-                        if rook.x == 0:
-                            in_between_squares = [(self.x-2, self.y), (self.x-1, self.y)]
-                            king_to = (self.x-2, self.y)
-                        elif rook.x == 7:
-                            in_between_squares = [(self.x+1, self.y), (self.x+2, self.y)]
-                            king_to = (self.x+2, self.y)
-                        for square in in_between_squares:
-                            # If square have pieces, castle is not possible
-                            # Still, if square doesn't have pieces,
-                            # check if they are controlled by enemy pieces
-                            if board[square]:
+        if self.first_move and not self.in_check:
+            for rook in board.get_piece("R", self.color):
+                castle_enabled = True
+                if rook.first_move:
+                    if rook.x == 0:
+                        in_between_squares = [(self.x-2, self.y), (self.x-1, self.y)]
+                        king_to = (self.x-2, self.y)
+                    elif rook.x == 7:
+                        in_between_squares = [(self.x+1, self.y), (self.x+2, self.y)]
+                        king_to = (self.x+2, self.y)
+                    for square in in_between_squares:
+                        # If square have pieces, castle is not possible
+                        # Still, if square doesn't have pieces,
+                        # check if they are controlled by enemy pieces
+                        if board[square]:
+                            castle_enabled = False
+                        else:
+                            if square in enemy_targets:
                                 castle_enabled = False
-                            else:
-                                if square in enemy_targets:
-                                    castle_enabled = False
-                        if castle_enabled:
-                            move = (self.get_pos(), king_to, "%")
-                            candidate_moves.append(move)
+                    if castle_enabled:
+                        move = (self.get_pos(), king_to, "%")
+                        candidate_moves.append(move)
         self.moves = candidate_moves
         return self.moves
 
