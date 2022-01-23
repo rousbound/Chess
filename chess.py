@@ -1,11 +1,8 @@
 import copy
-import logging
 import random
 import sys
 
-import board
 import utils
-import pieces
 
 
 
@@ -494,113 +491,3 @@ class Chess():
         player_turn = "White" if self.board.turn else "Black"
         print(f"{player_turn}'s turn to move!")
 
-
-    def play_cli(self, get_move):
-        """
-        Play game with command line interface.
-
-        """
-        print(self.board.print_board())
-        while self.game_running:
-            self.print_turn_decorator()
-            self.legal_moves = self.get_legal_moves()
-            if not chess.game_running:
-                break
-            move = get_move()
-
-            if move not in self.legal_moves:
-                print("Illegal or impossible move")
-                continue
-
-            self.turn_debug(move)
-            self.play_move(move)
-            print(self.board.print_board())
-
-
-    def play_cli_test(self, input_moves):
-        """
-        Test game with list of moves as input.
-
-        """
-        print("Input moves:", input_moves)
-        for move in input_moves:
-            move = utils.uci_2_move(move)
-            self.print_turn_decorator()
-            self.legal_moves = self.get_legal_moves()
-            if move not in self.legal_moves:
-                print("Illegal or impossible move")
-                break
-            self.turn_debug(move)
-            if not self.game_running:
-                break
-            self.play_move(move)
-            print(self.board.print_board())
-        return self.board.board_2_FEN()
-
-
-    def play_gui(self):
-        """
-        Play game with Graphical User Interface.
-
-        """
-        import GUI
-        logging.basicConfig(filename='tests/log/guiLog.log', level=logging.DEBUG)
-        gui = GUI.GUI(self.board,640,640,self)
-        gui.main()
-
-    def play_gui_test(self, argv):
-        """
-        Test game with command line interface
-
-        """
-
-        moves_list = argv[2:]
-        print("Moves list:", moves_list)
-
-        import GUI
-        logging.basicConfig(filename='tests/log/guiLog.log', level=logging.DEBUG)
-        gui = GUI.GUI(self.board,640,640,self)
-        gui.cli_gui_main(moves_list)
-
-
-
-    def main(self, args=sys.argv):
-        """
-        Main function.
-
-        """
-
-        if len(args) == 1:
-
-            arg = None
-        else:
-
-            arg = args[1]
-
-        if arg in ["-cli", "-r"]:
-
-            if arg == "-cli":
-                get_move = self.get_move_player
-            elif arg == "-r":
-                get_move = self.get_move_random
-
-            self.play_cli(get_move)
-
-        if arg in ["-gui", None]:
-
-            self.play_gui()
-
-        elif arg == "-guitest":
-
-            self.play_gui_test(sys.argv)
-
-        elif arg == "-clitest":
-
-            self.play_cli_test(sys.argv[2:])
-
-
-
-
-if __name__ == "__main__":
-    chess = Chess(board.Board())
-    chess.main()

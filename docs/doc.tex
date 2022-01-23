@@ -54,10 +54,29 @@ Chess Interface) format i.e
 e2e4, and if the movement is valid, output the board state to the user or inform
 the user the input isn't valid. For this matter, the standard python library is
 enough address the problem. For debugging purposes, a graphical interface was
-also required and implemented in pygame, a graphical framework for games.
+also required and implemented in pygame, a graphical framework for games. Also
+for debugging and testing pourposes, it was used the program
+\textit{pgn-extract} to convert PGN game notation to UCI notation.
 
 
 \section{Program project}
+
+The project is constitued by four modules that contains in itself their
+respective major classe: The Piece, Board, Chess and GUI.
+\begin{enumerate}
+    \item The Pieces module contains the Piece class, that is inherited by all
+        the chess pieces, and specify how to get from each piece their own set
+        of possible moves.
+        \item The Board module contains the Board class that is used to save all
+            information relative to board state, such as pieces positions,
+            castling rights, number of turns, en passeant possibility, etc.
+        \item The Chess module contains the Chess class that is used to process
+            the Board information and create legal moves from which the player
+            can chose to play.
+        \item The GUI module uses the Board and Chess classes to play the game
+            in a graphical interface mode.
+\end{enumerate}
+
 
 \begin{figure}[H]
     \includegraphics[scale=0.2]{fig/classes_Chess.png}
@@ -66,7 +85,7 @@ also required and implemented in pygame, a graphical framework for games.
 
 \section{Testing}
 
-\begin{table}[h]
+\begin{table}[H]
 \center
 \begin{tabular}{|c|c|}
 \hline
@@ -93,7 +112,7 @@ also required and implemented in pygame, a graphical framework for games.
 therefore stands for white playing three times and black two.}
 \end{table}
 
-For testing the general accuracy of the game, it was used the Shannon Number,
+For basic operations accuracy, it was used the Shannon Number,
 which stands for all the possible moves that can be played until a certain
 ply(half-move). By the limitation of the computer power avaible for our
 disposal, and considering that the game was not written in a language nor
@@ -140,13 +159,10 @@ Checks} & \textbf{Dbl Checks} & \textbf{Checkmates} \\
 \end{table}
 
 By this table we can see that we need to concentrate our efforts in testing
-Castle, Promotions, Discovery Checks and Double Checks
+Castle, Promotions, Discovery Checks and Double Checks.
 
-Specific tests were also made when debugging certain problems in code. So it was
-possible to replay a certain game until a specific move and debug it from there,
-without manually giving the moves as input.
-
-For example, at 5 ply, there can't be a game with a promoted pawn case,
+For this matter, it was needed to create specific tests to check this special
+moves.  For example, at 5 ply, there can't be a game with a promoted pawn case,
 therefore we need to make a specific test case for that matter. 
 \begin{lstlisting}
 python3 tests/promotionTest.py
@@ -162,8 +178,8 @@ PlayedMoves: 1. g4 h5 2. gxh5 g6 3. h6 Rh7 4. f3 Rg7 5. h7 f6
     \includegraphics[scale=0.15]{{fig/promoted_pawn.png}}
     \includegraphics[scale=0.15]{{fig/queen_moving_promotion.png}}
     \caption{The left-most screenshot is the result of the test, and others 
-        are a sequence of screenshots of the user playing and doing the promotion
-    manually.}
+        are a sequence of screenshots of the user doing the promotion
+    manually, and playing a move after to check if the piece is responsive.}
 \end{figure}
 
 While developing, the GUI and CLI interface could be behaving

@@ -18,9 +18,11 @@ enPasseant = ["e2e4 a7a6 e4e5 d7d5 e5d6", "rnbqkbnr/1pp1pppp/p2P4/8/8/8/PPPP1PPP
 
 doubleSpecifier = ["g2g4 h7h5 g4h5 g7g6 h5g6 f8g7 g6f7 e8f8 e2e3 e7e6 f7g8r f8e7 g8g7 e7e8 g1f3 d7d6 h1g1 d6d5 h2h4 e6e5 h4h5 c7c6 h5h6 e8f8 h6h7 f8e8 g1h1 c8d7 c2c3 d8e7 b2b3 d7e6 c3c4 e8d7 b3b4 c6c5 g7e7 d7c6 e3e4 h8g8 h7g8r b7b6 g8h8 a7a6 e7h7", "rn5R/7R/ppk1b3/2ppp3/1PP1P3/5N2/P2P1P2/RNBQKB1R b Q - 1 23"]
 
-# kingHunt = ["g2g4 h7h5 g4h5 g7g6 h5g6 f8g7 g6f7 e8f8 e2e3 e7e6 f7g8r f8e7 g8g7 e7e8 g1f3 d7d6 h1g1 d6d5 h2h4 e6e5 h4h5 c7c6 h5h6 e8f8 h6h7 f8e8 g1h1 c8d7 c2c3 d8e7 b2b3 d7e6 c3c4 e8d7 b3b4 c6c5 g7e7 d7c6 e3e4 h8g8 h7g8r b7b6 g8h8 a7a6 e7h7", "rn5R/7R/ppk1b3/2ppp3/1PP1P3/5N2/P2P1P2/RNBQKB1R b Q - 1 23"]
+discoveredCheck = ["e2e4 e7e5 g1f3 g8f6 f3e5 f6e4 d2d3 e4g5 d1e2 b8c6 e5c6", "r1bqkb1r/pppp1ppp/2N5/6n1/8/3P4/PPP1QPPP/RNB1KB1R b KQkq - 0 6"]
 
-tests = [promotion, castleKingSide, castleQueenSide, enPasseant, doubleSpecifier]
+doubleCheck = ["e2e4 f7f5 e4f5 e7e6 f5e6 g7g6 e6d7 d8d7 d2d3 e8e7 c1e3 b7b6 d1e2 c7c5 e3g5" , "rnb2bnr/p2qk2p/1p4p1/2p3B1/8/3P4/PPP1QPPP/RN2KBNR b KQ - 1 8"]
+
+tests = [promotion, castleKingSide, castleQueenSide, enPasseant, doubleSpecifier, discoveredCheck, doubleCheck]
 
 for test in tests:
 
