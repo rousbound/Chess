@@ -55,10 +55,10 @@ expected_results = [20,400,8902,197_281,4_865_609]
 for current_depth, expected_result in zip(range(1,depth+1), expected_results):
     result = move_generation_test(current_depth)
     result_list.append(result)
-    logging.info(f"Result of possible games with {current_depth} ply: {result}/{expected_result} - {'OK' if result == excepted_result else 'ERROR'}")
+    logging.info(f"Result of possible games with {current_depth} ply: {result}/{expected_result} - {'OK' if result == expected_result else 'ERROR'}")
 
     ply_elapsed_time = (time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - ply_depth_start)))
-    logging.info(f"Elapsed time in {i} ply: {ply_elapsed_time} seconds")
+    logging.info(f"Elapsed time in {current_depth} ply: {ply_elapsed_time} seconds")
     ply_depth_start = time.time()
 
 all_elapsed_time = time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - test_start))

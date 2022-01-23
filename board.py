@@ -70,6 +70,10 @@ class Board():
     get_all_pieces() -> list[Piece]
         Returns all board alive pieces in a list for easy iteration
 
+    has_same_target(start : tup, color: bool, piece : Piece) -> str
+        Check if two pieces could have gone to the same square and return 
+        information needed to discern the start piece. 
+
     get_piece(name : str, color : bool) -> list[Piece]
         Get list of pieces of desired type and color
 
@@ -279,9 +283,34 @@ class Board():
         l_pieces = []
         for i in range(8):
             for j in range(8):
-                if self.board[i,j]:
+                if self[i,j]:
                     l_pieces.append(self[i,j])
         return l_pieces
+
+    def has_same_target(self, start, piece, color):
+        """
+        Designed to check if two pieces can go to the same square.
+        Returns the information needed to distinct the start square.
+
+        """
+        specifier = ""
+        l_pieces = self.get_piece(piece.name, color)
+        if len(l_pieces) == 2:
+            other_piece = l_pieces[0] if l_pieces[0].get_pos() != piece.get_pos() else l_pieces[1]
+            self[piece.get_pos()] = None
+            other_piece_targets = other_piece.get_valid_moves(self)
+            other_piece_targets = [move[1] for move in other_piece_targets]
+            if piece.get_pos() in other_piece_targets:
+                uci_move = utils.mat_2_uci(start)
+                if start[0] == other_piece.x:
+                    specifier = uci_move[1]
+                elif start[1] == other_piece.y:
+                    specifier = uci_move[0]
+                else:
+                    specifier = uci_move[0]
+            self[piece.get_pos()] = piece
+            return specifier
+        return ""
 
     def print_board(self):
         """

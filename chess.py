@@ -132,8 +132,11 @@ class Chess():
         print("")
         print("-------------------------------")
         print("Move: ", self.last_move_algebric)
+        print("")
         print("LegalMoves: ", " ".join(self.algebric_legal_moves))
+        print("")
         print("PGN:", self.pgn_game)
+        print("")
         print("FEN:", self.board.board_2_FEN())
 
     def debug_algebric_legal_moves(self, move, piece, captured_piece):
@@ -440,7 +443,7 @@ class Chess():
         check_stalemate_or_checkmate(legal_moves)
         check_no_progress_draw()
         check_material_draw()
-        check_three_fold_repetition()
+        # check_three_fold_repetition()
 
     def kings_in_check(self):
         """
