@@ -203,13 +203,10 @@ class Board():
         skip = 0
         squares = 0
         fen_pieces = fen_pieces.replace("/","")
-        print(fen_pieces, len(fen_pieces))
         i = 0
         while True:
             x, y = squares%8, squares//8
-            print(x,y)
             c = fen_pieces[i]
-            print(c)
             if c in "12345678":
                 skip += int(c)
                 squares += int(c)

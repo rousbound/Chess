@@ -1,0 +1,30 @@
+2022-01-24 00:00:17,420 ----------------------------------------
+2022-01-24 00:00:17,420 Initiating move generation test on depth: 2
+2022-01-24 00:00:17,551 Result of possible games with 1 ply: 48/48 - OK
+2022-01-24 00:00:17,552 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-24 00:00:23,493 Result of possible games with 2 ply: 2039/2039 - OK
+2022-01-24 00:00:23,493 Elapsed time in 2 ply: 00h00m05s seconds
+2022-01-24 00:00:23,493 Total Elapsed time: (00h00m06s)
+2022-01-24 00:00:23,493 -----------------------------------------
+2022-01-24 00:00:23,494 ----------------------------------------
+2022-01-24 00:00:23,494 Initiating move generation test on depth: 3
+2022-01-24 00:00:23,511 Result of possible games with 1 ply: 14/14 - OK
+2022-01-24 00:00:23,511 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-24 00:00:23,763 Result of possible games with 2 ply: 191/191 - OK
+2022-01-24 00:00:23,763 Elapsed time in 2 ply: 00h00m00s seconds
+2022-01-24 00:00:27,656 Result of possible games with 3 ply: 2812/2812 - OK
+2022-01-24 00:00:27,656 Elapsed time in 3 ply: 00h00m03s seconds
+2022-01-24 00:00:27,656 Total Elapsed time: (00h00m04s)
+2022-01-24 00:00:27,656 -----------------------------------------
+2022-01-24 00:00:27,663 ----------------------------------------
+2022-01-24 00:00:27,663 Initiating move generation test on depth: 3
+2022-01-24 00:00:27,685 Result of possible games with 1 ply: 6/6 - OK
+2022-01-24 00:00:27,686 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-24 00:00:28,433 Result of possible games with 2 ply: 264/264 - OK
+2022-01-24 00:00:28,433 Elapsed time in 2 ply: 00h00m00s seconds
+2022-01-24 00:00:57,223 Result of possible games with 3 ply: 9467/9467 - OK
+2022-01-24 00:00:57,223 Elapsed time in 3 ply: 00h00m28s seconds
+2022-01-24 00:00:57,223 Total Elapsed time: (00h00m29s)
+2022-01-24 00:00:57,223 -----------------------------------------
+2022-01-24 00:00:57,228 ----------------------------------------
+2022-01-24 00:00:57,228 Initiating move generation test on depth: 3

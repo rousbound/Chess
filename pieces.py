@@ -67,7 +67,6 @@ class Piece():
            ep_piece_captured = self.is_en_passeant((self.get_pos(), to), board)
            if ep_piece_captured:
                board[ep_piece_captured.get_pos()] = None
-               print(ep_piece_captured.get_pos())
 
         board[self.get_pos()] = None
         captured_piece = board[to] if not ep_piece_captured else ep_piece_captured

@@ -175,7 +175,6 @@ class Chess():
         If not, it is legal move.
         After check Draw conditions.
         """
-        print("BEGIN GET LEGAL MOVES:")
 
         legal_moves = []
         self.algebric_legal_moves = []
@@ -272,7 +271,6 @@ class Chess():
         selected_piece = self.board[start]
         castling = None
 
-        print("BEGIN PLAYING MOVE:")
 
         if selected_piece.name == "P":
             start = move[0]
@@ -302,8 +300,6 @@ class Chess():
                     self.board_states = []
 
 
-        print("MOVE:", move)
-        print("MOVE:", to)
         captured_piece = selected_piece.move(to, self.board)
 
         # Check if move made progress to the game

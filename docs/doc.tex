@@ -161,51 +161,63 @@ Checks} & \textbf{Dbl Checks} & \textbf{Checkmates} \\
 By this table we can see that we need to concentrate our efforts in testing
 Castle, Promotions, Discovery Checks and Double Checks.
 
-For this matter, it was needed to create specific tests to check this special
-moves.  For example, at 5 ply, there can't be a game with a promoted pawn case,
-therefore we need to make a specific test case for that matter. 
-\begin{lstlisting}
-python3 tests/promotionTest.py
-python3 chess.py -guitest g2g4 h7h5 g4h5 g7g6  h5h6  h8h7  f2f3  h7g7  h6h7  f7f6 
-... 
-PlayedMoves: 1. g4 h5 2. gxh5 g6 3. h6 Rh7 4. f3 Rg7 5. h7 f6 
-\end{lstlisting}
-
-\begin{figure}[H]
-    \center
-    \includegraphics[scale=0.15]{{fig/pre_promotion.png}}
-    \includegraphics[scale=0.15]{{fig/promoting_pawn.png}}
-    \includegraphics[scale=0.15]{{fig/promoted_pawn.png}}
-    \includegraphics[scale=0.15]{{fig/queen_moving_promotion.png}}
-    \caption{The left-most screenshot is the result of the test, and others 
-        are a sequence of screenshots of the user doing the promotion
-    manually, and playing a move after to check if the piece is responsive.}
-\end{figure}
-
-While developing, the GUI and CLI interface could be behaving
-differently, having that in mind, we can also do the same test with the CLI if we are in doubt:
+One way to test them, is loading ``complex positions'', brute forcing their
+possible moves, and comparing the results with a proof table. Using the
+positions recommended in \url{https://www.chessprogramming.org/Perft_Results},
+we get the following result:
 
 \begin{lstlisting}
- >> $ python3 tests/promotionTest_cli.py
-python3 chess.py -clitest g2g4 h7h5 g4h5 g7g6  h5h6  h8h7  f2f3  h7g7  h6h7  f7f6  h7h8q  e7e6 h8h6
-(...)
-Black's turn to move!
-*********************************
-8| r | n | b | q | k | b | n |   |
-7| p | p | p | p |   |   | r |   |
-6|   |   |   |   | p | p | p | Q |
-5|   |   |   |   |   |   |   |   |
-4|   |   |   |   |   |   |   |   |
-3|   |   |   |   |   | P |   |   |
-2| P | P | P | P | P |   |   | P |
-1| R | N | B | Q | K | B | N | R |
-   a   b   c   d   e   f   g   h
-*********************************
+2022-01-24 00:03:34,134 ----------------------------------------
+2022-01-24 00:03:34,134 Initiating move generation test on depth: 2
+2022-01-24 00:03:34,268 Result of possible games with 1 ply: 48/48 - OK
+2022-01-24 00:03:34,268 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-24 00:03:40,177 Result of possible games with 2 ply: 2039/2039 - OK
+2022-01-24 00:03:40,177 Elapsed time in 2 ply: 00h00m05s seconds
+2022-01-24 00:03:40,177 Total Elapsed time: (00h00m06s)
+2022-01-24 00:03:40,177 -----------------------------------------
+2022-01-24 00:03:40,177 ----------------------------------------
+2022-01-24 00:03:40,177 Initiating move generation test on depth: 3
+2022-01-24 00:03:40,195 Result of possible games with 1 ply: 14/14 - OK
+2022-01-24 00:03:40,195 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-24 00:03:40,454 Result of possible games with 2 ply: 191/191 - OK
+2022-01-24 00:03:40,454 Elapsed time in 2 ply: 00h00m00s seconds
+2022-01-24 00:03:44,350 Result of possible games with 3 ply: 2812/2812 - OK
+2022-01-24 00:03:44,351 Elapsed time in 3 ply: 00h00m03s seconds
+2022-01-24 00:03:44,351 Total Elapsed time: (00h00m04s)
+2022-01-24 00:03:44,351 -----------------------------------------
+2022-01-24 00:03:44,358 ----------------------------------------
+2022-01-24 00:03:44,359 Initiating move generation test on depth: 3
+2022-01-24 00:03:44,382 Result of possible games with 1 ply: 6/6 - OK
+2022-01-24 00:03:44,382 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-24 00:03:45,135 Result of possible games with 2 ply: 264/264 - OK
+2022-01-24 00:03:45,135 Elapsed time in 2 ply: 00h00m00s seconds
+2022-01-24 00:04:12,876 Result of possible games with 3 ply: 9467/9467 - OK
+2022-01-24 00:04:12,876 Elapsed time in 3 ply: 00h00m27s seconds
+2022-01-24 00:04:12,876 Total Elapsed time: (00h00m28s)
+2022-01-24 00:04:12,876 -----------------------------------------
+2022-01-24 00:04:12,881 ----------------------------------------
+2022-01-24 00:04:12,881 Initiating move generation test on depth: 3
+2022-01-24 00:04:12,997 Result of possible games with 1 ply: 44/44 - OK
+2022-01-24 00:04:12,997 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-24 00:04:17,258 Result of possible games with 2 ply: 1486/1486 - OK
+2022-01-24 00:04:17,258 Elapsed time in 2 ply: 00h00m04s seconds
+2022-01-24 00:07:10,379 Result of possible games with 3 ply: 62379/62379 - OK
+2022-01-24 00:07:10,379 Elapsed time in 3 ply: 00h02m53s seconds
+2022-01-24 00:07:10,379 Total Elapsed time: (00h02m57s)
+2022-01-24 01:06:43,597 ----------------------------------------
+2022-01-24 01:06:43,598 Initiating move generation test on depth: 3
+2022-01-24 01:06:43,724 Result of possible games with 1 ply: 46/46 - OK
+2022-01-24 01:06:43,724 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-24 01:06:49,460 Result of possible games with 2 ply: 2079/2079 - OK
+2022-01-24 01:06:49,460 Elapsed time in 2 ply: 00h00m05s seconds
+2022-01-24 01:11:14,405 Result of possible games with 3 ply: 89890/89890 - OK
+2022-01-24 01:11:14,423 Elapsed time in 3 ply: 00h04m24s seconds
+2022-01-24 01:11:14,424 Total Elapsed time: (00h04m30s)
+2022-01-24 01:11:14,424 -----------------------------------------
     
 \end{lstlisting}
 
-
-
+By doing these tests, we can be certain that the program is working as desired.
 
 \end{document}
 
