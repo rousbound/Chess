@@ -11,9 +11,8 @@ python-chess:
     >>> from mychess import *
 
     >>> game = Chess()
-
-    >>> board.legal_moves  # doctest: +ELLIPSIS
-    *********************************
+    White's turn to move!
+     *********************************
     8| r | n | b | q | k | b | n | r |
     7| p | p | p | p | p | p | p | p |
     6|   |   |   |   |   |   |   |   |
@@ -24,7 +23,11 @@ python-chess:
     1| R | N | B | Q | K | B | N | R |
        a   b   c   d   e   f   g   h
     *********************************
-
+    
+    # Make moves 
+    >>> board.legal_moves  
+    a2a4 a2a3 b2b4 b2b3 b1c3 b1a3 c2c4 c2c3 d2d4 d2d3 e2e4 e2e3 f2f4 f2f3 g2g4 g2g3 g1h3 g1f3 h2h4 h2h3
+    
     >>> game.push_uci("e2e4")
     
     Black's turn to move!
@@ -72,17 +75,9 @@ python-chess:
     *********************************
 
 
-Installing
-----------
-
-Download and install the latest release:
-
-::
-
-    pip install chess
 
 
-`Documentation <https://python-chess.readthedocs.io/en/latest/>`__
+`Documentation <https://github.com/rousbound/Chess/blob/refactor_jonatas/docs/meta/doc.pdf/>`__
 --------------------------------------------------------------------
 
 Features
