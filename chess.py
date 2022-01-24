@@ -2,8 +2,9 @@ import copy
 import random
 import logging
 
-import utils
-import pieces
+from mychess.utils import mat_2_uci, move_2_algebric, uci_2_move, move_2_uci
+import mychess.pieces
+from mychess.board import Board
 
 
 
@@ -89,17 +90,26 @@ class Chess():
 
     """
 
-    def __init__(self, board : object):
-        self.board = board
+    def __init__(self, FEN=None):
+        self.board = Board(FEN)
         self.game_running = True
         self.board_states = []
 
-        self.legal_moves = []
         self.algebric_legal_moves = []
+        self.uci_legal_moves = []
+        self.legal_moves = self.get_legal_moves()
         self.moves_list = []
         self.last_move_algebric = ""
         self.pgn_game = ""
         self.uci_game = ""
+        self.print_turn_decorator()
+        self.board.print_board()
+        
+    def uci_moves(self):
+        print(" ".join(self.uci_legal_moves))
+
+    def algebric_moves(self):
+        print(" ".join(self.algebric_legal_moves))
 
     def turn_debug(self):
         """
@@ -132,7 +142,7 @@ class Chess():
                 castling = "O-O"
             elif res[0] > 1:
                 castling = "O-O-O"
-        algebric_move = utils.move_2_algebric(self.board, move, piece, captured_piece, castling)
+        algebric_move = move_2_algebric(self.board, move, piece, captured_piece, castling)
         self.algebric_legal_moves.append(algebric_move)
 
     def debug_game_uci(self, move):
@@ -142,8 +152,8 @@ class Chess():
 
         """
 
-        start = utils.mat_2_uci(move[0])
-        to = utils.mat_2_uci(move[1])
+        start = mat_2_uci(move[0])
+        to = mat_2_uci(move[1])
         promotion = move[2]
         self.uci_game += f"{start}{to}{promotion} "
 
@@ -154,7 +164,7 @@ class Chess():
 
         """
 
-        algebric_move = utils.move_2_algebric(self.board,
+        algebric_move = move_2_algebric(self.board,
                                               move,
                                               selected_piece,
                                               captured_piece,
@@ -178,6 +188,7 @@ class Chess():
 
         legal_moves = []
         self.algebric_legal_moves = []
+        self.uci_legal_moves = []
     
         for piece in self.board.get_all_pieces():
             if piece.color == self.board.turn:
@@ -200,6 +211,7 @@ class Chess():
                     if friend_king.get_pos() not in enemy_targets:
                         legal_moves.append(move)
                         self.debug_algebric_legal_moves(move, piece, captured_piece)
+                        self.uci_legal_moves.append("".join(move_2_uci(move)))
 
                     # Undo move
                     piece.move(origin,self.board)
@@ -448,6 +460,24 @@ class Chess():
             else:
                 king.in_check = False
 
+    def push_uci(self, uci_move):
+        if self.game_running:
+            self.legal_moves = self.get_legal_moves()
+
+            if not self.game_running:
+                return
+                
+            move = uci_2_move(uci_move)
+
+            if move not in self.legal_moves:
+                print("Illegal or impossible move")
+            else:
+                # self.turn_debug()
+                self.play_move(move)
+        self.print_turn_decorator()
+        self.board.print_board()
+        self.get_legal_moves()
+
     def get_move_list(self, l):
         l = iter(l)
         n = next(l) 
@@ -462,12 +492,21 @@ class Chess():
         """
         try:
             uci_move = input("Move: ")
-            move = utils.uci_2_move(uci_move)
+            move = uci_2_move(uci_move)
             return move
 
         except Exception as e:
             print("EOF")
             return "EOF"
+
+    def play_gui(self):
+        """
+        Play game with Graphical User Interface.
+
+        """
+        from mychess.GUI import GUI
+        gui = GUI(640,640,self)
+        gui.main()
 
     def get_move_random(self):
         """

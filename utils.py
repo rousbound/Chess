@@ -34,6 +34,9 @@ def move_2_algebric(board, move, selected_piece, captured_piece, castling):
 
     return piece_name + specifier + capture + algebric_to
 
+def move_2_uci(move):
+    return (mat_2_uci(move[0]),mat_2_uci(move[1]))
+
 def mat_2_uci(square):
     """
     Translates a coordinate in the board matrix to uci format.

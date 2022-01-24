@@ -1,5 +1,5 @@
-import pieces
-import utils
+from mychess.pieces import King, Queen, Rook, Bishop, Knight, Pawn
+from mychess.utils import *
 
 class Board():
     """
@@ -123,30 +123,30 @@ class Board():
         """
 
         # White
-        self.board[0][7] = pieces.Rook(True,0,7, rook_side = "q")
-        self.board[1][7] = pieces.Knight(True,1,7)
-        self.board[2][7] = pieces.Bishop(True,2,7, color_complex = True)
-        self.board[3][7] = pieces.Queen(True,3,7)
-        self.board[4][7] = pieces.King(True,4,7)
-        self.board[5][7] = pieces.Bishop(True,5,7, color_complex = False)
-        self.board[6][7] = pieces.Knight(True,6,7)
-        self.board[7][7] = pieces.Rook(True,7,7, rook_side = "k")
+        self.board[0][7] = Rook(True,0,7, rook_side = "q")
+        self.board[1][7] = Knight(True,1,7)
+        self.board[2][7] = Bishop(True,2,7, color_complex = True)
+        self.board[3][7] = Queen(True,3,7)
+        self.board[4][7] = King(True,4,7)
+        self.board[5][7] = Bishop(True,5,7, color_complex = False)
+        self.board[6][7] = Knight(True,6,7)
+        self.board[7][7] = Rook(True,7,7, rook_side = "k")
 
         for i in range(8):
-            self.board[i][6] = pieces.Pawn(True,i,6)
+            self.board[i][6] = Pawn(True,i,6)
 
         # Black
-        self.board[0][0] = pieces.Rook(False,0,0, rook_side = "Q")
-        self.board[1][0] = pieces.Knight(False,1,0)
-        self.board[2][0] = pieces.Bishop(False,2,0, color_complex = False)
-        self.board[3][0] = pieces.Queen(False,3,0)
-        self.board[4][0] = pieces.King(False,4,0)
-        self.board[5][0] = pieces.Bishop(False,5,0, color_complex = True)
-        self.board[6][0] = pieces.Knight(False,6,0)
-        self.board[7][0] = pieces.Rook(False,7,0, rook_side = "K")
+        self.board[0][0] = Rook(False,0,0, rook_side = "Q")
+        self.board[1][0] = Knight(False,1,0)
+        self.board[2][0] = Bishop(False,2,0, color_complex = False)
+        self.board[3][0] = Queen(False,3,0)
+        self.board[4][0] = King(False,4,0)
+        self.board[5][0] = Bishop(False,5,0, color_complex = True)
+        self.board[6][0] = Knight(False,6,0)
+        self.board[7][0] = Rook(False,7,0, rook_side = "K")
 
         for i in range(8):
-            self.board[i][1] = pieces.Pawn(False,i,1)
+            self.board[i][1] = Pawn(False,i,1)
 
     def remove_castling_rights(self, color):
         """
@@ -225,26 +225,26 @@ class Board():
                             rook_side = "k"
                         if (x,y) == (7,7):
                             rook_side = "K"
-                        self[x,y] = pieces.Rook(color, x, y, rook_side)
+                        self[x,y] = Rook(color, x, y, rook_side)
                     if c in "nN":
-                        self[x,y] = pieces.Knight(color, x, y)
+                        self[x,y] = Knight(color, x, y)
                     if c in "bB":
-                        self[x,y] = pieces.Bishop(color, x, y, color_complex = True)
+                        self[x,y] = Bishop(color, x, y, color_complex = True)
                     if c in "qQ":
-                        self[x,y] = pieces.Queen(color, x, y)
+                        self[x,y] = Queen(color, x, y)
                     if c in "kK":
-                        self[x,y] = pieces.King(color, x, y)
+                        self[x,y] = King(color, x, y)
                     if c in "pP":
                         if c == "p":
                             if y == 1:
-                                self[x,y] = pieces.Pawn(color, x , y, first_move = True)
+                                self[x,y] = Pawn(color, x , y, first_move = True)
                             else:
-                                self[x,y] = pieces.Pawn(color, x , y, first_move = False)
+                                self[x,y] = Pawn(color, x , y, first_move = False)
                         elif c == "P":
                             if y == 6:
-                                self[x,y] = pieces.Pawn(color, x , y, first_move = True)
+                                self[x,y] = Pawn(color, x , y, first_move = True)
                             else:
-                                self[x,y] = pieces.Pawn(color, x , y, first_move = False)
+                                self[x,y] = Pawn(color, x , y, first_move = False)
 
                     i+=1
             elif skip != 0:
@@ -302,9 +302,9 @@ class Board():
 
         # Concatenate En passeant information
         if self.white_ghost_pawn:
-            FEN += " " + utils.mat_2_uci(self.white_ghost_pawn)
+            FEN += " " + mat_2_uci(self.white_ghost_pawn)
         elif self.black_ghost_pawn:
-            FEN += " " + utils.mat_2_uci(self.black_ghost_pawn)
+            FEN += " " + mat_2_uci(self.black_ghost_pawn)
         elif not self.white_ghost_pawn and not self.black_ghost_pawn:
             FEN += " " + "-"
 
@@ -374,7 +374,7 @@ class Board():
             other_piece_targets = other_piece.get_valid_moves(self)
             other_piece_targets = [move[1] for move in other_piece_targets]
             if piece.get_pos() in other_piece_targets:
-                uci_move = utils.mat_2_uci(start)
+                uci_move = mat_2_uci(start)
                 if start[0] == other_piece.x:
                     specifier = uci_move[1]
                 elif start[1] == other_piece.y:
@@ -415,7 +415,7 @@ class Board():
         for i in range(33):
             buffer += "*"
         buffer += "\n"
-        return buffer
+        print(buffer)
 
 
     def get_piece(self, name, color):

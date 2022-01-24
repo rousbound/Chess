@@ -12,7 +12,7 @@ def play_cli(chess, get_move, input_list_test=None):
     Play game with command line interface.
 
     """
-    print(chess.board.print_board())
+    chess.board.print_board()
     while chess.game_running:
         chess.print_turn_decorator()
         chess.legal_moves = chess.get_legal_moves()
@@ -34,7 +34,7 @@ def play_cli(chess, get_move, input_list_test=None):
 
         chess.turn_debug()
         chess.play_move(move)
-        print(chess.board.print_board())
+        chess.board.print_board()
 
     return chess.board.board_2_FEN()
 
@@ -69,7 +69,7 @@ def main(args):
     Main function.
 
     """
-    chess = Chess(board.Board())
+    chess = Chess()
 
     if len(args) == 1:
 
