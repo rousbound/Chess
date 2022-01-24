@@ -126,3 +126,4 @@ Features
 * Opening position in GUI
     
     >>> game.play_gui()
+        .. image:: https://github.com/rousbound/Chess/blob/refactor_jonatas/res/example_position.png
