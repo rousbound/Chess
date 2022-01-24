@@ -1,9 +1,11 @@
 import sys
+import copy
 
 import pygame
 
 import colors
 import utils
+import board
 
 from pieces import Queen, Knight, Rook, Bishop
 
@@ -64,7 +66,7 @@ class GUI():
 
     """
 
-    def __init__(self, board, width, height, game):
+    def __init__(self, width, height, game):
         pygame.init()
 
         self.cell = width//8
@@ -76,7 +78,6 @@ class GUI():
 
         self.screen = pygame.display.set_mode((width, height))
 
-        self.board : object = board
         self.spritesheet = pygame.image.load("res/pieces.png").convert_alpha()
         self.capture_visual_indicator = pygame.image.load("res/capture2.png").convert_alpha()
         self.in_check_visual_indicator = pygame.image.load("res/Check.png").convert_alpha()
@@ -189,7 +190,7 @@ class GUI():
                 # Alternate square colors based on i,j
                 self.draw_square((i, j), square_bright, square_dark)
 
-                piece = self.board[i, j]
+                piece = self.game.board[i, j]
                 # Draw pieces, except the one held and check if king is in check
                 if piece:
                     if not piece.piece_held:
@@ -205,12 +206,12 @@ class GUI():
 
         """
         index2pixel = lambda x: (x[0]*self.cell, x[1]*self.cell)
-        piece_moves = self.piece_held.get_valid_moves(self.board)
+        piece_moves = self.piece_held.get_valid_moves(self.game.board)
         # Draw legal moves of piece held
         for move in piece_moves:
             if move in self.game.legal_moves:
                 to = move[1]
-                is_piece = self.board[to]
+                is_piece = self.game.board[to]
                 mouse_pos = self.get_mouse_pos()
 
                 # If mouse over legal move, draw green background,
@@ -262,9 +263,9 @@ class GUI():
         self.promoting_move = [start, to, ""]
         self.piece_held.piece_held = False
         self.piece_held = None
-        behind = 1 if self.board.turn else -1
-        last_row = 0 if self.board.turn else 7
-        color = self.board.turn
+        behind = 1 if self.game.board.turn else -1
+        last_row = 0 if self.game.board.turn else 7
+        color = self.game.board.turn
         queen = Queen(color, self.promoting_column, last_row)
         knight = Knight(color, self.promoting_column, last_row + behind)
         rook = Rook(color, self.promoting_column, last_row + (2*behind), first_move=False)
@@ -297,13 +298,15 @@ class GUI():
                 self.play_move(tuple(self.promoting_move))
                 self.promoting_move = []
 
-    def play_move(self, move):
+    def gui_play_move(self, move):
         """
         Play move.
 
         """
         self.last_move_to = move[0]
         self.last_move_from = move[1]
+        # self.last_board_state = self.game.board.board_2_FEN()
+        self.last_board_state = copy.deepcopy(self.game.board)
         self.game.play_move(move)
         self.game.legal_moves = self.game.get_legal_moves()
         self.game.turn_debug()
@@ -314,9 +317,9 @@ class GUI():
 
         """
         mouse_pos = self.get_mouse_pos()
-        piece = self.board[mouse_pos]
+        piece = self.game.board[mouse_pos]
         if piece:
-            if piece.color == self.board.turn:
+            if piece.color == self.game.board.turn:
                 piece.piece_held = True
                 self.piece_held = piece
 
@@ -329,14 +332,14 @@ class GUI():
         to = self.get_mouse_pos()
         start = self.piece_held.get_pos()
         if self.piece_held.name == "P":
-            if not self.board.get_king(self.board.turn).in_check:
+            if not self.game.board.get_king(self.game.board.turn).in_check:
                 last_row = 0 if self.piece_held.color else 7
                 if to[1] == last_row:
                     self.init_promotion(to, start)
                     return
         move = (start, to, "%")
         if move in self.game.legal_moves:
-            self.play_move(move)
+            self.gui_play_move(move)
         else:
             print("Illegal move, try again")
 
@@ -362,6 +365,7 @@ class GUI():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if pygame.mouse.get_pressed()[0]:
                         if not self.piece_held:
@@ -369,11 +373,17 @@ class GUI():
                                 self.hold_piece()
                             else:
                                 self.choose_promotion()
+
                 if event.type == pygame.MOUSEBUTTONUP:
                     if not pygame.mouse.get_pressed()[0]:
                         if self.piece_held:
                             if not self.promoting:
                                 self.drop_piece()
+
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_LEFT:
+                        self.game.board = self.last_board_state
+                        self.game.legal_moves = self.game.get_legal_moves()
 
 
             pygame.display.flip()
@@ -385,7 +395,7 @@ class GUI():
         """
         for move in moves_list:
             move = utils.uci_2_move(move)
-            self.play_move(move)
+            self.gui_play_move(move)
         self.main()
 
 

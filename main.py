@@ -7,7 +7,7 @@ import pieces
 from chess import Chess
 
 
-def play_cli(chess, get_move, input_list=None):
+def play_cli(chess, get_move, input_list_test=None):
     """
     Play game with command line interface.
 
@@ -22,7 +22,7 @@ def play_cli(chess, get_move, input_list=None):
             
         if input_list:
             try:
-                move = utils.uci_2_move(next(input_list))
+                move = utils.uci_2_move(next(input_list_test))
             except:
                 break
         else:
@@ -45,7 +45,7 @@ def play_gui(chess):
     """
     import GUI
     logging.basicConfig(filename='tests/log/guiLog.log', level=logging.DEBUG)
-    gui = GUI.GUI(chess.board,640,640,chess)
+    gui = GUI.GUI(640,640,chess)
     gui.main()
 
 def play_gui_test(chess, argv):
@@ -59,7 +59,7 @@ def play_gui_test(chess, argv):
 
     import GUI
     logging.basicConfig(filename='tests/log/guiLog.log', level=logging.DEBUG)
-    gui = GUI.GUI(chess.board,640,640,chess)
+    gui = GUI.GUI(640,640,chess)
     gui.cli_gui_main(moves_list)
 
 

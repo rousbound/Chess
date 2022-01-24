@@ -77,20 +77,23 @@ class Board():
 
 
     """
-    def __init__(self):
+    def __init__(self, FEN=None):
         """
         Initializes the board per standard chess rules.
         """
 
-        self.board = []
+        self.board = [[None]*8 for _ in range(8)]
         self.turn = True
         self.turn_counter = 1
-        self.can_castle = {"K": True, "Q": True, "k": True, "q": True}
+        self.can_castle = {"K": True, "Q": True, "k": True, "q": True, None: False}
         self.no_progress_plies = 0
         self.white_ghost_pawn = None
         self.black_ghost_pawn = None
 
-        self.setup_board()
+        if FEN:
+            self.FEN_2_board(FEN)
+        else:
+            self.setup_initial_position()
 
     def __eq__(self, other_board):
         """
@@ -113,37 +116,34 @@ class Board():
     def __getitem__(self, item):
         return self.board[item[0]][item[1]]
 
-    def setup_board(self):
+    def setup_initial_position(self):
         """
         Populate board with pieces starting position.
 
         """
-        # Board set-up
-        for i in range(8):
-            self.board.append([None] * 8)
 
         # White
-        self.board[0][7] = pieces.Rook(True,0,7)
+        self.board[0][7] = pieces.Rook(True,0,7, rook_side = "q")
         self.board[1][7] = pieces.Knight(True,1,7)
         self.board[2][7] = pieces.Bishop(True,2,7, color_complex = True)
         self.board[3][7] = pieces.Queen(True,3,7)
         self.board[4][7] = pieces.King(True,4,7)
         self.board[5][7] = pieces.Bishop(True,5,7, color_complex = False)
         self.board[6][7] = pieces.Knight(True,6,7)
-        self.board[7][7] = pieces.Rook(True,7,7)
+        self.board[7][7] = pieces.Rook(True,7,7, rook_side = "k")
 
         for i in range(8):
             self.board[i][6] = pieces.Pawn(True,i,6)
 
         # Black
-        self.board[0][0] = pieces.Rook(False,0,0)
+        self.board[0][0] = pieces.Rook(False,0,0, rook_side = "Q")
         self.board[1][0] = pieces.Knight(False,1,0)
         self.board[2][0] = pieces.Bishop(False,2,0, color_complex = False)
         self.board[3][0] = pieces.Queen(False,3,0)
         self.board[4][0] = pieces.King(False,4,0)
         self.board[5][0] = pieces.Bishop(False,5,0, color_complex = True)
         self.board[6][0] = pieces.Knight(False,6,0)
-        self.board[7][0] = pieces.Rook(False,7,0)
+        self.board[7][0] = pieces.Rook(False,7,0, rook_side = "K")
 
         for i in range(8):
             self.board[i][1] = pieces.Pawn(False,i,1)
@@ -187,6 +187,79 @@ class Board():
                 self.can_castle["k"] = False
         else:
             self.can_castle["k"] = False
+
+    def FEN_2_board(self, FEN):
+        fen_pieces, turn, castling, enpasseant, no_progress_counter, turn_counter = FEN.split(" ")
+        
+        self.turn = turn == "w" 
+        self.can_castle = {"K": False, "Q": False, "k": False, "q": False, None: False}
+
+        for c in castling:
+            self.can_castle[c] = True
+
+        self.no_progress_counter = int(no_progress_counter)
+        self.turn_counter = int(turn_counter)
+
+        skip = 0
+        squares = 0
+        fen_pieces = fen_pieces.replace("/","")
+        print(fen_pieces, len(fen_pieces))
+        i = 0
+        while True:
+            x, y = squares%8, squares//8
+            print(x,y)
+            c = fen_pieces[i]
+            print(c)
+            if c in "12345678":
+                skip += int(c)
+                squares += int(c)
+                i+=1
+            elif skip == 0:
+                if c in "rnbqkpRNBQKP":
+                    squares += 1
+                    color = True if c.isupper() else False
+                    if c in "rR":
+                        rook_side = None
+                        if (x,y) == (0,0):
+                            rook_side = "q"
+                        if (x,y) == (0,7):
+                            rook_side = "Q"
+                        if (x,y) == (7,0):
+                            rook_side = "k"
+                        if (x,y) == (7,7):
+                            rook_side = "K"
+                        self[x,y] = pieces.Rook(color, x, y, rook_side)
+                    if c in "nN":
+                        self[x,y] = pieces.Knight(color, x, y)
+                    if c in "bB":
+                        self[x,y] = pieces.Bishop(color, x, y, color_complex = True)
+                    if c in "qQ":
+                        self[x,y] = pieces.Queen(color, x, y)
+                    if c in "kK":
+                        self[x,y] = pieces.King(color, x, y)
+                    if c in "pP":
+                        if c == "p":
+                            if y == 1:
+                                self[x,y] = pieces.Pawn(color, x , y, first_move = True)
+                            else:
+                                self[x,y] = pieces.Pawn(color, x , y, first_move = False)
+                        elif c == "P":
+                            if y == 6:
+                                self[x,y] = pieces.Pawn(color, x , y, first_move = True)
+                            else:
+                                self[x,y] = pieces.Pawn(color, x , y, first_move = False)
+
+                    i+=1
+            elif skip != 0:
+                skip = max(0,skip-1)
+
+
+            if squares == 64:
+                break
+
+
+
+            
 
     def board_2_FEN(self):
         """

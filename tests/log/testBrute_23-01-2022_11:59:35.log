@@ -1,9 +1,0 @@
-2022-01-23 11:59:35,178 Initiating move generation test on depth: 5
-2022-01-23 11:59:35,237 Result of possible games with 1 ply: 20/20 - OK
-2022-01-23 11:59:35,237 Elapsed time in 1 ply: 00h00m00s seconds
-2022-01-23 11:59:36,430 Result of possible games with 2 ply: 400/400 - OK
-2022-01-23 11:59:36,430 Elapsed time in 2 ply: 00h00m01s seconds
-2022-01-23 12:00:04,241 Result of possible games with 3 ply: 8902/8902 - OK
-2022-01-23 12:00:04,241 Elapsed time in 3 ply: 00h00m27s seconds
-2022-01-23 12:10:45,978 Result of possible games with 4 ply: 197281/197281 - OK
-2022-01-23 12:10:46,015 Elapsed time in 4 ply: 00h10m41s seconds

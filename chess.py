@@ -46,9 +46,6 @@ class Chess():
     board_states : list[Board]
         List of boards, relevant for three fold repetition draw criteria.
 
-
-
-
     Methods:
     --------
 
@@ -80,22 +77,8 @@ class Chess():
     kings_in_check() -> None
         Update king pieces with information whether they are in check or not
 
-    -------- EXECUTION ---------
-
-    play_cli(get_move : function) -> None
-        Play game in command line interface depending on get_move function
-
-    play_gui() -> None
-        Play game with Guided User Interface
-
-    play_cli_test(input_moves : list[str]) -> None
-        Play game in command line interface with a list of moves as input.
-
     print_turn_decorator() -> None
         Print turn information
-
-    play_gui_test(argv: list[str]) -> None
-        Play game with Guided User Interface with list of moves as input
 
     get_move_random(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
         Get random moves based on legal moves avaiable
@@ -103,10 +86,6 @@ class Chess():
     get_move_player(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
         Ask the user for input and check if it is legal move
 
-    -------- MAIN ---------
-
-    main() -> None
-        Execute Game
 
     """
 
@@ -196,6 +175,7 @@ class Chess():
         If not, it is legal move.
         After check Draw conditions.
         """
+        print("BEGIN GET LEGAL MOVES:")
 
         legal_moves = []
         self.algebric_legal_moves = []
@@ -207,6 +187,7 @@ class Chess():
                 for move in piece_moves:
                     origin = move[0]
                     target = move[1]
+
                     # Do move
                     captured_piece = piece.move(target, self.board)
 
@@ -224,7 +205,9 @@ class Chess():
                     # Undo move
                     piece.move(origin,self.board)
                     if captured_piece:
-                        captured_piece.move(target,self.board)
+                        captured_piece.move(captured_piece.get_pos(),self.board)
+                        # captured_piece.move(target,self.board)
+
 
 
         self.check_endgame_conditions(legal_moves)
@@ -232,29 +215,13 @@ class Chess():
 
         return legal_moves
 
-    def is_en_passeant(self, move, selected_piece):
-        start = move[0]
-        to = move[1]
-        # Double pawn movement logic
-        if abs(to[1]-start[1]) > 1:
-            self.board.activate_ghost_pawn(selected_piece.get_pos(), selected_piece.color)
-
-        iscapture = lambda x,y : abs(x[0]-y[0]) == 1 and abs(x[1]-y[1]) == 1
-        if iscapture(to,start):
-            enemy_ghost_pawn = self.board.get_ghost_pawn(not self.board.turn)
-            if to == enemy_ghost_pawn:
-                logging.debug("En passeant")
-                if selected_piece.color:
-                    self.board[to[0],to[1]+1] = None
-                else:
-                    self.board[to[0],to[1]-1] = None
 
     def get_promotion(self, promotion, selected_piece):
         color = selected_piece.color
         if promotion == "q":
             promoted_piece = pieces.Queen(color, selected_piece.x, selected_piece.y)
         elif promotion == "r":
-            promoted_piece = pieces.Rook(color, selected_piece.x, selected_piece.y, first_move=False)
+            promoted_piece = pieces.Rook(color, selected_piece.x, selected_piece.y)
         elif promotion == "b":
             promoted_piece = pieces.Bishop(color, selected_piece.x, selected_piece.y)
         elif promotion == "n":
@@ -305,10 +272,14 @@ class Chess():
         selected_piece = self.board[start]
         castling = None
 
-        if selected_piece.name == "P":
+        print("BEGIN PLAYING MOVE:")
 
-            # Check En Passeant
-            self.is_en_passeant(move, selected_piece)
+        if selected_piece.name == "P":
+            start = move[0]
+            to = move[1]
+            # Double pawn movement logic
+            if abs(to[1]-start[1]) > 1:
+                self.board.activate_ghost_pawn(selected_piece.get_pos(), selected_piece.color)
 
             # Check Promotion
             if promotion in "qrbn":
@@ -331,6 +302,8 @@ class Chess():
                     self.board_states = []
 
 
+        print("MOVE:", move)
+        print("MOVE:", to)
         captured_piece = selected_piece.move(to, self.board)
 
         # Check if move made progress to the game
@@ -355,8 +328,10 @@ class Chess():
 
 
         # Remove first_move from pieces that has special movement
-        if selected_piece.name in ["P","R","K"]:
+        if selected_piece.name in ["P", "K"]:
             selected_piece.first_move = False
+        if selected_piece.name in ["R"]:
+            self.board.can_castle[selected_piece.rook_side] = False
 
         # Flip turn
         self.board.turn = not self.board.turn

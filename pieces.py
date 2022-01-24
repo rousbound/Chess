@@ -62,10 +62,20 @@ class Piece():
         Make piece move.
 
         """
+        ep_piece_captured = None
+        if self.name == "P":
+           ep_piece_captured = self.is_en_passeant((self.get_pos(), to), board)
+           if ep_piece_captured:
+               board[ep_piece_captured.get_pos()] = None
+               print(ep_piece_captured.get_pos())
+
         board[self.get_pos()] = None
-        captured_piece = board[to]
+        captured_piece = board[to] if not ep_piece_captured else ep_piece_captured
+        # captured_piece = board[to]
         board[to]= self
         self.set_pos(to)
+
+
         return captured_piece
 
     def __repr__(self):
@@ -142,7 +152,7 @@ class Piece():
 
 
 class Rook(Piece):
-    def __init__(self, color,x,y, first_move = True):
+    def __init__(self, color,x,y, rook_side = None):
         """
             Rook moves
         8 |_| |_|X|_| |_| |
@@ -161,7 +171,7 @@ class Rook(Piece):
         """
         super().__init__(color,x,y)
         self.name = "R"
-        self.first_move = first_move
+        self.rook_side = rook_side
         self.moves = []
         self.x = x
         self.y = y
@@ -278,7 +288,21 @@ class Pawn(Piece):
         self.moves = []
         self.x = x
         self.y = y
-        self.can_en_passeant = None
+
+    def is_en_passeant(self, move, board):
+        start = move[0]
+        to = move[1]
+
+        iscapture = lambda x,y : abs(x[0]-y[0]) == 1 and abs(x[1]-y[1]) == 1
+        if iscapture(start, to):
+            enemy_ghost_pawn = board.get_ghost_pawn(not board.turn)
+            if to == enemy_ghost_pawn:
+                if self.color:
+                    piece_captured = board[to[0],to[1]+1]
+                    
+                else:
+                    piece_captured = board[to[0],to[1]-1] 
+                return piece_captured
 
     def get_valid_moves(self, board):
         # Check promotion function for captures and normal movement
@@ -376,28 +400,29 @@ class King(Piece):
         candidate_moves = self.get_normal_valid_moves(board)
 
         # Check Castling possibility
-        if self.first_move and not self.in_check:
+        if not self.in_check:
             for rook in board.get_piece("R", self.color):
                 castle_enabled = True
-                if rook.first_move:
-                    if rook.x == 0:
-                        in_between_squares = [(self.x-2, self.y), (self.x-1, self.y)]
-                        king_to = (self.x-2, self.y)
-                    elif rook.x == 7:
-                        in_between_squares = [(self.x+1, self.y), (self.x+2, self.y)]
-                        king_to = (self.x+2, self.y)
-                    for square in in_between_squares:
-                        # If square have pieces, castle is not possible
-                        # Still, if square doesn't have pieces,
-                        # check if they are controlled by enemy pieces
-                        if board[square]:
+                if not board.can_castle[rook.rook_side]:
+                    continue
+                if rook.rook_side in "qQ":
+                    in_between_squares = [(self.x-2, self.y), (self.x-1, self.y)]
+                    king_to = (self.x-2, self.y)
+                elif rook.rook_side in "kK":
+                    in_between_squares = [(self.x+1, self.y), (self.x+2, self.y)]
+                    king_to = (self.x+2, self.y)
+                for square in in_between_squares:
+                    # If square have pieces, castle is not possible
+                    # Still, if square doesn't have pieces,
+                    # check if they are controlled by enemy pieces
+                    if board[square]:
+                        castle_enabled = False
+                    else:
+                        if square in enemy_targets:
                             castle_enabled = False
-                        else:
-                            if square in enemy_targets:
-                                castle_enabled = False
-                    if castle_enabled:
-                        move = (self.get_pos(), king_to, "%")
-                        candidate_moves.append(move)
+                if castle_enabled:
+                    move = (self.get_pos(), king_to, "%")
+                    candidate_moves.append(move)
         self.moves = candidate_moves
         return self.moves
 
