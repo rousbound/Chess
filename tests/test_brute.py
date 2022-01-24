@@ -1,7 +1,5 @@
-import sys
-sys.path.insert(0,'.')
-from chess import Chess as Chess
-from board import Board as Board
+from mychess import chess
+from mychess import board
 import copy
 import time
 import datetime
@@ -25,7 +23,6 @@ def move_generation_test(depth, chess):
         board = copy.deepcopy(chess.board)
         chess.play_move(move)
         FEN = board.board_2_FEN()
-        # print(FEN)
 
         counter += move_generation_test(depth-1, chess)
 
@@ -36,18 +33,13 @@ def move_generation_test(depth, chess):
 
 
 
-if len(sys.argv) == 1:
-    depth = 5
-else:
-    depth = int(sys.argv[2])
-
-
-
 def test_position(depth, expected_results, FEN=None):
     now = datetime.datetime.now()
     dt_string = now.strftime("%d-%m-%Y_%H:%M:%S")
-
-    logging.basicConfig(filename=f'tests/log/testBrute_{dt_string}.log', level=logging.INFO, format='%(asctime)s %(message)s')
+    logging.basicConfig(filename=f'tests/log/testBrute_{dt_string}.log',
+            level=logging.INFO,
+            format='%(asctime)s %(message)s',
+            datefmt='%H:%M:%S',)
     logging.info(f"----------------------------------------")
     logging.info(f"Initiating move generation test on depth: {depth}")
 
@@ -55,9 +47,10 @@ def test_position(depth, expected_results, FEN=None):
 
     test_start = time.time()
     ply_depth_start = time.time()
+
     for current_depth, expected_result in zip(range(1,depth+1), expected_results):
-        chess = Chess(Board(FEN=FEN))
-        result = move_generation_test(current_depth, chess)
+        game = chess.Chess(FEN=FEN, test=True)
+        result = move_generation_test(current_depth, game)
         result_list.append(result)
         logging.info(f"Result of possible games with {current_depth} ply: {result}/{expected_result} - {'OK' if result == expected_result else 'ERROR'}")
 
@@ -71,9 +64,9 @@ def test_position(depth, expected_results, FEN=None):
     logging.info(f"-----------------------------------------")
 
 
-test_position(5, [20,400,8902,197_281,4_865_609])
-test_position(2, [48, 2039, 97862, 4085603], FEN = "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0")
-test_position(3, [14, 191, 2812, 43238], FEN = "8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 0")
-test_position(3, [6, 264 , 9467, 422333], FEN = "r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq - 0 1")
-test_position(3, [44, 1486 , 62379, 2103487], FEN = "rnbq1k1r/pp1Pbppp/2p5/8/2B5/8/PPP1NnPP/RNBQK2R w KQ - 1 8")
-test_position(3, [46 , 2079, 89890], FEN = "r4rk1/1pp1qppp/p1np1n2/2b1p1B1/2B1P1b1/P1NP1N2/1PP1QPPP/R4RK1 w - - 0 10")
+# test_position(5, [20,400,8_902,197_281,4_865_609])
+# test_position(3, [48, 2_039, 9_7862, 4_085_603], FEN = "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0")
+# test_position(4, [14, 191, 2_812, 43_238], FEN = "8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 0")
+test_position(4, [6, 264 , 9_467, 422_333], FEN = "r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq - 0 1")
+test_position(3, [44, 1_486 , 62_379, 2_103_487], FEN = "rnbq1k1r/pp1Pbppp/2p5/8/2B5/8/PPP1NnPP/RNBQK2R w KQ - 1 8")
+test_position(3, [46 , 2_079, 89_890], FEN = "r4rk1/1pp1qppp/p1np1n2/2b1p1B1/2B1P1b1/P1NP1N2/1PP1QPPP/R4RK1 w - - 0 10")

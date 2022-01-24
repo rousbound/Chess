@@ -3,7 +3,7 @@ import random
 import logging
 
 from mychess.utils import mat_2_uci, move_2_algebric, uci_2_move, move_2_uci
-import mychess.pieces
+from mychess.pieces import Queen, Knight, Rook, Bishop
 from mychess.board import Board
 
 
@@ -90,7 +90,7 @@ class Chess():
 
     """
 
-    def __init__(self, FEN=None):
+    def __init__(self, FEN=None, test=False):
         self.board = Board(FEN)
         self.game_running = True
         self.board_states = []
@@ -102,9 +102,10 @@ class Chess():
         self.last_move_algebric = ""
         self.pgn_game = ""
         self.uci_game = ""
-        self.print_turn_decorator()
-        self.board.print_board()
-        
+        if not test:
+            self.print_turn_decorator()
+            self.board.print_board()
+    
     def uci_moves(self):
         print(" ".join(self.uci_legal_moves))
 
@@ -230,13 +231,13 @@ class Chess():
     def get_promotion(self, promotion, selected_piece):
         color = selected_piece.color
         if promotion == "q":
-            promoted_piece = pieces.Queen(color, selected_piece.x, selected_piece.y)
+            promoted_piece = Queen(color, selected_piece.x, selected_piece.y)
         elif promotion == "r":
-            promoted_piece = pieces.Rook(color, selected_piece.x, selected_piece.y)
+            promoted_piece = Rook(color, selected_piece.x, selected_piece.y)
         elif promotion == "b":
-            promoted_piece = pieces.Bishop(color, selected_piece.x, selected_piece.y)
+            promoted_piece = Bishop(color, selected_piece.x, selected_piece.y)
         elif promotion == "n":
-            promoted_piece = pieces.Knight(color, selected_piece.x, selected_piece.y)
+            promoted_piece = Knight(color, selected_piece.x, selected_piece.y)
         return promoted_piece
 
     def apply_castle(self, move, selected_piece):

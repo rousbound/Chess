@@ -161,12 +161,14 @@ Checks} & \textbf{Dbl Checks} & \textbf{Checkmates} \\
 By this table we can see that we need to concentrate our efforts in testing
 Castle, Promotions, Discovery Checks and Double Checks.
 
-One way to test them, is loading ``complex positions'', brute forcing their
+One way to test them, is loading ``complex positions'', which contain it its
+possibilities, castling, promotion, discovery checks and double checks, and brute forcing their
 possible moves, and comparing the results with a proof table. Using the
 positions recommended in \url{https://www.chessprogramming.org/Perft_Results},
-we get the following result:
+we get the following result from 5 ``complex positions'':
 
 \begin{lstlisting}
+>>> $ python3 -m tests.test_brute.py (Running from top module)
 2022-01-24 00:03:34,134 ----------------------------------------
 2022-01-24 00:03:34,134 Initiating move generation test on depth: 2
 2022-01-24 00:03:34,268 Result of possible games with 1 ply: 48/48 - OK
