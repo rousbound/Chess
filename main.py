@@ -7,7 +7,7 @@ import pieces
 from chess import Chess
 
 
-def play_cli(chess, get_move):
+def play_cli(chess, get_move, input_list=None):
     """
     Play game with command line interface.
 
@@ -16,9 +16,17 @@ def play_cli(chess, get_move):
     while chess.game_running:
         chess.print_turn_decorator()
         chess.legal_moves = chess.get_legal_moves()
+
         if not chess.game_running:
             break
-        move = get_move()
+            
+        if input_list:
+            try:
+                move = utils.uci_2_move(next(input_list))
+            except:
+                break
+        else:
+            move = get_move()
 
         if move not in chess.legal_moves:
             print("Illegal or impossible move")
@@ -28,27 +36,7 @@ def play_cli(chess, get_move):
         chess.play_move(move)
         print(chess.board.print_board())
 
-
-def play_cli_test(chess, input_moves):
-    """
-    Test game with list of moves as input.
-
-    """
-    print("Input moves:", input_moves)
-    for move in input_moves:
-        move = utils.uci_2_move(move)
-        chess.print_turn_decorator()
-        chess.legal_moves = chess.get_legal_moves()
-        if move not in chess.legal_moves:
-            print("Illegal or impossible move")
-            break
-        if not chess.game_running:
-            break
-        chess.turn_debug()
-        chess.play_move(move)
-        print(chess.board.print_board())
     return chess.board.board_2_FEN()
-
 
 def play_gui(chess):
     """
@@ -94,10 +82,12 @@ def main(args):
 
         if arg == "-cli":
             get_move = chess.get_move_player
+        elif arg == "-clitest":
+            get_move = chess.get_move_list
         elif arg == "-r":
             get_move = chess.get_move_random
 
-        chess.play_cli(chess, get_move)
+        play_cli(chess, get_move)
 
     if arg in ["-gui", None]:
 
@@ -109,7 +99,7 @@ def main(args):
 
     elif arg == "-clitest":
 
-        play_cli_test(chess, args[2:])
+        play_cli(chess, get_move)
 
 if __name__ == "__main__":
     main(sys.argv)

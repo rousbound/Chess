@@ -477,6 +477,12 @@ class Chess():
             else:
                 king.in_check = False
 
+    def get_move_list(self, l):
+        l = iter(l)
+        n = next(l) 
+        print(n)
+        return n
+
     def get_move_player(self):
         """
         Asks the user a move in the format '[a-h][1-8][a-h][1-8][qbnr]?'
