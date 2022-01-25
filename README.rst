@@ -2,9 +2,23 @@
 Introduction
 ------------
 
-python-chess is a chess library for Python, with move generation,
-move validation, and support for common formats. This is the Scholar's mate in
-python-chess:
+Mychess is a library for playing and validating chess moves.
+
+* Play the position in GUI
+
+  .. code:: bash
+    
+    $ python3 main.py -gui
+
+* Play the position in CLI
+
+  .. code:: bash
+    
+    $ python3 main.py -cli
+
+
+ 
+BROKEN AT THE MOMENT
 
 .. code:: python
 
@@ -98,23 +112,11 @@ python-chess:
 Features
 --------
 
-* Make individual moves in the interpreter.
+* Make moves.
 
   .. code:: python
 
-     game.push_uci("e2e4")
-
-* Play the position in GUI
-
-  .. code:: python
-    
-    >>> game.play_gui()
-
-* Play the position in CLI
-
-  .. code:: python
-    
-    >>> game.play_gui()
+      game.push_uci("e2e4")
 
 * Load from FEN and save to FEN
 
@@ -134,4 +136,5 @@ Features
     >>> game.push_uci("a2a4")
     >>> game.board.board_2_FEN()
     'r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0'
-  
+
+
