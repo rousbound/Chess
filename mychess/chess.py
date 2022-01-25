@@ -2,9 +2,9 @@ import copy
 import random
 import logging
 
-from mychess.utils import mat_2_uci, move_2_algebric, uci_2_move, move_2_uci
-from mychess.pieces import Queen, Knight, Rook, Bishop
-from mychess.board import Board
+from utils import mat_2_uci, move_2_algebric, uci_2_move, move_2_uci
+# from pieces import Queen, Knight, Rook, Bishop
+from board import Board
 
 
 
@@ -90,7 +90,7 @@ class Chess():
 
     """
 
-    def __init__(self, FEN=None, test=False):
+    def __init__(self, FEN=None, print_turn_decorator=False):
         self.board = Board(FEN)
         self.game_running = True
         self.board_states = []
@@ -102,15 +102,15 @@ class Chess():
         self.last_move_algebric = ""
         self.pgn_game = ""
         self.uci_game = ""
-        if not test:
+        if print_turn_decorator:
             self.print_turn_decorator()
             self.board.print_board()
     
     def uci_moves(self):
-        print(" ".join(self.uci_legal_moves))
+        return " ".join(self.uci_legal_moves)
 
     def algebric_moves(self):
-        print(" ".join(self.algebric_legal_moves))
+        return " ".join(self.algebric_legal_moves)
 
     def turn_debug(self):
         """
@@ -121,11 +121,10 @@ class Chess():
         print("-------------------------------")
         print("Move: ", self.last_move_algebric)
         print("")
-        print("LegalMoves: ", " ".join(self.algebric_legal_moves))
-        print("")
         print("PGN:", self.pgn_game)
         print("")
         print("FEN:", self.board.board_2_FEN())
+        print("")
 
     def debug_algebric_legal_moves(self, move, piece, captured_piece):
         """
@@ -493,6 +492,8 @@ class Chess():
         """
         try:
             uci_move = input("Move: ")
+            print(type(uci_move))
+            print(uci_move)
             move = uci_2_move(uci_move)
             return move
 
@@ -505,19 +506,37 @@ class Chess():
         Play game with Graphical User Interface.
 
         """
-        from mychess.GUI import GUI
+        from GUI import GUI
         gui = GUI(640,640,self)
         gui.main()
 
-    def get_move_random(self):
+    def play_cli(self):
         """
-        Get random move from legal moves
+        Play game with command line interface.
 
         """
-        move = None
-        r = random.randint(0,len(self.legal_moves)-1)
-        move = self.legal_moves[r]
-        return move
+        self.board.print_board()
+        while self.game_running:
+            self.print_turn_decorator()
+            self.legal_moves = self.get_legal_moves()
+            print("")
+            print("Legal moves:", self.uci_moves())
+            print("")
+
+            if not self.game_running:
+                break
+                
+            move = self.get_move_player()
+
+            if move not in self.legal_moves:
+                print("Illegal or impossible move")
+                continue
+
+            self.play_move(move)
+            self.turn_debug()
+            self.board.print_board()
+
+        return self.board.board_2_FEN()
 
     def print_turn_decorator(self):
         """

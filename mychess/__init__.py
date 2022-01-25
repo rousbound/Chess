@@ -1,7 +1,7 @@
-from .board import *
-from .chess import *
-from .pieces import *
-from .utils import *
+from mychess.utils import *
+from mychess.pieces import *
+from mychess.board import Board
+from mychess.chess import *
 
 
 

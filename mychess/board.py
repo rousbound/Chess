@@ -1,5 +1,5 @@
-from mychess.pieces import King, Queen, Rook, Bishop, Knight, Pawn
-from mychess.utils import *
+from pieces import King, Queen, Rook, Bishop, Knight, Pawn
+from utils import *
 
 class Board():
     """

@@ -4,11 +4,11 @@ import os
 
 import pygame
 
-from mychess.colors import *
-from mychess.utils import *
-from mychess.board import *
+from colors import *
+from utils import *
+from board import *
 
-from mychess.pieces import Queen, Knight, Rook, Bishop
+from pieces import Queen, Knight, Rook, Bishop
 
 class GUI():
     """
