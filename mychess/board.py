@@ -3,8 +3,8 @@ from utils import *
 
 class Board():
     """
-    A class to represent a chess board.
-
+    A class to represent a chess board, and all information necessary to save and load
+    the board state in the form of a FEN.
     ...
 
     Attributes:
@@ -32,6 +32,9 @@ class Board():
     white_ghost_pawn : tup
     black_ghost_pawn : tup
         The coordinates of a white/black ghost piece representing a takeable pawn for en passant
+
+    board_states : list[Board]
+        List of boards, relevant for three fold repetition draw criteria.
 
     Methods:
     --------
@@ -89,6 +92,7 @@ class Board():
         self.no_progress_plies = 0
         self.white_ghost_pawn = None
         self.black_ghost_pawn = None
+        self.board_states = []
 
         if FEN:
             self.FEN_2_board(FEN)

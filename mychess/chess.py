@@ -18,22 +18,28 @@ class Chess():
 
     ----------- DEBUG ------------
 
-    moves_list : list[tup]
-        Record of game moves in tuple format
-
     legal_moves : list[tup]
         List of current legal moves in tuple format
+        Ex: ((4,4),(4,6),%)
+
+    uci_legal_moves : list[tup]
+        List of current legal moves in uci format
+        Ex: e2e4; a2a4
 
     algebric_legal_moves : list[str]
         List of current legal moves in algebric format
+        Ex: e4; Nc3
 
     last_move_algebric : str
         Last move played in algebric format
 
-    pgn_game : str
+    moves_list : list[tup]
+        List of game moves in tuple format
+
+    pgn_moves_list : str
         List of game moves in algebric format i.e PGN of the game
 
-    uci_game : str
+    uci_moves_list : str
         List of game moves in UCI format
 
     ----------- GAME LOGIC ------------
@@ -44,8 +50,6 @@ class Chess():
     game_running : bool
         True if none of draw or win conditions are met.
 
-    board_states : list[Board]
-        List of boards, relevant for three fold repetition draw criteria.
 
     Methods:
     --------
@@ -93,15 +97,14 @@ class Chess():
     def __init__(self, FEN=None, print_turn_decorator=False):
         self.board = Board(FEN)
         self.game_running = True
-        self.board_states = []
 
         self.algebric_legal_moves = []
         self.uci_legal_moves = []
         self.legal_moves = self.get_legal_moves()
         self.moves_list = []
         self.last_move_algebric = ""
-        self.pgn_game = ""
-        self.uci_game = ""
+        self.pgn_moves_list = ""
+        self.uci_moves_list = ""
         if print_turn_decorator:
             self.print_turn_decorator()
             self.board.print_board()
@@ -121,7 +124,7 @@ class Chess():
         print("-------------------------------")
         print("Move: ", self.last_move_algebric)
         print("")
-        print("PGN:", self.pgn_game)
+        print("PGN:", self.pgn_moves_list)
         print("")
         print("FEN:", self.board.board_2_FEN())
         print("")
@@ -155,7 +158,7 @@ class Chess():
         start = mat_2_uci(move[0])
         to = mat_2_uci(move[1])
         promotion = move[2]
-        self.uci_game += f"{start}{to}{promotion} "
+        self.uci_moves_list += f"{start}{to}{promotion} "
 
     def debug_game_pgn(self, move, selected_piece, captured_piece, castling):
         """
@@ -176,7 +179,7 @@ class Chess():
         else:
             algebric_move = f"{algebric_move} "
 
-        self.pgn_game += algebric_move
+        self.pgn_moves_list += algebric_move
 
     def get_legal_moves(self):
         """
@@ -309,7 +312,7 @@ class Chess():
 
                 # After castle, a position can't be repeated
                 if selected_piece.first_move == True:
-                    self.board_states = []
+                    self.board.board_states = []
 
 
         captured_piece = selected_piece.move(to, self.board)
@@ -328,7 +331,7 @@ class Chess():
         self.moves_list.append(move)
 
         # Save board state for draw criteria
-        self.board_states.append(copy.deepcopy(self.board))
+        self.board.board_states.append(copy.deepcopy(self.board))
 
         # Increment turn counter for draw criteria
         if not self.board.turn:
@@ -427,7 +430,7 @@ class Chess():
             computationally expensive.
             """
             board_states_counter = {}
-            for board in self.board_states[-12:]:
+            for board in self.board.board_states[-12:]:
                 if board in board_states_counter.keys():
                     board_states_counter[board] += 1
                 else:

@@ -17,6 +17,9 @@ class Piece():
     y : int
         Y coordinate of piece
 
+    piece_held : piece
+        Saves the piece which is being held (Only used while playing with the GUI)
+
     Methods:
     ----------
 
@@ -32,6 +35,27 @@ class Piece():
 
     get_ortogonal_moves(board:Board) -> list[tup]
         Returns diagonal moves of selected piece
+
+    def get_valid_moves(board:Board) -> list[tup]:
+        Returns the piece valid moves i.e moves that follow the piece rules
+        and are inside board boundaries.
+
+        By piece rules is considered:
+        - Not going through enemy and friend pieces in the case of Queen, Bishop and Rook
+        - Only capturing enemy pieces
+        - Special rules such as En Passeant and Castling.
+        - Promotion
+    
+        It is not the job of this function to check 
+        legality of the move regarding the King in check possibility,
+        that is job of the get_legal_moves() of the Chess class.
+
+    def get_pos() -> tup
+        Return (x,y) position in the chess board
+
+    def set_pos(pos : tup) -> tup
+        Sets x,y attributes to input tup
+
 
     """
     def __init__(self, color : bool, x,y):
@@ -102,6 +126,8 @@ class Piece():
         """
         Get diagonal moves for Queen and Bishop.
 
+        nw, se, ne, sw stands for cardinal coordinates like north west, south east, etc.
+
         """
         target_squares = set()
         
@@ -132,11 +158,11 @@ class Piece():
 
         """
         target_squares = []
-        right = [(self.x-i, self.y) for i in range(1,self.x+1)]
-        left = [(self.x+i, self.y) for i in range(1,7-self.x+1)]
-        bottom = [(self.x, self.y-i) for i in range(1,self.y+1)]
-        up = [(self.x, self.y+i) for i in range(1,7-self.y+1)]
-        for l_squares in [right, left, bottom, up]:
+        north = [(self.x, self.y+i) for i in range(1,7-self.y+1)]
+        west = [(self.x+i, self.y) for i in range(1,7-self.x+1)]
+        east = [(self.x-i, self.y) for i in range(1,self.x+1)]
+        south = [(self.x, self.y-i) for i in range(1,self.y+1)]
+        for l_squares in [north, west, south, north]:
             for x,y in l_squares:
                 if board[x,y]:
                     if board[x,y].color != self.color:
@@ -153,6 +179,11 @@ class Piece():
 class Rook(Piece):
     def __init__(self, color,x,y, rook_side = None):
         """
+
+        rook_side : str
+            information is needed to disable the correct right to castle i.e King or Queen side.
+            Can be K,Q,k,q
+
             Rook moves
         8 |_| |_|X|_| |_| |
         7 | |_| |X| |_| |_|
@@ -164,16 +195,12 @@ class Rook(Piece):
         1 | |_| |X| |_| |_|
           a b c d e f g h
         """
-        """
-        Same as base class Piece, except `first_move` is used to check
-        if this rook can castle.
-        """
         super().__init__(color,x,y)
         self.name = "R"
         self.rook_side = rook_side
         self.moves = []
-        self.x = x
-        self.y = y
+        
+        
 
     def get_valid_moves(self, board):
         moves = self.get_ortogonal_moves(board)
@@ -183,6 +210,10 @@ class Rook(Piece):
 class Bishop(Piece):
     def __init__(self, color, x,y, color_complex = True):
         """
+        color_complex : bool
+            Bishops cannot change color_complex, each one is always in a bright or dark square.
+            This information is relevant for drawing criteria.
+
                     Bishop moves
                8 |_| |_| |_| |_|X|
                7 |X|_| | | |_|X|_|
@@ -198,8 +229,8 @@ class Bishop(Piece):
         self.name = "B"
         self.moves = []
         self.color_complex = color_complex
-        self.x = x
-        self.y = y
+        
+        
 
     def get_valid_moves(self, board):
         moves = self.get_diagonal_moves(board)
@@ -222,8 +253,8 @@ class Knight(Piece):
         super().__init__(color,x,y)
         self.name = "N"
         self.moves = []
-        self.x = x
-        self.y = y
+        
+        
 
     def get_valid_moves(self, board):
         targets = [
@@ -257,8 +288,8 @@ class Queen(Piece):
         super().__init__(color,x,y)
         self.name = "Q"
         self.moves = []
-        self.x = x
-        self.y = y
+        
+        
 
     def get_valid_moves(self, board):
         diag_moves = self.get_diagonal_moves(board)
@@ -269,6 +300,13 @@ class Queen(Piece):
 
 class Pawn(Piece):
     """
+    Pawn can En Passeant and do double movement on the first move
+
+    first_move : bool
+        Necessary to check if is possible to do double movement forward
+        
+    
+
                 Pawn Attack               Pawn Movement(One or two squares if first move)
            8 |_| |_| |_| |_| |         8 |_| |_| |_| |_| |
            7 | |_| | | |_| |_|         7 | |_| | | |_| |_|
@@ -285,10 +323,13 @@ class Pawn(Piece):
         self.name = "P"
         self.first_move = first_move
         self.moves = []
-        self.x = x
-        self.y = y
+        
+        
 
     def is_en_passeant(self, move, board):
+        """
+         Check if move is en passeant
+        """
         start = move[0]
         to = move[1]
 
@@ -304,8 +345,12 @@ class Pawn(Piece):
                 return piece_captured
 
     def get_valid_moves(self, board):
-        # Check promotion function for captures and normal movement
         def check_promotion(moves, target):
+            """
+             Check promotion function for captures and normal movement
+             If move or capture result in piece being on the last_row:
+             Create one different move with each possible promotion piece.
+            """
             if last_row == target[1]:
                 for promotion in ["q","b","r","n"]:
                     moves.append((self.get_pos(), target, promotion))
@@ -316,15 +361,17 @@ class Pawn(Piece):
         ahead = -1 if self.color else 1
         last_row = 0 if self.color else 7
         pos_ahead = (self.x, self.y + ahead)
-        pos_ahead_ahead = (self.x, self.y + (2*ahead)) if 0 < self.y + 2*ahead <= 7 else None
+        pos_ahead_ahead = None
+        if 0 < self.y + 2*ahead <= 7:
+            pos_ahead_ahead = (self.x, self.y + (2*ahead))
+
         piece_ahead = board[pos_ahead]
         piece_ahead_ahead = board[pos_ahead_ahead] if pos_ahead_ahead else None
         moves = []
         # Check double movement
         if self.first_move:
-            if not piece_ahead:
-                if not piece_ahead_ahead:
-                    moves.append((self.get_pos(), pos_ahead_ahead, "%"))
+            if not piece_ahead and not piece_ahead_ahead:
+                moves.append((self.get_pos(), pos_ahead_ahead, "%"))
 
 
         # Check Captures
@@ -351,6 +398,12 @@ class Pawn(Piece):
 
 class King(Piece):
     """
+    first_move : bool
+        Relevant for castling rights
+    in_check : bool
+        Relevant for endgame criteria i.e draw or checkmate,
+        and for drawing visual indicator when playing in GUI.
+
                 King moves
            8 |_| |_| |_| |_| |
            7 | |_| |_| |_| |_|
@@ -367,8 +420,8 @@ class King(Piece):
         self.name = "K"
         self.first_move = first_move
         self.moves = []
-        self.x = x
-        self.y = y
+        
+        
         self.in_check = False
 
 
