@@ -1,0 +1,5 @@
+#!/bin/bash
+
+RECENT="$(ls -t testBrute* | head -n 1)"
+
+tail -f -n 100 $RECENT

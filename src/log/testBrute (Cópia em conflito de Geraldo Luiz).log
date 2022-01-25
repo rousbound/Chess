@@ -1,0 +1,763 @@
+2022-01-18 14:09:09,008 Initiating move generation test on depth: 5
+2022-01-18 14:09:09,064 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 14:09:09,064 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 14:09:10,233 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 14:09:10,233 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-18 14:09:37,037 Result of possible games with 3 ply: 8902/8902 - OK
+2022-01-18 14:09:37,037 Elapsed time in 3 ply: 00h00m26s seconds
+2022-01-18 14:20:52,546 Result of possible games with 4 ply: 197281/197281 - OK
+2022-01-18 14:20:52,546 Elapsed time in 4 ply: 00h11m15s seconds
+2022-01-18 14:21:21,099 En passeant game:
+2022-01-18 14:21:49,754 En passeant game:
+2022-01-18 14:22:22,795 En passeant game:
+2022-01-18 14:22:52,943 En passeant game:
+2022-01-18 14:22:53,106 En passeant game:
+2022-01-18 14:22:53,269 En passeant game:
+2022-01-18 14:22:53,446 En passeant game:
+2022-01-18 14:22:53,605 En passeant game:
+2022-01-18 14:22:53,775 En passeant game:
+2022-01-18 14:22:54,003 En passeant game:
+2022-01-18 14:22:54,228 En passeant game:
+2022-01-18 14:22:54,456 En passeant game:
+2022-01-18 14:22:54,685 En passeant game:
+2022-01-18 14:22:54,852 En passeant game:
+2022-01-18 14:22:55,012 En passeant game:
+2022-01-18 14:22:55,235 En passeant game:
+2022-01-18 14:22:55,463 En passeant game:
+2022-01-18 14:22:55,643 En passeant game:
+2022-01-18 14:22:56,220 En passeant game:
+2022-01-18 14:24:02,816 En passeant game:
+2022-01-18 14:24:34,543 En passeant game:
+2022-01-18 14:25:06,004 En passeant game:
+2022-01-18 14:25:51,463 En passeant game:
+2022-01-18 14:26:30,543 En passeant game:
+2022-01-18 14:27:18,363 En passeant game:
+2022-01-18 14:28:03,459 En passeant game:
+2022-01-18 14:28:36,224 En passeant game:
+2022-01-18 14:29:06,813 En passeant game:
+2022-01-18 14:29:41,007 En passeant game:
+2022-01-18 14:30:15,244 En passeant game:
+2022-01-18 14:30:50,542 En passeant game:
+2022-01-18 14:31:29,866 En passeant game:
+2022-01-18 14:32:06,559 En passeant game:
+2022-01-18 14:43:39,865 En passeant game:
+2022-01-18 14:43:41,040 En passeant game:
+2022-01-18 14:43:42,099 En passeant game:
+2022-01-18 14:43:43,271 En passeant game:
+2022-01-18 14:43:44,434 En passeant game:
+2022-01-18 14:43:45,623 En passeant game:
+2022-01-18 14:43:46,708 En passeant game:
+2022-01-18 14:43:47,860 En passeant game:
+2022-01-18 14:43:49,097 En passeant game:
+2022-01-18 14:43:50,355 En passeant game:
+2022-01-18 14:43:51,595 En passeant game:
+2022-01-18 14:43:52,662 En passeant game:
+2022-01-18 14:43:53,784 En passeant game:
+2022-01-18 14:43:54,921 En passeant game:
+2022-01-18 14:43:56,160 En passeant game:
+2022-01-18 14:43:57,615 En passeant game:
+2022-01-18 14:44:38,082 En passeant game:
+2022-01-18 14:45:18,201 Initiating move generation test on depth: 5
+2022-01-18 14:45:56,769 Initiating move generation test on depth: 5
+2022-01-18 14:46:20,673 Initiating move generation test on depth: 5
+2022-01-18 14:46:26,642 Initiating move generation test on depth: 5
+2022-01-18 14:46:26,948 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 14:46:26,948 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 14:46:33,325 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 14:46:33,325 Elapsed time in 2 ply: 00h00m06s seconds
+2022-01-18 14:49:17,498 Result of possible games with 3 ply: 8000/8902 - ERROR
+2022-01-18 14:49:17,498 Elapsed time in 3 ply: 00h02m44s seconds
+2022-01-18 14:52:28,440 Initiating move generation test on depth: 5
+2022-01-18 14:52:28,498 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 14:52:28,498 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 14:52:29,620 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 14:52:29,620 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-18 14:52:54,740 Result of possible games with 3 ply: 8902/8902 - OK
+2022-01-18 14:52:54,740 Elapsed time in 3 ply: 00h00m25s seconds
+2022-01-18 14:53:03,420 Initiating move generation test on depth: 5
+2022-01-18 14:53:03,479 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 14:53:03,479 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 14:53:04,614 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 14:53:04,614 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-18 14:54:02,331 Initiating move generation test on depth: 5
+2022-01-18 14:54:02,640 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 14:54:02,640 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 14:59:28,037 Initiating move generation test on depth: 5
+2022-01-18 14:59:28,331 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 14:59:28,331 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 14:59:39,147 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 14:59:39,147 Elapsed time in 2 ply: 00h00m10s seconds
+2022-01-18 14:59:42,111 Initiating move generation test on depth: 5
+2022-01-18 14:59:42,404 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 14:59:42,404 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 14:59:53,409 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 14:59:53,409 Elapsed time in 2 ply: 00h00m11s seconds
+2022-01-18 15:05:42,839 Result of possible games with 3 ply: 8902/8902 - OK
+2022-01-18 15:05:42,899 Elapsed time in 3 ply: 00h05m49s seconds
+2022-01-18 15:06:50,293 Initiating move generation test on depth: 5
+2022-01-18 15:06:50,348 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 15:06:50,348 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 15:06:51,474 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 15:06:51,474 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-18 15:07:17,265 Result of possible games with 3 ply: 8902/8902 - OK
+2022-01-18 15:07:17,266 Elapsed time in 3 ply: 00h00m25s seconds
+2022-01-18 15:16:55,750 Result of possible games with 4 ply: 197281/197281 - OK
+2022-01-18 15:16:55,750 Elapsed time in 4 ply: 00h09m38s seconds
+2022-01-18 15:17:21,438 En passeant game:
+2022-01-18 15:17:47,877 En passeant game:
+2022-01-18 15:18:24,951 Initiating move generation test on depth: 5
+2022-01-18 15:18:32,679 Initiating move generation test on depth: 5
+2022-01-18 15:19:08,888 Initiating move generation test on depth: 5
+2022-01-18 15:19:16,271 Initiating move generation test on depth: 5
+2022-01-18 15:19:16,329 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 15:19:16,329 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 15:19:17,494 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 15:19:17,494 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-18 15:20:06,102 Initiating move generation test on depth: 5
+2022-01-18 15:20:06,158 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 15:20:06,159 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 15:20:07,264 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 15:20:07,264 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-18 15:20:31,779 Result of possible games with 3 ply: 8902/8902 - OK
+2022-01-18 15:20:31,779 Elapsed time in 3 ply: 00h00m24s seconds
+2022-01-18 15:22:11,001 Initiating move generation test on depth: 5
+2022-01-18 15:22:11,057 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 15:22:11,057 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 15:22:12,454 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 15:22:12,454 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-18 15:24:04,714 Initiating move generation test on depth: 5
+2022-01-18 15:24:04,768 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 15:24:04,768 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 15:24:05,901 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 15:24:05,901 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-18 15:24:22,645 Initiating move generation test on depth: 5
+2022-01-18 15:24:22,702 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 15:24:22,702 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 15:24:23,812 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 15:24:23,812 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-18 15:24:48,002 Initiating move generation test on depth: 5
+2022-01-18 15:24:48,058 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 15:24:48,058 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 15:24:49,191 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 15:24:49,191 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-18 15:25:14,252 Result of possible games with 3 ply: 8902/8902 - OK
+2022-01-18 15:25:14,252 Elapsed time in 3 ply: 00h00m25s seconds
+2022-01-18 15:35:10,576 Initiating move generation test on depth: 5
+2022-01-18 15:35:10,631 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 15:35:10,632 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 15:35:11,747 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 15:35:11,747 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-18 15:37:37,101 Initiating move generation test on depth: 5
+2022-01-18 15:37:37,155 Result of possible games with 1 ply: 20/20 - OK
+2022-01-18 15:37:37,156 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-18 15:37:38,261 Result of possible games with 2 ply: 400/400 - OK
+2022-01-18 15:37:38,261 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-18 15:38:04,207 Result of possible games with 3 ply: 8902/8902 - OK
+2022-01-18 15:38:04,207 Elapsed time in 3 ply: 00h00m25s seconds
+2022-01-18 15:49:46,576 Result of possible games with 4 ply: 197281/197281 - OK
+2022-01-18 15:49:46,576 Elapsed time in 4 ply: 00h11m42s seconds
+2022-01-18 15:50:23,759 En passeant game:
+2022-01-18 15:50:57,824 En passeant game:
+2022-01-18 15:51:33,019 En passeant game:
+2022-01-18 15:52:04,765 En passeant game:
+2022-01-18 15:52:05,419 En passeant game:
+2022-01-18 15:52:06,014 En passeant game:
+2022-01-18 15:52:06,593 En passeant game:
+2022-01-18 15:52:07,166 En passeant game:
+2022-01-18 15:52:07,733 En passeant game:
+2022-01-18 15:52:08,376 En passeant game:
+2022-01-18 15:52:09,012 En passeant game:
+2022-01-18 15:52:09,650 En passeant game:
+2022-01-18 15:52:10,365 En passeant game:
+2022-01-18 15:52:10,942 En passeant game:
+2022-01-18 15:52:11,536 En passeant game:
+2022-01-18 15:52:12,172 En passeant game:
+2022-01-18 15:52:12,805 En passeant game:
+2022-01-18 15:52:13,408 En passeant game:
+2022-01-18 15:52:14,352 En passeant game:
+2022-01-18 15:53:22,985 En passeant game:
+2022-01-18 15:53:58,857 En passeant game:
+2022-01-18 15:54:31,420 En passeant game:
+2022-01-18 15:55:13,589 En passeant game:
+2022-01-18 15:56:00,268 En passeant game:
+2022-01-18 15:56:51,261 En passeant game:
+2022-01-18 15:57:37,584 En passeant game:
+2022-01-18 15:58:12,434 En passeant game:
+2022-01-18 15:58:45,523 En passeant game:
+2022-01-18 15:59:16,735 En passeant game:
+2022-01-18 15:59:53,652 En passeant game:
+2022-01-18 16:00:31,651 En passeant game:
+2022-01-18 16:01:05,508 En passeant game:
+2022-01-18 16:01:44,626 En passeant game:
+2022-01-18 16:13:50,475 En passeant game:
+2022-01-18 16:13:52,039 En passeant game:
+2022-01-18 16:13:53,512 En passeant game:
+2022-01-18 16:13:54,991 En passeant game:
+2022-01-18 16:13:56,455 En passeant game:
+2022-01-18 16:13:57,911 En passeant game:
+2022-01-18 16:13:59,527 En passeant game:
+2022-01-18 16:14:01,197 En passeant game:
+2022-01-18 16:14:02,876 En passeant game:
+2022-01-18 16:14:04,561 En passeant game:
+2022-01-18 16:14:06,129 En passeant game:
+2022-01-18 16:14:07,614 En passeant game:
+2022-01-18 16:14:09,066 En passeant game:
+2022-01-18 16:14:10,794 En passeant game:
+2022-01-18 16:14:12,626 En passeant game:
+2022-01-18 16:14:14,546 En passeant game:
+2022-01-18 16:15:01,463 En passeant game:
+2022-01-18 16:15:40,140 En passeant game:
+2022-01-18 16:16:24,457 En passeant game:
+2022-01-18 16:17:41,669 En passeant game:
+2022-01-18 16:17:43,668 En passeant game:
+2022-01-18 16:18:26,747 En passeant game:
+2022-01-18 16:18:28,363 En passeant game:
+2022-01-18 16:18:29,923 En passeant game:
+2022-01-18 16:18:31,501 En passeant game:
+2022-01-18 16:18:33,101 En passeant game:
+2022-01-18 16:18:35,056 En passeant game:
+2022-01-18 16:18:36,917 En passeant game:
+2022-01-18 16:18:38,779 En passeant game:
+2022-01-18 16:18:40,595 En passeant game:
+2022-01-18 16:18:42,392 En passeant game:
+2022-01-18 16:18:44,176 En passeant game:
+2022-01-18 16:18:46,066 En passeant game:
+2022-01-18 16:18:47,768 En passeant game:
+2022-01-18 16:18:49,428 En passeant game:
+2022-01-18 16:18:51,308 En passeant game:
+2022-01-18 16:18:53,159 En passeant game:
+2022-01-18 16:18:55,305 En passeant game:
+2022-01-18 16:18:57,352 En passeant game:
+2022-01-18 16:19:46,346 En passeant game:
+2022-01-18 16:20:28,475 En passeant game:
+2022-01-18 16:20:30,820 En passeant game:
+2022-01-18 16:21:23,322 En passeant game:
+2022-01-18 16:21:26,057 En passeant game:
+2022-01-18 16:22:17,609 En passeant game:
+2022-01-18 16:22:19,620 En passeant game:
+2022-01-18 16:23:15,305 En passeant game:
+2022-01-18 16:23:17,393 En passeant game:
+2022-01-18 16:24:08,939 En passeant game:
+2022-01-18 16:24:10,989 En passeant game:
+2022-01-18 16:24:50,785 En passeant game:
+2022-01-18 16:24:52,881 En passeant game:
+2022-01-18 16:25:30,351 En passeant game:
+2022-01-18 16:25:32,469 En passeant game:
+2022-01-18 16:26:12,300 En passeant game:
+2022-01-18 16:26:14,660 En passeant game:
+2022-01-18 16:26:55,775 En passeant game:
+2022-01-18 16:26:57,919 En passeant game:
+2022-01-18 16:27:39,745 En passeant game:
+2022-01-18 16:27:41,977 En passeant game:
+2022-01-18 16:28:22,161 En passeant game:
+2022-01-18 16:28:24,334 En passeant game:
+2022-01-18 16:29:06,284 En passeant game:
+2022-01-18 16:29:09,017 En passeant game:
+2022-01-18 17:18:12,663 En passeant game:
+2022-01-18 17:18:16,316 En passeant game:
+2022-01-18 17:19:12,391 En passeant game:
+2022-01-18 17:19:16,029 En passeant game:
+2022-01-18 17:20:11,162 En passeant game:
+2022-01-18 17:20:15,313 En passeant game:
+2022-01-18 17:21:18,983 En passeant game:
+2022-01-18 17:21:22,715 En passeant game:
+2022-01-18 17:22:22,968 En passeant game:
+2022-01-18 17:22:26,540 En passeant game:
+2022-01-18 17:22:30,692 En passeant game:
+2022-01-18 17:22:34,239 En passeant game:
+2022-01-18 17:22:38,160 En passeant game:
+2022-01-18 17:22:42,128 En passeant game:
+2022-01-18 17:22:46,491 En passeant game:
+2022-01-18 17:22:50,406 En passeant game:
+2022-01-18 17:22:54,800 En passeant game:
+2022-01-18 17:22:58,812 En passeant game:
+2022-01-18 17:23:02,499 En passeant game:
+2022-01-18 17:23:06,452 En passeant game:
+2022-01-18 17:23:10,483 En passeant game:
+2022-01-18 17:23:14,478 En passeant game:
+2022-01-18 17:23:18,488 En passeant game:
+2022-01-18 17:23:22,294 En passeant game:
+2022-01-18 17:23:26,816 En passeant game:
+2022-01-18 17:24:32,756 En passeant game:
+2022-01-18 17:26:22,782 En passeant game:
+2022-01-18 17:26:26,803 En passeant game:
+2022-01-18 17:27:32,469 En passeant game:
+2022-01-18 17:27:36,068 En passeant game:
+2022-01-18 17:27:39,713 En passeant game:
+2022-01-18 17:27:43,330 En passeant game:
+2022-01-18 17:27:47,339 En passeant game:
+2022-01-18 17:27:51,434 En passeant game:
+2022-01-18 17:27:56,040 En passeant game:
+2022-01-18 17:28:00,114 En passeant game:
+2022-01-18 17:28:05,064 En passeant game:
+2022-01-18 17:28:09,120 En passeant game:
+2022-01-18 17:28:13,624 En passeant game:
+2022-01-18 17:28:17,701 En passeant game:
+2022-01-18 17:28:21,451 En passeant game:
+2022-01-18 17:28:25,379 En passeant game:
+2022-01-18 17:28:29,474 En passeant game:
+2022-01-18 17:28:33,490 En passeant game:
+2022-01-18 17:28:37,645 En passeant game:
+2022-01-18 17:28:42,293 En passeant game:
+2022-01-18 17:28:46,449 En passeant game:
+2022-01-18 17:28:50,436 En passeant game:
+2022-01-18 17:28:54,554 En passeant game:
+2022-01-18 17:28:59,446 En passeant game:
+2022-01-18 17:29:04,724 En passeant game:
+2022-01-18 17:29:08,917 En passeant game:
+2022-01-18 17:30:31,588 En passeant game:
+2022-01-18 17:31:52,312 En passeant game:
+2022-01-18 17:31:56,750 En passeant game:
+2022-01-18 17:33:25,520 En passeant game:
+2022-01-18 17:33:30,253 En passeant game:
+2022-01-18 17:34:51,175 En passeant game:
+2022-01-18 17:34:55,521 En passeant game:
+2022-01-18 17:35:53,940 En passeant game:
+2022-01-18 17:35:58,432 En passeant game:
+2022-01-18 17:36:55,256 En passeant game:
+2022-01-18 17:36:59,449 En passeant game:
+2022-01-18 17:38:02,447 En passeant game:
+2022-01-18 17:38:06,628 En passeant game:
+2022-01-18 17:39:10,844 En passeant game:
+2022-01-18 17:39:14,951 En passeant game:
+2022-01-18 17:40:17,452 En passeant game:
+2022-01-18 17:40:21,763 En passeant game:
+2022-01-18 17:41:25,235 En passeant game:
+2022-01-18 17:41:29,689 En passeant game:
+2022-01-18 17:42:31,893 En passeant game:
+2022-01-18 17:42:36,506 En passeant game:
+2022-01-18 18:04:43,037 En passeant game:
+2022-01-18 18:04:48,443 En passeant game:
+2022-01-18 18:06:27,831 En passeant game:
+2022-01-18 18:06:32,814 En passeant game:
+2022-01-18 18:08:09,693 En passeant game:
+2022-01-18 18:09:53,639 En passeant game:
+2022-01-18 18:09:58,595 En passeant game:
+2022-01-18 18:11:35,533 En passeant game:
+2022-01-18 18:11:40,618 En passeant game:
+2022-01-18 18:13:21,944 En passeant game:
+2022-01-18 18:13:27,717 En passeant game:
+2022-01-18 18:15:19,053 En passeant game:
+2022-01-18 18:15:23,970 En passeant game:
+2022-01-18 18:15:29,214 En passeant game:
+2022-01-18 18:15:34,645 En passeant game:
+2022-01-18 18:15:40,028 En passeant game:
+2022-01-18 18:15:45,022 En passeant game:
+2022-01-18 18:15:50,775 En passeant game:
+2022-01-18 18:15:56,626 En passeant game:
+2022-01-18 18:16:01,619 En passeant game:
+2022-01-18 18:16:06,448 En passeant game:
+2022-01-18 18:16:11,633 En passeant game:
+2022-01-18 18:16:16,606 En passeant game:
+2022-01-18 18:16:21,402 En passeant game:
+2022-01-18 18:16:27,372 En passeant game:
+2022-01-18 18:16:32,798 En passeant game:
+2022-01-18 18:16:38,935 En passeant game:
+2022-01-18 18:16:44,955 En passeant game:
+2022-01-18 18:18:31,696 En passeant game:
+2022-01-18 18:22:24,057 En passeant game:
+2022-01-18 18:22:29,559 En passeant game:
+2022-01-18 18:24:49,372 En passeant game:
+2022-01-18 18:24:55,135 En passeant game:
+2022-01-18 18:25:00,309 En passeant game:
+2022-01-18 18:25:06,249 En passeant game:
+2022-01-18 18:25:11,803 En passeant game:
+2022-01-18 18:25:17,738 En passeant game:
+2022-01-18 18:25:23,236 En passeant game:
+2022-01-18 18:25:28,933 En passeant game:
+2022-01-18 18:25:34,798 En passeant game:
+2022-01-18 18:25:40,725 En passeant game:
+2022-01-18 18:25:46,176 En passeant game:
+2022-01-18 18:25:51,656 En passeant game:
+2022-01-18 18:25:57,167 En passeant game:
+2022-01-18 18:26:03,785 En passeant game:
+2022-01-18 18:26:08,867 En passeant game:
+2022-01-18 18:26:13,866 En passeant game:
+2022-01-18 18:26:18,874 En passeant game:
+2022-01-18 18:26:24,142 En passeant game:
+2022-01-18 18:26:29,325 En passeant game:
+2022-01-18 18:26:35,499 En passeant game:
+2022-01-18 18:26:41,164 En passeant game:
+2022-01-18 18:26:46,901 En passeant game:
+2022-01-18 18:26:52,819 En passeant game:
+2022-01-18 18:27:01,474 En passeant game:
+2022-01-18 18:27:07,553 En passeant game:
+2022-01-18 18:29:32,663 En passeant game:
+2022-01-18 18:31:36,235 En passeant game:
+2022-01-18 18:31:42,389 En passeant game:
+2022-01-18 18:33:26,576 En passeant game:
+2022-01-18 18:33:32,419 En passeant game:
+2022-01-18 18:35:09,200 En passeant game:
+2022-01-18 18:35:15,074 En passeant game:
+2022-01-18 18:37:04,583 En passeant game:
+2022-01-18 18:37:10,728 En passeant game:
+2022-01-18 18:38:58,064 En passeant game:
+2022-01-18 18:39:03,719 En passeant game:
+2022-01-18 18:40:52,902 En passeant game:
+2022-01-18 18:40:59,087 En passeant game:
+2022-01-18 18:42:49,889 En passeant game:
+2022-01-18 18:42:55,570 En passeant game:
+2022-01-18 18:44:38,066 En passeant game:
+2022-01-18 18:44:43,915 En passeant game:
+2022-01-18 19:21:20,893 En passeant game:
+2022-01-18 19:21:27,608 En passeant game:
+2022-01-18 19:23:31,929 En passeant game:
+2022-01-18 19:23:39,495 En passeant game:
+2022-01-18 19:25:52,596 En passeant game:
+2022-01-18 19:25:59,357 En passeant game:
+2022-01-18 19:28:16,153 En passeant game:
+2022-01-18 19:28:23,457 En passeant game:
+2022-01-18 19:30:33,941 En passeant game:
+2022-01-18 19:30:41,097 En passeant game:
+2022-01-18 19:32:48,188 En passeant game:
+2022-01-18 19:32:54,993 En passeant game:
+2022-01-18 19:35:16,803 En passeant game:
+2022-01-18 19:35:24,311 En passeant game:
+2022-01-18 19:37:39,310 En passeant game:
+2022-01-18 19:37:46,917 En passeant game:
+2022-01-18 19:40:26,834 En passeant game:
+2022-01-18 19:40:34,283 En passeant game:
+2022-01-18 19:40:42,284 En passeant game:
+2022-01-18 19:40:49,446 En passeant game:
+2022-01-18 19:40:56,876 En passeant game:
+2022-01-18 19:41:04,051 En passeant game:
+2022-01-18 19:41:11,700 En passeant game:
+2022-01-18 19:41:18,856 En passeant game:
+2022-01-18 19:41:27,165 En passeant game:
+2022-01-18 19:41:33,739 En passeant game:
+2022-01-18 19:41:40,552 En passeant game:
+2022-01-18 19:41:47,182 En passeant game:
+2022-01-18 19:41:54,227 En passeant game:
+2022-01-18 19:42:02,274 En passeant game:
+2022-01-18 19:42:09,826 En passeant game:
+2022-01-18 19:42:17,453 En passeant game:
+2022-01-18 19:42:24,814 En passeant game:
+2022-01-18 19:42:33,041 En passeant game:
+2022-01-18 19:42:40,323 En passeant game:
+2022-01-18 19:42:47,871 En passeant game:
+2022-01-18 19:42:55,406 En passeant game:
+2022-01-18 19:43:02,804 En passeant game:
+2022-01-18 19:43:12,869 En passeant game:
+2022-01-18 19:43:21,149 En passeant game:
+2022-01-18 19:46:17,666 En passeant game:
+2022-01-18 19:52:11,358 En passeant game:
+2022-01-18 19:52:19,551 En passeant game:
+2022-01-18 19:55:02,662 En passeant game:
+2022-01-18 19:55:10,286 En passeant game:
+2022-01-18 19:55:17,054 En passeant game:
+2022-01-18 19:55:23,938 En passeant game:
+2022-01-18 19:55:30,997 En passeant game:
+2022-01-18 19:55:38,583 En passeant game:
+2022-01-18 19:55:46,180 En passeant game:
+2022-01-18 19:55:53,700 En passeant game:
+2022-01-18 19:56:01,669 En passeant game:
+2022-01-18 19:56:09,161 En passeant game:
+2022-01-18 19:56:16,674 En passeant game:
+2022-01-18 19:56:24,515 En passeant game:
+2022-01-18 19:56:32,437 En passeant game:
+2022-01-18 19:56:41,029 En passeant game:
+2022-01-18 19:56:50,145 En passeant game:
+2022-01-18 19:56:57,859 En passeant game:
+2022-01-18 19:59:10,561 En passeant game:
+2022-01-18 20:01:19,242 En passeant game:
+2022-01-18 20:01:26,662 En passeant game:
+2022-01-18 20:03:45,948 En passeant game:
+2022-01-18 20:06:10,480 En passeant game:
+2022-01-18 20:06:19,156 En passeant game:
+2022-01-18 20:08:45,049 En passeant game:
+2022-01-18 20:08:53,196 En passeant game:
+2022-01-18 20:11:45,673 En passeant game:
+2022-01-18 20:11:53,851 En passeant game:
+2022-01-18 20:16:53,435 En passeant game:
+2022-01-18 20:17:01,814 En passeant game:
+2022-01-20 07:59:53,625 Initiating move generation test on depth: 5
+2022-01-20 07:59:53,701 Result of possible games with 1 ply: 20/20 - OK
+2022-01-20 07:59:53,702 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-20 07:59:54,908 Result of possible games with 2 ply: 400/400 - OK
+2022-01-20 07:59:54,908 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-20 08:00:22,087 Result of possible games with 3 ply: 8902/8902 - OK
+2022-01-20 08:00:22,087 Elapsed time in 3 ply: 00h00m27s seconds
+2022-01-20 08:01:35,394 Initiating move generation test on depth: 5
+2022-01-20 08:01:35,453 Result of possible games with 1 ply: 20/20 - OK
+2022-01-20 08:01:35,453 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-20 08:01:36,645 Result of possible games with 2 ply: 400/400 - OK
+2022-01-20 08:01:36,645 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-21 16:18:45,410 Initiating move generation test on depth: 5
+2022-01-21 16:18:45,477 Result of possible games with 1 ply: 20/20 - OK
+2022-01-21 16:18:45,477 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-21 16:18:46,505 Result of possible games with 2 ply: 400/400 - OK
+2022-01-21 16:18:46,505 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-21 16:19:09,756 Result of possible games with 3 ply: 8902/8902 - OK
+2022-01-21 16:19:09,756 Elapsed time in 3 ply: 00h00m23s seconds
+2022-01-21 18:22:21,075 Initiating move generation test on depth: 5
+2022-01-21 18:22:40,532 Initiating move generation test on depth: 5
+2022-01-21 18:23:45,170 Initiating move generation test on depth: 5
+2022-01-21 18:23:45,223 Result of possible games with 1 ply: 20/20 - OK
+2022-01-21 18:23:45,223 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-21 18:23:46,273 Result of possible games with 2 ply: 400/400 - OK
+2022-01-21 18:23:46,273 Elapsed time in 2 ply: 00h00m01s seconds
+2022-01-21 18:24:09,858 Result of possible games with 3 ply: 8902/8902 - OK
+2022-01-21 18:24:09,858 Elapsed time in 3 ply: 00h00m23s seconds
+2022-01-21 18:33:57,297 Result of possible games with 4 ply: 197281/197281 - OK
+2022-01-21 18:33:57,319 Elapsed time in 4 ply: 00h09m47s seconds
+2022-01-21 18:34:22,591 En passeant game:
+2022-01-21 18:34:50,652 En passeant game:
+2022-01-21 18:35:24,432 En passeant game:
+2022-01-21 18:35:54,923 En passeant game:
+2022-01-21 18:35:55,875 En passeant game:
+2022-01-21 18:37:03,111 En passeant game:
+2022-01-21 18:37:35,099 En passeant game:
+2022-01-21 18:38:07,323 En passeant game:
+2022-01-21 18:38:52,442 En passeant game:
+2022-01-21 18:39:32,509 En passeant game:
+2022-01-21 18:40:17,670 En passeant game:
+2022-01-21 18:41:06,800 En passeant game:
+2022-01-21 18:41:40,938 En passeant game:
+2022-01-21 18:42:11,329 En passeant game:
+2022-01-21 18:42:43,346 En passeant game:
+2022-01-21 18:43:19,591 En passeant game:
+2022-01-21 18:43:54,152 En passeant game:
+2022-01-21 18:44:32,471 En passeant game:
+2022-01-21 18:45:10,960 En passeant game:
+2022-01-21 18:57:14,669 En passeant game:
+2022-01-21 18:57:17,680 En passeant game:
+2022-01-21 18:58:03,840 En passeant game:
+2022-01-21 18:58:46,176 En passeant game:
+2022-01-21 18:59:31,176 En passeant game:
+2022-01-21 19:00:54,513 En passeant game:
+2022-01-21 19:00:56,682 En passeant game:
+2022-01-21 19:01:40,687 En passeant game:
+2022-01-21 19:01:44,465 En passeant game:
+2022-01-21 19:01:46,743 En passeant game:
+2022-01-21 19:02:36,307 En passeant game:
+2022-01-21 19:03:22,787 En passeant game:
+2022-01-21 19:03:25,322 En passeant game:
+2022-01-21 19:04:25,171 En passeant game:
+2022-01-21 19:04:27,729 En passeant game:
+2022-01-21 19:05:29,924 En passeant game:
+2022-01-21 19:05:31,998 En passeant game:
+2022-01-21 19:06:36,930 En passeant game:
+2022-01-21 19:06:39,156 En passeant game:
+2022-01-21 19:07:42,628 En passeant game:
+2022-01-21 19:07:44,771 En passeant game:
+2022-01-21 19:08:29,568 En passeant game:
+2022-01-21 19:08:32,089 En passeant game:
+2022-01-21 19:09:15,897 En passeant game:
+2022-01-21 19:09:18,108 En passeant game:
+2022-01-21 19:10:04,252 En passeant game:
+2022-01-21 19:10:06,792 En passeant game:
+2022-01-21 19:10:55,304 En passeant game:
+2022-01-21 19:10:57,529 En passeant game:
+2022-01-21 19:11:45,141 En passeant game:
+2022-01-21 19:11:47,374 En passeant game:
+2022-01-21 19:12:38,004 En passeant game:
+2022-01-21 19:12:40,491 En passeant game:
+2022-01-21 19:13:27,886 En passeant game:
+2022-01-21 19:13:30,293 En passeant game:
+2022-01-21 20:07:14,966 En passeant game:
+2022-01-21 20:07:18,669 En passeant game:
+2022-01-21 20:08:17,241 En passeant game:
+2022-01-21 20:08:20,881 En passeant game:
+2022-01-21 20:09:18,539 En passeant game:
+2022-01-21 20:09:22,703 En passeant game:
+2022-01-21 20:10:25,528 En passeant game:
+2022-01-21 20:10:29,317 En passeant game:
+2022-01-21 20:11:30,680 En passeant game:
+2022-01-21 20:11:35,889 En passeant game:
+2022-01-21 20:11:40,572 En passeant game:
+2022-01-21 20:12:50,831 En passeant game:
+2022-01-21 20:14:52,970 En passeant game:
+2022-01-21 20:14:57,417 En passeant game:
+2022-01-21 20:16:09,050 En passeant game:
+2022-01-21 20:16:16,775 En passeant game:
+2022-01-21 20:16:20,952 En passeant game:
+2022-01-21 20:17:42,644 En passeant game:
+2022-01-21 20:19:06,428 En passeant game:
+2022-01-21 20:19:11,049 En passeant game:
+2022-01-21 20:20:42,108 En passeant game:
+2022-01-21 20:20:47,038 En passeant game:
+2022-01-21 20:22:07,829 En passeant game:
+2022-01-21 20:22:11,981 En passeant game:
+2022-01-21 20:23:16,039 En passeant game:
+2022-01-21 20:23:20,436 En passeant game:
+2022-01-21 20:24:19,804 En passeant game:
+2022-01-21 20:24:24,001 En passeant game:
+2022-01-21 20:25:30,276 En passeant game:
+2022-01-21 20:25:34,664 En passeant game:
+2022-01-21 20:26:41,873 En passeant game:
+2022-01-21 20:26:46,126 En passeant game:
+2022-01-21 20:27:51,741 En passeant game:
+2022-01-21 20:27:55,931 En passeant game:
+2022-01-21 20:29:01,323 En passeant game:
+2022-01-21 20:29:05,515 En passeant game:
+2022-01-21 20:30:13,677 En passeant game:
+2022-01-21 20:30:18,193 En passeant game:
+2022-01-21 20:53:37,837 En passeant game:
+2022-01-21 20:53:43,210 En passeant game:
+2022-01-21 20:55:26,803 En passeant game:
+2022-01-21 20:55:32,164 En passeant game:
+2022-01-21 20:57:20,981 En passeant game:
+2022-01-21 20:59:10,929 En passeant game:
+2022-01-21 20:59:16,110 En passeant game:
+2022-01-21 21:01:05,671 En passeant game:
+2022-01-21 21:01:11,335 En passeant game:
+2022-01-21 21:03:06,364 En passeant game:
+2022-01-21 21:03:11,820 En passeant game:
+2022-01-21 21:05:10,660 En passeant game:
+2022-01-21 21:05:18,414 En passeant game:
+2022-01-21 21:05:24,731 En passeant game:
+2022-01-21 21:07:22,865 En passeant game:
+2022-01-21 21:11:32,431 En passeant game:
+2022-01-21 21:11:38,592 En passeant game:
+2022-01-21 21:14:14,136 En passeant game:
+2022-01-21 21:14:25,657 En passeant game:
+2022-01-21 21:14:31,911 En passeant game:
+2022-01-21 21:17:13,416 En passeant game:
+2022-01-21 21:19:28,443 En passeant game:
+2022-01-21 21:19:34,430 En passeant game:
+2022-01-21 21:21:23,614 En passeant game:
+2022-01-21 21:21:29,510 En passeant game:
+2022-01-21 21:23:17,872 En passeant game:
+2022-01-21 21:23:23,590 En passeant game:
+2022-01-21 21:25:19,490 En passeant game:
+2022-01-21 21:25:25,506 En passeant game:
+2022-01-21 21:27:15,772 En passeant game:
+2022-01-21 21:27:21,565 En passeant game:
+2022-01-21 21:29:16,168 En passeant game:
+2022-01-21 21:29:22,353 En passeant game:
+2022-01-21 21:31:19,684 En passeant game:
+2022-01-21 21:31:25,948 En passeant game:
+2022-01-21 21:33:22,504 En passeant game:
+2022-01-21 21:33:29,296 En passeant game:
+2022-01-21 22:13:23,158 En passeant game:
+2022-01-21 22:13:30,576 En passeant game:
+2022-01-21 22:15:46,023 En passeant game:
+2022-01-21 22:15:54,123 En passeant game:
+2022-01-21 22:18:18,657 En passeant game:
+2022-01-21 22:18:25,342 En passeant game:
+2022-01-21 22:20:48,921 En passeant game:
+2022-01-21 22:20:55,542 En passeant game:
+2022-01-21 22:23:20,235 En passeant game:
+2022-01-21 22:23:27,155 En passeant game:
+2022-01-21 22:25:46,120 En passeant game:
+2022-01-21 22:25:53,680 En passeant game:
+2022-01-21 22:28:26,418 En passeant game:
+2022-01-21 22:28:33,736 En passeant game:
+2022-01-21 22:31:00,654 En passeant game:
+2022-01-21 22:31:07,647 En passeant game:
+2022-01-21 22:34:07,181 En passeant game:
+2022-01-21 22:34:17,680 En passeant game:
+2022-01-21 22:34:25,455 En passeant game:
+2022-01-21 22:37:40,163 En passeant game:
+2022-01-21 22:43:58,126 En passeant game:
+2022-01-21 22:44:06,524 En passeant game:
+2022-01-21 22:47:08,213 En passeant game:
+2022-01-21 22:47:20,391 En passeant game:
+2022-01-21 22:47:27,846 En passeant game:
+2022-01-21 22:49:46,898 En passeant game:
+2022-01-21 22:52:13,351 En passeant game:
+2022-01-21 22:52:20,705 En passeant game:
+2022-01-21 22:54:56,945 En passeant game:
+2022-01-21 22:57:30,290 En passeant game:
+2022-01-21 22:57:38,979 En passeant game:
+2022-01-21 23:00:13,311 En passeant game:
+2022-01-21 23:00:22,286 En passeant game:
+2022-01-21 23:02:59,873 En passeant game:
+2022-01-21 23:03:07,839 En passeant game:
+2022-01-21 23:05:40,010 En passeant game:
+2022-01-21 23:05:48,422 En passeant game:
+2022-01-22 00:27:01,655 En passeant game:
+2022-01-22 00:27:10,538 En passeant game:
+2022-01-22 00:29:12,285 En passeant game:
+2022-01-22 00:29:22,491 En passeant game:
+2022-01-22 00:31:36,901 En passeant game:
+2022-01-22 00:31:47,657 En passeant game:
+2022-01-22 00:33:55,150 En passeant game:
+2022-01-22 00:34:04,375 En passeant game:
+2022-01-22 00:36:13,641 En passeant game:
+2022-01-22 00:36:24,306 En passeant game:
+2022-01-22 00:38:35,631 En passeant game:
+2022-01-22 00:38:46,412 En passeant game:
+2022-01-22 00:41:02,239 En passeant game:
+2022-01-22 00:41:12,465 En passeant game:
+2022-01-22 00:43:31,037 En passeant game:
+2022-01-22 00:43:40,897 En passeant game:
+2022-01-22 00:46:22,012 En passeant game:
+2022-01-22 00:46:32,420 En passeant game:
+2022-01-22 00:49:21,543 En passeant game:
+2022-01-22 00:49:31,031 En passeant game:
+2022-01-22 00:52:44,590 En passeant game:
+2022-01-22 00:52:56,743 En passeant game:
+2022-01-22 00:53:07,096 En passeant game:
+2022-01-22 00:56:14,982 En passeant game:
+2022-01-22 01:00:26,620 En passeant game:
+2022-01-22 01:00:35,287 En passeant game:
+2022-01-22 01:02:45,651 En passeant game:
+2022-01-22 01:02:54,937 En passeant game:
+2022-01-22 01:05:13,966 En passeant game:
+2022-01-22 01:05:23,846 En passeant game:
+2022-01-22 01:07:52,944 En passeant game:
+2022-01-22 01:08:09,029 En passeant game:
+2022-01-22 01:08:19,927 En passeant game:
+2022-01-22 01:10:39,939 En passeant game:
+2022-01-22 01:12:59,326 En passeant game:
+2022-01-22 01:13:10,645 En passeant game:
+2022-01-22 01:15:20,171 En passeant game:
+2022-01-22 01:15:29,294 En passeant game:
+2022-01-22 02:00:26,753 En passeant game:
+2022-01-22 02:00:37,213 En passeant game:
+2022-01-22 02:02:58,046 En passeant game:
+2022-01-22 02:03:10,108 En passeant game:
+2022-01-22 02:05:49,948 En passeant game:
+2022-01-22 02:06:02,734 En passeant game:
+2022-01-22 02:08:32,528 En passeant game:
+2022-01-22 02:08:43,485 En passeant game:
+2022-01-22 02:11:21,466 En passeant game:
+2022-01-22 02:11:33,151 En passeant game:
+2022-01-22 02:14:10,482 En passeant game:
+2022-01-22 02:14:20,670 En passeant game:
+2022-01-22 02:16:58,666 En passeant game:
+2022-01-22 02:17:09,212 En passeant game:
+2022-01-22 02:19:47,492 En passeant game:
+2022-01-22 02:19:58,992 En passeant game:
+2022-01-22 02:23:08,780 En passeant game:
+2022-01-22 02:23:19,648 En passeant game:
+2022-01-22 02:26:38,123 En passeant game:
+2022-01-22 02:26:49,987 En passeant game:
+2022-01-22 02:30:24,959 En passeant game:
+2022-01-22 02:30:36,434 En passeant game:
+2022-01-22 02:34:10,848 En passeant game:
+2022-01-22 02:34:23,388 En passeant game:
+2022-01-22 02:37:19,791 En passeant game:
+2022-01-22 02:37:32,928 En passeant game:
+2022-01-22 02:37:43,988 En passeant game:
+2022-01-22 02:40:14,239 En passeant game:
+2022-01-22 02:42:47,372 En passeant game:
+2022-01-22 02:45:29,812 En passeant game:
+2022-01-22 02:50:23,564 En passeant game:
+2022-01-22 02:50:35,328 En passeant game:
+2022-01-22 02:53:22,499 En passeant game:
+2022-01-22 02:53:40,940 En passeant game:
+2022-01-22 02:56:10,825 En passeant game:
+2022-01-22 05:47:21,871 En passeant game:
+2022-01-22 05:49:15,668 En passeant game:
+2022-01-22 05:51:20,941 En passeant game:
+2022-01-22 05:53:21,573 En passeant game:
+2022-01-22 05:55:21,630 En passeant game:
+2022-01-22 05:57:26,707 En passeant game:
+2022-01-22 05:59:35,993 En passeant game:
+2022-01-22 06:01:36,892 En passeant game:
+2022-01-22 06:04:16,870 En passeant game:
+2022-01-22 06:06:53,768 En passeant game:
+2022-01-22 06:09:42,268 En passeant game:
+2022-01-22 06:12:35,089 En passeant game:
+2022-01-22 06:14:45,098 En passeant game:
+2022-01-22 06:16:44,697 En passeant game:
+2022-01-22 06:18:44,253 En passeant game:
+2022-01-22 06:20:54,180 En passeant game:
+2022-01-22 06:23:13,741 En passeant game:
+2022-01-22 06:23:26,762 En passeant game:
+2022-01-22 06:28:55,471 En passeant game:
+2022-01-22 07:03:16,991 Result of possible games with 5 ply: 4865609/4865609 - OK
+2022-01-22 07:03:16,991 Elapsed time in 5 ply: 12h29m19s seconds
+2022-01-22 07:03:16,991 Total Elapsed time: (12h39m31s)
