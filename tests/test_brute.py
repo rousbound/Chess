@@ -49,7 +49,7 @@ def test_position(depth, expected_results, FEN=None):
     ply_depth_start = time.time()
 
     for current_depth, expected_result in zip(range(1,depth+1), expected_results):
-        game = chess.Chess(FEN=FEN, test=True)
+        game = chess.Chess(FEN=FEN, print_turn_decorator=False)
         result = move_generation_test(current_depth, game)
         result_list.append(result)
         logging.info(f"Result of possible games with {current_depth} ply: {result}/{expected_result} - {'OK' if result == expected_result else 'ERROR'}")

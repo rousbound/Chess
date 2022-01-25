@@ -6,3 +6,27 @@
 2022-01-24 20:26:43,850 Elapsed time in 2 ply: 00h00m00s seconds
 2022-01-24 20:27:10,867 Result of possible games with 3 ply: 9467/9467 - OK
 2022-01-24 20:27:10,867 Elapsed time in 3 ply: 00h00m27s seconds
+2022-01-24 20:50:21,673 Result of possible games with 4 ply: 422333/422333 - OK
+2022-01-24 20:50:21,673 Elapsed time in 4 ply: 00h23m10s seconds
+2022-01-24 20:50:21,673 Total Elapsed time: (00h23m38s)
+2022-01-24 20:50:21,673 -----------------------------------------
+2022-01-24 20:50:21,729 ----------------------------------------
+2022-01-24 20:50:21,729 Initiating move generation test on depth: 3
+2022-01-24 20:50:21,858 Result of possible games with 1 ply: 44/44 - OK
+2022-01-24 20:50:21,858 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-24 20:50:26,295 Result of possible games with 2 ply: 1486/1486 - OK
+2022-01-24 20:50:26,295 Elapsed time in 2 ply: 00h00m04s seconds
+2022-01-24 20:53:31,604 Result of possible games with 3 ply: 62379/62379 - OK
+2022-01-24 20:53:31,604 Elapsed time in 3 ply: 00h03m05s seconds
+2022-01-24 20:53:31,604 Total Elapsed time: (00h03m09s)
+2022-01-24 20:53:31,604 -----------------------------------------
+2022-01-24 20:53:31,625 ----------------------------------------
+2022-01-24 20:53:31,625 Initiating move generation test on depth: 3
+2022-01-24 20:53:31,760 Result of possible games with 1 ply: 46/46 - OK
+2022-01-24 20:53:31,760 Elapsed time in 1 ply: 00h00m00s seconds
+2022-01-24 20:53:37,643 Result of possible games with 2 ply: 2079/2079 - OK
+2022-01-24 20:53:37,643 Elapsed time in 2 ply: 00h00m05s seconds
+2022-01-24 20:58:12,850 Result of possible games with 3 ply: 89890/89890 - OK
+2022-01-24 20:58:12,850 Elapsed time in 3 ply: 00h04m35s seconds
+2022-01-24 20:58:12,850 Total Elapsed time: (00h04m41s)
+2022-01-24 20:58:12,850 -----------------------------------------
