@@ -5,8 +5,7 @@ import os
 import pygame
 
 from colors import *
-from utils import *
-from board import *
+from board import Board
 
 from pieces import Queen, Knight, Rook, Bishop
 
@@ -18,11 +17,23 @@ class GUI():
 
     Attributes:
     -----------
-    cell : int
-        Cell size of each square in the board
+
+    -------- MAIN LOGIC -------------
 
     chess : Chess
         Chess object
+
+    last_move_from : tup
+        Saves last move initial square for drawing it with a different color
+
+    last_move_to : tup
+        Saves last move destination square for drawing it with a different color
+
+    piece_held : Piece
+        Piece currently held by user with mouse
+
+    -------- PROMOTING LOGIC -------------
+
 
     promoting : bool
         Controls if game is in promoting state.
@@ -37,24 +48,19 @@ class GUI():
     promoting_pieces : list
         Saves the promoting pieces position to be drawn on the screen
 
+    -------- DRAWING LOGIC -------------
+
     screen : object
         Screen which the Surfaces will be rendered.
 
     spritesheet : Surface
         Surface which will be cropped to render individual pieces
 
-    last_move_from : tup
-        Saves last move initial square for drawing it with a different color
-
-    last_move_to : tup
-        Saves last move destination square for drawing it with a different color
-
     pieces_dict : dict
         Converts Piece type to index in spritesheet Surface
 
-    piece_held : Piece
-        Piece currently held by user with mouse
-
+    cell : int
+        Cell size of each square in the board
 
     xoffset : int
     yoffset : int
@@ -62,31 +68,82 @@ class GUI():
 
 
     Methods:
-    --------
 
+    -------- MAIN LOGIC -------------
+    hold_piece()
+        Hold piece under mouse cursor
+
+    drop_piece()
+        Drops piece under mouse cursor and check for movement legality
+
+    gui_play_move(move)
+        Play move, save relevant information, get new legal moves.
+
+    -------- PROMOTING LOGIC ---------
+
+    init_promotion(to:tup, start:tup)
+        Stops normal execution and start promoting screen for user to choose promoting piece
+
+    draw_promotion()
+        Draw promotion screen
+
+    choose_promotion()
+        Get chosen promoting piece
+
+    -------- DRAWING LOGIC ---------
+
+    get_piece_sprite_coordinates(piece:Piece) -> tup
+        Get piece sprite coordinates in sprite sheet.
+
+    get_sprite_sheet() -> Surface
+        Create spritesheet of pieces images
+
+    get_mouse_pos() -> tup
+        Get mouse board index coordinates
+
+    get_piece_pixel_pos(piece:Piece) -> tup
+        Get piece pixel position on screen
+
+    draw_piece(piece:Piece) -> None
+        Draw piece on screen
+
+    draw_square(pos:tup, bright:tup, dark:tup) -> None
+        Draw square on screen with input colors
+
+    draw_board() -> None
+        Draw entire board
+
+    draw_piece_held() -> None
+        Draw piece over mouse position
+
+    draw() -> None
+        Draw everything
+
+    ---------------
+
+
+    main()
+        Main function that holds the main loop of the game
 
     """
 
-    def __init__(self, width, height, game):
+    def __init__(self, width, height, chess):
         pygame.init()
 
-        self.cell = width//8
-        self.game = game
+        self.chess = chess
+        self.piece_held = None
+        self.last_move_from = None
+        self.last_move_to = None
+
         self.promoting = False
         self.promoting_column = None
         self.promoting_move = []
         self.promoting_pieces = []
 
         self.screen = pygame.display.set_mode((width, height))
-        base_path = os.path.dirname(__file__)
-        # dude_path = os.path.join(base_path, "dude.png")
-
-        self.spritesheet = pygame.image.load(os.path.join(base_path,"res/pieces.png")).convert_alpha()
-        self.capture_visual_indicator = pygame.image.load(os.path.join(base_path,"res/capture2.png")).convert_alpha()
-        self.in_check_visual_indicator = pygame.image.load(os.path.join(base_path,"res/Check.png")).convert_alpha()
-        self.last_move_from = None
-        self.last_move_to = None
-
+        self.spritesheet = self.make_resource("res/pieces.png")
+        self.capture_visual_indicator = self.make_resource("res/capture2.png")
+        self.in_check_visual_indicator = self.make_resource("res/Check.png")
         self.pieces_dict = {
                 "WP": 5,
                 "WN": 3,
@@ -101,10 +158,19 @@ class GUI():
                 "BK": 6,
                 "BQ": 7
                 }
-        self.piece_held = None
+        self.get_sprite_sheet()
         self.xoffset = -1
         self.yoffset = -2
-        self.get_sprite_sheet()
+        self.cell = width//8
+
+    def make_resource(self, resource_path):
+        """
+        Create relative path for each resource loaded
+        """
+
+        base_path = os.path.dirname(__file__)
+        surface = pygame.image.load(os.path.join(base_path, resource_path)).convert_alpha()
+        return surface
 
     def get_piece_sprite_coordinates(self, piece):
         """
@@ -129,7 +195,7 @@ class GUI():
         h = rect.height // rows
 
         self.sprite_sheet_piece_coordinates = \
-                list([(i % cols * w, i // cols * h, w, h) for i in range(cell_count)])
+                [(i % cols * w, i // cols * h, w, h) for i in range(cell_count)]
 
 
     def get_mouse_pos(self):
@@ -172,7 +238,10 @@ class GUI():
             square_color = bright
         else:
             square_color = dark
-        pygame.draw.rect(self.screen,square_color,(pos[0]*self.cell,pos[1]*self.cell,self.cell,self.cell))
+        pygame.draw.rect(self.screen,square_color,(pos[0]*self.cell,
+                                                   pos[1]*self.cell,
+                                                   self.cell,
+                                                   self.cell))
 
     def draw_board(self):
         """
@@ -193,7 +262,7 @@ class GUI():
                 # Alternate square colors based on i,j
                 self.draw_square((i, j), draw_square_bright, draw_square_dark)
 
-                piece = self.game.board[i, j]
+                piece = self.chess.board[i, j]
                 # Draw pieces, except the one held and check if king is in check
                 if piece:
                     if not piece.piece_held:
@@ -209,12 +278,12 @@ class GUI():
 
         """
         index2pixel = lambda x: (x[0]*self.cell, x[1]*self.cell)
-        piece_moves = self.piece_held.get_valid_moves(self.game.board)
+        piece_moves = self.piece_held.get_valid_moves(self.chess.board)
         # Draw legal moves of piece held
         for move in piece_moves:
-            if move in self.game.legal_moves:
+            if move in self.chess.legal_moves:
                 to = move[1]
-                is_piece = self.game.board[to]
+                is_piece = self.chess.board[to]
                 mouse_pos = self.get_mouse_pos()
 
                 # If mouse over legal move, draw green background,
@@ -266,9 +335,9 @@ class GUI():
         self.promoting_move = [start, to, ""]
         self.piece_held.piece_held = False
         self.piece_held = None
-        behind = 1 if self.game.board.turn else -1
-        last_row = 0 if self.game.board.turn else 7
-        color = self.game.board.turn
+        behind = 1 if self.chess.board.turn else -1
+        last_row = 0 if self.chess.board.turn else 7
+        color = self.chess.board.turn
         queen = Queen(color, self.promoting_column, last_row)
         knight = Knight(color, self.promoting_column, last_row + behind)
         rook = Rook(color, self.promoting_column, last_row + (2*behind))
@@ -308,11 +377,11 @@ class GUI():
         """
         self.last_move_to = move[0]
         self.last_move_from = move[1]
-        # self.last_board_state = self.game.board.board_2_FEN()
-        self.last_board_state = copy.deepcopy(self.game.board)
-        self.game.play_move(move)
-        self.game.legal_moves = self.game.get_legal_moves()
-        self.game.turn_debug()
+        # self.last_board_state = self.chess.board.board_2_FEN()
+        self.last_board_state = copy.deepcopy(self.chess.board)
+        self.chess.play_move(move)
+        self.chess.legal_moves = self.chess.get_legal_moves()
+        self.chess.turn_debug()
 
     def hold_piece(self):
         """
@@ -320,9 +389,9 @@ class GUI():
 
         """
         mouse_pos = self.get_mouse_pos()
-        piece = self.game.board[mouse_pos]
+        piece = self.chess.board[mouse_pos]
         if piece:
-            if piece.color == self.game.board.turn:
+            if piece.color == self.chess.board.turn:
                 piece.piece_held = True
                 self.piece_held = piece
 
@@ -331,17 +400,18 @@ class GUI():
         Function called when dropping a piece that was holded.
 
         """
-        self.game.legal_moves = self.game.get_legal_moves()
+        self.chess.legal_moves = self.chess.get_legal_moves()
         to = self.get_mouse_pos()
         start = self.piece_held.get_pos()
         if self.piece_held.name == "P":
-            if not self.game.board.get_king(self.game.board.turn).in_check:
-                last_row = 0 if self.piece_held.color else 7
-                if to[1] == last_row:
+            if not self.chess.board.get_king(self.chess.board.turn).in_check:
+                # If promotion to queen is possible
+                # all others will be as well
+                if (start,to,"q") in self.chess.legal_moves:
                     self.init_promotion(to, start)
                     return
         move = (start, to, "%")
-        if move in self.game.legal_moves:
+        if move in self.chess.legal_moves:
             self.gui_play_move(move)
         else:
             print("Illegal move, try again")
@@ -356,8 +426,8 @@ class GUI():
         Main function.
 
         """
-        self.game.legal_moves = self.game.get_legal_moves()
-        while self.game.game_running:
+        self.chess.legal_moves = self.chess.get_legal_moves()
+        while self.chess.game_running:
             self.screen.fill((0, 0, 0, 255))
             self.draw()
             if self.promoting:
@@ -385,20 +455,10 @@ class GUI():
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
-                        self.game.board = self.last_board_state
-                        self.game.legal_moves = self.game.get_legal_moves()
+                        self.chess.board = self.last_board_state
+                        self.chess.legal_moves = self.chess.get_legal_moves()
 
 
             pygame.display.flip()
-
-    def cli_gui_main(self, moves_list):
-        """
-        Main function called when testing.
-
-        """
-        for move in moves_list:
-            move = uci_2_move(move)
-            self.gui_play_move(move)
-        self.main()
 
 

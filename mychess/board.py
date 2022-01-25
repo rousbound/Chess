@@ -1,5 +1,5 @@
 from pieces import King, Queen, Rook, Bishop, Knight, Pawn
-from utils import *
+from utils import mat_2_uci
 
 class Board():
     """
@@ -50,9 +50,6 @@ class Board():
     remove_castling_rights(color: bool) -> None
         Remove castling rights of player
 
-    check_castling_rights() -> None
-        Check if castling rights were revoked
-
     board_2_FEN() -> str
         Make a string representation of the board in the well known FEN format
 
@@ -99,20 +96,6 @@ class Board():
         else:
             self.setup_initial_position()
 
-    def __eq__(self, other_board):
-        """
-        Called when comparing two board objects.
-        """
-        return self.board_2_FEN() != other_board.board_2_FEN()
-
-    def __hash__(self):
-        """
-        Called when used as key in a dictionary.
-        """
-
-        return hash(self.board_2_FEN())
-
-
     def __setitem__(self, key, value):
         self.board[key[0]][key[1]] = value
 
@@ -127,27 +110,27 @@ class Board():
         """
 
         # White
-        self.board[0][7] = Rook(True,0,7, rook_side = "q")
+        self.board[0][7] = Rook(True,0,7, rook_side = "Q")
         self.board[1][7] = Knight(True,1,7)
         self.board[2][7] = Bishop(True,2,7, color_complex = True)
         self.board[3][7] = Queen(True,3,7)
         self.board[4][7] = King(True,4,7)
         self.board[5][7] = Bishop(True,5,7, color_complex = False)
         self.board[6][7] = Knight(True,6,7)
-        self.board[7][7] = Rook(True,7,7, rook_side = "k")
+        self.board[7][7] = Rook(True,7,7, rook_side = "K")
 
         for i in range(8):
             self.board[i][6] = Pawn(True,i,6)
 
         # Black
-        self.board[0][0] = Rook(False,0,0, rook_side = "Q")
+        self.board[0][0] = Rook(False,0,0, rook_side = "q")
         self.board[1][0] = Knight(False,1,0)
         self.board[2][0] = Bishop(False,2,0, color_complex = False)
         self.board[3][0] = Queen(False,3,0)
         self.board[4][0] = King(False,4,0)
         self.board[5][0] = Bishop(False,5,0, color_complex = True)
         self.board[6][0] = Knight(False,6,0)
-        self.board[7][0] = Rook(False,7,0, rook_side = "K")
+        self.board[7][0] = Rook(False,7,0, rook_side = "k")
 
         for i in range(8):
             self.board[i][1] = Pawn(False,i,1)
@@ -165,44 +148,30 @@ class Board():
             self.can_castle["k"] = False
 
 
-    def check_castling_rights(self):
-        """
-        Check which rook has moved and the correspondent
-        castling right that should be disabled by its move.
-        """
-        if self[0,7]:
-            if self[0,7].name != "R":
-                self.can_castle["Q"] = False
-        else:
-            self.can_castle["Q"] = False
-
-        if self[7,7]:
-            if self[7,7].name != "R":
-                self.can_castle["K"] = False
-        else:
-            self.can_castle["K"] = False
-        if self[0,0]:
-            if self[0,0].name != "R":
-                self.can_castle["q"] = False
-        else:
-            self.can_castle["q"] = False
-        if self[7,0]:
-            if self[7,0].name != "R":
-                self.can_castle["k"] = False
-        else:
-            self.can_castle["k"] = False
-
     def FEN_2_board(self, FEN):
         fen_pieces, turn, castling, enpasseant, no_progress_counter, turn_counter = FEN.split(" ")
-        
-        self.turn = turn == "w" 
+
         self.can_castle = {"K": False, "Q": False, "k": False, "q": False, None: False}
 
-        for c in castling:
-            self.can_castle[c] = True
+        # Load turn
+        self.turn = turn == "w"
 
+        # Load castling rights
+        for side_color in castling:
+            self.can_castle[side_color] = True
+
+        # Load counters
         self.no_progress_counter = int(no_progress_counter)
         self.turn_counter = int(turn_counter)
+
+        # Load En Passeant
+        if enpasseant != "-":
+            if self.turn:
+                self.black_ghost_pawn = mat_2_uci(enpasseant)
+            else:
+                self.white_ghost_pawn = mat_2_uci(enpasseant)
+
+        # Load pieces
 
         skip = 0
         squares = 0
@@ -210,16 +179,16 @@ class Board():
         i = 0
         while True:
             x, y = squares%8, squares//8
-            c = fen_pieces[i]
-            if c in "12345678":
-                skip += int(c)
-                squares += int(c)
+            char = fen_pieces[i]
+            if char in "12345678":
+                skip += int(char)
+                squares += int(char)
                 i+=1
             elif skip == 0:
-                if c in "rnbqkpRNBQKP":
+                if char in "rnbqkpRNBQKP":
                     squares += 1
-                    color = True if c.isupper() else False
-                    if c in "rR":
+                    color = char.isupper() 
+                    if char in "rR":
                         rook_side = None
                         if (x,y) == (0,0):
                             rook_side = "q"
@@ -230,25 +199,19 @@ class Board():
                         if (x,y) == (7,7):
                             rook_side = "K"
                         self[x,y] = Rook(color, x, y, rook_side)
-                    if c in "nN":
+                    if char in "nN":
                         self[x,y] = Knight(color, x, y)
-                    if c in "bB":
+                    if char in "bB":
                         self[x,y] = Bishop(color, x, y, color_complex = True)
-                    if c in "qQ":
+                    if char in "qQ":
                         self[x,y] = Queen(color, x, y)
-                    if c in "kK":
+                    if char in "kK":
                         self[x,y] = King(color, x, y)
-                    if c in "pP":
-                        if c == "p":
-                            if y == 1:
-                                self[x,y] = Pawn(color, x , y, first_move = True)
-                            else:
-                                self[x,y] = Pawn(color, x , y, first_move = False)
-                        elif c == "P":
-                            if y == 6:
-                                self[x,y] = Pawn(color, x , y, first_move = True)
-                            else:
-                                self[x,y] = Pawn(color, x , y, first_move = False)
+                    if char in "pP":
+                        if (char == "p" and y == 1) or (char == "P" and y == 6):
+                            self[x,y] = Pawn(color, x , y, first_move = True)
+                        else:
+                            self[x,y] = Pawn(color, x , y, first_move = False)
 
                     i+=1
             elif skip != 0:
@@ -257,10 +220,11 @@ class Board():
 
             if squares == 64:
                 break
+        
 
 
 
-            
+
 
     def board_2_FEN(self):
         """
@@ -292,7 +256,7 @@ class Board():
                         FEN += str(no_piece)
             if y != 7:
                 FEN += "/"
-        
+
         # Concatanate turn information
         FEN += " w " if self.turn else " b "
         can_castle = ""

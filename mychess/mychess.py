@@ -5,6 +5,7 @@ import logging
 from utils import mat_2_uci, move_2_algebric, uci_2_move, move_2_uci
 from pieces import Queen, Knight, Rook, Bishop
 from board import Board
+from GUI import GUI
 
 
 
@@ -65,7 +66,8 @@ class Chess():
     debug_game_uci(move : tup) -> None
         Save moves list in uci format
 
-    debug_game_pgn(move : tup, selected_piece : Piece, captured_piece : Piece, castling : str) -> None
+    debug_game_pgn(move : tup, selected_piece : Piece,
+                captured_piece : Piece, castling : str) -> None
         Save moves  list in pgn format
 
     -------- GAME LOGIC ---------
@@ -85,18 +87,16 @@ class Chess():
     print_turn_decorator() -> None
         Print turn information
 
-    get_move_random(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
-        Get random moves based on legal moves avaiable
-
-    get_move_player(moves:list[str])-> uci_move:str, index_start:tup, index_to:tup, promotion:str
-        Ask the user for input and check if it is legal move
+    get_move_player(moves:list[str])-> tup
+        Ask the user for input, check if it is legal move and return move in tup format
 
 
     """
 
-    def __init__(self, FEN=None, print_turn_decorator=False):
+    def __init__(self, FEN=None, print_turn_decorator=False, debug=True):
         self.board = Board(FEN)
         self.game_running = True
+        self.debug = debug
 
         self.algebric_legal_moves = []
         self.uci_legal_moves = []
@@ -108,11 +108,17 @@ class Chess():
         if print_turn_decorator:
             self.print_turn_decorator()
             self.board.print_board()
-    
+
     def uci_moves(self):
+        """
+        Return list of moves in str
+        """
         return " ".join(self.uci_legal_moves)
 
     def algebric_moves(self):
+        """
+        Return list of moves in str
+        """
         return " ".join(self.algebric_legal_moves)
 
     def turn_debug(self):
@@ -126,7 +132,7 @@ class Chess():
         print("")
         print("PGN:", self.pgn_moves_list)
         print("")
-        print("FEN:", self.board.board_2_FEN())
+        # print("FEN:", self.board.board_2_FEN())
         print("")
 
     def debug_algebric_legal_moves(self, move, piece, captured_piece):
@@ -192,7 +198,7 @@ class Chess():
         legal_moves = []
         self.algebric_legal_moves = []
         self.uci_legal_moves = []
-    
+
         for piece in self.board.get_all_pieces():
             if piece.color == self.board.turn:
                 piece_moves = piece.get_valid_moves(self.board)
@@ -213,8 +219,9 @@ class Chess():
                     # If king not in enemy targets after move, is legal move
                     if friend_king.get_pos() not in enemy_targets:
                         legal_moves.append(move)
-                        self.debug_algebric_legal_moves(move, piece, captured_piece)
-                        self.uci_legal_moves.append("".join(move_2_uci(move)))
+                        if self.debug:
+                            self.debug_algebric_legal_moves(move, piece, captured_piece)
+                            self.uci_legal_moves.append("".join(move_2_uci(move)))
 
                     # Undo move
                     piece.move(origin,self.board)
@@ -231,6 +238,10 @@ class Chess():
 
 
     def get_promotion(self, promotion, selected_piece):
+        """
+        Return promoted piece
+
+        """
         color = selected_piece.color
         if promotion == "q":
             promoted_piece = Queen(color, selected_piece.x, selected_piece.y)
@@ -243,9 +254,14 @@ class Chess():
         return promoted_piece
 
     def apply_castle(self, move, selected_piece):
+        """
+        Execute castle on board
+
+        """
         logging.debug("Castling")
         # ShortCastling
-        if move[1][0] == 6:
+        to = move[1]
+        if to[0] == 6:
             castling = "O-O"
             if selected_piece.color:
                 rook = self.board[7,7]
@@ -255,7 +271,7 @@ class Chess():
                 rook.move((5,0), self.board)
 
         # LongCastling
-        elif move[1][0] == 2:
+        elif to[0] == 2:
             castling = "O-O-O"
             if selected_piece.color:
                 rook = self.board[0,7]
@@ -311,8 +327,7 @@ class Chess():
                 castling = self.apply_castle(move, selected_piece)
 
                 # After castle, a position can't be repeated
-                if selected_piece.first_move == True:
-                    self.board.board_states = []
+                self.board.board_states = []
 
 
         captured_piece = selected_piece.move(to, self.board)
@@ -326,12 +341,13 @@ class Chess():
                 self.board.no_progress_plies += 1
 
         # Save move in different formats for debugging
-        self.debug_game_pgn(move, selected_piece, captured_piece, castling)
-        self.debug_game_uci(move)
-        self.moves_list.append(move)
+        if self.debug:
+            self.debug_game_pgn(move, selected_piece, captured_piece, castling)
+            self.debug_game_uci(move)
+            self.moves_list.append(move)
 
         # Save board state for draw criteria
-        self.board.board_states.append(copy.deepcopy(self.board))
+        self.board.board_states.append(self.board.board_2_FEN())
 
         # Increment turn counter for draw criteria
         if not self.board.turn:
@@ -339,16 +355,13 @@ class Chess():
 
 
         # Remove first_move from pieces that has special movement
-        if selected_piece.name in ["P", "K"]:
+        if selected_piece.name == "P":
             selected_piece.first_move = False
-        if selected_piece.name in ["R"]:
+        if selected_piece.name == "R":
             self.board.can_castle[selected_piece.rook_side] = False
 
         # Flip turn
         self.board.turn = not self.board.turn
-
-        # Update castling rights
-        self.board.check_castling_rights()
 
         # Deactivate ghost pawn
         self.board.deactivate_ghost_pawn(self.board.turn)
@@ -429,7 +442,7 @@ class Chess():
             However, we only check last 6 turns-12 plies, otherwise it becomes very
             computationally expensive.
             """
-            board_states_counter = {}
+            self.board_states_counter = {}
             for board in self.board.board_states[-12:]:
                 if board in board_states_counter.keys():
                     board_states_counter[board] += 1
@@ -464,12 +477,15 @@ class Chess():
                 king.in_check = False
 
     def push_uci(self, uci_move):
+        """
+        Function to be used when making moves on the interpreter
+        """
         if self.game_running:
             self.legal_moves = self.get_legal_moves()
 
             if not self.game_running:
                 return
-                
+
             move = uci_2_move(uci_move)
 
             if move not in self.legal_moves:
@@ -480,12 +496,6 @@ class Chess():
         self.print_turn_decorator()
         self.board.print_board()
         self.get_legal_moves()
-
-    def get_move_list(self, l):
-        l = iter(l)
-        n = next(l) 
-        print(n)
-        return n
 
     def get_move_player(self):
         """
@@ -507,7 +517,6 @@ class Chess():
         Play game with Graphical User Interface.
 
         """
-        from GUI import GUI
         gui = GUI(640,640,self)
         gui.main()
 
@@ -526,7 +535,7 @@ class Chess():
 
             if not self.game_running:
                 break
-                
+
             move = self.get_move_player()
 
             if move not in self.legal_moves:

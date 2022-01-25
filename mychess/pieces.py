@@ -30,12 +30,6 @@ class Piece():
         Checks if move is withing board boundaries,
         and if target location is not occupied by allied piece
 
-    get_diagonal_moves(board:Board) -> list[tup]
-        Returns diagonal moves of selected piece
-
-    get_ortogonal_moves(board:Board) -> list[tup]
-        Returns diagonal moves of selected piece
-
     def get_valid_moves(board:Board) -> list[tup]:
         Returns the piece valid moves i.e moves that follow the piece rules
         and are inside board boundaries.
@@ -45,10 +39,16 @@ class Piece():
         - Only capturing enemy pieces
         - Special rules such as En Passeant and Castling.
         - Promotion
-    
-        It is not the job of this function to check 
+
+        It is not the job of this function to check
         legality of the move regarding the King in check possibility,
         that is job of the get_legal_moves() of the Chess class.
+
+    get_diagonal_moves(board:Board) -> list[tup]
+        Returns diagonal moves of selected piece
+
+    get_ortogonal_moves(board:Board) -> list[tup]
+        Returns diagonal moves of selected piece
 
     def get_pos() -> tup
         Return (x,y) position in the chess board
@@ -84,17 +84,22 @@ class Piece():
     def move(self, to, board):
         """
         Make piece move.
+        En passeant is the only kind of move that
+        doesn't occupy the captured piece square 
+        when capturing. 
+        For this reason, it needs to be checked here 
+        so it can be run at get_legal_moves() and not
+        leave the king in check.
 
         """
         ep_piece_captured = None
         if self.name == "P":
-           ep_piece_captured = self.is_en_passeant((self.get_pos(), to), board)
-           if ep_piece_captured:
-               board[ep_piece_captured.get_pos()] = None
+            ep_piece_captured = self.is_en_passeant((self.get_pos(), to), board)
+            if ep_piece_captured:
+                board[ep_piece_captured.get_pos()] = None
 
         board[self.get_pos()] = None
         captured_piece = board[to] if not ep_piece_captured else ep_piece_captured
-        # captured_piece = board[to]
         board[to]= self
         self.set_pos(to)
 
@@ -125,22 +130,39 @@ class Piece():
     def get_diagonal_moves(self, board):
         """
         Get diagonal moves for Queen and Bishop.
+                
+           8 |_| |_| |_| |_|X|
+           7 |X|_| | | |_|X|_|
+           6 |_|X| | | |X|_| |
+           5 | | |X| |X| | |_|
+           4   | | |?| | | | |
+           3 | | |X| |X| | |_|
+           2 |_|X| | | |X|_| |
+           1 |X|_| | | |_|X|_|
+              a b c d e f g h
 
         nw, se, ne, sw stands for cardinal coordinates like north west, south east, etc.
+        Calculate minimum range that the "ray" of the piece needs to travel diagonally until it 
+        reaches the edge of the board.
+
+        1. Calculate range between piece and edge of the board
+        2. Append empty squares until range of the board:
+            If finds friendly piece, break
+            Else, if finds enemy piece, append move (because it is a capture) and break
 
         """
         target_squares = set()
-        
+
         # North-West, South-East, Nort-East, South-West
         nw_min = min(self.x,self.y)
         se_min = min(8-self.x,8-self.y)
         ne_min = min(8-self.x,self.y)
         sw_min = min(self.x,8-self.y)
-        nw = [(self.x-i, self.y-i) for i in range(1,nw_min+1)]
-        se = [(self.x+i, self.y+i) for i in range(1,se_min+1)]
-        ne = [(self.x+i, self.y-i) for i in range(1,ne_min+1)]
-        sw = [(self.x-i, self.y+i) for i in range(1,sw_min+1)]
-        for l_squares in [nw, se, ne, sw]:
+        north_west = [(self.x-i, self.y-i) for i in range(1,nw_min+1)]
+        south_east = [(self.x+i, self.y+i) for i in range(1,se_min+1)]
+        north_east = [(self.x+i, self.y-i) for i in range(1,ne_min+1)]
+        south_west = [(self.x-i, self.y+i) for i in range(1,sw_min+1)]
+        for l_squares in [north_west, north_east, south_west, south_east]:
             for x,y in l_squares:
                 if  (0 <= x <= 7) and  (0 <= y <= 7):
                     if board[x,y]:
@@ -155,6 +177,21 @@ class Piece():
     def get_ortogonal_moves(self, board):
         """
         Get ortogonal moves for Queen and Rook.
+        
+            8 |_| |_|^|_| |_| |
+            7 | |_| ||| |_| |_|
+            6 |_| | ||| | |_| |
+            5 | | | ||| | | |_|
+            4 |<|-|-|?|-|-|-|>|
+            3 | | | ||| | | |_|
+            2 |_| | ||| | |_| |
+            1 | |_| |v| |_| |_|
+              a b c d e f g h
+
+        1. Calculate range between piece and edge of the board
+        2. Append empty squares until end of the board:
+            If finds friendly piece, break
+            Else, if finds enemy piece, append move (because it is a capture) and break
 
         """
         target_squares = []
@@ -162,7 +199,8 @@ class Piece():
         west = [(self.x+i, self.y) for i in range(1,7-self.x+1)]
         east = [(self.x-i, self.y) for i in range(1,self.x+1)]
         south = [(self.x, self.y-i) for i in range(1,self.y+1)]
-        for l_squares in [north, west, south, north]:
+        
+        for l_squares in [north, west, south, east]:
             for x,y in l_squares:
                 if board[x,y]:
                     if board[x,y].color != self.color:
@@ -177,30 +215,30 @@ class Piece():
 
 
 class Rook(Piece):
+    """
+
+    rook_side : str
+        information is needed to disable the correct right to castle i.e King or Queen side.
+        Can be K,Q,k,q
+
+        Rook moves
+    8 |_| |_|X|_| |_| |
+    7 | |_| |X| |_| |_|
+    6 |_| | |X| | |_| |
+    5 | | | |X| | | |_|
+    4 |X|X|X|N|X|X|X|X|
+    3 | | | |X| | | |_|
+    2 |_| | |X| | |_| |
+    1 | |_| |X| |_| |_|
+      a b c d e f g h
+    """
     def __init__(self, color,x,y, rook_side = None):
-        """
-
-        rook_side : str
-            information is needed to disable the correct right to castle i.e King or Queen side.
-            Can be K,Q,k,q
-
-            Rook moves
-        8 |_| |_|X|_| |_| |
-        7 | |_| |X| |_| |_|
-        6 |_| | |X| | |_| |
-        5 | | | |X| | | |_|
-        4 |X|X|X|N|X|X|X|X|
-        3 | | | |X| | | |_|
-        2 |_| | |X| | |_| |
-        1 | |_| |X| |_| |_|
-          a b c d e f g h
-        """
         super().__init__(color,x,y)
         self.name = "R"
         self.rook_side = rook_side
         self.moves = []
-        
-        
+
+
 
     def get_valid_moves(self, board):
         moves = self.get_ortogonal_moves(board)
@@ -208,53 +246,51 @@ class Rook(Piece):
 
 
 class Bishop(Piece):
-    def __init__(self, color, x,y, color_complex = True):
-        """
-        color_complex : bool
-            Bishops cannot change color_complex, each one is always in a bright or dark square.
-            This information is relevant for drawing criteria.
+    """
+    color_complex : bool
+        Bishops cannot change color_complex, each one is always in a bright or dark square.
+        This information is relevant for drawing criteria.
 
-                    Bishop moves
-               8 |_| |_| |_| |_|X|
-               7 |X|_| | | |_|X|_|
-               6 |_|X| | | |X|_| |
-               5 | | |X| |X| | |_|
-               4   | | |B| | | | |
-               3 | | |X| |X| | |_|
-               2 |_|X| | | |X|_| |
-               1 |X|_| | | |_|X|_|
-                  a b c d e f g h
-        """
+                Bishop moves
+           8 |_| |_| |_| |_|X|
+           7 |X|_| | | |_|X|_|
+           6 |_|X| | | |X|_| |
+           5 | | |X| |X| | |_|
+           4   | | |B| | | | |
+           3 | | |X| |X| | |_|
+           2 |_|X| | | |X|_| |
+           1 |X|_| | | |_|X|_|
+              a b c d e f g h
+    """
+    def __init__(self, color, x,y, color_complex = True):
         super().__init__(color,x,y)
         self.name = "B"
         self.moves = []
         self.color_complex = color_complex
-        
-        
+
+
 
     def get_valid_moves(self, board):
         moves = self.get_diagonal_moves(board)
         return moves
 
 class Knight(Piece):
+    """
+                Knight moves
+           8 |_| |_| |_| |_| |
+           7 | |_| |_| |_| |_|
+           6 |_| |X| |X| |_| |
+           5 | |X| |_| |X| |_|
+           4 |_| |_|N|_| |_| |
+           3 | |X| |_| |X| |_|
+           2 |_| |X| |X| |_| |
+           1 | |_| |_| |_| |_|
+              a b c d e f g h
+    """
     def __init__(self, color,x,y):
-        """
-                    Knight moves
-               8 |_| |_| |_| |_| |
-               7 | |_| |_| |_| |_|
-               6 |_| |X| |X| |_| |
-               5 | |X| |_| |X| |_|
-               4 |_| |_|N|_| |_| |
-               3 | |X| |_| |X| |_|
-               2 |_| |X| |X| |_| |
-               1 | |_| |_| |_| |_|
-                  a b c d e f g h
-        """
         super().__init__(color,x,y)
         self.name = "N"
         self.moves = []
-        
-        
 
     def get_valid_moves(self, board):
         targets = [
@@ -288,8 +324,8 @@ class Queen(Piece):
         super().__init__(color,x,y)
         self.name = "Q"
         self.moves = []
-        
-        
+
+
 
     def get_valid_moves(self, board):
         diag_moves = self.get_diagonal_moves(board)
@@ -304,8 +340,8 @@ class Pawn(Piece):
 
     first_move : bool
         Necessary to check if is possible to do double movement forward
-        
-    
+
+
 
                 Pawn Attack               Pawn Movement(One or two squares if first move)
            8 |_| |_| |_| |_| |         8 |_| |_| |_| |_| |
@@ -323,8 +359,8 @@ class Pawn(Piece):
         self.name = "P"
         self.first_move = first_move
         self.moves = []
-        
-        
+
+
 
     def is_en_passeant(self, move, board):
         """
@@ -339,10 +375,11 @@ class Pawn(Piece):
             if to == enemy_ghost_pawn:
                 if self.color:
                     piece_captured = board[to[0],to[1]+1]
-                    
+
                 else:
-                    piece_captured = board[to[0],to[1]-1] 
+                    piece_captured = board[to[0],to[1]-1]
                 return piece_captured
+        return None
 
     def get_valid_moves(self, board):
         def check_promotion(moves, target):
@@ -383,7 +420,7 @@ class Pawn(Piece):
                 if 0 <= self.x + side <= 7:
                     target = (self.x + side, self.y + ahead)
                     if board[target] and (board[target].color != self.color):
-                            moves = check_promotion(moves, target)
+                        moves = check_promotion(moves, target)
 
                     else:
                         # If there is no piece maybe there is ghostpawn
@@ -398,8 +435,6 @@ class Pawn(Piece):
 
 class King(Piece):
     """
-    first_move : bool
-        Relevant for castling rights
     in_check : bool
         Relevant for endgame criteria i.e draw or checkmate,
         and for drawing visual indicator when playing in GUI.
@@ -415,13 +450,12 @@ class King(Piece):
            1 | |_| |_| |_| |_|
               a b c d e f g h
     """
-    def __init__(self, color, x, y, first_move = True):
+    def __init__(self, color, x, y):
         super().__init__(color, x, y)
         self.name = "K"
-        self.first_move = first_move
         self.moves = []
-        
-        
+
+
         self.in_check = False
 
 
@@ -443,7 +477,9 @@ class King(Piece):
                 ]
         # Create move
         candidate_moves = [(self.get_pos(), target, "%") for target in targets]
-        candidate_moves = [move for move in candidate_moves if self.move_is_possible(move[1], board)]
+        candidate_moves = [move for move in candidate_moves if self.move_is_possible(
+                                                                                move[1],
+                                                                                board)]
         return candidate_moves
 
     def get_valid_moves(self, board):
@@ -465,11 +501,11 @@ class King(Piece):
                     king_to = (self.x+2, self.y)
                 for square in in_between_squares:
                     # If square have pieces, castle is not possible
-                    # Still, if square doesn't have pieces,
-                    # check if they are controlled by enemy pieces
                     if board[square]:
                         castle_enabled = False
                     else:
+                        # Still, if square doesn't have pieces,
+                        # check if they are controlled by enemy pieces
                         if square in enemy_targets:
                             castle_enabled = False
                 if castle_enabled:
@@ -477,4 +513,3 @@ class King(Piece):
                     candidate_moves.append(move)
         self.moves = candidate_moves
         return self.moves
-

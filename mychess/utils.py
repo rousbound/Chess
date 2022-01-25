@@ -1,8 +1,8 @@
-import re
 """
 Module made for saving move conversion functions
 
 """
+import re
 
 def move_2_algebric(board, move, selected_piece, captured_piece, castling):
     """
@@ -35,6 +35,10 @@ def move_2_algebric(board, move, selected_piece, captured_piece, castling):
     return piece_name + specifier + capture + algebric_to
 
 def move_2_uci(move):
+    """
+    Translate move to uci format
+    Ex: ((4,4),(5,5),%) -> e4f5
+    """
     return (mat_2_uci(move[0]),mat_2_uci(move[1]))
 
 def mat_2_uci(square):

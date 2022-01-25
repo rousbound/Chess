@@ -1,7 +1,6 @@
 import sys
-import logging
 
-from chess import *
+from mychess import Chess
 
 
 def main(args):
