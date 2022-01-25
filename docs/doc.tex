@@ -55,14 +55,14 @@ e2e4, and if the movement is valid, output the board state to the user or inform
 the user the input isn't valid. For this matter, the standard python library is
 enough address the problem. For debugging purposes, a graphical interface was
 also required and implemented in pygame, a graphical framework for games. Also
-for debugging and testing pourposes, it was used the program
+for debugging and testing purposes, it was used the program
 \textit{pgn-extract} to convert PGN game notation to UCI notation.
 
 
 \section{Program project}
 
 The project is constitued by four modules that contains in itself their
-respective major classe: The Piece, Board, Chess and GUI.
+respective major class: The Piece, Board, Chess and GUI.
 \begin{enumerate}
     \item The Pieces module contains the Piece class, that is inherited by all
         the chess pieces, and specify how to get from each piece their own set
@@ -220,6 +220,82 @@ we get the following result from 5 ``complex positions'':
 \end{lstlisting}
 
 By doing these tests, we can be certain that the program is working as desired.
+
+
+\pagebreak
+\section{User Docs}
+
+There are three ways to interact with this program, by directly calling their
+functions in the interpreter or in a script, by calling the $play\_cli()$ or the
+$play\_gui()$ functions. 
+
+\subsection{play\_cli() and play\_gui()}
+
+You can enter directly the CLI interface by running: $\$~python3~main.py~-cli$.
+Here the program enters in a loop and continously asks moves until it reaches a
+endgame condition, such as checkmate or draw.
+
+\begin{lstlisting}
+
+*********************************
+8| r | n | b | q | k | b | n | r |
+7| p | p | p | p | p | p | p | p |
+6|   |   |   |   |   |   |   |   |
+5|   |   |   |   |   |   |   |   |
+4|   |   |   |   |   |   |   |   |
+3|   |   |   |   |   |   |   |   |
+2| P | P | P | P | P | P | P | P |
+1| R | N | B | Q | K | B | N | R |
+   a   b   c   d   e   f   g   h
+*********************************
+
+White's turn to move!
+
+Legal moves: a2a4 a2a3 b2b4 b2b3 b1c3 b1a3 c2c4 c2c3 d2d4 d2d3 e2e4 e2e3 f2f4 f2f3 g2g4 g2g3 g1h3 g1f3 h2h4 h2h3
+
+Move: e2e4
+*********************************
+8| r | n | b | q | k | b | n | r |
+7| p | p | p | p | p | p | p | p |
+6|   |   |   |   |   |   |   |   |
+5|   |   |   |   |   |   |   |   |
+4|   |   |   |   | P |   |   |   |
+3|   |   |   |   |   |   |   |   |
+2| P | P | P | P |   | P | P | P |
+1| R | N | B | Q | K | B | N | R |
+   a   b   c   d   e   f   g   h
+*********************************
+
+Black's turn to move!
+
+Legal moves: a7a5 a7a6 b8c6 b8a6 b7b5 b7b6 c7c5 c7c6 d7d5 d7d6 e7e5 e7e6 f7f5 f7f6 g8h6 g8f6 g7g5 g7g6 h7h5 h7h6
+
+Move:
+
+\end{lstlisting}
+
+You can also enter directly the GUI interface by running:
+$\$~python3~main.py~-gui$. There is no time control, just dragging and dropping
+pieces, and promoting pawns. The program takes care of prohibiting illegal moves
+and moving enemy pieces while not your turn. Just as the play\_cli(), the game
+goes on as long as it doesn't reach an endgame condition.
+
+\begin{figure}[H]
+    \center
+    \includegraphics[scale=0.15]{{fig/pre_promotion.png}}
+    \includegraphics[scale=0.15]{{fig/promoting_pawn.png}}
+    \includegraphics[scale=0.15]{{fig/promoted_pawn.png}}
+    \includegraphics[scale=0.15]{{fig/queen_moving_promotion.png}}
+    \caption{Overview of different states of the game while in GUI. With a
+    Pawn promoting to a Queen.}
+\end{figure}
+
+\subsection{Other Uses}
+
+By importing the mychess module, we open other possibilities, like loading a
+position and playing it from there.
+
+
 
 \end{document}
 
