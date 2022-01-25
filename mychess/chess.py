@@ -492,8 +492,6 @@ class Chess():
         """
         try:
             uci_move = input("Move: ")
-            print(type(uci_move))
-            print(uci_move)
             move = uci_2_move(uci_move)
             return move
 
@@ -533,7 +531,7 @@ class Chess():
                 continue
 
             self.play_move(move)
-            self.turn_debug()
+            # self.turn_debug()
             self.board.print_board()
 
         return self.board.board_2_FEN()
