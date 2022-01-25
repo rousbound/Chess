@@ -271,7 +271,7 @@ class GUI():
         color = self.game.board.turn
         queen = Queen(color, self.promoting_column, last_row)
         knight = Knight(color, self.promoting_column, last_row + behind)
-        rook = Rook(color, self.promoting_column, last_row + (2*behind), first_move=False)
+        rook = Rook(color, self.promoting_column, last_row + (2*behind))
         bishop = Bishop(color, self.promoting_column, last_row + (3*behind))
 
         self.promoting_pieces = [queen, knight, rook, bishop]
@@ -298,7 +298,7 @@ class GUI():
             if piece.get_pos() == mouse_pos:
                 self.promoting = False
                 self.promoting_move[2] = piece.name.lower()
-                self.play_move(tuple(self.promoting_move))
+                self.gui_play_move(tuple(self.promoting_move))
                 self.promoting_move = []
 
     def gui_play_move(self, move):

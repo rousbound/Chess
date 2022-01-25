@@ -3,7 +3,7 @@ import random
 import logging
 
 from utils import mat_2_uci, move_2_algebric, uci_2_move, move_2_uci
-# from pieces import Queen, Knight, Rook, Bishop
+from pieces import Queen, Knight, Rook, Bishop
 from board import Board
 
 

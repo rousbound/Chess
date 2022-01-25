@@ -98,11 +98,23 @@ python-chess:
 Features
 --------
 
-* Make moves.
+* Make individual moves in the interpreter.
 
   .. code:: python
 
-      game.push_uci("e2e4")
+     game.push_uci("e2e4")
+
+* Play the position in GUI
+
+  .. code:: python
+    
+    >>> game.play_gui()
+
+* Play the position in CLI
+
+  .. code:: python
+    
+    >>> game.play_gui()
 
 * Load from FEN and save to FEN
 
@@ -123,7 +135,3 @@ Features
     >>> game.board.board_2_FEN()
     'r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0'
   
-* Opening position in GUI
-    
-    >>> game.play_gui()
-    .. image:: https://github.com/rousbound/Chess/blob/refactor_jonatas/res/example_position.png
