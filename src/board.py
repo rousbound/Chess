@@ -1,5 +1,6 @@
 from pieces import King, Queen, Rook, Bishop, Knight, Pawn
 from utils import mat_2_uci
+from collections import OrderedDict
 
 class Board():
     """
@@ -89,7 +90,7 @@ class Board():
         self.no_progress_plies = 0
         self.white_ghost_pawn = None
         self.black_ghost_pawn = None
-        self.board_states = []
+        self.board_states_counter = OrderedDict()
 
         if FEN:
             self.FEN_2_board(FEN)

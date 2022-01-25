@@ -132,6 +132,8 @@ class Chess():
         print("")
         print("PGN:", self.pgn_moves_list)
         print("")
+        print("UCI game:", self.uci_moves_list)
+        print("")
         # print("FEN:", self.board.board_2_FEN())
         print("")
 
@@ -164,6 +166,7 @@ class Chess():
         start = mat_2_uci(move[0])
         to = mat_2_uci(move[1])
         promotion = move[2]
+        promotion = "" if promotion == "%" else promotion
         self.uci_moves_list += f"{start}{to}{promotion} "
 
     def debug_game_pgn(self, move, selected_piece, captured_piece, castling):
@@ -301,6 +304,7 @@ class Chess():
 
         selected_piece = self.board[start]
         castling = None
+        promoted_piece = None
 
 
         if selected_piece.name == "P":
@@ -312,7 +316,7 @@ class Chess():
 
             # Check Promotion
             if promotion in "qrbn":
-                selected_piece = self.get_promotion(promotion, selected_piece)
+                promoted_piece = self.get_promotion(promotion, selected_piece)
 
             # Pawn moves resets no progress counter
             self.board.no_progress_plies = 0
@@ -327,7 +331,7 @@ class Chess():
                 castling = self.apply_castle(move, selected_piece)
 
                 # After castle, a position can't be repeated
-                self.board.board_states = []
+                self.board.board_states_counter = {}
 
 
         captured_piece = selected_piece.move(to, self.board)
@@ -345,9 +349,12 @@ class Chess():
             self.debug_game_pgn(move, selected_piece, captured_piece, castling)
             self.debug_game_uci(move)
             self.moves_list.append(move)
+        
+        if promoted_piece:
+            promoted_piece.move(to, self.board)
 
         # Save board state for draw criteria
-        self.board.board_states.append(self.board.board_2_FEN())
+        # self.board.board_states.append(self.board.board_2_FEN())
 
         # Increment turn counter for draw criteria
         if not self.board.turn:
@@ -399,7 +406,7 @@ class Chess():
                 piece1 = pieces_left[0]
                 piece2 = pieces_left[1]
                 if piece1.color != piece2.color:
-                    if piece1.name == "B" and piece1.name == "B":
+                    if piece1.name == "B" and piece2.name == "B":
                         if piece1.color_complex != piece2.color_complex:
                             print("DRAW -- Kings and Bishop vs Bishop of different color complexes cannot checkmate")
                             self.game_running = False
@@ -442,13 +449,12 @@ class Chess():
             However, we only check last 6 turns-12 plies, otherwise it becomes very
             computationally expensive.
             """
-            self.board_states_counter = {}
-            for board in self.board.board_states[-12:]:
-                if board in board_states_counter.keys():
-                    board_states_counter[board] += 1
-                else:
-                    board_states_counter[board] = 1
-            for val in board_states_counter.values():
+            fen = " ".join(self.board.board_2_FEN().split(" ")[:4])
+            if fen in self.board.board_states_counter.keys():
+                self.board.board_states_counter[fen] += 1
+            else:
+                self.board.board_states_counter[fen] = 1
+            for val in self.board.board_states_counter.values():
                 if val >= 3:
                     self.game_running = False
                     print("DRAW -- Three fold repetition")
@@ -458,7 +464,7 @@ class Chess():
         check_stalemate_or_checkmate(legal_moves)
         check_no_progress_draw()
         check_material_draw()
-        # check_three_fold_repetition()
+        check_three_fold_repetition()
 
     def kings_in_check(self):
         """
@@ -495,7 +501,7 @@ class Chess():
                 self.play_move(move)
         self.print_turn_decorator()
         self.board.print_board()
-        self.get_legal_moves()
+        # self.get_legal_moves()
 
     def get_move_player(self):
         """
@@ -512,6 +518,19 @@ class Chess():
             print("EOF")
             return "EOF"
 
+        
+    def get_move_random(self):
+        """
+        Get random move from legal moves
+
+        """
+        move = None
+        r = random.randint(0,len(self.legal_moves)-1)
+        move = self.legal_moves[r]
+        return move
+    
+
+
     def play_gui(self):
         """
         Play game with Graphical User Interface.
@@ -520,15 +539,15 @@ class Chess():
         gui = GUI(640,640,self)
         gui.main()
 
-    def play_cli(self):
+    def play_cli(self, get_move):
         """
         Play game with command line interface.
 
         """
         self.board.print_board()
         while self.game_running:
-            self.print_turn_decorator()
             self.legal_moves = self.get_legal_moves()
+            self.print_turn_decorator()
             print("")
             print("Legal moves:", self.uci_moves())
             print("")
@@ -536,15 +555,37 @@ class Chess():
             if not self.game_running:
                 break
 
-            move = self.get_move_player()
+            move = get_move()
 
             if move not in self.legal_moves:
                 print("Illegal or impossible move")
                 continue
 
             self.play_move(move)
-            # self.turn_debug()
+            self.turn_debug()
             self.board.print_board()
+
+        return self.board.board_2_FEN()
+    
+    def test_input_moves(self, input_moves):
+        for move in input_moves:
+            self.legal_moves = self.get_legal_moves()
+            self.board.print_board()
+            self.print_turn_decorator()
+            
+            move = uci_2_move(move)
+            print("Move:", move)
+            if not self.game_running:
+                break
+
+            if move not in self.legal_moves:
+                print("Illegal or impossible move")
+                continue
+
+            self.play_move(move)
+            self.turn_debug()
+            self.board.print_board()
+        self.legal_moves = self.get_legal_moves()
 
         return self.board.board_2_FEN()
 

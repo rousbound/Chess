@@ -16,6 +16,7 @@ def move_2_algebric(board, move, selected_piece, captured_piece, castling):
 
     start = move[0]
     to = move[1]
+    promotion = move[2]
     if castling:
         return castling
     algebric_to = mat_2_uci(to)
@@ -32,7 +33,8 @@ def move_2_algebric(board, move, selected_piece, captured_piece, castling):
     if selected_piece.name != "K":
         specifier = board.has_same_target(start, selected_piece, selected_piece.color)
 
-    return piece_name + specifier + capture + algebric_to
+    promotion = "" if promotion == "%" else "=" + promotion.upper()
+    return piece_name + specifier + capture + algebric_to + promotion
 
 def move_2_uci(move):
     """

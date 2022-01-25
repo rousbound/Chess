@@ -17,7 +17,11 @@ def main(args):
     if arg == "-cli":
 
         chess = Chess(print_turn_decorator=False)
-        chess.play_cli()
+        chess.play_cli(chess.get_move_player)
+
+    if arg == "-clir":
+        chess = Chess(print_turn_decorator=False)
+        chess.play_cli(chess.get_move_random)
 
     if arg in ["-gui", None]:
 

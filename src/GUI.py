@@ -400,7 +400,7 @@ class GUI():
         Function called when dropping a piece that was holded.
 
         """
-        self.chess.legal_moves = self.chess.get_legal_moves()
+        # self.chess.legal_moves = self.chess.get_legal_moves()
         to = self.get_mouse_pos()
         start = self.piece_held.get_pos()
         if self.piece_held.name == "P":
@@ -426,7 +426,6 @@ class GUI():
         Main function.
 
         """
-        self.chess.legal_moves = self.chess.get_legal_moves()
         while self.chess.game_running:
             self.screen.fill((0, 0, 0, 255))
             self.draw()
