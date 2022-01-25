@@ -446,8 +446,7 @@ class Chess():
         def check_three_fold_repetition():
             """
             Checks if set of legal moves already repeated three times.
-            However, we only check last 6 turns-12 plies, otherwise it becomes very
-            computationally expensive.
+
             """
             fen = " ".join(self.board.board_2_FEN().split(" ")[:4])
             if fen in self.board.board_states_counter.keys():
