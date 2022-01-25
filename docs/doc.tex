@@ -85,6 +85,18 @@ respective major class: The Piece, Board, Chess and GUI.
 
 \section{Testing}
 
+Three approaches were made to certify the accuracy of the game:
+
+\begin{enumerate}[label=\arabic*)]
+\item Shannon's Calculations
+\item Brute force complex positions and comparing with a proof table
+\item Specific tests to test draw conditions
+\end{enumerate}
+
+
+\subsection{Shannon's Number}
+
+
 \begin{table}[H]
 \center
 \begin{tabular}{|c|c|}
@@ -161,6 +173,9 @@ Checks} & \textbf{Dbl Checks} & \textbf{Checkmates} \\
 By this table we can see that we need to concentrate our efforts in testing
 Castle, Promotions, Discovery Checks and Double Checks.
 
+\subsection{Brute forcing complex positions}
+
+
 One way to test them, is loading ``complex positions'', which contain it its
 possibilities, castling, promotion, discovery checks and double checks, and brute forcing their
 possible moves, and comparing the results with a proof table. Using the
@@ -219,7 +234,68 @@ we get the following result from 5 ``complex positions'':
     
 \end{lstlisting}
 
-By doing these tests, we can be certain that the program is working as desired.
+By doing these tests, we can be relativery certain that the ``special moves'' are working
+as desired.
+
+\subsection{Specific tests for Draws}
+
+Because Draws take so long to happen, they very rarely appear in brute forcing
+tests. Because of that, we made specific tests, that have this logic:
+
+\begin{lstlisting}
+
+movedraw50 = ["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1
+b8c6 d4d5 c6e7 f3d2 a7a5 a1b1 f6d7 a2a3 f7f5 b2b4 g8h8 f2f3 e7g8 d1c2 g8f6 c3b5
+a5b4 a3b4 f6h5 g2g3 d7f6 c4c5 c8d7 b1b3 h5g3 h2g3 f6h5 f3f4 e5f4 c5c6 b7c6 d5c6
+h5g3 b3g3 f4g3 c6d7 g3g2 f1f3 d8d7 c1b2 f5e4 f3f8 a8f8 b2g7 d7g7 c2e4 g7f6 d2f3
+f6f4 e4e7 f8f7 e7e6 f7f6 e6e8 f6f8 e8e7 f8f7 e7e6 f7f6 e6b3 g6g5 b5c7 g5g4 c7d5
+f4c1 b3d1 c1d1 e2d1 f6f5 d5e3 f5f4 f3e1 f4b4 d1g4 h7h5 g4f3 d6d5 e3g2 h5h4 e1d3
+b4a4 g2f4 h8g7 g1g2 g7f6 f3d5 a4a5 d5c6 a5a6 c6b7 a6a3 b7e4 a3a4 e4d5 a4a5 d5c6
+a5a6 c6f3 f6g5 f3b7 a6a1 b7c8 a1a4 g2f3 a4c4 c8d7 g5f6 f3g4 c4d4 d7c6 d4d8 g4h4
+d8g8 c6e4 g8g1 f4h5 f6e6 h5g3 e6f6 h4g4 g1a1 e4d5 a1a5 d5f3 a5a1 g4f4 f6e6 d3c5
+e6d6 g3e4 d6e7 f4e5 a1f1 f3g4 f1g1 g4e6 g1e1 e6c8 e1c1 e5d4 c1d1 c5d3 e7f7 d4e3
+d1a1 e3f4 f7e7 d3b4 a1c1 b4d5 e7f7 c8d7 c1f1 f4e5 f1a1 e4g5 f7g6 g5f3 g6g7 d7g4
+g7g6 d5f4 g6g7 f3d4 a1e1 e5f5 e1c1 g4e2 c1e1 e2h5 e1a1 f4e6 g7h6 h5e8 a1a8 e8c6
+a8a1 f5f6 h6h7 e6g5 h7h8 d4e6 a1a6 c6e8 a6a8 e8h5 a8a1 h5g6 a1f1 f6e7 f1a1 g5f7
+h8g8 f7h6 g8h8 h6f5 a1a7 e7f6 a7a1 f5e3 a1e1 e3d5 e1g1 g6f5 g1f1 d5f4 f1a1 f4g6
+h8g8 g6e7 g8h8 e6g5", "7k/4N3/5K2/5BN1/8/8/8/r7 b - - 100 113"]
+
+\end{lstlisting}
+
+For example, we feed this list of moves into our specific test function:
+
+\begin{lstlisting}
+for test in tests:
+    chess = Chess()
+
+    fen = chess.test_input_moves(test[0].split(" "))
+    r = fen == test[1]
+    result = "OK" if r else "ERROR"
+    assert r
+    print("Test:", result)
+
+\end{lstlisting}
+
+The test plays the game and prints the result of the comparison between the expected board state
+result(FEN) with the FEN given by our function call. If our game returns the
+exact expected FEN, the test was successfull.
+
+Similar tests were made with:
+\begin{enumerate}[label=\arabic*)]
+\item Insufficient material
+    \begin{enumerate}[label=\arabic{enumii}.\arabic*)]
+    \item Opposite colors bishops draw
+    \item Knight and King vs King
+    \item Bishop and King vs King
+    \item King vs King
+    \end{enumerate}
+    
+    \item Stalemate 
+    \item Three Fold Repetition
+    \item 50 move without pawn move or capture
+\end{enumerate}
+
+
 
 
 \pagebreak
