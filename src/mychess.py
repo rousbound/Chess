@@ -134,7 +134,7 @@ class Chess():
         print("")
         print("UCI game:", self.uci_moves_list)
         print("")
-        # print("FEN:", self.board.board_2_FEN())
+        print("FEN:", self.board.board_2_FEN())
         print("")
 
     def debug_algebric_legal_moves(self, move, piece, captured_piece):

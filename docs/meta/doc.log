@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.15)  25 JAN 2022 14:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.15)  26 JAN 2022 08:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1199,6 +1199,12 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks36
 \@floatcapt=\box44
 )
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+)
 Package biblatex Info: Trying to load language 'portuguese'...
 Package biblatex Info: ... file 'portuguese.lbx' found.
 
@@ -1214,24 +1220,24 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (meta/doc.aux)
 \openout1 = `doc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 47.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 67.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    ... okay on input line 67.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1280,8 +1286,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'doc.bbl' not found.
 
 No file doc.bbl.
-Package biblatex Info: Reference section=0 on input line 47.
-Package biblatex Info: Reference segment=0 on input line 47.
+Package biblatex Info: Reference section=0 on input line 67.
+Package biblatex Info: Reference segment=0 on input line 67.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1318,37 +1324,36 @@ Package biblatex Info: Reference segment=0 on input line 47.
 
 \c@lstlisting=\count322
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 48.
+(Font)              <12> on input line 68.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 48.
+(Font)              <8> on input line 68.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 48.
+(Font)              <6> on input line 68.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 96.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 96.
 <fig/classes_Chess.png, id=4, 2582.64874pt x 1129.21875pt>
 File: fig/classes_Chess.png Graphic file (type png)
 <use fig/classes_Chess.png>
-Package pdftex.def Info: fig/classes_Chess.png  used on input line 82.
+Package pdftex.def Info: fig/classes_Chess.png  used on input line 106.
 (pdftex.def)             Requested size: 516.5206pt x 225.83975pt.
 
-Overfull \hbox (17.85802pt too wide) in paragraph at lines 82--83
+Overfull \hbox (17.85802pt too wide) in paragraph at lines 106--107
 [][] 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./fig/classes_Chess.png>]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 102.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 102.
-
-Overfull \hbox (20.61151pt too wide) in paragraph at lines 152--170
+Overfull \hbox (20.61151pt too wide) in paragraph at lines 185--203
  [] 
  []
 
 ! Undefined control sequence.
 \Url Error ->\url used in a moving argument. 
                                              
-l.170 ...www.chessprogramming.org/Perft_Results} }
+l.203 ...www.chessprogramming.org/Perft_Results} }
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1356,81 +1361,64 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 186.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 186.
- [2] [3] [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 317.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 317.
-
-Overfull \hbox (173.34425pt too wide) in paragraph at lines 330--332
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][] 
- []
-
-
-Overfull \hbox (173.34425pt too wide) in paragraph at lines 347--349
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][] 
- []
-
-<fig/pre_promotion.png, id=29, 646.415pt x 647.41875pt>
+[2]
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 222
+.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
+File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+) [3] [4] [5]
+<fig/pre_promotion.png, id=36, 646.415pt x 647.41875pt>
 File: fig/pre_promotion.png Graphic file (type png)
 <use fig/pre_promotion.png>
-Package pdftex.def Info: fig/pre_promotion.png  used on input line 361.
+Package pdftex.def Info: fig/pre_promotion.png  used on input line 412.
 (pdftex.def)             Requested size: 96.95805pt x 97.10861pt.
-<fig/promoting_pawn.png, id=30, 645.41125pt x 642.4pt>
+<fig/promoting_pawn.png, id=37, 645.41125pt x 642.4pt>
 File: fig/promoting_pawn.png Graphic file (type png)
 <use fig/promoting_pawn.png>
-Package pdftex.def Info: fig/promoting_pawn.png  used on input line 362.
+Package pdftex.def Info: fig/promoting_pawn.png  used on input line 413.
 (pdftex.def)             Requested size: 96.80751pt x 96.35583pt.
-<fig/promoted_pawn.png, id=31, 647.41875pt x 649.42625pt>
+<fig/promoted_pawn.png, id=38, 647.41875pt x 649.42625pt>
 File: fig/promoted_pawn.png Graphic file (type png)
 <use fig/promoted_pawn.png>
-Package pdftex.def Info: fig/promoted_pawn.png  used on input line 363.
+Package pdftex.def Info: fig/promoted_pawn.png  used on input line 414.
 (pdftex.def)             Requested size: 97.10861pt x 97.40973pt.
-<fig/queen_moving_promotion.png, id=32, 648.4225pt x 645.41125pt>
+<fig/queen_moving_promotion.png, id=39, 648.4225pt x 645.41125pt>
 File: fig/queen_moving_promotion.png Graphic file (type png)
 <use fig/queen_moving_promotion.png>
-Package pdftex.def Info: fig/queen_moving_promotion.png  used on input line 364
+Package pdftex.def Info: fig/queen_moving_promotion.png  used on input line 415
 .
 (pdftex.def)             Requested size: 97.25917pt x 96.80751pt.
-[5] [6 <./fig/pre_promotion.png> <./fig/promoting_pawn.png> <./fig/promoted_paw
-n.png> <./fig/queen_moving_promotion.png>] (meta/doc.aux)
+
+[6 <./fig/pre_promotion.png> <./fig/promoting_pawn.png> <./fig/promoted_pawn.pn
+g> <./fig/queen_moving_promotion.png>] (meta/doc.aux)
 Package logreq Info: Writing requests to 'doc.run.xml'.
 \openout1 = `doc.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23059 strings out of 492982
- 426139 string characters out of 6134896
- 878493 words of memory out of 5000000
- 26243 multiletter control sequences out of 15000+600000
- 8850 words of font info for 32 fonts, out of 8000000 for 9000
+ 23410 strings out of 492982
+ 430091 string characters out of 6134896
+ 907024 words of memory out of 5000000
+ 26588 multiletter control sequences out of 15000+600000
+ 9446 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,8n,94p,811b,1559s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,8n,94p,811b,1621s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on meta/doc.pdf (6 pages, 518098 bytes).
+/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share
+/texmf/fonts/type1/public/cm-super/sftt0900.pfb>
+Output written on meta/doc.pdf (6 pages, 550512 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 82 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 

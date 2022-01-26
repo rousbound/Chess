@@ -43,6 +43,26 @@
   \end{figure}
 }
 
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C,
+  aboveskip=2mm,
+  belowskip=2mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 
 \begin{document}
 \maketitle
@@ -52,7 +72,7 @@
 The program should be able to receive as input a chess move in UCI(Universal
 Chess Interface) format i.e
 e2e4, and if the movement is valid, output the board state to the user or inform
-the user the input isn't valid. For this matter, the standard python library is
+the user the input isn't valid. For this matter, the standard python libraries is
 enough address the problem. For debugging purposes, a graphical interface was
 also required and implemented in pygame, a graphical framework for games. Also
 for debugging and testing purposes, it was used the program
@@ -67,9 +87,13 @@ respective major class: The Piece, Board, Chess and GUI.
     \item The Pieces module contains the Piece class, that is inherited by all
         the chess pieces, and specify how to get from each piece their own set
         of possible moves.
-        \item The Board module contains the Board class that is used to save all
+        \item The Board module contains the Board class that is used to save and
+            process all
             information relative to board state, such as pieces positions,
             castling rights, number of turns, en passeant possibility, etc.
+            And with that it information it can save and load the board state
+            in the form of a FEN(Forsyth–Edwards
+            Notation)\footnote{\url{https://en.wikipedia.org/wiki/Forsyth\%E2\%80\%93Edwards_Notation}}
         \item The Chess module contains the Chess class that is used to process
             the Board information and create legal moves from which the player
             can chose to play.
@@ -89,9 +113,18 @@ Three approaches were made to certify the accuracy of the game:
 
 \begin{enumerate}[label=\arabic*)]
 \item Shannon's Calculations
-\item Brute force complex positions and comparing with a proof table
+\item Brute force complex positions and comparing with a proof table of possible
+    moves. 
 \item Specific tests to test draw conditions
 \end{enumerate}
+
+To execute the tests we run the following command for the desired test at the top level directory of the project, i.e ``/project''
+\begin{lstlisting}
+python3 -m tests.test_draws
+python3 -m tests.test_brute
+\end{lstlisting}
+
+The result of both tests will be located at ``project/tests/log''
 
 
 \subsection{Shannon's Number}
@@ -147,7 +180,7 @@ game until 5 ply, as we can see by the test log:
 Although this is a good signal that basic operations are working, in 5 plies we
 cannot test all the complications that might arise during a chess game.
 
-\begin{table}[h]
+\begin{table}[H]
 \center
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -171,15 +204,18 @@ Checks} & \textbf{Dbl Checks} & \textbf{Checkmates} \\
 \end{table}
 
 By this table we can see that we need to concentrate our efforts in testing
-Castle, Promotions, Discovery Checks and Double Checks.
+Castle, Promotions, Discovery Checks and Double Checks. Because they don't arise
+until moves later than 5.
 
 \subsection{Brute forcing complex positions}
 
 
-One way to test them, is loading ``complex positions'', which contain it its
-possibilities, castling, promotion, discovery checks and double checks, and brute forcing their
-possible moves, and comparing the results with a proof table. Using the
+One way to test them, is loading ``complex positions'', which contain in its
+possibilities: Castling, promotion, discovery checks and double checks, brute
+force their
+possible moves, and compare the results with a proof table. Using the
 positions recommended in \url{https://www.chessprogramming.org/Perft_Results},
+with their respective proof table,
 we get the following result from 5 ``complex positions'':
 
 \begin{lstlisting}
@@ -240,7 +276,8 @@ as desired.
 \subsection{Specific tests for Draws}
 
 Because Draws take so long to happen, they very rarely appear in brute forcing
-tests. Because of that, we made specific tests, that have this logic:
+tests. Because of that, we made specific tests, that have this logic.
+For example, we feed this list of moves: 
 
 \begin{lstlisting}
 
@@ -262,21 +299,23 @@ h8g8 g6e7 g8h8 e6g5", "7k/4N3/5K2/5BN1/8/8/8/r7 b - - 100 113"]
 
 \end{lstlisting}
 
-For example, we feed this list of moves into our specific test function:
+Into our specific test function:
 
 \begin{lstlisting}
-for test in tests:
-    chess = Chess()
+    for test in tests:
 
-    fen = chess.test_input_moves(test[0].split(" "))
-    r = fen == test[1]
-    result = "OK" if r else "ERROR"
-    assert r
-    print("Test:", result)
+        chess = Chess()
+        fen = chess.test_input_moves(test[0].split(" "))
+        r = fen == test[1]
+        result = "OK" if r else "ERROR"
+        logging.info(f"Test with fen {test[1]} resulted in: {result}")
+        assert r
+
+    logging.info(f"DRAW TEST SUCCESSFUL")
 
 \end{lstlisting}
 
-The test plays the game and prints the result of the comparison between the expected board state
+The test plays the game move by move, and prints the result of the comparison between the expected board state
 result(FEN) with the FEN given by our function call. If our game returns the
 exact expected FEN, the test was successfull.
 
@@ -295,17 +334,29 @@ Similar tests were made with:
     \item 50 move without pawn move or capture
 \end{enumerate}
 
+By this tests, we can be relatively sure that the game will be successfully
+executed in most cases.
 
 
 
-\pagebreak
 \section{User Docs}
+
+\subsection{Installation}
+
+Assuming you already have installed python and pip, the user only needs to run:
+\begin{lstlisting}
+ pip3 install -r requirements.txt.
+\end{lstlisting}
+
+\subsection{Usage}
 
 There are three ways to interact with this program, by directly calling their
 functions in the interpreter or in a script, by calling the $play\_cli()$ or the
 $play\_gui()$ functions. 
 
-\subsection{play\_cli() and play\_gui()}
+\subsubsection{play\_cli() and play\_gui()}
+
+
 
 You can enter directly the CLI interface by running: $\$~python3~main.py~-cli$.
 Here the program enters in a loop and continously asks moves until it reaches a
@@ -325,7 +376,7 @@ endgame condition, such as checkmate or draw.
    a   b   c   d   e   f   g   h
 *********************************
 
-White's turn to move!
+Whites turn to move!
 
 Legal moves: a2a4 a2a3 b2b4 b2b3 b1c3 b1a3 c2c4 c2c3 d2d4 d2d3 e2e4 e2e3 f2f4 f2f3 g2g4 g2g3 g1h3 g1f3 h2h4 h2h3
 
@@ -342,7 +393,7 @@ Move: e2e4
    a   b   c   d   e   f   g   h
 *********************************
 
-Black's turn to move!
+Blacks turn to move!
 
 Legal moves: a7a5 a7a6 b8c6 b8a6 b7b5 b7b6 c7c5 c7c6 d7d5 d7d6 e7e5 e7e6 f7f5 f7f6 g8h6 g8f6 g7g5 g7g6 h7h5 h7h6
 
@@ -366,7 +417,7 @@ goes on as long as it doesn't reach an endgame condition.
     Pawn promoting to a Queen.}
 \end{figure}
 
-\subsection{Other Uses}
+\subsubsection{Other Uses}
 
 By importing the mychess module, we open other possibilities, like loading a
 position and playing it from there.
