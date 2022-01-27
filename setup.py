@@ -1,7 +1,34 @@
-from setuptools import setup, find_packages
+from typing import List
 
-setup(
-    name='example',
-    version='0.1.0',
-    packages=find_packages(include=['src', 'src.*'])
+import setuptools
+
+
+def read_multiline_as_list(file_path: str) -> List[str]:
+    with open(file_path) as fh:
+        contents = fh.read().split("\n")
+        if contents[-1] == "":
+            contents.pop()
+        return contents
+
+
+requirements = read_multiline_as_list("requirements.txt")
+
+# classifiers = read_multiline_as_list("classifiers.txt")
+
+setuptools.setup(
+    name="mychess",
+    version="0.0.1",
+    author="Geraldo Luiz",
+    author_email="geraldorj-2010@hotmail.com",
+    description="Chess Game",
+    url="",
+    packages=setuptools.find_packages(where="src"),
+    package_dir={"": "src"},
+    entry_points={
+        "console_scripts": [
+            # '',
+        ],
+    },
+    # python_requires=">=3.6, <=3.9.5",
+    install_requires=requirements,
 )
