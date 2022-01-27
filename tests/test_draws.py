@@ -5,7 +5,7 @@ from mychess import Chess
 from board import Board
 import datetime 
 
-os.chdir("tests")
+# os.chdir("tests")
 
 now = datetime.datetime.now()
 dt_string = now.strftime("%d-%m-%Y_%H:%M:%S")
@@ -36,7 +36,7 @@ only_kings = ["b2b3 h7h6 c1b2 b7b5 c2c3 g7g5 e2e3 c7c6 a2a4 g5g4 d1f3 d8b6 b3b4 
 
 tests = [movedraw50, draw_three_fold_repetition, draw_by_stalemate, only_knight_left, only_kings]
 
-def test_all():
+def test_all_draw_cases():
     logging.info("----------------------------------------")
     for test in tests:
 
@@ -47,6 +47,6 @@ def test_all():
         logging.info(f"Test with fen {test[1]} resulted in: {result}")
         assert r
 
+    print("DRAW TEST SUCCESSFUL")
     logging.info(f"DRAW TEST SUCCESSFUL")
 
-test_all()

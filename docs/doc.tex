@@ -120,11 +120,16 @@ Three approaches were made to certify the accuracy of the game:
 
 To execute the tests we run the following command for the desired test at the top level directory of the project, i.e ``/project''
 \begin{lstlisting}
-python3 -m tests.test_draws
-python3 -m tests.test_brute
+pytests tests
 \end{lstlisting}
 
-The result of both tests will be located at ``project/tests/log''
+or for specifict tests, for example:
+
+\begin{lstlisting}
+pytests tests/testdraw.py
+\end{lstlisting}
+
+The result of both tests will be located at ``project/logs''
 
 
 \subsection{Shannon's Number}
