@@ -85,9 +85,9 @@ class Piece():
         """
         Make piece move.
         En passeant is the only kind of move that
-        doesn't occupy the captured piece square 
-        when capturing. 
-        For this reason, it needs to be checked here 
+        doesn't occupy the captured piece square
+        when capturing.
+        For this reason, it needs to be checked here
         so it can be run at get_legal_moves() and not
         leave the king in check.
 
@@ -130,7 +130,7 @@ class Piece():
     def get_diagonal_moves(self, board):
         """
         Get diagonal moves for Queen and Bishop.
-                
+
            8 |_| |_| |_| |_|X|
            7 |X|_| | | |_|X|_|
            6 |_|X| | | |X|_| |
@@ -142,7 +142,7 @@ class Piece():
               a b c d e f g h
 
         nw, se, ne, sw stands for cardinal coordinates like north west, south east, etc.
-        Calculate minimum range that the "ray" of the piece needs to travel diagonally until it 
+        Calculate minimum range that the "ray" of the piece needs to travel diagonally until it
         reaches the edge of the board.
 
         1. Calculate range between piece and edge of the board
@@ -177,7 +177,7 @@ class Piece():
     def get_ortogonal_moves(self, board):
         """
         Get ortogonal moves for Queen and Rook.
-        
+
             8 |_| |_|^|_| |_| |
             7 | |_| ||| |_| |_|
             6 |_| | ||| | |_| |
@@ -199,7 +199,7 @@ class Piece():
         west = [(self.x+i, self.y) for i in range(1,7-self.x+1)]
         east = [(self.x-i, self.y) for i in range(1,self.x+1)]
         south = [(self.x, self.y-i) for i in range(1,self.y+1)]
-        
+
         for l_squares in [north, west, south, east]:
             for x,y in l_squares:
                 if board[x,y]:
@@ -491,15 +491,18 @@ class King(Piece):
         if not self.in_check:
             for rook in board.get_piece("R", self.color):
                 castle_enabled = True
+                cant_be_occupied = None
                 if not board.can_castle[rook.rook_side]:
                     continue
                 if rook.rook_side in "qQ":
-                    in_between_squares = [(self.x-2, self.y), (self.x-1, self.y)]
+                    cant_be_controlled_or_occupied = [(self.x-2, self.y), (self.x-1, self.y)]
+                    cant_be_occupied = (self.x-3, self.y)
                     king_to = (self.x-2, self.y)
                 elif rook.rook_side in "kK":
-                    in_between_squares = [(self.x+1, self.y), (self.x+2, self.y)]
+                    cant_be_controlled_or_occupied = [(self.x+1, self.y), (self.x+2, self.y)]
                     king_to = (self.x+2, self.y)
-                for square in in_between_squares:
+                # These squares cant be controlled or occupied
+                for square in cant_be_controlled_or_occupied:
                     # If square have pieces, castle is not possible
                     if board[square]:
                         castle_enabled = False
@@ -508,6 +511,9 @@ class King(Piece):
                         # check if they are controlled by enemy pieces
                         if square in enemy_targets:
                             castle_enabled = False
+                # This one can be controlled but not occupied
+                if cant_be_occupied and board[cant_be_occupied]:
+                    castle_enabled = False
                 if castle_enabled:
                     move = (self.get_pos(), king_to, "%")
                     candidate_moves.append(move)

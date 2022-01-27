@@ -1,5 +1,5 @@
 #!/bin/bash
-cd src
+cd src/mychess
 pyreverse  -o png -p Chess .
-mv *.png ../docs/fig
+mv *.png ../../docs/fig
 rm *.dot

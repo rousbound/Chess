@@ -51,7 +51,7 @@ class Board():
     remove_castling_rights(color: bool) -> None
         Remove castling rights of player
 
-    board_2_FEN() -> str
+    board_2_fen() -> str
         Make a string representation of the board in the well known FEN format
 
     get_ghost_pawn(color: bool) -> tup
@@ -78,7 +78,7 @@ class Board():
 
 
     """
-    def __init__(self, FEN=None):
+    def __init__(self, fen=None):
         """
         Initializes the board per standard chess rules.
         """
@@ -92,8 +92,9 @@ class Board():
         self.black_ghost_pawn = None
         self.board_states_counter = OrderedDict()
 
-        if FEN:
-            self.FEN_2_board(FEN)
+        self.uci_moves_list = []
+        if fen:
+            self.fen_2_board(fen)
         else:
             self.setup_initial_position()
 
@@ -149,8 +150,8 @@ class Board():
             self.can_castle["k"] = False
 
 
-    def FEN_2_board(self, FEN):
-        fen_pieces, turn, castling, enpasseant, no_progress_counter, turn_counter = FEN.split(" ")
+    def fen_2_board(self, fen):
+        fen_pieces, turn, castling, enpasseant, no_progress_counter, turn_counter = fen.split(" ")
 
         self.can_castle = {"K": False, "Q": False, "k": False, "q": False, None: False}
 
@@ -188,7 +189,7 @@ class Board():
             elif skip == 0:
                 if char in "rnbqkpRNBQKP":
                     squares += 1
-                    color = char.isupper() 
+                    color = char.isupper()
                     if char in "rR":
                         rook_side = None
                         if (x,y) == (0,0):
@@ -221,13 +222,8 @@ class Board():
 
             if squares == 64:
                 break
-        
 
-
-
-
-
-    def board_2_FEN(self):
+    def board_2_fen(self):
         """
         Converts game state to FEN,
         which encodes the group of all possible legal moves in a position.
@@ -236,30 +232,30 @@ class Board():
         number of "no progress moves" and turn counter.
 
         """
-        FEN = ""
+        fen = ""
         for y in range(8):
             no_piece = 0
             for x in range(8):
                 piece = self[x,y]
                 if piece:
                     if no_piece != 0:
-                        FEN += str(no_piece)
+                        fen += str(no_piece)
                         no_piece = 0
                     if piece.color:
-                        FEN += piece.name
+                        fen += piece.name
                     else:
-                        FEN += piece.name.lower()
+                        fen += piece.name.lower()
                 elif x != 7:
                     no_piece += 1
                 elif x == 7:
                     no_piece += 1
                     if no_piece != 0:
-                        FEN += str(no_piece)
+                        fen += str(no_piece)
             if y != 7:
-                FEN += "/"
+                fen += "/"
 
         # Concatanate turn information
-        FEN += " w " if self.turn else " b "
+        fen += " w " if self.turn else " b "
         can_castle = ""
 
         # Concatenate castling right information
@@ -267,21 +263,21 @@ class Board():
             if value:
                 can_castle += key
         can_castle = "-" if len(can_castle) == 0 else can_castle
-        FEN += can_castle
+        fen += can_castle
 
         # Concatenate En passeant information
         if self.white_ghost_pawn:
-            FEN += " " + mat_2_uci(self.white_ghost_pawn)
+            fen += " " + mat_2_uci(self.white_ghost_pawn)
         elif self.black_ghost_pawn:
-            FEN += " " + mat_2_uci(self.black_ghost_pawn)
+            fen += " " + mat_2_uci(self.black_ghost_pawn)
         elif not self.white_ghost_pawn and not self.black_ghost_pawn:
-            FEN += " " + "-"
+            fen += " " + "-"
 
         # Concatenate turn counter and no progress plies information
-        FEN += " " + str(self.no_progress_plies)
-        FEN += " " + str(self.turn_counter)
+        fen += " " + str(self.no_progress_plies)
+        fen += " " + str(self.turn_counter)
 
-        return FEN
+        return fen
 
 
 
@@ -360,14 +356,14 @@ class Board():
         """
 
         column_labels = "abcdefgh"
-        BOARD_LEN = 8
+        board_len = 8
         buffer = ""
         for i in range(33):
             buffer += "*"
         buffer += "\n"
-        for y in range(BOARD_LEN):
+        for y in range(board_len):
             tmp_str = f"{8-y}|"
-            for x in range(BOARD_LEN):
+            for x in range(board_len):
                 if self[x,y] is None:
                     tmp_str += "   |"
                 else:
@@ -377,7 +373,7 @@ class Board():
                         tmp_str += (" " + str(self[x,y]).lower() + " |")
 
             buffer += tmp_str + "\n"
-        for i in range(BOARD_LEN):
+        for i in range(board_len):
             buffer += f"   {column_labels[i]}"
         buffer += "\n"
 
@@ -416,12 +412,27 @@ class Board():
         """
 
         enemy_moves = set()
-        for otherpiece in self.get_all_pieces():
-            if otherpiece.color == color:
-                if otherpiece.name != "K":
-                    for move in otherpiece.get_valid_moves(self):
+        for piece in self.get_all_pieces():
+            if piece.color == color:
+                if piece.name == "P":
+                    # Pawns are the only pieces that
+                    # control squares without having
+                    # valid moves to that square
+                    # Ex:
+                    # Relevant when a pawn control a square between
+                    # Rook and King, even when it doesnt have any piece in there
+                    # Therefore we need to add that square to controlled squares
+                    # Even when it isn't a valid pawn move
+                    for move in piece.get_valid_moves(self):
                         enemy_moves.add(move[1])
-                if otherpiece.name == "K":
-                    for move in otherpiece.get_normal_valid_moves(self):
+                    pos = piece.get_pos()
+                    ahead = -1 if color else 1
+                    for side in [-1,1]:
+                        enemy_moves.add(((pos[0]+side),(pos[1]+ahead)))
+                elif piece.name != "K":
+                    for move in piece.get_valid_moves(self):
+                        enemy_moves.add(move[1])
+                elif piece.name == "K":
+                    for move in piece.get_normal_valid_moves(self):
                         enemy_moves.add(move[1])
         return list(enemy_moves)

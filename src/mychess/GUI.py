@@ -377,7 +377,7 @@ class GUI():
         """
         self.last_move_to = move[0]
         self.last_move_from = move[1]
-        # self.last_board_state = self.chess.board.board_2_FEN()
+        # self.last_board_state = self.chess.board.board_2_fen()
         self.last_board_state = copy.deepcopy(self.chess.board)
         self.chess.play_move(move)
         self.chess.legal_moves = self.chess.get_legal_moves()
@@ -460,4 +460,12 @@ class GUI():
 
             pygame.display.flip()
 
+    def show(self):
+        self.screen.fill((0, 0, 0, 255))
+        self.draw()
+        if self.promoting:
+            self.screen.fill(background_promotion)
+            self.draw_promotion()
+        pygame.display.flip()
+        return
 

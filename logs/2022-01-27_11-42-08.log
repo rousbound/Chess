@@ -1,0 +1,2843 @@
+11:42:08 ----------------------------------------
+11:42:08 Initiating move generation test on depth: 3
+11:42:08 FEN of position to be brute forced:r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:08 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:08 ['a2a4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['a2a3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['a1b1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['a1c1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['a1d1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['b2b3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['c3a4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['c3d1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['c3b1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['c3b5']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['d5d6']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['d5e6']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['d2c1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['d2f4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['d2e3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['d2g5']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['d2h6']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e5g4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e5g6']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e5c4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e5c6']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e5f7']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e5d3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e5d7']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e2b5']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e2f1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e2c4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e2d1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e2a6']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e2d3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e1f1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e1d1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e1c1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['e1g1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['f3g4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['f3h5']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['f3g3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['f3h3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['f3f4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['f3f5']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['f3f6']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['f3e3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['f3d3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['g2g4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['g2g3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['g2h3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['h1g1']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['h1f1']
+11:42:09 Result of possible games with 1 ply: 48/48 - OK
+11:42:09 Elapsed time in 1 ply: 00h00m00s seconds
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:09 ['a2a4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'a8b8']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'a8c8']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'a8d8']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'a6b5']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'a6e2']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'a6c8']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'a6c4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'a6b7']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'a6d3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'b6d5']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'b6c4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'b6c8']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'b6a4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'b4b3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'b4c3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'b4a3']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'c7c5']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'c7c6']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'd7d6']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'e8f8']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'e8d8']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'e8c8']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'e8g8']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'e7d8']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'e7d6']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'e7c5']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'e7f8']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'e6d5']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'f6h5']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'f6h7']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'f6d5']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'f6g4']
+11:42:09 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:09 ['a2a4', 'f6g8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:10 ['a2a4', 'f6e4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:10 ['a2a4', 'g7h6']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:10 ['a2a4', 'g7f8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:10 ['a2a4', 'g6g5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:10 ['a2a4', 'h8h7']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:10 ['a2a4', 'h8h6']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:10 ['a2a4', 'h8h5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:10 ['a2a4', 'h8h4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:10 ['a2a4', 'h8g8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:10 ['a2a4', 'h8f8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0
+11:42:10 ['a2a4', 'h3g2']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:10 ['a2a3']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'a8b8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'a8c8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'a8d8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'a6b5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'a6e2']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'a6c8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'a6c4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'a6b7']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'a6d3']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'b6d5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'b6c4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'b6c8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'b6a4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'b4b3']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'b4c3']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'b4a3']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'c7c5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'c7c6']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'd7d6']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'e8f8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'e8d8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'e8c8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'e8g8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'e7d8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'e7d6']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'e7c5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'e7f8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'e6d5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'f6h5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'f6h7']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'f6d5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'f6g4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'f6g8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'f6e4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'g7h6']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'g7f8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'g6g5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'h8h7']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'h8h6']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'h8h5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'h8h4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'h8g8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'h8f8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/P1N2Q1p/1PPBBPPP/R3K2R b KQkq - 0 0
+11:42:10 ['a2a3', 'h3g2']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:10 ['a1b1']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'a8b8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'a8c8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'a8d8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'a6b5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'a6e2']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'a6c8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'a6c4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'a6b7']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'a6d3']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'b6d5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'b6c4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'b6c8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'b6a4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'b4b3']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'b4c3']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'c7c5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'c7c6']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'd7d6']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'e8f8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'e8d8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'e8c8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'e8g8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'e7d8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'e7d6']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'e7c5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'e7f8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'e6d5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'f6h5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'f6h7']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'f6d5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'f6g4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'f6g8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'f6e4']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'g7h6']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'g7f8']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'g6g5']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'h8h7']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'h8h6']
+11:42:10 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:10 ['a1b1', 'h8h5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:11 ['a1b1', 'h8h4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:11 ['a1b1', 'h8g8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:11 ['a1b1', 'h8f8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/1R2K2R b Kkq - 1 0
+11:42:11 ['a1b1', 'h3g2']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:11 ['a1c1']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'a8b8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'a8c8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'a8d8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'a6b5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'a6e2']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'a6c8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'a6c4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'a6b7']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'a6d3']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'b6d5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'b6c4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'b6c8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'b6a4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'b4b3']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'b4c3']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'c7c5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'c7c6']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'd7d6']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'e8f8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'e8d8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'e8c8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'e8g8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'e7d8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'e7d6']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'e7c5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'e7f8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'e6d5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'f6h5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'f6h7']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'f6d5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'f6g4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'f6g8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'f6e4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'g7h6']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'g7f8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'g6g5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'h8h7']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'h8h6']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'h8h5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'h8h4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'h8g8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'h8f8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/2R1K2R b Kkq - 1 0
+11:42:11 ['a1c1', 'h3g2']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:11 ['a1d1']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'a8b8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'a8c8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'a8d8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'a6b5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'a6e2']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'a6c8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'a6c4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'a6b7']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'a6d3']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'b6d5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'b6c4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'b6c8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'b6a4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'b4b3']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'b4c3']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'c7c5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'c7c6']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'd7d6']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'e8f8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'e8d8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'e8c8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'e8g8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'e7d8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'e7d6']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'e7c5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'e7f8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'e6d5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'f6h5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'f6h7']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'f6d5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'f6g4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'f6g8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'f6e4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'g7h6']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'g7f8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'g6g5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'h8h7']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'h8h6']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'h8h5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'h8h4']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'h8g8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'h8f8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/3RK2R b Kkq - 1 0
+11:42:11 ['a1d1', 'h3g2']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:11 ['b2b3']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:11 ['b2b3', 'a8b8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:11 ['b2b3', 'a8c8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:11 ['b2b3', 'a8d8']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:11 ['b2b3', 'a6b5']
+11:42:11 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:11 ['b2b3', 'a6e2']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'a6c8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'a6c4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'a6b7']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'a6d3']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'b6d5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'b6c4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'b6c8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'b6a4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'b4c3']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'c7c5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'c7c6']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'd7d6']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'e8f8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'e8d8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'e8c8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'e8g8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'e7d8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'e7d6']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'e7c5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'e7f8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'e6d5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'f6h5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'f6h7']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'f6d5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'f6g4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'f6g8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'f6e4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'g7h6']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'g7f8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'g6g5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'h8h7']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'h8h6']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'h8h5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'h8h4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'h8g8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'h8f8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/1PN2Q1p/P1PBBPPP/R3K2R b KQkq - 0 0
+11:42:12 ['b2b3', 'h3g2']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:12 ['c3a4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'a8b8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'a8c8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'a8d8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'a6b5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'a6e2']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'a6c8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'a6c4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'a6b7']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'a6d3']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'b6d5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'b6c4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'b6c8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'b6a4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'b4b3']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'c7c5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'c7c6']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'd7d6']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'e8f8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'e8d8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'e8c8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'e8g8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'e7d8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'e7d6']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'e7c5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'e7f8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'e6d5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'f6h5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'f6h7']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'f6d5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'f6g4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'f6g8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'f6e4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'g7h6']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'g7f8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'g6g5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'h8h7']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'h8h6']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'h8h5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'h8h4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'h8g8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'h8f8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/Np2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:12 ['c3a4', 'h3g2']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:12 ['c3d1']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'a8b8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'a8c8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'a8d8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'a6b5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'a6e2']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'a6c8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'a6c4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'a6b7']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'a6d3']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'b6d5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'b6c4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'b6c8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'b6a4']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'b4b3']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'c7c5']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'c7c6']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'd7d6']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'e8f8']
+11:42:12 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:12 ['c3d1', 'e8d8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'e8c8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'e8g8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'e7d8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'e7d6']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'e7c5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'e7f8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'e6d5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'f6h5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'f6h7']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'f6d5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'f6g4']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'f6g8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'f6e4']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'g7h6']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'g7f8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'g6g5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'h8h7']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'h8h6']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'h8h5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'h8h4']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'h8g8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'h8f8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/R2NK2R b KQkq - 1 0
+11:42:13 ['c3d1', 'h3g2']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:13 ['c3b1']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'a8b8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'a8c8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'a8d8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'a6b5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'a6e2']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'a6c8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'a6c4']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'a6b7']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'a6d3']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'b6d5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'b6c4']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'b6c8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'b6a4']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'b4b3']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'c7c5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'c7c6']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'd7d6']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'e8f8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'e8d8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'e8c8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'e8g8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'e7d8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'e7d6']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'e7c5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'e7f8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'e6d5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'f6h5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'f6h7']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'f6d5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'f6g4']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'f6g8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'f6e4']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'g7h6']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'g7f8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'g6g5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'h8h7']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'h8h6']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'h8h5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'h8h4']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'h8g8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'h8f8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/5Q1p/PPPBBPPP/RN2K2R b KQkq - 1 0
+11:42:13 ['c3b1', 'h3g2']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:13 ['c3b5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'a8b8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'a8c8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'a8d8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'a6c8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'a6b5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'a6b7']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'b6d5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'b6c4']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'b6c8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'b6a4']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'b4b3']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'c7c5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'c7c6']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'd7d6']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'e8f8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'e8d8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'e8c8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'e8g8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'e7d8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'e7d6']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'e7c5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'e7f8']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'e6d5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'f6h5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'f6h7']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'f6d5']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:13 ['c3b5', 'f6g4']
+11:42:13 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:14 ['c3b5', 'f6g8']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:14 ['c3b5', 'f6e4']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:14 ['c3b5', 'g7h6']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:14 ['c3b5', 'g7f8']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:14 ['c3b5', 'g6g5']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:14 ['c3b5', 'h8h7']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:14 ['c3b5', 'h8h6']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:14 ['c3b5', 'h8h5']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:14 ['c3b5', 'h8h4']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:14 ['c3b5', 'h8g8']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:14 ['c3b5', 'h8f8']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/1N1PN3/1p2P3/5Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:14 ['c3b5', 'h3g2']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:14 ['d5d6']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'a8b8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'a8c8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'a8d8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'a6b5']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'a6e2']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'a6c8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'a6c4']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'a6b7']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'a6d3']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'b6d5']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'b6c4']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'b6c8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'b6a4']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'b4b3']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'b4c3']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'c7c5']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'c7c6']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'c7d6']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'e8f8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'e8d8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'e8c8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'e8g8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'e7d8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'e7d6']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'e7f8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'f6h5']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'f6h7']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'f6d5']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'f6g4']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'f6g8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'f6e4']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'g7h6']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'g7f8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'g6g5']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'h8h7']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'h8h6']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'h8h5']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'h8h4']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'h8g8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'h8f8']
+11:42:14 r3k2r/p1ppqpb1/bn1Ppnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5d6', 'h3g2']
+11:42:14 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:14 ['d5e6']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'a8b8']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'a8c8']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'a8d8']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'a6b5']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'a6e2']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'a6c8']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'a6c4']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'a6b7']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'a6d3']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'b6d5']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'b6c4']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'b6c8']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'b6a4']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'b4b3']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'b4c3']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'c7c5']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'c7c6']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'd7d5']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'd7d6']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'd7e6']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'e8f8']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'e8d8']
+11:42:14 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:14 ['d5e6', 'e8c8']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'e8g8']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'e7d8']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'e7d6']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'e7c5']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'e7f8']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'e7e6']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'f7e6']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'f6h5']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'f6h7']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'f6d5']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'f6g4']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'f6g8']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'f6e4']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'g7h6']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'g7f8']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'g6g5']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'h8h7']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'h8h6']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'h8h5']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'h8h4']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'h8g8']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'h8f8']
+11:42:15 r3k2r/p1ppqpb1/bn2Pnp1/4N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:15 ['d5e6', 'h3g2']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:15 ['d2c1']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'a8b8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'a8c8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'a8d8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'a6b5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'a6e2']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'a6c8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'a6c4']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'a6b7']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'a6d3']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'b6d5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'b6c4']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'b6c8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'b6a4']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'b4b3']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'b4c3']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'c7c5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'c7c6']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'd7d6']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'e8f8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'e8d8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'e8c8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'e8g8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'e7d8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'e7d6']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'e7c5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'e7f8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'e6d5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'f6h5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'f6h7']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'f6d5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'f6g4']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'f6g8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'f6e4']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'g7h6']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'g7f8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'g6g5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'h8h7']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'h8h6']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'h8h5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'h8h4']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'h8g8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'h8f8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R1B1K2R b KQkq - 1 0
+11:42:15 ['d2c1', 'h3g2']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:15 ['d2f4']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'a8b8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'a8c8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'a8d8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'a6b5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'a6e2']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'a6c8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'a6c4']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'a6b7']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'a6d3']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'b6d5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'b6c4']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'b6c8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'b6a4']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'b4b3']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'b4c3']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'c7c5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'c7c6']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'd7d6']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'e8f8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'e8d8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'e8c8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'e8g8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'e7d8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'e7d6']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'e7c5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'e7f8']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'e6d5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'f6h5']
+11:42:15 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:15 ['d2f4', 'f6h7']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'f6d5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'f6g4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'f6g8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'f6e4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'g7h6']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'g7f8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'g6g5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'h8h7']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'h8h6']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'h8h5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'h8h4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'h8g8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'h8f8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2PB2/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2f4', 'h3g2']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:16 ['d2e3']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'a8b8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'a8c8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'a8d8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'a6b5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'a6e2']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'a6c8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'a6c4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'a6b7']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'a6d3']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'b6d5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'b6c4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'b6c8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'b6a4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'b4b3']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'b4c3']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'c7c5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'c7c6']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'd7d6']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'e8f8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'e8d8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'e8c8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'e8g8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'e7d8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'e7d6']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'e7c5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'e7f8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'e6d5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'f6h5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'f6h7']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'f6d5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'f6g4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'f6g8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'f6e4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'g7h6']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'g7f8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'g6g5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'h8h7']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'h8h6']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'h8h5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'h8h4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'h8g8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'h8f8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N1BQ1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2e3', 'h3g2']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:16 ['d2g5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'a8b8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'a8c8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'a8d8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'a6b5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'a6e2']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'a6c8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'a6c4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'a6b7']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'a6d3']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'b6d5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'b6c4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'b6c8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'b6a4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'b4b3']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'b4c3']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'c7c5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'c7c6']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'd7d6']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'e8f8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'e8d8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'e8c8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'e8g8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'e7d8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'e7d6']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'e7c5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'e7f8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'e6d5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'f6h5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'f6h7']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'f6d5']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'f6g4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'f6g8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'f6e4']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'g7h6']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'g7f8']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'h8h7']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'h8h6']
+11:42:16 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:16 ['d2g5', 'h8h5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2g5', 'h8h4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2g5', 'h8g8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2g5', 'h8f8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3PN1B1/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2g5', 'h3g2']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:17 ['d2h6']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'a8b8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'a8c8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'a8d8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'a6b5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'a6e2']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'a6c8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'a6c4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'a6b7']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'a6d3']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'b6d5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'b6c4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'b6c8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'b6a4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'b4b3']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'b4c3']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'c7c5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'c7c6']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'd7d6']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'e8f8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'e8d8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'e8c8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'e8g8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'e7d8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'e7d6']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'e7c5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'e7f8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'e6d5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'f6h5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'f6h7']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'f6d5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'f6g4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'f6g8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'f6e4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'g7h6']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'g7f8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'g6g5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'h8h7']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'h8h6']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'h8g8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'h8f8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnpB/3PN3/1p2P3/2N2Q1p/PPP1BPPP/R3K2R b KQkq - 1 0
+11:42:17 ['d2h6', 'h3g2']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:17 ['e5g4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'a8b8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'a8c8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'a8d8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'a6b5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'a6e2']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'a6c8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'a6c4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'a6b7']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'a6d3']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'b6d5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'b6c4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'b6c8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'b6a4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'b4b3']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'b4c3']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'c7c5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'c7c6']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'd7d6']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'e8f8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'e8d8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'e8c8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'e8g8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'e7d8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'e7d6']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'e7c5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'e7f8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'e6e5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'e6d5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'f6h5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'f6h7']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'f6d5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'f6g4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'f6g8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'f6e4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'g7h6']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'g7f8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'g6g5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'h8h7']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'h8h6']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'h8h5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'h8h4']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'h8g8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'h8f8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P1N1/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:17 ['e5g4', 'h3g2']
+11:42:17 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:17 ['e5g6']
+11:42:17 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:17 ['e5g6', 'a8b8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:17 ['e5g6', 'a8c8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:17 ['e5g6', 'a8d8']
+11:42:17 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:17 ['e5g6', 'a6b5']
+11:42:17 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:17 ['e5g6', 'a6e2']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'a6c8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'a6c4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'a6b7']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'a6d3']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'b6d5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'b6c4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'b6c8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'b6a4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'b4b3']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'b4c3']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'c7c5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'c7c6']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'd7d6']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'e8d8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'e8c8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'e7d8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'e7d6']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'e7c5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'e7f8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'e6e5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'e6d5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'f7g6']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'f6h5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'f6h7']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'f6d5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'f6g4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'f6g8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'f6e4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'g7h6']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'g7f8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'h8h7']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'h8h6']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'h8h5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'h8h4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'h8g8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'h8f8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnN1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:18 ['e5g6', 'h3g2']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:18 ['e5c4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'a8b8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'a8c8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'a8d8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'a6c8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'a6b5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'a6b7']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'a6c4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'b6d5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'b6c4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'b6c8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'b6a4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'b4b3']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'b4c3']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'c7c5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'c7c6']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'd7d6']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'e8f8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'e8d8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'e8c8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'e8g8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'e7d8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'e7d6']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'e7c5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'e7f8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'e6e5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'e6d5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'f6h5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'f6h7']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'f6d5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'f6g4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'f6g8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'f6e4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'g7h6']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'g7f8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'g6g5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'h8h7']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'h8h6']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'h8h5']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'h8h4']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'h8g8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'h8f8']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3P4/1pN1P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c4', 'h3g2']
+11:42:18 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:18 ['e5c6']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'a8b8']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'a8c8']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'a8d8']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'a6b5']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'a6e2']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'a6c8']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'a6c4']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'a6b7']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'a6d3']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'b6d5']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'b6c4']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'b6c8']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'b6a4']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'b4b3']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'b4c3']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'd7d6']
+11:42:18 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:18 ['e5c6', 'd7c6']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'e8f8']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'e8g8']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'e7d8']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'e7d6']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'e7c5']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'e7f8']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'e6e5']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'e6d5']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'f6h5']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'f6h7']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'f6d5']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'f6g4']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'f6g8']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'f6e4']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'g7h6']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'g7f8']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'g6g5']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'h8h7']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'h8h6']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'h8h5']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'h8h4']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'h8g8']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'h8f8']
+11:42:19 r3k2r/p1ppqpb1/bnN1pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5c6', 'h3g2']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:19 ['e5f7']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'a8b8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'a8c8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'a8d8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'a6b5']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'a6e2']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'a6c8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'a6c4']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'a6b7']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'a6d3']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'b6d5']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'b6c4']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'b6c8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'b6a4']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'b4b3']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'b4c3']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'c7c5']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'c7c6']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'd7d6']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'e8f8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'e8f7']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'e8g8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'e7d8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'e7d6']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'e7c5']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'e7f8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'e7f7']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'e6e5']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'e6d5']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'f6h5']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'f6h7']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'f6d5']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'f6g4']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'f6g8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'f6e4']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'g7h6']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'g7f8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'g6g5']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'h8h7']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'h8h6']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'h8h5']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'h8h4']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'h8g8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'h8f8']
+11:42:19 r3k2r/p1ppqNb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:19 ['e5f7', 'h3g2']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:19 ['e5d3']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'a8b8']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'a8c8']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'a8d8']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'a6b5']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'a6c8']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'a6c4']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'a6b7']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'a6d3']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'b6d5']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'b6c4']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'b6c8']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'b6a4']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'b4b3']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'b4c3']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'c7c5']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'c7c6']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'd7d6']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'e8f8']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'e8d8']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'e8c8']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'e8g8']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'e7d8']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:19 ['e5d3', 'e7d6']
+11:42:19 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'e7c5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'e7f8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'e6e5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'e6d5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'f6h5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'f6h7']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'f6d5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'f6g4']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'f6g8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'f6e4']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'g7h6']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'g7f8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'g6g5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'h8h7']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'h8h6']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'h8h5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'h8h4']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'h8g8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'h8f8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3P4/1p2P3/2NN1Q1p/PPPBBPPP/R3K2R b KQkq - 1 0
+11:42:20 ['e5d3', 'h3g2']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:20 ['e5d7']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'a8b8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'a8c8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'a8d8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'a6b5']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'a6e2']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'a6c8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'a6c4']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'a6b7']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'a6d3']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'b6d5']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'b6d7']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'b6c4']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'b6c8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'b6a4']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'b4b3']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'b4c3']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'c7c5']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'c7c6']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'e8d8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'e8d7']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'e8c8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'e7d8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'e7d6']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'e7c5']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'e7f8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'e7d7']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'e6e5']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'e6d5']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'f6h5']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'f6h7']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'f6d5']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'f6d7']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'f6g4']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'f6g8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'f6e4']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'g7h6']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'g7f8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'g6g5']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'h8h7']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'h8h6']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'h8h5']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'h8h4']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'h8g8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'h8f8']
+11:42:20 r3k2r/p1pNqpb1/bn2pnp1/3P4/1p2P3/2N2Q1p/PPPBBPPP/R3K2R b KQkq - 0 0
+11:42:20 ['e5d7', 'h3g2']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:20 ['e2b5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'a8b8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'a8c8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'a8d8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'a6c8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'a6b5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'a6b7']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'b6d5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'b6c4']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'b6c8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'b6a4']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'b4b3']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'b4c3']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'c7c5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'c7c6']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'e8f8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'e8d8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'e8c8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'e8g8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'e7d8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'e7d6']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'e7c5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'e7f8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'e6d5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'f6h5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'f6h7']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'f6d5']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'f6g4']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'f6g8']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'f6e4']
+11:42:20 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:20 ['e2b5', 'g7h6']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2b5', 'g7f8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2b5', 'g6g5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2b5', 'h8h7']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2b5', 'h8h6']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2b5', 'h8h5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2b5', 'h8h4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2b5', 'h8g8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2b5', 'h8f8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/1B1PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2b5', 'h3g2']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:21 ['e2f1']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'a8b8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'a8c8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'a8d8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'a6b5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'a6e2']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'a6f1']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'a6c8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'a6c4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'a6b7']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'a6d3']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'b6d5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'b6c4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'b6c8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'b6a4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'b4b3']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'b4c3']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'c7c5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'c7c6']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'd7d6']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'e8f8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'e8d8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'e8c8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'e8g8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'e7d8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'e7d6']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'e7c5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'e7f8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'e6d5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'f6h5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'f6h7']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'f6d5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'f6g4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'f6g8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'f6e4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'g7h6']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'g7f8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'g6g5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'h8h7']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'h8h6']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'h8h5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'h8h4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'h8g8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'h8f8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3KB1R b KQkq - 1 0
+11:42:21 ['e2f1', 'h3g2']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:21 ['e2c4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'a8b8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'a8c8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'a8d8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'a6c8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'a6b5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'a6b7']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'a6c4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'b6d5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'b6c4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'b6c8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'b6a4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'b4b3']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'b4c3']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'c7c5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'c7c6']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'd7d6']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'e8f8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'e8d8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'e8c8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'e8g8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'e7d8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'e7d6']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'e7c5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'e7f8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'e6d5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'f6h5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'f6h7']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'f6d5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'f6g4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'f6g8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'f6e4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'g7h6']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'g7f8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'g6g5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'h8h7']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'h8h6']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'h8h5']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'h8h4']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'h8g8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'h8f8']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1pB1P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:21 ['e2c4', 'h3g2']
+11:42:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:21 ['e2d1']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'a8b8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'a8c8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'a8d8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'a6b5']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'a6e2']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'a6f1']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'a6c8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'a6c4']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'a6b7']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'a6d3']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'b6d5']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'b6c4']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'b6c8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'b6a4']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'b4b3']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'b4c3']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'c7c5']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'c7c6']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'd7d6']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'e8f8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'e8d8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'e8c8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'e8g8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'e7d8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'e7d6']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'e7c5']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'e7f8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'e6d5']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'f6h5']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'f6h7']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'f6d5']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'f6g4']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'f6g8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'f6e4']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'g7h6']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'g7f8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'g6g5']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'h8h7']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'h8h6']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'h8h5']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'h8h4']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'h8g8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'h8f8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R2BK2R b KQkq - 1 0
+11:42:22 ['e2d1', 'h3g2']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:22 ['e2a6']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'a8b8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'a8c8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'a8d8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'b6d5']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'b6c4']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'b6c8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'b6a4']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'b4b3']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'b4c3']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'c7c5']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'c7c6']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'd7d6']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'e8f8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'e8d8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'e8g8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'e7d8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'e7d6']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'e7c5']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'e7f8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'e6d5']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'f6h5']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'f6h7']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'f6d5']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'f6g4']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'f6g8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'f6e4']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'g7h6']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'g7f8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'g6g5']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'h8h7']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'h8h6']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'h8h5']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'h8h4']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'h8g8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'h8f8']
+11:42:22 r3k2r/p1ppqpb1/Bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPB1PPP/R3K2R b KQkq - 0 0
+11:42:22 ['e2a6', 'h3g2']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:22 ['e2d3']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'a8b8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'a8c8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'a8d8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'a6b5']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'a6c8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'a6c4']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'a6b7']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'a6d3']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'b6d5']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'b6c4']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'b6c8']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'b6a4']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'b4b3']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'b4c3']
+11:42:22 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:22 ['e2d3', 'c7c5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'c7c6']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'd7d6']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'e8f8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'e8d8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'e8c8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'e8g8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'e7d8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'e7d6']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'e7c5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'e7f8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'e6d5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'f6h5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'f6h7']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'f6d5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'f6g4']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'f6g8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'f6e4']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'g7h6']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'g7f8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'g6g5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'h8h7']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'h8h6']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'h8h5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'h8h4']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'h8g8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'h8f8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2NB1Q1p/PPPB1PPP/R3K2R b KQkq - 1 0
+11:42:23 ['e2d3', 'h3g2']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:23 ['e1f1']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'a8b8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'a8c8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'a8d8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'a6b5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'a6e2']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'a6c8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'a6c4']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'a6b7']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'a6d3']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'b6d5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'b6c4']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'b6c8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'b6a4']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'b4b3']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'b4c3']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'c7c5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'c7c6']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'd7d6']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'e8f8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'e8d8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'e8c8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'e8g8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'e7d8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'e7d6']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'e7c5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'e7f8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'e6d5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'f6h5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'f6h7']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'f6d5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'f6g4']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'f6g8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'f6e4']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'g7h6']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'g7f8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'g6g5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'h8h7']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'h8h6']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'h8h5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'h8h4']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'h8g8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'h8f8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R4K1R b kq - 1 0
+11:42:23 ['e1f1', 'h3g2']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:42:23 ['e1d1']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'a8b8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'a8c8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'a8d8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'a6b5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'a6e2']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'a6c8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'a6c4']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'a6b7']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'a6d3']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'b6d5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'b6c4']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'b6c8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'b6a4']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'b4b3']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'b4c3']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'c7c5']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'c7c6']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'd7d6']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'e8f8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'e8d8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:23 ['e1d1', 'e8c8']
+11:42:23 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:24 ['e1d1', 'e8g8']
+11:42:24 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:24 ['e1d1', 'e7d8']
+11:42:24 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:24 ['e1d1', 'e7d6']
+11:42:24 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:24 ['e1d1', 'e7c5']
+11:42:24 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R2K3R b kq - 1 0
+11:42:24 ['e1d1', 'e7f8']

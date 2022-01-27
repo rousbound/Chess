@@ -75,8 +75,9 @@ e2e4, and if the movement is valid, output the board state to the user or inform
 the user the input isn't valid. For this matter, the standard python libraries is
 enough address the problem. For debugging purposes, a graphical interface was
 also required and implemented in pygame, a graphical framework for games. Also
-for debugging and testing purposes, it was used the program
-\textit{pgn-extract} to convert PGN game notation to UCI notation.
+for preparing the tests, it was used the program
+\textit{pgn-extract} to convert PGN game notation to UCI notation, although, not
+necessary for running nor testing. For running the tests, pytest was used.
 
 
 \section{Program project}
@@ -118,12 +119,12 @@ Three approaches were made to certify the accuracy of the game:
 \item Specific tests to test draw conditions
 \end{enumerate}
 
-To execute the tests we run the following command for the desired test at the top level directory of the project, i.e ``/project''
+To execute all the tests we run the following command at the top level directory of the project, i.e ``/project''
 \begin{lstlisting}
 pytests tests
 \end{lstlisting}
 
-or for specifict tests, for example:
+or for specifict tests, we can also run for example:
 
 \begin{lstlisting}
 pytests tests/testdraw.py
@@ -224,54 +225,68 @@ with their respective proof table,
 we get the following result from 5 ``complex positions'':
 
 \begin{lstlisting}
->>> $ python3 -m tests.test_brute.py (Running from top module)
-2022-01-24 00:03:34,134 ----------------------------------------
-2022-01-24 00:03:34,134 Initiating move generation test on depth: 2
-2022-01-24 00:03:34,268 Result of possible games with 1 ply: 48/48 - OK
-2022-01-24 00:03:34,268 Elapsed time in 1 ply: 00h00m00s seconds
-2022-01-24 00:03:40,177 Result of possible games with 2 ply: 2039/2039 - OK
-2022-01-24 00:03:40,177 Elapsed time in 2 ply: 00h00m05s seconds
-2022-01-24 00:03:40,177 Total Elapsed time: (00h00m06s)
-2022-01-24 00:03:40,177 -----------------------------------------
-2022-01-24 00:03:40,177 ----------------------------------------
-2022-01-24 00:03:40,177 Initiating move generation test on depth: 3
-2022-01-24 00:03:40,195 Result of possible games with 1 ply: 14/14 - OK
-2022-01-24 00:03:40,195 Elapsed time in 1 ply: 00h00m00s seconds
-2022-01-24 00:03:40,454 Result of possible games with 2 ply: 191/191 - OK
-2022-01-24 00:03:40,454 Elapsed time in 2 ply: 00h00m00s seconds
-2022-01-24 00:03:44,350 Result of possible games with 3 ply: 2812/2812 - OK
-2022-01-24 00:03:44,351 Elapsed time in 3 ply: 00h00m03s seconds
-2022-01-24 00:03:44,351 Total Elapsed time: (00h00m04s)
-2022-01-24 00:03:44,351 -----------------------------------------
-2022-01-24 00:03:44,358 ----------------------------------------
-2022-01-24 00:03:44,359 Initiating move generation test on depth: 3
-2022-01-24 00:03:44,382 Result of possible games with 1 ply: 6/6 - OK
-2022-01-24 00:03:44,382 Elapsed time in 1 ply: 00h00m00s seconds
-2022-01-24 00:03:45,135 Result of possible games with 2 ply: 264/264 - OK
-2022-01-24 00:03:45,135 Elapsed time in 2 ply: 00h00m00s seconds
-2022-01-24 00:04:12,876 Result of possible games with 3 ply: 9467/9467 - OK
-2022-01-24 00:04:12,876 Elapsed time in 3 ply: 00h00m27s seconds
-2022-01-24 00:04:12,876 Total Elapsed time: (00h00m28s)
-2022-01-24 00:04:12,876 -----------------------------------------
-2022-01-24 00:04:12,881 ----------------------------------------
-2022-01-24 00:04:12,881 Initiating move generation test on depth: 3
-2022-01-24 00:04:12,997 Result of possible games with 1 ply: 44/44 - OK
-2022-01-24 00:04:12,997 Elapsed time in 1 ply: 00h00m00s seconds
-2022-01-24 00:04:17,258 Result of possible games with 2 ply: 1486/1486 - OK
-2022-01-24 00:04:17,258 Elapsed time in 2 ply: 00h00m04s seconds
-2022-01-24 00:07:10,379 Result of possible games with 3 ply: 62379/62379 - OK
-2022-01-24 00:07:10,379 Elapsed time in 3 ply: 00h02m53s seconds
-2022-01-24 00:07:10,379 Total Elapsed time: (00h02m57s)
-2022-01-24 01:06:43,597 ----------------------------------------
-2022-01-24 01:06:43,598 Initiating move generation test on depth: 3
-2022-01-24 01:06:43,724 Result of possible games with 1 ply: 46/46 - OK
-2022-01-24 01:06:43,724 Elapsed time in 1 ply: 00h00m00s seconds
-2022-01-24 01:06:49,460 Result of possible games with 2 ply: 2079/2079 - OK
-2022-01-24 01:06:49,460 Elapsed time in 2 ply: 00h00m05s seconds
-2022-01-24 01:11:14,405 Result of possible games with 3 ply: 89890/89890 - OK
-2022-01-24 01:11:14,423 Elapsed time in 3 ply: 00h04m24s seconds
-2022-01-24 01:11:14,424 Total Elapsed time: (00h04m30s)
-2022-01-24 01:11:14,424 -----------------------------------------
+>>> $ pytest -k ''test_position''
+12:12:49 ----------------------------------------
+12:12:49 Initiating move generation test on depth: 3
+12:12:49 FEN of position to be brute forced:r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+12:12:50 Result of possible games with 1 ply: 48/48 - OK
+12:12:50 Elapsed time in 1 ply: 00h00m00s seconds
+12:12:54 Result of possible games with 2 ply: 2039/2039 - OK
+12:12:54 Elapsed time in 2 ply: 00h00m04s seconds
+12:16:26 Result of possible games with 3 ply: 97862/97862 - OK
+12:16:26 Elapsed time in 3 ply: 00h03m32s seconds
+12:16:26 TEST SUCCESSFUL
+12:16:26 Total Elapsed time: (00h03m36s)
+12:16:26 ----------------------------------------
+12:16:26 Initiating move generation test on depth: 4
+12:16:26 FEN of position to be brute forced:8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 0
+12:16:26 Result of possible games with 1 ply: 14/14 - OK
+12:16:26 Elapsed time in 1 ply: 00h00m00s seconds
+12:16:26 Result of possible games with 2 ply: 191/191 - OK
+12:16:26 Elapsed time in 2 ply: 00h00m00s seconds
+12:16:29 Result of possible games with 3 ply: 2812/2812 - OK
+12:16:29 Elapsed time in 3 ply: 00h00m03s seconds
+12:17:19 Result of possible games with 4 ply: 43238/43238 - OK
+12:17:19 Elapsed time in 4 ply: 00h00m49s seconds
+12:17:19 TEST SUCCESSFUL
+12:17:19 Total Elapsed time: (00h00m53s)
+12:17:19 ----------------------------------------
+12:17:19 Initiating move generation test on depth: 4
+12:17:19 FEN of position to be brute forced:r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq - 0 1
+12:17:19 Result of possible games with 1 ply: 6/6 - OK
+12:17:19 Elapsed time in 1 ply: 00h00m00s seconds
+12:17:20 Result of possible games with 2 ply: 264/264 - OK
+12:17:20 Elapsed time in 2 ply: 00h00m00s seconds
+12:17:39 Result of possible games with 3 ply: 9467/9467 - OK
+12:17:39 Elapsed time in 3 ply: 00h00m19s seconds
+12:34:01 Result of possible games with 4 ply: 422333/422333 - OK
+12:34:01 Elapsed time in 4 ply: 00h16m21s seconds
+12:34:01 TEST SUCCESSFUL
+12:34:01 Total Elapsed time: (00h16m41s)
+12:34:01 ----------------------------------------
+12:34:01 Initiating move generation test on depth: 4
+12:34:01 FEN of position to be brute forced:rnbq1k1r/pp1Pbppp/2p5/8/2B5/8/PPP1NnPP/RNBQK2R w KQ - 1 8
+12:34:01 Result of possible games with 1 ply: 44/44 - OK
+12:34:01 Elapsed time in 1 ply: 00h00m00s seconds
+12:34:04 Result of possible games with 2 ply: 1486/1486 - OK
+12:34:04 Elapsed time in 2 ply: 00h00m02s seconds
+12:36:04 Result of possible games with 3 ply: 62379/62379 - OK
+12:36:04 Elapsed time in 3 ply: 00h02m00s seconds
+14:39:42 Result of possible games with 4 ply: 2103487/2103487 - OK
+14:39:42 Elapsed time in 4 ply: 02h03m37s seconds
+14:39:42 TEST SUCCESSFUL
+14:39:42 Total Elapsed time: (02h05m41s)
+14:39:42 ----------------------------------------
+14:39:42 Initiating move generation test on depth: 3
+14:39:42 FEN of position to be brute forced:r4rk1/1pp1qppp/p1np1n2/2b1p1B1/2B1P1b1/P1NP1N2/1PP1QPPP/R4RK1 w - - 0 10
+14:39:43 Result of possible games with 1 ply: 46/46 - OK
+14:39:43 Elapsed time in 1 ply: 00h00m00s seconds
+14:39:47 Result of possible games with 2 ply: 2079/2079 - OK
+14:39:47 Elapsed time in 2 ply: 00h00m04s seconds
+14:43:04 Result of possible games with 3 ply: 89890/89890 - OK
+14:43:04 Elapsed time in 3 ply: 00h03m17s seconds
+14:43:04 TEST SUCCESSFUL
+14:43:04 Total Elapsed time: (00h03m21s)
     
 \end{lstlisting}
 
@@ -339,8 +354,22 @@ Similar tests were made with:
     \item 50 move without pawn move or capture
 \end{enumerate}
 
-By this tests, we can be relatively sure that the game will be successfully
-executed in most cases.
+And their result can be found on the log:
+\begin{lstlisting}
+
+>>> $ pytest tests/test_draws.py
+17:00:16 ----------------------------------------
+17:00:17 Test with fen 7k/4N3/5K2/5BN1/8/8/8/r7 b - - 100 113 resulted in: OK
+17:00:17 Test with fen rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 10 7 resulted in: OK
+17:00:17 Test with fen 6k1/6p1/7p/8/1p6/p1qp4/8/3K4 w - - 0 45 resulted in: OK
+17:00:18 Test with fen 8/8/7k/8/8/8/8/n4K2 w - - 0 172 resulted in: OK
+17:00:20 Test with fen 8/8/8/6k1/8/5K2/8/8 w - - 0 158 resulted in: OK
+17:00:20 DRAW TEST SUCCESSFUL
+
+\end{lstlisting}
+
+With all these tests, we can be relatively sure that the game will be successfully
+executed in the great majority of cases.
 
 
 

@@ -1,0 +1,6 @@
+11:39:54 ----------------------------------------
+11:39:54 Initiating move generation test on depth: 3
+11:39:55 Result of possible games with 1 ply: 20/20 - OK
+11:39:55 Elapsed time in 1 ply: 00h00m00s seconds
+11:39:58 Result of possible games with 2 ply: 400/400 - OK
+11:39:58 Elapsed time in 2 ply: 00h00m03s seconds

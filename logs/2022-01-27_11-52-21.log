@@ -1,0 +1,82 @@
+11:52:21 ----------------------------------------
+11:52:21 Initiating move generation test on depth: 3
+11:52:21 FEN of position to be brute forced:r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+11:52:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P1P1/2N2Q1p/PPPBBP1P/R3K2R b KQkq g3 0 1
+11:52:21 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P1P1/2N2Q1p/PPPBBP1P/R3K2R b KQkq - 0 1
+11:52:21 ['g2g4']
+11:52:22 Result of possible games with 1 ply: 48/48 - OK
+11:52:22 Elapsed time in 1 ply: 00h00m00s seconds
+11:52:26 r3k2r/p2pqpb1/bn1Ppnp1/2p1N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq c6 0 2
+11:52:26 r3k2r/p2pqpb1/bn1Ppnp1/2p1N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 2
+11:52:26 ['d5d6', 'c7c5']
+11:52:26 r3k2r/p2pqpb1/bn2Pnp1/2p1N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq c6 0 2
+11:52:26 r3k2r/p2pqpb1/bn2Pnp1/2p1N3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 2
+11:52:26 ['d5e6', 'c7c5']
+11:52:26 r3k2r/p1p1qpb1/bn2Pnp1/3pN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq d6 0 2
+11:52:26 r3k2r/p1p1qpb1/bn2Pnp1/3pN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 2
+11:52:26 ['d5e6', 'd7d5']
+11:52:39 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P1P1/2N2Q1p/PPPBBP1P/R3K2R b KQkq g3 0 1
+11:52:39 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P1P1/2N2Q1p/PPPBBP1P/R3K2R b KQkq - 0 1
+11:52:39 ['g2g4']
+11:52:41 Result of possible games with 2 ply: 2039/2039 - OK
+11:52:41 Elapsed time in 2 ply: 00h00m19s seconds
+11:52:42 1r2k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQk g3 0 2
+11:52:42 1r2k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQk - 0 2
+11:52:42 ['a2a4', 'a8b8', 'g2g4']
+11:52:42 2r1k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQk g3 0 2
+11:52:42 2r1k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQk - 0 2
+11:52:42 ['a2a4', 'a8c8', 'g2g4']
+11:52:43 3rk2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQk g3 0 2
+11:52:43 3rk2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQk - 0 2
+11:52:43 ['a2a4', 'a8d8', 'g2g4']
+11:52:43 r3k2r/p1ppqpb1/1n2pnp1/1b1PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:43 r3k2r/p1ppqpb1/1n2pnp1/1b1PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:43 ['a2a4', 'a6b5', 'g2g4']
+11:52:44 r3k2r/p1ppqpb1/1n2pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBbP1P/R3K2R b KQkq g3 0 2
+11:52:44 r3k2r/p1ppqpb1/1n2pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBbP1P/R3K2R b KQkq - 0 2
+11:52:44 ['a2a4', 'a6e2', 'g2g4']
+11:52:44 r1b1k2r/p1ppqpb1/1n2pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:44 r1b1k2r/p1ppqpb1/1n2pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:44 ['a2a4', 'a6c8', 'g2g4']
+11:52:45 r3k2r/p1ppqpb1/1n2pnp1/3PN3/Ppb1P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:45 r3k2r/p1ppqpb1/1n2pnp1/3PN3/Ppb1P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:45 ['a2a4', 'a6c4', 'g2g4']
+11:52:45 r3k2r/pbppqpb1/1n2pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:45 r3k2r/pbppqpb1/1n2pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:45 ['a2a4', 'a6b7', 'g2g4']
+11:52:45 r3k2r/p1ppqpb1/1n2pnp1/3PN3/Pp2P1P1/2Nb1Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:45 r3k2r/p1ppqpb1/1n2pnp1/3PN3/Pp2P1P1/2Nb1Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:45 ['a2a4', 'a6d3', 'g2g4']
+11:52:46 r3k2r/p1ppqpb1/b3pnp1/3nN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:46 r3k2r/p1ppqpb1/b3pnp1/3nN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:46 ['a2a4', 'b6d5', 'g2g4']
+11:52:46 r3k2r/p1ppqpb1/b3pnp1/3PN3/Ppn1P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:46 r3k2r/p1ppqpb1/b3pnp1/3PN3/Ppn1P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:46 ['a2a4', 'b6c4', 'g2g4']
+11:52:47 r1n1k2r/p1ppqpb1/b3pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:47 r1n1k2r/p1ppqpb1/b3pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:47 ['a2a4', 'b6c8', 'g2g4']
+11:52:47 r3k2r/p1ppqpb1/b3pnp1/3PN3/np2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:47 r3k2r/p1ppqpb1/b3pnp1/3PN3/np2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:47 ['a2a4', 'b6a4', 'g2g4']
+11:52:48 r3k2r/p1ppqpb1/bn2pnp1/3PN3/P3P1P1/1pN2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:48 r3k2r/p1ppqpb1/bn2pnp1/3PN3/P3P1P1/1pN2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:48 ['a2a4', 'b4b3', 'g2g4']
+11:52:48 r3k2r/p1ppqpb1/bn2pnp1/3PN3/PP2P3/2p2Q1p/2PBBPPP/R3K2R b KQkq b3 0 2
+11:52:48 r3k2r/p1ppqpb1/bn2pnp1/3PN3/PP2P3/2p2Q1p/2PBBPPP/R3K2R b KQkq - 0 2
+11:52:48 ['a2a4', 'b4c3', 'b2b4']
+11:52:48 r3k2r/p1ppqpb1/bn2pnp1/3PN3/P3P1P1/2p2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:48 r3k2r/p1ppqpb1/bn2pnp1/3PN3/P3P1P1/2p2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:48 ['a2a4', 'b4c3', 'g2g4']
+11:52:48 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1P2P3/p1N2Q1p/2PBBPPP/R3K2R b KQkq b3 0 2
+11:52:48 r3k2r/p1ppqpb1/bn2pnp1/3PN3/1P2P3/p1N2Q1p/2PBBPPP/R3K2R b KQkq - 0 2
+11:52:48 ['a2a4', 'b4a3', 'b2b4']
+11:52:49 r3k2r/p1ppqpb1/bn2pnp1/3PN3/4P1P1/p1N2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:49 r3k2r/p1ppqpb1/bn2pnp1/3PN3/4P1P1/p1N2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:49 ['a2a4', 'b4a3', 'g2g4']
+11:52:49 r3k2r/p2pqpb1/bn2pnp1/2pPN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:49 r3k2r/p2pqpb1/bn2pnp1/2pPN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:49 ['a2a4', 'c7c5', 'g2g4']
+11:52:50 r3k2r/p2pqpb1/bnp1pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq g3 0 2
+11:52:50 r3k2r/p2pqpb1/bnp1pnp1/3PN3/Pp2P1P1/2N2Q1p/1PPBBP1P/R3K2R b KQkq - 0 2
+11:52:50 ['a2a4', 'c7c6', 'g2g4']

@@ -93,8 +93,8 @@ class Chess():
 
     """
 
-    def __init__(self, FEN=None, print_turn_decorator=False, debug=True):
-        self.board = Board(FEN)
+    def __init__(self, fen=None, print_turn_decorator=False, debug=True):
+        self.board = Board(fen)
         self.game_running = True
         self.debug = debug
 
@@ -134,7 +134,7 @@ class Chess():
         print("")
         print("UCI game:", self.uci_moves_list)
         print("")
-        print("FEN:", self.board.board_2_FEN())
+        print("FEN:", self.board.board_2_fen())
         print("")
 
     def debug_algebric_legal_moves(self, move, piece, captured_piece):
@@ -168,6 +168,7 @@ class Chess():
         promotion = move[2]
         promotion = "" if promotion == "%" else promotion
         self.uci_moves_list += f"{start}{to}{promotion} "
+        self.board.uci_moves_list.append(f"{start}{to}{promotion}")
 
     def debug_game_pgn(self, move, selected_piece, captured_piece, castling):
         """
@@ -347,14 +348,14 @@ class Chess():
         # Save move in different formats for debugging
         if self.debug:
             self.debug_game_pgn(move, selected_piece, captured_piece, castling)
-            self.debug_game_uci(move)
             self.moves_list.append(move)
-        
+        self.debug_game_uci(move)
+
         if promoted_piece:
             promoted_piece.move(to, self.board)
 
         # Save board state for draw criteria
-        # self.board.board_states.append(self.board.board_2_FEN())
+        # self.board.board_states.append(self.board.board_2_fen())
 
         # Increment turn counter for draw criteria
         if not self.board.turn:
@@ -448,7 +449,7 @@ class Chess():
             Checks if set of legal moves already repeated three times.
 
             """
-            fen = " ".join(self.board.board_2_FEN().split(" ")[:4])
+            fen = " ".join(self.board.board_2_fen().split(" ")[:4])
             if fen in self.board.board_states_counter.keys():
                 self.board.board_states_counter[fen] += 1
             else:
@@ -517,7 +518,7 @@ class Chess():
             print("EOF")
             return "EOF"
 
-        
+
     def get_move_random(self):
         """
         Get random move from legal moves
@@ -527,7 +528,14 @@ class Chess():
         r = random.randint(0,len(self.legal_moves)-1)
         move = self.legal_moves[r]
         return move
-    
+
+    def show_gui(self):
+        """
+        Play game with Graphical User Interface.
+
+        """
+        gui = GUI(640,640,self)
+        gui.show()
 
 
     def play_gui(self):
@@ -564,14 +572,14 @@ class Chess():
             self.turn_debug()
             self.board.print_board()
 
-        return self.board.board_2_FEN()
-    
+        return self.board.board_2_fen()
+
     def test_input_moves(self, input_moves):
         for move in input_moves:
             self.legal_moves = self.get_legal_moves()
             self.board.print_board()
             self.print_turn_decorator()
-            
+
             move = uci_2_move(move)
             print("Move:", move)
             if not self.game_running:
@@ -586,7 +594,7 @@ class Chess():
             self.board.print_board()
         self.legal_moves = self.get_legal_moves()
 
-        return self.board.board_2_FEN()
+        return self.board.board_2_fen()
 
     def print_turn_decorator(self):
         """
