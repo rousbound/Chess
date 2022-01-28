@@ -74,6 +74,9 @@ class Chess():
     play_move(move:up) -> None
         Make move, check special cases, update board information
 
+    push_uci(move:str) -> None
+        Function to be used when making moves on the interpreter
+
     get_legal_moves() -> list[tup]
         Check legal moves
 
@@ -500,7 +503,6 @@ class Chess():
                 self.play_move(move)
         self.print_turn_decorator()
         self.board.print_board()
-        # self.get_legal_moves()
 
     def get_move_player(self):
         """

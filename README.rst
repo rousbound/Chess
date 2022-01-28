@@ -8,17 +8,14 @@ Mychess is a library for playing and validating chess moves.
 
   .. code:: bash
     
-    $ python3 main.py -gui
+    $ python3 -m mychess.main -gui
 
 * Play the position in CLI
 
   .. code:: bash
     
-    $ python3 main.py -cli
+    $ python3 -m mychess.main -cli
 
-
- 
-BROKEN AT THE MOMENT
 
 .. code:: python
 
@@ -103,38 +100,10 @@ BROKEN AT THE MOMENT
     *********************************
 
 
+    >>> game.play_gui() # Opens position in GUI
 
 
 
 `Documentation <https://github.com/rousbound/Chess/blob/refactor_jonatas/docs/meta/doc.pdf/>`__
 --------------------------------------------------------------------
-
-Features
---------
-
-* Make moves.
-
-  .. code:: python
-
-      game.push_uci("e2e4")
-
-* Load from FEN and save to FEN
-
-  >>> game = Chess("r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0")
-    White's turn to move!
-    *********************************
-    8| r |   |   |   | k |   |   | r |
-    7| p |   | p | p | q | p | b |   |
-    6| b | n |   |   | p | n | p |   |
-    5|   |   |   | P | N |   |   |   |
-    4|   | p |   |   | P |   |   |   |
-    3|   |   | N |   |   | Q |   | p |
-    2| P | P | P | B | B | P | P | P |
-    1| R |   |   |   | K |   |   | R |
-       a   b   c   d   e   f   g   h
-    *********************************
-    >>> game.push_uci("a2a4")
-    >>> game.board.board_2_FEN()
-    'r3k2r/p1ppqpb1/bn2pnp1/3PN3/Pp2P3/2N2Q1p/1PPBBPPP/R3K2R b KQkq a3 0 0'
-
 

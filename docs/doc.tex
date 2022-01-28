@@ -377,22 +377,130 @@ executed in the great majority of cases.
 
 \subsection{Installation}
 
-Assuming you already have installed python and pip, the user only needs to run:
+Assuming you already have installed python and pip, the user only needs to run
+the following command inside the top directory of the project:
 \begin{lstlisting}
- pip3 install -r requirements.txt.
+python3 -m pip install -e .
 \end{lstlisting}
+
+If something in installation fails, the user might need to change directory to
+``mychess/src'' and import the module and/or run the following execution options
+from there.
 
 \subsection{Usage}
 
 There are three ways to interact with this program, by directly calling their
-functions in the interpreter or in a script, by calling the $play\_cli()$ or the
+functions in the interpreter, or in a script, by calling the $play\_cli()$ or the
 $play\_gui()$ functions. 
+
+\subsubsection{Interpreter}
+
+By running the program as a module, we can have a more flexible execution,
+choosing what to be shown at which time. Below we have an example execution,
+that uses all the necessary calls to obtain the same result as the other
+execution options i.e CLI or GUI.
+
+The calls are:
+
+\begin{enumerate}[label=\arabic*)]
+\item Chess() -- Creates game object
+\item uci\_moves() -- Shows possible moves
+\item push\_uci() -- Makes a move
+\end{enumerate}
+
+
+
+\begin{lstlisting}
+
+>>> from mychess import *
+
+>>> game = Chess()
+Whites turn to move!
+ *********************************
+8| r | n | b | q | k | b | n | r |
+7| p | p | p | p | p | p | p | p |
+6|   |   |   |   |   |   |   |   |
+5|   |   |   |   |   |   |   |   |
+4|   |   |   |   |   |   |   |   |
+3|   |   |   |   |   |   |   |   |
+2| P | P | P | P | P | P | P | P |
+1| R | N | B | Q | K | B | N | R |
+   a   b   c   d   e   f   g   h
+*********************************
+
+# Make moves
+>>> game.uci_moves()
+a2a4 a2a3 b2b4 b2b3 b1c3 b1a3 c2c4 c2c3 d2d4 d2d3 e2e4 e2e3 f2f4 f2f3 g2g4 g2g3 g1h3 g1f3 h2h4 h2h3
+
+>>> game.push_uci("e2e4")
+
+Blacks turn to move!
+*********************************
+8| r | n | b | q | k | b | n | r |
+7| p | p | p | p | p | p | p | p |
+6|   |   |   |   |   |   |   |   |
+5|   |   |   |   |   |   |   |   |
+4|   |   |   |   | P |   |   |   |
+3|   |   |   |   |   |   |   |   |
+2| P | P | P | P |   | P | P | P |
+1| R | N | B | Q | K | B | N | R |
+   a   b   c   d   e   f   g   h
+*********************************
+
+>>> game = Chess("r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0")
+Whites turn to move!
+*********************************
+8| r |   |   |   | k |   |   | r |
+7| p |   | p | p | q | p | b |   |
+6| b | n |   |   | p | n | p |   |
+5|   |   |   | P | N |   |   |   |
+4|   | p |   |   | P |   |   |   |
+3|   |   | N |   |   | Q |   | p |
+2| P | P | P | B | B | P | P | P |
+1| R |   |   |   | K |   |   | R |
+   a   b   c   d   e   f   g   h
+*********************************
+>>> game.uci_moves()
+a2a4 a2a3 a1b1 a1c1 a1d1 b2b3 c3a4 c3d1 c3b1 c3b5 d5d6 d5e6 d2c1 d2f4 d2e3 d2g5 d2h6 e5g4 e5
+e5c4 e5c6 e5f7 e5d3 e5d7 e2b5 e2f1 e2c4 e2d1 e2a6 e2d3 e1f1 e1d1 e1c1 e1g1 f3g4 f3h5 f3e3 f3
+f3g3 f3h3 f3f4 f3f5 f3f6 g2g4 g2g3 g2h3 h1g1 h1f1
+>>> game.push_uci("a2a4")
+Blacks turn to move!
+*********************************
+8| r |   |   |   | k |   |   | r |
+7| p |   | p | p | q | p | b |   |
+6| b | n |   |   | p | n | p |   |
+5|   |   |   | P | N |   |   |   |
+4| P | p |   |   | P |   |   |   |
+3|   |   | N |   |   | Q |   | p |
+2|   | P | P | B | B | P | P | P |
+1| R |   |   |   | K |   |   | R |
+   a   b   c   d   e   f   g   h
+*********************************
+>>> game.push_uci("a2a4")
+Illegal or impossible move
+Blacks turn to move!
+*********************************
+8| r |   |   |   | k |   |   | r |
+7| p |   | p | p | q | p | b |   |
+6| b | n |   |   | p | n | p |   |
+5|   |   |   | P | N |   |   |   |
+4| P | p |   |   | P |   |   |   |
+3|   |   | N |   |   | Q |   | p |
+2|   | P | P | B | B | P | P | P |
+1| R |   |   |   | K |   |   | R |
+   a   b   c   d   e   f   g   h
+*********************************
+    
+
+\end{lstlisting}
+
 
 \subsubsection{play\_cli() and play\_gui()}
 
 
 
-You can enter directly the CLI interface by running: $\$~python3~main.py~-cli$.
+You can enter directly the CLI interface by running: $\$~python3~mychess.main~-cli$.
 Here the program enters in a loop and continously asks moves until it reaches a
 endgame condition, such as checkmate or draw.
 
@@ -436,7 +544,7 @@ Move:
 \end{lstlisting}
 
 You can also enter directly the GUI interface by running:
-$\$~python3~main.py~-gui$. There is no time control, just dragging and dropping
+$\$~python3~mychess.main~-gui$. There is no time control, just dragging and dropping
 pieces, and promoting pawns. The program takes care of prohibiting illegal moves
 and moving enemy pieces while not your turn. Just as the play\_cli(), the game
 goes on as long as it doesn't reach an endgame condition.
@@ -451,10 +559,6 @@ goes on as long as it doesn't reach an endgame condition.
     Pawn promoting to a Queen.}
 \end{figure}
 
-\subsubsection{Other Uses}
-
-By importing the mychess module, we open other possibilities, like loading a
-position and playing it from there.
 
 
 

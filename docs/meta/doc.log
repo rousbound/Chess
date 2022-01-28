@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.15)  27 JAN 2022 17:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.15)  28 JAN 2022 11:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1333,19 +1333,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 97.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 97.
-<fig/classes_Chess.png, id=4, 2582.64874pt x 1129.21875pt>
+<fig/classes_Chess.png, id=4, 2074.75125pt x 1530.71875pt>
 File: fig/classes_Chess.png Graphic file (type png)
 <use fig/classes_Chess.png>
 Package pdftex.def Info: fig/classes_Chess.png  used on input line 107.
-(pdftex.def)             Requested size: 516.5206pt x 225.83975pt.
-
-Overfull \hbox (17.85802pt too wide) in paragraph at lines 107--108
-[][] 
- []
-
+(pdftex.def)             Requested size: 414.9429pt x 306.13832pt.
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./fig/classes_Chess.png>]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./fig/classes_Chess.pn
+g>]
 Overfull \hbox (20.61151pt too wide) in paragraph at lines 191--209
  [] 
  []
@@ -1361,45 +1357,44 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[2]
 LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 228
 .
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [3] [4] [5]
-<fig/pre_promotion.png, id=36, 646.415pt x 647.41875pt>
+) [3] [4] [5] [6]
+[7]
+<fig/pre_promotion.png, id=40, 646.415pt x 647.41875pt>
 File: fig/pre_promotion.png Graphic file (type png)
 <use fig/pre_promotion.png>
-Package pdftex.def Info: fig/pre_promotion.png  used on input line 446.
+Package pdftex.def Info: fig/pre_promotion.png  used on input line 554.
 (pdftex.def)             Requested size: 96.95805pt x 97.10861pt.
-<fig/promoting_pawn.png, id=37, 645.41125pt x 642.4pt>
+<fig/promoting_pawn.png, id=41, 645.41125pt x 642.4pt>
 File: fig/promoting_pawn.png Graphic file (type png)
 <use fig/promoting_pawn.png>
-Package pdftex.def Info: fig/promoting_pawn.png  used on input line 447.
+Package pdftex.def Info: fig/promoting_pawn.png  used on input line 555.
 (pdftex.def)             Requested size: 96.80751pt x 96.35583pt.
-<fig/promoted_pawn.png, id=38, 647.41875pt x 649.42625pt>
+<fig/promoted_pawn.png, id=42, 647.41875pt x 649.42625pt>
 File: fig/promoted_pawn.png Graphic file (type png)
 <use fig/promoted_pawn.png>
-Package pdftex.def Info: fig/promoted_pawn.png  used on input line 448.
+Package pdftex.def Info: fig/promoted_pawn.png  used on input line 556.
 (pdftex.def)             Requested size: 97.10861pt x 97.40973pt.
-<fig/queen_moving_promotion.png, id=39, 648.4225pt x 645.41125pt>
+<fig/queen_moving_promotion.png, id=43, 648.4225pt x 645.41125pt>
 File: fig/queen_moving_promotion.png Graphic file (type png)
 <use fig/queen_moving_promotion.png>
-Package pdftex.def Info: fig/queen_moving_promotion.png  used on input line 449
+Package pdftex.def Info: fig/queen_moving_promotion.png  used on input line 557
 .
 (pdftex.def)             Requested size: 97.25917pt x 96.80751pt.
-
-[6 <./fig/pre_promotion.png> <./fig/promoting_pawn.png> <./fig/promoted_pawn.pn
-g> <./fig/queen_moving_promotion.png>] (meta/doc.aux)
+ [8 <./fig/pre_promotion.png> <./fig/promoting_pawn.png> <./fig/promoted_pawn.p
+ng> <./fig/queen_moving_promotion.png>] (meta/doc.aux)
 Package logreq Info: Writing requests to 'doc.run.xml'.
 \openout1 = `doc.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23540 strings out of 492982
- 431423 string characters out of 6134896
- 936024 words of memory out of 5000000
- 26718 multiletter control sequences out of 15000+600000
+ 23646 strings out of 492982
+ 432395 string characters out of 6134896
+ 980024 words of memory out of 5000000
+ 26824 multiletter control sequences out of 15000+600000
  9446 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,8n,94p,811b,1623s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1415,10 +1410,10 @@ ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share
 /texmf/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on meta/doc.pdf (6 pages, 551631 bytes).
+Output written on meta/doc.pdf (8 pages, 582501 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 88 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 

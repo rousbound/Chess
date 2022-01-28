@@ -1,4 +1,4 @@
-Metadata-Version: 1.0
+Metadata-Version: 1.2
 Name: mychess
 Version: 0.0.1
 Summary: Chess Game
@@ -8,3 +8,4 @@ Author-email: geraldorj-2010@hotmail.com
 License: UNKNOWN
 Description: UNKNOWN
 Platform: UNKNOWN
+Requires-Python: >=3.7
