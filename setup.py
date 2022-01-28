@@ -29,6 +29,6 @@ setuptools.setup(
             # '',
         ],
     },
-    # python_requires=">=3.6, <=3.9.5",
+    python_requires="==3.8",
     install_requires=requirements,
 )
