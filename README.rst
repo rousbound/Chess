@@ -39,7 +39,7 @@ BROKEN AT THE MOMENT
     *********************************
     
     # Make moves 
-    >>> board.legal_moves  
+    >>> game.uci_moves()
     a2a4 a2a3 b2b4 b2b3 b1c3 b1a3 c2c4 c2c3 d2d4 d2d3 e2e4 e2e3 f2f4 f2f3 g2g4 g2g3 g1h3 g1f3 h2h4 h2h3
     
     >>> game.push_uci("e2e4")

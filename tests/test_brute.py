@@ -14,7 +14,6 @@ import os
 import chess as debug_chess
 
 from mychess import Chess
-from mychess import Board
 
 
 os.chdir("tests")

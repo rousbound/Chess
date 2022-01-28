@@ -1,5 +1,5 @@
-from pieces import King, Queen, Rook, Bishop, Knight, Pawn
-from utils import mat_2_uci
+from .pieces import King, Queen, Rook, Bishop, Knight, Pawn
+from .utils import mat_2_uci
 from collections import OrderedDict
 
 class Board():

@@ -1,0 +1,7 @@
+20:38:54 ----------------------------------------
+20:38:55 Test with fen 7k/4N3/5K2/5BN1/8/8/8/r7 b - - 100 113 resulted in: OK
+20:38:55 Test with fen rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 10 7 resulted in: OK
+20:38:56 Test with fen 6k1/6p1/7p/8/1p6/p1qp4/8/3K4 w - - 0 45 resulted in: OK
+20:38:57 Test with fen 8/8/7k/8/8/8/8/n4K2 w - - 0 172 resulted in: OK
+20:38:58 Test with fen 8/8/8/6k1/8/5K2/8/8 w - - 0 158 resulted in: OK
+20:38:58 DRAW TEST SUCCESSFUL

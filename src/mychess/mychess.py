@@ -2,10 +2,9 @@ import copy
 import random
 import logging
 
-from utils import mat_2_uci, move_2_algebric, uci_2_move, move_2_uci
-from pieces import Queen, Knight, Rook, Bishop
-from board import Board
-from GUI import GUI
+from .utils import mat_2_uci, move_2_algebric, uci_2_move, move_2_uci
+from .pieces import Queen, Knight, Rook, Bishop
+from .board import Board
 
 
 
@@ -93,7 +92,7 @@ class Chess():
 
     """
 
-    def __init__(self, fen=None, print_turn_decorator=False, debug=True):
+    def __init__(self, fen=None, print_turn_decorator=True, debug=True):
         self.board = Board(fen)
         self.game_running = True
         self.debug = debug
@@ -543,8 +542,12 @@ class Chess():
         Play game with Graphical User Interface.
 
         """
+        from .GUI import GUI
         gui = GUI(640,640,self)
         gui.main()
+
+    def play_cli_interactive(self):
+        self.play_cli(self.get_move_player)
 
     def play_cli(self, get_move):
         """

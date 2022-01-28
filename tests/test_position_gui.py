@@ -3,8 +3,6 @@ Opening certain positions directly on GUI by using a FEN
 
 """
 from mychess import Chess
-from board import Board
-from main import *
 
 
 def play_position_in_gui(position):

@@ -2,7 +2,6 @@ import logging
 import os
 
 from mychess import Chess
-from board import Board
 import datetime 
 
 # os.chdir("tests")

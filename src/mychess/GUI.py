@@ -4,10 +4,10 @@ import os
 
 import pygame
 
-from colors import *
-from board import Board
+from .colors import *
+from .board import Board
 
-from pieces import Queen, Knight, Rook, Bishop
+# from pieces import Queen, Knight, Rook, Bishop
 
 class GUI():
     """
