@@ -388,9 +388,16 @@ the following command inside the top directory of the project:
 python3 -m pip install -e .
 \end{lstlisting}
 
-\textbf{If something in installation fails, the user might need to change directory to
+\textbf{OBS:}
+        If something in installation fails, the user might need to change directory to
         ``mychess/src'' and import the module and/or run the following execution options
-        from there.}
+        from there.
+
+        \textbf{OBS2:} Although \textit{setuptools} version are specified in the requirements, the
+        user might need to upgrade manually \textit{setuptools} with ``python3.9 -m pip
+        install --upgrade setuptools'' before running the install command
+        informed above.
+
 
 \subsection{Usage}
 

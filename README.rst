@@ -8,7 +8,7 @@ Mychess is a library for playing and validating chess moves.
 Installation
 ------------
 
-    Requirements: Python 3.8
+    Requirements: Python 3.9 & setuptools>=60.5.0
 
 At top directory folder:
 
@@ -17,7 +17,15 @@ At top directory folder:
         $ python3 -m pip install -e .
 
 
-If for any reason, installation doesn't work, execute all the following commands from "mychess/src".
+If for any reason, installation doesn't work, execute all the following commands from "mychess/src".  Although setuptools version are specified in the requirements, the
+        user might need to upgrade manually setuptools with
+       
+    .. code:: bash
+
+        $ python3.9 -m pip install --upgrade setuptools
+       
+before running the install command
+informed above.
 
 
 Usage
