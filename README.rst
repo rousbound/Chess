@@ -9,10 +9,11 @@ Instalation
 ------------
 
     Requirements: Python 3.8
+
 At top directory folder:
 
-.. code:: bash
-    $ python3 -m pip install -e .
+    .. code:: bash
+        $ python3 -m pip install -e .
 
 
 If for any reason, installation doesn't work, execute all the following commands from "mychess/src".
