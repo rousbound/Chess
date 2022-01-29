@@ -9,7 +9,7 @@ Instalation
 ------------
 
     Requirements: Python 3.8
-    At top directory folder:
+At top directory folder:
 
 .. code:: bash
     $ python3 -m pip install -e .
