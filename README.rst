@@ -4,6 +4,23 @@ Introduction
 
 Mychess is a library for playing and validating chess moves.
 
+
+Instalation
+------------
+
+    Requirements: Python 3.8
+    At top directory folder:
+
+.. code:: bash
+    $ python3 -m pip install -e .
+
+
+If for any reason, installation doesn't work, execute all the following commands from "mychess/src".
+
+
+Usage
+------------
+
 * Play the position in GUI
 
   .. code:: bash
@@ -22,7 +39,7 @@ Mychess is a library for playing and validating chess moves.
     >>> from mychess import *
 
     >>> game = Chess()
-    White's turn to move!
+    White\'s turn to move!
      *********************************
     8| r | n | b | q | k | b | n | r |
     7| p | p | p | p | p | p | p | p |
@@ -41,7 +58,7 @@ Mychess is a library for playing and validating chess moves.
     
     >>> game.push_uci("e2e4")
     
-    Black's turn to move!
+    Black\'s turn to move!
     *********************************
     8| r | n | b | q | k | b | n | r |
     7| p | p | p | p | p | p | p | p |
@@ -55,7 +72,7 @@ Mychess is a library for playing and validating chess moves.
     *********************************
 
     >>> game = Chess("r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0")
-    White's turn to move!
+    White\'s turn to move!
     *********************************
     8| r |   |   |   | k |   |   | r |
     7| p |   | p | p | q | p | b |   |
@@ -72,7 +89,7 @@ Mychess is a library for playing and validating chess moves.
     e5c4 e5c6 e5f7 e5d3 e5d7 e2b5 e2f1 e2c4 e2d1 e2a6 e2d3 e1f1 e1d1 e1c1 e1g1 f3g4 f3h5 f3e3 f3
     f3g3 f3h3 f3f4 f3f5 f3f6 g2g4 g2g3 g2h3 h1g1 h1f1
     >>> game.push_uci("a2a4")
-    Black's turn to move!
+    Black\'s turn to move!
     *********************************
     8| r |   |   |   | k |   |   | r |
     7| p |   | p | p | q | p | b |   |
@@ -86,7 +103,7 @@ Mychess is a library for playing and validating chess moves.
     *********************************
     >>> game.push_uci("a2a4")
     Illegal or impossible move
-    Black's turn to move!
+    Black\'s turn to move!
     *********************************
     8| r |   |   |   | k |   |   | r |
     7| p |   | p | p | q | p | b |   |
@@ -103,6 +120,8 @@ Mychess is a library for playing and validating chess moves.
     >>> game.play_gui() # Opens position in GUI
 
 
+Documentation
+------------
 
 `Documentation <https://github.com/rousbound/Chess/blob/refactor_jonatas/docs/meta/doc.pdf/>`__
 --------------------------------------------------------------------
