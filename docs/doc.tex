@@ -82,24 +82,25 @@ necessary for running nor testing. For running the tests, pytest was used.
 
 \section{Program project}
 
-The project is constitued by four modules that contains in itself their
-respective major class: The Piece, Board, Chess and GUI.
+The project is constituted by four modules that contains in itself their
+respective major class: The Piece, Board, Chess and GUI classes, which can be
+described as:
 \begin{enumerate}
-    \item The Pieces module contains the Piece class, that is inherited by all
+    \item The \textbf{Pieces} module contains the Piece class, that is inherited by all
         the chess pieces, and specify how to get from each piece their own set
-        of possible moves.
-        \item The Board module contains the Board class that is used to save and
+        of possible moves, where they are on the board, and what to do with
+        the board when what to do when the piece moves.
+        \item The \textbf{Board} module contains the Board class that is used to save and
             process all
             information relative to board state, such as pieces positions,
-            castling rights, number of turns, en passeant possibility, etc.
+            castling rights, number of turns, \textit{En Passeant} possibility, etc.
             And with that it information it can save and load the board state
             in the form of a FEN(Forsyth–Edwards
             Notation)\footnote{\url{https://en.wikipedia.org/wiki/Forsyth\%E2\%80\%93Edwards_Notation}}
-        \item The Chess module contains the Chess class that is used to process
+        \item The \textbf{Chess} module contains the Chess class that is used to process
             the Board information and create legal moves from which the player
             can chose to play.
-        \item The GUI module uses the Board and Chess classes to play the game
-            in a graphical interface mode.
+        \item The \textbf{GUI} module contains the GUI class which uses the Board and Chess classes to play the game in a graphical interface mode.
 \end{enumerate}
 
 
@@ -113,27 +114,30 @@ respective major class: The Piece, Board, Chess and GUI.
 Three approaches were made to certify the accuracy of the game:
 
 \begin{enumerate}[label=\arabic*)]
-\item Shannon's Calculations
-\item Brute force complex positions and comparing with a proof table of possible
-    moves. 
+\item Brute force the initial position and compare with the Shannon's
+    Calculations, which stands for a proof table of the total possible moves
+    that can arise within a certain ply(half-move)
+\item Brute force ``complex positions'' and comparing with a proof table of possible
+    moves(Same approach as above, but not from the initial position).
 \item Specific tests to test draw conditions
 \end{enumerate}
 
-To execute all the tests we run the following command at the top level directory of the project, i.e ``/project''
+To execute all the tests we run the following command at the top level directory
+of the project, i.e ``/mychess''
 \begin{lstlisting}
 pytests tests
 \end{lstlisting}
 
-or for specifict tests, we can also run for example:
+or for specific tests, we can also run for example:
 
 \begin{lstlisting}
 pytests tests/testdraw.py
 \end{lstlisting}
 
-The result of both tests will be located at ``project/logs''
+The result of both tests will be located at ``mychess/logs''
 
 
-\subsection{Shannon's Number}
+\subsection{Shannon's Calculation}
 
 
 \begin{table}[H]
@@ -159,13 +163,14 @@ The result of both tests will be located at ``project/logs''
 10 & 69,352,859,712,417 \\
 \hline
 \end{tabular}
-\caption{Shannon's Calculation. Obs: A turn is composed by a white move and a black move. Five plies
-therefore stands for white playing three times and black two.}
+\caption{Shannon's Calculation. Obs: A turn is composed by a white move and a
+    black move. A ply is half-move, therefore five plies
+stands for white playing three times and black two.}
 \end{table}
 
-For basic operations accuracy, it was used the Shannon Number,
+For testing basic moves correctness, it was used the Shannon's Calculation,
 which stands for all the possible moves that can be played until a certain
-ply(half-move). By the limitation of the computer power avaible for our
+ply(half-move). By the limitations of the computer power available at our
 disposal, and considering that the game was not written in a language nor
 written in a way for fast computation, we could only check the precision of the
 game until 5 ply, as we can see by the test log:
@@ -290,14 +295,14 @@ we get the following result from 5 ``complex positions'':
     
 \end{lstlisting}
 
-By doing these tests, we can be relativery certain that the ``special moves'' are working
+By doing these tests, we can be relatively certain that the ``special moves'' are working
 as desired.
 
 \subsection{Specific tests for Draws}
 
-Because Draws take so long to happen, they very rarely appear in brute forcing
-tests. Because of that, we made specific tests, that have this logic.
-For example, we feed this list of moves: 
+Given that draws take so long to happen, they very rarely appear in brute forcing
+tests. Having that in mind, we made specific tests that checks all the draw
+conditions.  For example, we feed this list of moves: 
 
 \begin{lstlisting}
 
@@ -337,7 +342,7 @@ Into our specific test function:
 
 The test plays the game move by move, and prints the result of the comparison between the expected board state
 result(FEN) with the FEN given by our function call. If our game returns the
-exact expected FEN, the test was successfull.
+exact expected FEN, the test was successful.
 
 Similar tests were made with:
 \begin{enumerate}[label=\arabic*)]
@@ -383,9 +388,9 @@ the following command inside the top directory of the project:
 python3 -m pip install -e .
 \end{lstlisting}
 
-If something in installation fails, the user might need to change directory to
-``mychess/src'' and import the module and/or run the following execution options
-from there.
+\textbf{If something in installation fails, the user might need to change directory to
+        ``mychess/src'' and import the module and/or run the following execution options
+        from there.}
 
 \subsection{Usage}
 
@@ -500,8 +505,10 @@ Blacks turn to move!
 
 
 
-You can enter directly the CLI interface by running: $\$~python3~mychess.main~-cli$.
-Here the program enters in a loop and continously asks moves until it reaches a
+You can enter directly the CLI interface by running:
+$\$~python3~mychess.main~-cli$\footnote{If package not installed, execute from
+``mychess/src''}.
+Here the program enters in a loop and continuously asks moves until it reaches a
 endgame condition, such as checkmate or draw.
 
 \begin{lstlisting}
@@ -544,7 +551,7 @@ Move:
 \end{lstlisting}
 
 You can also enter directly the GUI interface by running:
-$\$~python3~mychess.main~-gui$. There is no time control, just dragging and dropping
+$\$~python3~mychess.main~-gui$\footnote{See footnote 2}. There is no time control, just dragging and dropping
 pieces, and promoting pawns. The program takes care of prohibiting illegal moves
 and moving enemy pieces while not your turn. Just as the play\_cli(), the game
 goes on as long as it doesn't reach an endgame condition.
