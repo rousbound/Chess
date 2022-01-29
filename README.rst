@@ -13,6 +13,7 @@ Instalation
 At top directory folder:
 
     .. code:: bash
+        
         $ python3 -m pip install -e .
 
 
