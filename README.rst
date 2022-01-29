@@ -17,16 +17,15 @@ At top directory folder:
         $ python3 -m pip install -e .
 
 
-If for any reason, installation doesn't work, execute all the following commands from "mychess/src".  Although setuptools version are specified in the requirements, the
-user might need to upgrade manually setuptools with
+OBS: Although setuptools version are specified in the requirements, the
+user might need to upgrade manually setuptools with the command below before running the install with command informed above.
        
     .. code:: bash
 
         $ python3.9 -m pip install --upgrade setuptools
        
-before running the install command
-informed above.
 
+OBS2: If for any reason, installation doesn't work, execute all the following commands from "mychess/src".
 
 Usage
 ------------
