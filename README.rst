@@ -18,7 +18,7 @@ At top directory folder:
 
 
 If for any reason, installation doesn't work, execute all the following commands from "mychess/src".  Although setuptools version are specified in the requirements, the
-        user might need to upgrade manually setuptools with
+user might need to upgrade manually setuptools with
        
     .. code:: bash
 
