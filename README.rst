@@ -5,7 +5,7 @@ Introduction
 Mychess is a library for playing and validating chess moves.
 
 
-Instalation
+Installation
 ------------
 
     Requirements: Python 3.8
@@ -35,6 +35,7 @@ Usage
     
     $ python3 -m mychess.main -cli
 
+* Play moves using the interpreter
 
 .. code:: python
 
