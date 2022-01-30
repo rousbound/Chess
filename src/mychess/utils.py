@@ -2,6 +2,16 @@
 utils.py -- Module made for storing move conversion functions used across all modules
 Author: Geraldo Luiz Pereira
 www.github.com/rousbound
+
+There are basically three types of move representation:
+
+Algebraic, for example: Nc3, e4, exf4, exf4=Q, O-O-O
+
+UCI, for example: f1b3, e2e4, e7e5, e1g1
+
+And "move", which is the internal representation of a move in the program),
+Where the number stands for indexes in the board matrix.
+For example: ((4,4),(4,6),%) or ((4,7),(4,8),"q")
 """
 import re
 

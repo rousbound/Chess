@@ -19,8 +19,9 @@
 \usepackage[bottom]{footmisc}
 
 
-\author{}
-\title{}
+\author{Geraldo Luiz -- Projeto Final de Programação 2021.2\\ Profº Marcos
+Kalinowski -- Orientador: Jônatas Wehrmann}
+\title{Mychess -- A Chess move validation library}
 \date{}
 
 \newcommand{\quotebox}[3]{
@@ -49,11 +50,10 @@
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
 \lstset{frame=tb,
-  language=C,
+  language=Python,
   aboveskip=2mm,
   belowskip=2mm,
   showstringspaces=false,
-  columns=flexible,
   basicstyle={\small\ttfamily},
   numbers=none,
   numberstyle=\tiny\color{gray},
@@ -71,11 +71,11 @@
 
 \section{Program Scope}
 
-The objetive of the following project is to make a program that can play and
+The objective of the following project is to make a program that can play and
 validate chess moves. The program should be able to receive as input a chess move in UCI(Universal Chess Interface) format i.e
 ``e2e4'', and if the movement is valid, output the board state to the user or inform
 the user the input isn't valid. For this matter, the standard python libraries
-are enough to address the problem. But for debugging and testing ends, it was
+are enough to address the problem. However, for debugging and testing ends, it was
 used the following libraries:
 
 \begin{enumerate}[label=\alph*)]
@@ -83,7 +83,7 @@ used the following libraries:
     for fast exploratory testing and debugging.
 \item pytest -- For facilitating the execution of the tests.
 \item python\_chess -- More mature chess library that was used as reference for comparing board states, and identifying wrong behaviour in certain positions while testing.
-\item setuptools -- To install the program as package.
+\item setuptools -- To install the program a as package.
 \end{enumerate}
 
 
@@ -93,7 +93,7 @@ used the following libraries:
 The project is constituted by four modules that contains in itself their
 respective major class: The Piece, Board, Chess and GUI classes, which can be
 described as:
-\begin{enumerate}
+\begin{enumerate}[label=\alph*)]
     \item The \textbf{pieces} module contains the Piece class, that is inherited by all
         the chess pieces, and specifies how to get from each piece their own set
         of possible moves, where they are on the board, and what to do with
@@ -111,19 +111,20 @@ described as:
         \item The \textbf{GUI} module contains the GUI class which uses the Board and Chess classes to play the game in a graphical interface mode.
 \end{enumerate}
 
-Apart from the main structure, it should be mentioned the other modules such as:
+Apart from the main structure, it should be mentioned the other modules like:
 
 \begin{enumerate}[label=\alph*)]
-\item The \textbf{utils} module is in charge of holding all move format
+\item The \textbf{utils} module which is in charge of holding all move format
     conversion functions.
 
-    Ex: UCI to algebric, tuple to UCI, etc. (Tuple I refer as the internal
-    program representation that was made in this project)
+    Ex: UCI to algebraic, tuple to UCI, etc. (``Tuple'' I refer as the internal
+    program representation of a move that was made in this project)
 
-    \item The \textbf{colors} module is in charge of holding colors and color
-    conversion for the GUI module.
+    \item The \textbf{colors} module which is in charge of storing colors and
+        the color
+    conversion function for the GUI module.
 
-    \item The \textbf{main} module is in charge of receiving a parameter and
+    \item The \textbf{main} module which is in charge of receiving a parameter and
         executing the program with the respective desired type of execution.
 
 \end{enumerate}
@@ -161,7 +162,15 @@ or for specific tests, we can also run for example:
 pytests tests/testdraw.py
 \end{lstlisting}
 
-The result of both tests will be located at ``mychess/logs''
+or 
+
+
+\begin{lstlisting}
+pytests -k ``test_position''
+\end{lstlisting}
+
+Which will test functions that are similar to the given string. The results
+of the tests will be located at ``mychess/logs''
 
 
 \subsection{Shannon's Calculation}
@@ -218,13 +227,14 @@ command ran at top level directory ``mychess''.
 \end{lstlisting}
 
 Although this is a good signal that basic operations are working, in 5 plies we
-cannot test all the complications that might arise during a chess game.
+cannot test all the complications that might arise during a chess game, as shown
+by the following table:
 
 \begin{table}[H]
 \center
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
-\textbf{Depth}   & \textbf{Captures} & \textbf{E.P} &
+\textbf{Ply}   & \textbf{Captures} & \textbf{E.P} &
 \textbf{Castles} & \textbf{Promotions} & \textbf{Checks} & \textbf{Dscry
 Checks} & \textbf{Dbl Checks} & \textbf{Checkmates} \\
 \hline
@@ -239,7 +249,7 @@ Checks} & \textbf{Dbl Checks} & \textbf{Checkmates} \\
 5  & 82,719 & 258 & 0 & 0 & 27,251 & 6 & 0 & 347 \\
 \hline
 \end{tabular}
-\caption{Number of ``special'' moves by depth accordingly to
+\caption{Number of ``special'' moves by plies accordingly to
 \url{https://www.chessprogramming.org/Perft_Results} }
 \end{table}
 
@@ -250,8 +260,8 @@ until moves later than 5.
 \subsection{Brute forcing complex positions}
 
 
-One way to test them, is loading ``complex positions'', which contain in its
-possibilities: Castling, promotion, discovery checks and double checks, brute
+One way to test these special moves, is loading ``complex positions'', which contain in its
+possibilities  castling, promotion, discovery checks and double checks, brute
 force their
 possible moves, and compare the results with a proof table. Using the
 positions recommended in \url{https://www.chessprogramming.org/Perft_Results},
@@ -370,8 +380,8 @@ tests = [movedraw50]
 
 \end{lstlisting}
 
-The test plays the game move by move, and prints the result of the comparison between the expected board state
-result(FEN) with the FEN given by our function call. If our game returns the
+The test plays the game move by move and compares the expected FEN with the FEN
+given by our function call after the playing the list of moves. If our game returns the
 exact expected FEN, the test was successful.
 
 Similar tests were made with:
@@ -390,7 +400,7 @@ Similar tests were made with:
 \end{enumerate}
 
 And their result can be found on the folder ``mychess/logs'' after running the
-command at top level directory ``mychess''.
+following command at top level directory ``mychess''.
 \begin{lstlisting}
 
 >>> $ pytest tests/test_draws.py
@@ -441,11 +451,15 @@ executions, it is important to add that:
 \begin{enumerate}[label=\alph*)]
 \item The UCI format works with two coordinates, where the letters represent the
     columns, and the numbers the rows, starting both from the left-bottom side
-    of the white position. The first coordinate is the starting position of the
+    of the white side. The first coordinate is the starting position of the
     piece, and the second coordinate is the ending position of the piece.
 
     Ex: ``e2e4'' stands for: Piece that is on ``e2'' square, moves to ``e4''
     square.
+
+    In synthesis, the grammar of the UCI move, in regular expression is the following: [a-h][1-8][a-h][1-8][qbnr]?
+
+
 \item Castling works naturally if the move is legal. 
 
     Ex: ``e1g1'' stands for white King-side castling, where ``e1'' is the start square and
@@ -459,7 +473,7 @@ executions, it is important to add that:
     Ex: ``e7e8q'' stands for the pawn moving forward and promoting to a queen.
 
     Ex2: ``f7e8b'' stands for the pawn capturing diagonally another piece and
-    promoting to a Bishop, as it arrives in the eight rank.
+    promoting to a Bishop.
 
 \end{enumerate}
 
@@ -467,7 +481,7 @@ executions, it is important to add that:
 
 \subsubsection{Interpreter}
 
-By running the program as a module, we can have a more flexible execution,
+By importing the program as a module from the interpreter, we can have a more flexible execution,
 choosing what to be shown at which time, which position to start, etc. Below we have an example execution,
 that uses all the necessary calls to obtain the same result as the other
 execution options i.e CLI or GUI.
