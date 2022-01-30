@@ -53,9 +53,9 @@
       <file>blx-dm.def</file>
       <file>blx-compat.def</file>
       <file>biblatex.def</file>
-      <file>authoryear-ibid.bbx</file>
-      <file>authoryear.bbx</file>
       <file>standard.bbx</file>
+      <file>authoryear.bbx</file>
+      <file>authoryear-ibid.bbx</file>
       <file>authoryear-ibid.cbx</file>
       <file>biblatex.cfg</file>
       <file>portuguese.lbx</file>

@@ -71,15 +71,21 @@
 
 \section{Program Scope}
 
-The program should be able to receive as input a chess move in UCI(Universal
-Chess Interface) format i.e
-e2e4, and if the movement is valid, output the board state to the user or inform
-the user the input isn't valid. For this matter, the standard python libraries is
-enough address the problem. For debugging purposes, a graphical interface was
-also required and implemented in pygame, a graphical framework for games. Also
-for preparing the tests, it was used the program
-\textit{pgn-extract} to convert PGN game notation to UCI notation, although, not
-necessary for running nor testing. For running the tests, pytest was used.
+The objetive of the following project is to make a program that can play and
+validate chess moves. The program should be able to receive as input a chess move in UCI(Universal Chess Interface) format i.e
+``e2e4'', and if the movement is valid, output the board state to the user or inform
+the user the input isn't valid. For this matter, the standard python libraries
+are enough to address the problem. But for debugging and testing ends, it was
+used the following libraries:
+
+\begin{enumerate}[label=\alph*)]
+\item pygame -- Graphical framework for games, for creating a GUI, that was used
+    for fast exploratory testing and debugging.
+\item pytest -- For easing the interaction with the tests.
+\item python\_chess -- More mature chess library that was used as reference for comparing board states, and identifying wrong behaviour in certain positions while testing.
+\item setuptools -- To install the program as package.
+\end{enumerate}
+
 
 
 \section{Program project}
@@ -89,14 +95,14 @@ respective major class: The Piece, Board, Chess and GUI classes, which can be
 described as:
 \begin{enumerate}
     \item The \textbf{Pieces} module contains the Piece class, that is inherited by all
-        the chess pieces, and specify how to get from each piece their own set
+        the chess pieces, and specifies how to get from each piece their own set
         of possible moves, where they are on the board, and what to do with
-        the board when what to do when the piece moves.
+        the board when the piece moves.
         \item The \textbf{Board} module contains the Board class that is used to save and
             process all
             information relative to board state, such as pieces positions,
             castling rights, number of turns, \textit{En Passeant} possibility, etc.
-            And with that it information it can save and load the board state
+            And with that information it can save and load the board state
             in the form of a FEN(Forsyth–Edwards
             Notation)\footnote{\url{https://en.wikipedia.org/wiki/Forsyth\%E2\%80\%93Edwards_Notation}}
         \item The \textbf{Chess} module contains the Chess class that is used to process
@@ -105,23 +111,24 @@ described as:
         \item The \textbf{GUI} module contains the GUI class which uses the Board and Chess classes to play the game in a graphical interface mode.
 \end{enumerate}
 
+Below the project main structure is illustrated in a UML format:
 
 \begin{figure}[H]
-    \includegraphics[scale=0.2]{fig/classes_Chess.png}
+    \includegraphics[scale=0.25]{fig/classes_Chess.png}
 \end{figure}
 
 
 \section{Testing}
 
-Three approaches were made to certify the accuracy of the game:
+Three approaches were made to certify the correctness of the game:
 
 \begin{enumerate}[label=\arabic*)]
 \item Brute force the initial position and compare with the Shannon's
-    Calculations, which stands for a proof table of the total possible moves
-    that can arise within a certain ply(half-move)
+    Calculations, which is a proof table of the total possible moves
+    that can arise within a certain ply(half-move).
 \item Brute force ``complex positions'' and comparing with a proof table of possible
     moves(Same approach as above, but not from the initial position).
-\item Specific tests to test draw conditions
+\item Specific tests to test draw conditions.
 \end{enumerate}
 
 To execute all the tests we run the following command at the top level directory
@@ -304,7 +311,7 @@ as desired.
 
 Given that draws take so long to happen, they very rarely appear in brute forcing
 tests. Having that in mind, we made specific tests that checks all the draw
-conditions.  For example, we feed this list of moves: 
+conditions.  For example, for checking this 50 no-progress moves draw criteria, we feed this list of moves: 
 
 \begin{lstlisting}
 
@@ -329,8 +336,8 @@ h8g8 g6e7 g8h8 e6g5", "7k/4N3/5K2/5BN1/8/8/8/r7 b - - 100 113"]
 Into our specific test function:
 
 \begin{lstlisting}
+tests = [movedraw50]
     for test in tests:
-
         chess = Chess()
         fen = chess.test_input_moves(test[0].split(" "))
         r = fen == test[1]
@@ -361,7 +368,8 @@ Similar tests were made with:
     \item 50 move without pawn move or capture
 \end{enumerate}
 
-And their result can be found on the log:
+And their result can be found on the folder ``mychess/logs'' after running the
+command:
 \begin{lstlisting}
 
 >>> $ pytest tests/test_draws.py
@@ -396,16 +404,45 @@ python3 -m pip install -e .
         from there.
 
         \textbf{OBS2:} Although \textit{setuptools} version are specified in the requirements, the
-        user might need to upgrade manually \textit{setuptools} with ``python3.9 -m pip
-        install --upgrade setuptools'' before running the install command
+        user might need to install manually \textit{setuptools} with ``python3.9 -m pip
+        install setuptools'' or upgrade with ``python3.9 -m pip install
+        --upgrade setuptools'' before running the install command
         informed above.
 
 
 \subsection{Usage}
 
-There are three ways to interact with this program, by directly calling their
-functions in the interpreter, or in a script, by calling the $play\_cli()$ or the
-$play\_gui()$ functions. 
+There are three ways to interact with this program, by importing and directly
+calling their functions in the interpreter, or running directly the main script
+with ``python3.9 -m mychess.main -cli'' or ``python3.9 -m mychess.main -gui''.
+Having in mind already the rules of Chess, for the interpreter and CLI
+executions, it is important to add that:
+\begin{enumerate}[label=\alph*)]
+\item The UCI format works with two coordinates, where the letters represent the
+    columns, and the numbers the rows, starting both from the left-bottom side
+    of the white position. The first coordinate is the starting position of the
+    piece, and the second coordinate is the ending position of the piece.
+
+    Ex: ``e2e4'' stands for: Piece that is on ``e2'' square, moves to ``e4''
+    square.
+\item Castling works naturally if the move is legal. 
+
+    Ex: ``e1g1'' stands for white King-side castling, where ``e1'' is the start square and
+    ``g1'' is the target square. The King moving two squares at a single time is
+    only possible when castling, so the move cannot be mistaken with a normal
+    one. 
+\item Pawn promotion works with the same grammar of a normal move, but
+    concatanating a letter that represents the chosen piece to be promoted.
+    (``q'' for queen, ``r'' for rook, ``b'' for bishop, ``n'' for knight)
+
+    Ex: ``e7e8q'' stands for the pawn moving forward and promoting to a queen.
+
+    Ex2: ``f7e8b'' stands for the pawn capturing diagonally another piece and
+    promoting to a Bishop, as it arrives in the eight rank.
+
+\end{enumerate}
+
+
 
 \subsubsection{Interpreter}
 
@@ -417,9 +454,10 @@ execution options i.e CLI or GUI.
 The calls are:
 
 \begin{enumerate}[label=\arabic*)]
-\item Chess() -- Creates game object
-\item uci\_moves() -- Shows possible moves
-\item push\_uci() -- Makes a move
+\item Chess(FEN=None) -- Creates game object, may take FEN as a parameter to start at a
+    different board position.
+\item uci\_moves() -- Shows possible moves.
+\item push\_uci() -- Makes a move in UCI format.
 \end{enumerate}
 
 
