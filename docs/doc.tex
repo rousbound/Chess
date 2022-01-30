@@ -432,7 +432,7 @@ executions, it is important to add that:
     only possible when castling, so the move cannot be mistaken with a normal
     one. 
 \item Pawn promotion works with the same grammar of a normal move, but
-    concatanating a letter that represents the chosen piece to be promoted.
+    concatenating a letter that represents the chosen piece to be promoted.
     (``q'' for queen, ``r'' for rook, ``b'' for bishop, ``n'' for knight)
 
     Ex: ``e7e8q'' stands for the pawn moving forward and promoting to a queen.
@@ -447,7 +447,7 @@ executions, it is important to add that:
 \subsubsection{Interpreter}
 
 By running the program as a module, we can have a more flexible execution,
-choosing what to be shown at which time. Below we have an example execution,
+choosing what to be shown at which time, which position to start, etc. Below we have an example execution,
 that uses all the necessary calls to obtain the same result as the other
 execution options i.e CLI or GUI.
 
@@ -600,9 +600,11 @@ Move:
 \subsubsection{GUI usage}
 
 You can also enter directly the GUI interface by running:
-$\$~python3~mychess.main~-gui$\footnote{See footnote 2}. There is no time control, just dragging and dropping
-pieces, and promoting pawns. The program takes care of prohibiting illegal moves
-and moving enemy pieces while not your turn. Just as the play\_cli(), the game
+$\$~python3~mychess.main~-gui$\footnote{See footnote 2}. There is no time
+control, just dragging and dropping pieces, and promoting pawns with the mouse,
+which is completely intuitive. The program takes care of prohibiting illegal
+moves and also enforces that the user cannot move enemy pieces while in your own
+turn. Just as the play\_cli() execution, the game
 goes on as long as it doesn't reach an endgame condition.
 
 \begin{figure}[H]
