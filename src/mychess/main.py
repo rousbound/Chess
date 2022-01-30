@@ -1,3 +1,8 @@
+"""
+main.py -- Execution options
+Author: Geraldo Luiz Pereira
+www.github.com/rousbound
+"""
 import sys
 
 from mychess import Chess

@@ -1,5 +1,7 @@
 """
-Module made only to convert and save colors
+colors.py -- Module made only to convert and save colors
+Author: Geraldo Luiz Pereira
+www.github.com/rousbound
 """
 
 def hex2rgb(hex_string):

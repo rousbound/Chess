@@ -1,6 +1,7 @@
 """
-Module made for saving move conversion functions
-
+utils.py -- Module made for storing move conversion functions used across all modules
+Author: Geraldo Luiz Pereira
+www.github.com/rousbound
 """
 import re
 

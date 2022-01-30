@@ -1,3 +1,8 @@
+"""
+GUI.py -- Everything needed to use mychess.py and play the game in a Graphical Interface
+Author: Geraldo Luiz Pereira
+www.github.com/rousbound
+"""
 import sys
 import copy
 import os
@@ -5,8 +10,7 @@ import os
 import pygame
 
 from .colors import *
-from .board import Board
-from .pieces import *
+from .pieces import Queen, Rook, Knight, Bishop
 
 
 class GUI():
@@ -189,7 +193,7 @@ class GUI():
 
     def draw_piece(self, piece, pos=None):
         """
-        Draws piece. 
+        Draws piece.
         If no "pos" passed as argument, draw piece at piece.get_pos(),
         otherwise, draw piece at desired "pos".
 
@@ -320,8 +324,8 @@ class GUI():
         Initiate promotion interface while waiting the user to choose.
 
         """
-        self.promoting_column = to[0] 
-        self.promoting = True 
+        self.promoting_column = to[0]
+        self.promoting = True
         self.promoting_move = [start, to, ""] #
         self.piece_held.piece_held = False
         self.piece_held = None
@@ -449,11 +453,14 @@ class GUI():
             pygame.display.flip()
 
     def show(self):
+        """
+        Function called only on brute force test for asthetic reasons.
+        We can see the program brute forcing all moves visually.
+
+        """
         self.screen.fill((0, 0, 0, 255))
         self.draw()
         if self.promoting:
             self.screen.fill(background_promotion)
             self.draw_promotion()
         pygame.display.flip()
-        return
-

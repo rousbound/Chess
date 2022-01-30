@@ -1,4 +1,8 @@
-import copy
+"""
+mychess.py -- Uses board.py to create and validate chess moves.
+Author: Geraldo Luiz Pereira
+www.github.com/rousbound
+"""
 import random
 import logging
 
@@ -356,9 +360,6 @@ class Chess():
         if promoted_piece:
             promoted_piece.move(to, self.board)
 
-        # Save board state for draw criteria
-        # self.board.board_states.append(self.board.board_2_fen())
-
         # Increment turn counter for draw criteria
         if not self.board.turn:
             self.board.turn_counter += 1
@@ -397,15 +398,15 @@ class Chess():
             if not pieces_left:
                 self.game_running = False
                 print("DRAW -- Only kings left")
-            if len(pieces_left) == 1:
+            elif len(pieces_left) == 1:
                 piece = pieces_left[0]
                 if piece.name == "B":
                     print("DRAW -- King and Bishop cannot checkmate")
                     self.game_running = False
-                if piece.name == "N":
+                elif piece.name == "N":
                     print("DRAW -- King and Knight cannot checkmate")
                     self.game_running = False
-            if len(pieces_left) == 2:
+            elif len(pieces_left) == 2:
                 piece1 = pieces_left[0]
                 piece2 = pieces_left[1]
                 if piece1.color != piece2.color:
@@ -532,9 +533,11 @@ class Chess():
 
     def show_gui(self):
         """
-        Play game with Graphical User Interface.
+        Show only a frame of the position with Graphical User Interface.
+        Used in bruteforce testing to see position being brute forced visually.
 
         """
+        from .GUI import GUI
         gui = GUI(640,640,self)
         gui.show()
 
@@ -549,6 +552,10 @@ class Chess():
         gui.main()
 
     def play_cli_interactive(self):
+        """
+        Called when wanting to play game from the interpreter.
+
+        """
         self.play_cli(self.get_move_player)
 
     def play_cli(self, get_move):
@@ -580,6 +587,10 @@ class Chess():
         return self.board.board_2_fen()
 
     def test_input_moves(self, input_moves):
+        """
+        Function used for testing. Plays the game with a list of moves.
+
+        """
         for move in input_moves:
             self.legal_moves = self.get_legal_moves()
             self.board.print_board()

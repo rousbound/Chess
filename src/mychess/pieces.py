@@ -1,3 +1,8 @@
+"""
+pieces.py -- Everything needed to represent chess pieces
+Author: Geraldo Luiz Pereira
+www.github.com/rousbound
+"""
 
 class Piece():
     """

@@ -1,6 +1,13 @@
+"""
+board.py -- Represents board state
+Author: Geraldo Luiz Pereira
+www.github.com/rousbound
+"""
+
+from collections import OrderedDict
+
 from .pieces import King, Queen, Rook, Bishop, Knight, Pawn
 from .utils import mat_2_uci
-from collections import OrderedDict
 
 class Board():
     """
@@ -151,6 +158,13 @@ class Board():
 
 
     def fen_2_board(self, fen):
+        """
+        Converts a FEN string to a board state in our internal representation.
+        Ex: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+        If we split the string using spaces we get different types of information,
+        as we can see in the exact order below.
+
+        """
         fen_pieces, turn, castling, enpasseant, no_progress_counter, turn_counter = fen.split(" ")
 
         self.can_castle = {"K": False, "Q": False, "k": False, "q": False, None: False}
