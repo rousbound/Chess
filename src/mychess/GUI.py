@@ -6,8 +6,8 @@ import pygame
 
 from .colors import *
 from .board import Board
+from .pieces import *
 
-# from pieces import Queen, Knight, Rook, Bishop
 
 class GUI():
     """
@@ -56,9 +56,6 @@ class GUI():
     spritesheet : Surface
         Surface which will be cropped to render individual pieces
 
-    pieces_dict : dict
-        Converts Piece type to index in spritesheet Surface
-
     cell : int
         Cell size of each square in the board
 
@@ -92,9 +89,6 @@ class GUI():
 
     -------- DRAWING LOGIC ---------
 
-    get_piece_sprite_coordinates(piece:Piece) -> tup
-        Get piece sprite coordinates in sprite sheet.
-
     get_sprite_sheet() -> Surface
         Create spritesheet of pieces images
 
@@ -104,7 +98,7 @@ class GUI():
     get_piece_pixel_pos(piece:Piece) -> tup
         Get piece pixel position on screen
 
-    draw_piece(piece:Piece) -> None
+    draw_piece(piece:Piece, pos:tup) -> None
         Draw piece on screen
 
     draw_square(pos:tup, bright:tup, dark:tup) -> None
@@ -144,20 +138,6 @@ class GUI():
         self.spritesheet = self.make_resource("res/pieces.png")
         self.capture_visual_indicator = self.make_resource("res/capture2.png")
         self.in_check_visual_indicator = self.make_resource("res/Check.png")
-        self.pieces_dict = {
-                "WP": 5,
-                "WN": 3,
-                "WB": 2,
-                "WR": 4,
-                "WK": 0,
-                "WQ": 1,
-                "BP": 11,
-                "BN": 9,
-                "BB": 8,
-                "BR": 10,
-                "BK": 6,
-                "BQ": 7
-                }
         self.get_sprite_sheet()
         self.xoffset = -1
         self.yoffset = -2
@@ -166,20 +146,11 @@ class GUI():
     def make_resource(self, resource_path):
         """
         Create relative path for each resource loaded
-        """
 
+        """
         base_path = os.path.dirname(os.path.abspath(__file__))
         surface = pygame.image.load(os.path.join(base_path, resource_path)).convert_alpha()
         return surface
-
-    def get_piece_sprite_coordinates(self, piece):
-        """
-        Get piece sprite coordinates in sprite sheet.
-
-        """
-        piece_color = "W" if piece.color else "B"
-        piece_index = self.pieces_dict[piece_color+piece.name]
-        return self.sprite_sheet_piece_coordinates[piece_index]
 
     def get_sprite_sheet(self):
         """
@@ -218,15 +189,33 @@ class GUI():
 
     def draw_piece(self, piece, pos=None):
         """
-        Draws piece.
+        Draws piece. 
+        If no "pos" passed as argument, draw piece at piece.get_pos(),
+        otherwise, draw piece at desired "pos".
 
         """
+        pieces_dict = {
+                "WP": 5,
+                "WN": 3,
+                "WB": 2,
+                "WR": 4,
+                "WK": 0,
+                "WQ": 1,
+                "BP": 11,
+                "BN": 9,
+                "BB": 8,
+                "BR": 10,
+                "BK": 6,
+                "BQ": 7
+                }
 
         if not pos:
             piece_pixel_pos = self.get_piece_pixel_pos(piece)
         else:
             piece_pixel_pos = pos
-        coord = self.get_piece_sprite_coordinates(piece)
+        piece_color = "W" if piece.color else "B"
+        piece_index = pieces_dict[piece_color+piece.name]
+        coord = self.sprite_sheet_piece_coordinates[piece_index]
         self.screen.blit(self.spritesheet, piece_pixel_pos, coord)
 
     def draw_square(self, pos, bright, dark):
@@ -263,10 +252,11 @@ class GUI():
                 self.draw_square((i, j), draw_square_bright, draw_square_dark)
 
                 piece = self.chess.board[i, j]
-                # Draw pieces, except the one held and check if king is in check
                 if piece:
+                    # Draw pieces, except the one held and check if king is in check
                     if not piece.piece_held:
                         piece_pixel_pos = self.get_piece_pixel_pos(piece)
+                        # If King in check, draw King in check visual indicator
                         if piece.name == "K" and piece.in_check:
                             self.screen.blit(self.in_check_visual_indicator, piece_pixel_pos)
                         self.draw_piece(piece)
@@ -330,20 +320,25 @@ class GUI():
         Initiate promotion interface while waiting the user to choose.
 
         """
-        self.promoting_column = to[0]
-        self.promoting = True
-        self.promoting_move = [start, to, ""]
+        self.promoting_column = to[0] 
+        self.promoting = True 
+        self.promoting_move = [start, to, ""] #
         self.piece_held.piece_held = False
         self.piece_held = None
-        behind = 1 if self.chess.board.turn else -1
-        last_row = 0 if self.chess.board.turn else 7
-        color = self.chess.board.turn
-        queen = Queen(color, self.promoting_column, last_row)
-        knight = Knight(color, self.promoting_column, last_row + behind)
-        rook = Rook(color, self.promoting_column, last_row + (2*behind))
-        bishop = Bishop(color, self.promoting_column, last_row + (3*behind))
 
-        self.promoting_pieces = [queen, knight, rook, bishop]
+        def get_promoting_display_pieces():
+            behind = 1 if self.chess.board.turn else -1
+            last_row = 0 if self.chess.board.turn else 7
+
+            color = self.chess.board.turn
+            queen = Queen(color, self.promoting_column, last_row)
+            knight = Knight(color, self.promoting_column, last_row + behind)
+            rook = Rook(color, self.promoting_column, last_row + (2*behind))
+            bishop = Bishop(color, self.promoting_column, last_row + (3*behind))
+
+            return [queen, knight, rook, bishop]
+
+        self.promoting_pieces = get_promoting_display_pieces()
 
     def draw_promotion(self):
         """

@@ -5,7 +5,7 @@ from mychess import Chess
 
 def main(args):
     """
-    Main function.
+    Main function. Receives as argument the type of execution
 
     """
 
@@ -14,18 +14,16 @@ def main(args):
     else:
         arg = args[1]
 
+    chess = Chess(print_turn_decorator=False)
     if arg == "-cli":
 
-        chess = Chess(print_turn_decorator=False)
         chess.play_cli(chess.get_move_player)
 
     if arg == "-clir":
-        chess = Chess(print_turn_decorator=False)
         chess.play_cli(chess.get_move_random)
 
     if arg in ["-gui", None]:
 
-        chess = Chess(print_turn_decorator=False)
         chess.play_gui()
 
 if __name__ == "__main__":
