@@ -380,6 +380,14 @@ class Chess():
         # Check if king is in check
         self.kings_in_check()
 
+        # Adds current board state to board state counter
+        # Relevant for draw criteria
+        fen = " ".join(self.board.board_2_fen().split(" ")[:4])
+        if fen in self.board.board_states_counter.keys():
+            self.board.board_states_counter[fen] += 1
+        else:
+            self.board.board_states_counter[fen] = 1
+
     def check_endgame_conditions(self, legal_moves):
         """
         Check endgame conditions such as checkmate and draw.
@@ -452,11 +460,7 @@ class Chess():
             Checks if set of legal moves already repeated three times.
 
             """
-            fen = " ".join(self.board.board_2_fen().split(" ")[:4])
-            if fen in self.board.board_states_counter.keys():
-                self.board.board_states_counter[fen] += 1
-            else:
-                self.board.board_states_counter[fen] = 1
+            print(self.board.board_states_counter)
             for val in self.board.board_states_counter.values():
                 if val >= 3:
                     self.game_running = False
