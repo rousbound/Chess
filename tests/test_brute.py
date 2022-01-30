@@ -93,7 +93,7 @@ def brute_force_position(depth, expected_results, fen):
     return result_list[:depth]
 
 def test_initial_position():
-    depth = 3
+    depth = 5
     expected_results = [20,400,8_902,197_281,4_865_609]
     fen =  "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 0"
     assert brute_force_position(depth,

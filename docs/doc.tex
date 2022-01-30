@@ -182,8 +182,10 @@ which stands for all the possible moves that can be played until a certain
 ply(half-move). By the limitations of the computer power available at our
 disposal, and considering that the game was not written in a language nor
 written in a way for fast computation, we could only check the precision of the
-game until 5 ply, as we can see by the test log:
+game until 5 ply, as we can see by the test log, resulted of the following
+command ran at top level directory ``mychess''.
 \begin{lstlisting}
+>>> $ pytest -k ``test_initial_position''
 2022-01-22 00:00:36,742 Result of possible games with 1 ply: 20/20 - OK
 2022-01-22 00:00:36,742 Elapsed time in 1 ply: 00h00m00s seconds
 2022-01-22 00:00:37,312 Result of possible games with 2 ply: 400/400 - OK
@@ -236,7 +238,8 @@ force their
 possible moves, and compare the results with a proof table. Using the
 positions recommended in \url{https://www.chessprogramming.org/Perft_Results},
 with their respective proof table,
-we get the following result from 5 ``complex positions'':
+we get the following result from 5 ``complex positions'', with the following
+command ran at the top level directory ``mychess''.
 
 \begin{lstlisting}
 >>> $ pytest -k ''test_position''
@@ -369,7 +372,7 @@ Similar tests were made with:
 \end{enumerate}
 
 And their result can be found on the folder ``mychess/logs'' after running the
-command:
+command at top level directory ``mychess''.
 \begin{lstlisting}
 
 >>> $ pytest tests/test_draws.py

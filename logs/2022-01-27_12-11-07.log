@@ -1,7 +1,0 @@
-12:11:08 ----------------------------------------
-12:11:08 Initiating move generation test on depth: 3
-12:11:08 FEN of position to be brute forced:rnbqkbnr/pppppppp/8/8/P7/8/1PPPPPPP/RNBQKBNR w KQkq - 0 0
-12:11:08 Result of possible games with 1 ply: 21/20 - ERROR
-12:11:08 Elapsed time in 1 ply: 00h00m00s seconds
-12:11:08 Result of possible games with 2 ply: 419/400 - ERROR
-12:11:08 Elapsed time in 2 ply: 00h00m00s seconds
