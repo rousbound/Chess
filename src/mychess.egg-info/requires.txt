@@ -1,4 +1,0 @@
-chess==1.8.0
-pygame==2.0.1
-python_chess==0.23.11
-setuptools==60.5.0
