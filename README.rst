@@ -1,4 +1,8 @@
 
+MyChess: A Python Library for Validating Chess Moves
+-----------
+
+
 Introduction
 ------------
 
