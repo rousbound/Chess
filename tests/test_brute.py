@@ -1,7 +1,8 @@
 """
-Test which brute forces certain complex positions, compares with a proof table, and also 
-prints games which differ from python-chess, a more mature chess library.
-This way we can debug positions that have errors in them.
+This test brute forces the initial position and certain complex positions,
+compares with a proof table, and also 
+prints games which differ from python-chess results, a more mature chess library.
+This way we can debug positions that shouldn't happen.
 
 """
 
@@ -15,9 +16,9 @@ import chess as debug_chess
 
 from mychess import Chess
 
+# Configure logging 
 
 os.chdir("tests")
-
 now = datetime.datetime.now()
 dt_string = now.strftime("%d-%m-%Y_%H:%M:%S")
 logging.basicConfig(filename=f'log/test_brute_{dt_string}.log',
@@ -37,8 +38,10 @@ def move_generation_test(depth, chess, original_fen):
     chess.legal_moves = chess.get_legal_moves()
     counter = 0
     for move in chess.legal_moves:
-        # Make move
+        # Save board for undoing move later
         board = copy.deepcopy(chess.board)
+
+        # Make move
         chess.play_move(move)
 
         # Compare with a more mature library result
@@ -47,17 +50,18 @@ def move_generation_test(depth, chess, original_fen):
             try:
                 debug_board.push_uci(saved_move)
             except:
-                # Save information need to debug wrong position
+                # Print information needed to debug wrong position
                 fen = chess.board.board_2_fen()
                 logging.info(fen)
                 logging.info(debug_board.fen())
                 logging.info(chess.board.uci_moves_list)
 
+        # Add position to counter
         counter += move_generation_test(depth-1, chess, original_fen)
 
         # Undo move
-
         chess.board = board
+
     return counter
 
 
@@ -73,17 +77,23 @@ def brute_force_position(depth, expected_results, fen):
     ply_depth_start = time.time()
 
     for current_depth, expected_result in zip(range(1,depth+1), expected_results):
+        # Create Chess() instance based on a FEN
         game = Chess(fen=fen, print_turn_decorator=False)
+        
+        # Brute force position and count number of possible moves
         result = move_generation_test(current_depth, game, fen)
+
+        # Append result
         result_list.append(result)
+
+        # Compare with proof table
         str_result = 'OK' if result == expected_result else 'ERROR'
 
+        # Log results and execution time
         logging.info(f"Result of possible games with {current_depth} ply: {result}/{expected_result} - {str_result} ")
 
         ply_elapsed_time = (time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - ply_depth_start)))
-
         logging.info(f"Elapsed time in {current_depth} ply: {ply_elapsed_time} seconds")
-
         ply_depth_start = time.time()
 
     all_elapsed_time = time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - test_start))
@@ -94,7 +104,7 @@ def brute_force_position(depth, expected_results, fen):
 
 def test_initial_position():
     depth = 5
-    expected_results = [20,400,8_902,197_281,4_865_609]
+    expected_results = [20, 400, 8_902, 197_281, 4_865_609]
     fen =  "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 0"
     assert brute_force_position(depth,
                                 expected_results,

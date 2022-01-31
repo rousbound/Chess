@@ -1,14 +1,19 @@
+"""
+This script tests draw conditions.
+
+"""
 import logging
 import os
 
 from mychess import Chess
 import datetime 
 
-# os.chdir("tests")
+
+# Configure logging
+
 
 now = datetime.datetime.now()
 dt_string = now.strftime("%d-%m-%Y_%H:%M:%S")
-
 logging.basicConfig(filename=f'log/test_draws_{dt_string}.log',
         level=logging.INFO,
         format='%(asctime)s %(message)s',
@@ -18,8 +23,6 @@ logging.basicConfig(filename=f'log/test_draws_{dt_string}.log',
 movedraw50 = ["d2d4 g8f6 c2c4 g7g6 b1c3 f8g7 e2e4 d7d6 g1f3 e8g8 f1e2 e7e5 e1g1 b8c6 d4d5 c6e7 f3d2 a7a5 a1b1 f6d7 a2a3 f7f5 b2b4 g8h8 f2f3 e7g8 d1c2 g8f6 c3b5 a5b4 a3b4 f6h5 g2g3 d7f6 c4c5 c8d7 b1b3 h5g3 h2g3 f6h5 f3f4 e5f4 c5c6 b7c6 d5c6 h5g3 b3g3 f4g3 c6d7 g3g2 f1f3 d8d7 c1b2 f5e4 f3f8 a8f8 b2g7 d7g7 c2e4 g7f6 d2f3 f6f4 e4e7 f8f7 e7e6 f7f6 e6e8 f6f8 e8e7 f8f7 e7e6 f7f6 e6b3 g6g5 b5c7 g5g4 c7d5 f4c1 b3d1 c1d1 e2d1 f6f5 d5e3 f5f4 f3e1 f4b4 d1g4 h7h5 g4f3 d6d5 e3g2 h5h4 e1d3 b4a4 g2f4 h8g7 g1g2 g7f6 f3d5 a4a5 d5c6 a5a6 c6b7 a6a3 b7e4 a3a4 e4d5 a4a5 d5c6 a5a6 c6f3 f6g5 f3b7 a6a1 b7c8 a1a4 g2f3 a4c4 c8d7 g5f6 f3g4 c4d4 d7c6 d4d8 g4h4 d8g8 c6e4 g8g1 f4h5 f6e6 h5g3 e6f6 h4g4 g1a1 e4d5 a1a5 d5f3 a5a1 g4f4 f6e6 d3c5 e6d6 g3e4 d6e7 f4e5 a1f1 f3g4 f1g1 g4e6 g1e1 e6c8 e1c1 e5d4 c1d1 c5d3 e7f7 d4e3 d1a1 e3f4 f7e7 d3b4 a1c1 b4d5 e7f7 c8d7 c1f1 f4e5 f1a1 e4g5 f7g6 g5f3 g6g7 d7g4 g7g6 d5f4 g6g7 f3d4 a1e1 e5f5 e1c1 g4e2 c1e1 e2h5 e1a1 f4e6 g7h6 h5e8 a1a8 e8c6 a8a1 f5f6 h6h7 e6g5 h7h8 d4e6 a1a6 c6e8 a6a8 e8h5 a8a1 h5g6 a1f1 f6e7 f1a1 g5f7 h8g8 f7h6 g8h8 h6f5 a1a7 e7f6 a7a1 f5e3 a1e1 e3d5 e1g1 g6f5 g1f1 d5f4 f1a1 f4g6 h8g8 g6e7 g8h8 e6g5", "7k/4N3/5K2/5BN1/8/8/8/r7 b - - 100 113"]
 
 
-# Game should en with thier "e8e7", we add an aditional movement, and the FEN is from the position in which the game ends in "e8e7"
-# If game ends the FEN will be right
 draw_three_fold_repetition = ["e2e4 e7e5 e1e2 e8e7 e2e1 e7e8 e1e2 e8e7 e2e1 e7e8 e1e2 e8e7 a2a4", "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 10 7"]
 
 draw_by_stalemate = ["e2e4 e7e5 g1f3 b8c6 f1b5 c6d4 f3d4 e5d4 e1g1 c7c6 b5c4 g8f6 d2d3 d7d5 e4d5 f6d5 f1e1 f8e7 d1e2 c8e6 c2c3 d4c3 b1c3 e8g8 c4d5 c6d5 b2b3 e7f6 c1b2 a8c8 a1c1 d8a5 c3a4 d5d4 h2h3 a5g5 e2f3 b7b5 h3h4 g5d2 e1d1 c8c1 b2c1 d2a2 a4c5 f6h4 g2g3 h4e7 c5e6 f7e6 c1f4 a2b3 d1c1 e6e5 f3b7 e5f4 b7e7 f4g3 f2g3 b3d3 e7e6 g8h8 c1c8 d3g3 g1h1 g3f3 h1h2 h7h6 c8f8 f3f8 e6e4 f8d8 e4d3 b5b4 h2g2 a7a5 g2f2 a5a4 f2e2 a4a3 d3b3 d4d3 e2d2 d8d4 d2d1 d4c3 b3g8 h8g8", "6k1/6p1/7p/8/1p6/p1qp4/8/3K4 w - - 0 45"]
@@ -39,9 +42,16 @@ def test_all_draw_cases():
     logging.info("----------------------------------------")
     for test in tests:
 
+        # Create Chess() instance with initial position
         chess = Chess()
+
+        # Play all moves and get resulting board state as FEN
         fen = chess.test_input_moves(test[0].split(" "))
+
+        # Compare result with expected FEN 
         r = fen == test[1]
+
+        # Log results
         result = "OK" if r else "ERROR"
         logging.info(f"Test with fen {test[1]} resulted in: {result}")
         assert r
