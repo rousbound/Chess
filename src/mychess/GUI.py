@@ -6,7 +6,7 @@ www.github.com/rousbound
 import sys
 import copy
 import os
-import MODULE, os
+
 
 import pygame
 
@@ -153,8 +153,7 @@ class GUI():
         Create relative path for each resource loaded
 
         """
-        base_path = os.path.dirname(MODULE.__file__)
-        # base_path = os.path.dirname(os.path.abspath(__file__))
+        base_path = os.path.dirname(os.path.abspath(__file__))
         surface = pygame.image.load(os.path.join(base_path, resource_path)).convert_alpha()
         return surface
 
