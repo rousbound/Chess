@@ -17,11 +17,17 @@ Installation
 At top directory folder:
 
     .. code:: bash
+
+        $ pip install git+https://github.com/rousbound/mychess
+
+Or with already cloned repo:
+
+    .. code:: bash
         
         $ python3 -m pip install -e .
 
 
-OBS: Although setuptools version are specified in the requirements, the
+Note: Although setuptools version are specified in the requirements, the
 user might need to upgrade manually setuptools with the command below before running the install with command informed above.
        
     .. code:: bash
@@ -29,7 +35,7 @@ user might need to upgrade manually setuptools with the command below before run
         $ python3.9 -m pip install --upgrade setuptools
        
 
-OBS2: If for any reason, installation doesn't work, execute all the following commands from "mychess/src".
+Note2: If for any reason, installation doesn't work, execute all the following commands from "mychess/src".
 
 Usage
 ------------
