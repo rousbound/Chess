@@ -14,13 +14,13 @@ Installation
 
     Requirements: Python 3.9 & setuptools>=60.5.0
 
-At top directory folder:
+Clone repo with:
 
     .. code:: bash
+        
+        $ git clone https://github.com/rousbound    
 
-        $ pip install git+https://github.com/rousbound/mychess
-
-Or with already cloned repo:
+And then, execute at the top level of the directory of the cloned repo:
 
     .. code:: bash
         
