@@ -460,7 +460,6 @@ class Chess():
             Checks if set of legal moves already repeated three times.
 
             """
-            print(self.board.board_states_counter)
             for val in self.board.board_states_counter.values():
                 if val >= 3:
                     self.game_running = False
