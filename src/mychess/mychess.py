@@ -231,7 +231,7 @@ class Chess():
                         legal_moves.append(move)
                         if self.debug:
                             self.debug_algebric_legal_moves(move, piece, captured_piece)
-                            self.uci_legal_moves.append("".join(move_2_uci(move)))
+                            self.uci_legal_moves.append(move_2_uci(move))
 
                     # Undo move
                     piece.move(origin,self.board)

@@ -3,14 +3,18 @@ utils.py -- Module made for storing move conversion functions used across all mo
 Author: Geraldo Luiz Pereira
 www.github.com/rousbound
 
-There are basically three types of move representation:
+There are basically three types of move representation in this project:
 
 Algebraic, for example: Nc3, e4, exf4, exf4=Q, O-O-O
 
 UCI, for example: f1b3, e2e4, e7e5, e1g1
 
-And "move", which is the internal representation of a move in the program),
-Where the number stands for indexes in the board matrix.
+And "move", which is the internal representation of a move in the program,
+where:
+    - The first tuple is x and y coordinates of the starting square
+    - The second tuple is the x and y coordinates of the target square
+    - The third element is str that represents promotion
+
 For example: ((4,4),(4,6),%) or ((4,7),(4,8),"q")
 """
 import re
@@ -52,7 +56,8 @@ def move_2_uci(move):
     Translate move to uci format
     Ex: ((4,4),(5,5),%) -> e4f5
     """
-    return (mat_2_uci(move[0]),mat_2_uci(move[1]))
+    promotion = "" if move[2] == "%" else move[2]
+    return mat_2_uci(move[0]) + mat_2_uci(move[1]) + promotion
 
 def mat_2_uci(square):
     """
