@@ -1,0 +1,56 @@
+19:51:38 ----------------------------------------
+19:51:38 Initiating move generation test on depth: 3
+19:51:38 FEN of position to be brute forced:r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 0
+19:51:39 Result of possible games with 1 ply: 48/48 - OK 
+19:51:39 Elapsed time in 1 ply: 00h00m00s seconds
+19:51:42 Result of possible games with 2 ply: 2039/2039 - OK 
+19:51:42 Elapsed time in 2 ply: 00h00m03s seconds
+19:54:35 Result of possible games with 3 ply: 97862/97862 - OK 
+19:54:35 Elapsed time in 3 ply: 00h02m53s seconds
+19:54:35 Total Elapsed time: (00h02m56s)
+19:54:35 ----------------------------------------
+19:54:35 Initiating move generation test on depth: 4
+19:54:35 FEN of position to be brute forced:8/2p5/3p4/KP5r/1R3p1k/8/4P1P1/8 w - - 0 0
+19:54:35 Result of possible games with 1 ply: 14/14 - OK 
+19:54:35 Elapsed time in 1 ply: 00h00m00s seconds
+19:54:36 Result of possible games with 2 ply: 191/191 - OK 
+19:54:36 Elapsed time in 2 ply: 00h00m00s seconds
+19:54:38 Result of possible games with 3 ply: 2812/2812 - OK 
+19:54:38 Elapsed time in 3 ply: 00h00m02s seconds
+19:55:20 Result of possible games with 4 ply: 43238/43238 - OK 
+19:55:20 Elapsed time in 4 ply: 00h00m41s seconds
+19:55:20 Total Elapsed time: (00h00m44s)
+19:55:20 ----------------------------------------
+19:55:20 Initiating move generation test on depth: 4
+19:55:20 FEN of position to be brute forced:r3k2r/Pppp1ppp/1b3nbN/nP6/BBP1P3/q4N2/Pp1P2PP/R2Q1RK1 w kq - 0 1
+19:55:20 Result of possible games with 1 ply: 6/6 - OK 
+19:55:20 Elapsed time in 1 ply: 00h00m00s seconds
+19:55:20 Result of possible games with 2 ply: 264/264 - OK 
+19:55:20 Elapsed time in 2 ply: 00h00m00s seconds
+19:55:37 Result of possible games with 3 ply: 9467/9467 - OK 
+19:55:37 Elapsed time in 3 ply: 00h00m16s seconds
+20:09:55 Result of possible games with 4 ply: 422333/422333 - OK 
+20:09:55 Elapsed time in 4 ply: 00h14m18s seconds
+20:09:55 Total Elapsed time: (00h14m35s)
+20:09:55 ----------------------------------------
+20:09:55 Initiating move generation test on depth: 4
+20:09:55 FEN of position to be brute forced:rnbq1k1r/pp1Pbppp/2p5/8/2B5/8/PPP1NnPP/RNBQK2R w KQ - 1 8
+20:09:55 Result of possible games with 1 ply: 44/44 - OK 
+20:09:55 Elapsed time in 1 ply: 00h00m00s seconds
+20:09:58 Result of possible games with 2 ply: 1486/1486 - OK 
+20:09:58 Elapsed time in 2 ply: 00h00m02s seconds
+20:11:27 Result of possible games with 3 ply: 62379/62379 - OK 
+20:11:27 Elapsed time in 3 ply: 00h01m29s seconds
+21:32:24 Result of possible games with 4 ply: 2103487/2103487 - OK 
+21:32:24 Elapsed time in 4 ply: 01h20m57s seconds
+21:32:24 Total Elapsed time: (01h22m28s)
+21:32:25 ----------------------------------------
+21:32:25 Initiating move generation test on depth: 3
+21:32:25 FEN of position to be brute forced:r4rk1/1pp1qppp/p1np1n2/2b1p1B1/2B1P1b1/P1NP1N2/1PP1QPPP/R4RK1 w - - 0 10
+21:32:25 Result of possible games with 1 ply: 46/46 - OK 
+21:32:25 Elapsed time in 1 ply: 00h00m00s seconds
+21:32:28 Result of possible games with 2 ply: 2079/2079 - OK 
+21:32:28 Elapsed time in 2 ply: 00h00m03s seconds
+21:34:42 Result of possible games with 3 ply: 89890/89890 - OK 
+21:34:42 Elapsed time in 3 ply: 00h02m14s seconds
+21:34:42 Total Elapsed time: (00h02m17s)
